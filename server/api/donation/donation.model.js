@@ -4,9 +4,13 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var DonationSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  upline: {type: Schema.Types.ObjectId, ref: 'User'},
+  downline: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  amount: Number,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
+  isPaid: Boolean,
+  downlineAmount: Number,
+  downlineCount: Number
 });
 
 module.exports = mongoose.model('Donation', DonationSchema);
