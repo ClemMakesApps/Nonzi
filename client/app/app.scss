@@ -20,4 +20,59 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'account/login/login.scss';
 @import 'admin/admin.scss';
 @import 'main/main.scss';
+// endinjector@import 'modal/modal.scss';
 // endinjector
+
+
+body, 
+html, 
+head,
+.ng-scope,
+.container-fluid,
+.container-fluid .row {
+	height:100%;
+}
+
+h1.headline {
+	font-size: 60px;
+}
+
+.container-fluid {
+	max-width:1200px;
+}
+
+.main {
+	padding-left:50px;
+}
+
+.number {
+	font-size:50px;
+	border: solid 3px #428bca;
+	border-radius: 15px;
+}
+
+.numberContent {
+	margin-top:7px;
+	font-size:18px;
+}
+
+.step {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+.intro {
+	margin-top:30px;
+}
+
+.callToAction {
+	margin-top:20px;
+}
+
+.splash {
+	background-image: url(../../assets/images/splash.jpg);
+	width:100%;
+	max-width:500px;
+	height:100%;
+	background-size:cover;
+}
