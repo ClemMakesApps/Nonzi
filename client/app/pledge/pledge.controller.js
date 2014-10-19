@@ -5,13 +5,15 @@ angular.module('nonziApp')
     console.log(Donation);
 
     $scope.confirmPledge = function() {
-    	var pledge = {
-    		"downlineAmount":$scope.pledgeAmount,
-    		"amount":$scope.pledgeAmount,
-    		"user":$scope.name
-    	};
+    	if($scope.pledgeAmount != null && $scope.name != null) {
+	    	var pledge = {
+	    		"downlineAmount":$scope.pledgeAmount,
+	    		"amount":$scope.pledgeAmount,
+	    		"user":$scope.name
+	    	};
 
-    	Donation.save(pledge);
-    	// $location.path("/report");
+	    	Donation.save(pledge);
+	    	$location.path("/report");
+    	}
     }
 }]);
