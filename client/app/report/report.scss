@@ -1,0 +1,67 @@
+.reportContainer {
+	max-width: none;
+}
+
+.report {
+	margin-top:10px;
+}
+
+.statusPrompt {
+	font-size:16px;
+}
+
+.statusCounter {
+	font-size:75px;
+	line-height:75px;
+}
+
+.lostLabel {
+	font-size:35px;
+}
+
+.pledgeBtn {
+	margin-top:5px;
+	margin-top: 20px;
+	font-size: 30px;
+	padding: 30px;
+}
+
+.pledgeBtn div {
+	color: black;
+	font-size: 15px;
+}
+
+.savior {
+	background-image: url(../../../assets/images/smilingGirl.jpg);
+	background-size: cover;
+	color: white;
+	border-radius: 6px;
+	margin-bottom:10px;
+}
+
+.savior div {
+	margin-left:20%;
+}
+
+.savior h1 {
+	font-size:55px;
+}
+
+.removepadding {
+	padding:0px;
+}
+
+.footnotes {
+	font-size:12px;
+	margin-left:16.66%;
+	margin-top:10px;
+	margin-bottom:40px;
+}
+
+.stButton .stButton_gradient {
+	height: 24px !important;
+}
+
+.stButton .stFb, .stButton .stTwbutton, .stButton .stMainServices {
+	height: 24px !important;
+}
