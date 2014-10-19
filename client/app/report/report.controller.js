@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nonziApp')
-  .controller('ReportCtrl',['$scope', '$location', '$anchorScroll', 'Donation', function ($scope, $location, $anchorScroll, Donation) {
+  .controller('ReportCtrl',['$scope', '$location', '$anchorScroll', '$state', 'Donation', function ($scope, $location, $anchorScroll, $state, Donation) {
     console.log(Donation);
     $scope.donation = Donation;
 
@@ -25,7 +25,7 @@ angular.module('nonziApp')
     else{
       $scope.timeRemaining = 0;
     }
-    
+
     if($scope.people == 0) {
       $scope.securedPledge = true;
     }
@@ -39,7 +39,7 @@ angular.module('nonziApp')
       $location.path("/");
     }
 
-    $scope.referPledge = function() {
+    $scope.goToPledge = function() {
       $anchorScroll(0);
       $state.go('pledge', {referralID: Donation._id});
     }
