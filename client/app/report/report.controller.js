@@ -1,8 +1,12 @@
 'use strict';
 
 angular.module('nonziApp')
-  .controller('ReportCtrl',['$scope', '$location', '$anchorScroll', '$state', 'Donation', function ($scope, $location, $anchorScroll, $state, Donation) {
-    console.log(Donation);
+  .controller('ReportCtrl',['$scope', '$location', '$anchorScroll', '$state', 'Donation', 'localStorageService', function ($scope, $location, $anchorScroll, $state, Donation, localStorageService) {
+    $scope.didDonate = localStorageService.get('didDonate') === "true";
+    console.log($scope.didDonate);
+    if($scope.didDonate){
+      localStorageService.set('didDonate', false);
+    }
     $scope.donation = Donation;
 
     if(Donation.downline.length < 3){
