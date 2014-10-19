@@ -17,11 +17,14 @@ angular.module('nonziApp')
 .factory('DonationLoader', ['$q', 'Donation',
   function($q, Donation){
     return function(){
-      delay = $q.defer();
+      console.log(Donation);
+      var delay = $q.defer();
       Donation.getArray(null,
         function(donation){
+          console.log('here');
           delay.resolve(donation);
         },function(){
+          console.log('here1');
           delay.reject("Unable to retrieve donation");
         });
       return delay.promise;
