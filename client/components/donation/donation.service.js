@@ -12,3 +12,19 @@ angular.module('nonziApp')
       });
     }
   ]);
+
+angular.module('nonziApp')
+.factory('DonationLoader', ['$q', 'Donation',
+  function($q, Donation){
+    return function(){
+      delay = $q.defer();
+      Donation.getArray(null,
+        function(donation){
+          delay.resolve(donation);
+        },function(){
+          delay.reject("Unable to retrieve donation");
+        });
+      return delay.promise;
+    }
+  }
+]);
