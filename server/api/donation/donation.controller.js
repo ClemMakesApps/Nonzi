@@ -25,6 +25,7 @@ var updateDownlineAmount = function(doc, num){
   }
   var promise = Donation.findOne({'_id': doc.upline}, function(err, parent){
     parent.downlineAmount += num;
+    parent.downlineCount += 1;
     console.log('***RECURSE', parent.downlineAmount);
     parent.save(function(err){
      console.log(err);
