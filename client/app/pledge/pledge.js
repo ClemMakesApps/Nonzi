@@ -7,12 +7,5 @@ angular.module('nonziApp')
         url: '/pledge',
         templateUrl: 'app/pledge/pledge.html',
         controller: 'PledgeCtrl',
-        resolve: {
-          Donation: ['DonationLoader',
-            function(DonationLoader){
-              return DonationLoader();
-            }
-          ]
-        }
       });
   });
