@@ -1,3 +1,99 @@
-<div class="col-md-12">
-This is the pledge view.
-</div>
+<div class="container-fluid pledgeContainer">
+        <div class="pledgesplash">
+            Pledge
+        </div>
+        <div class="row">
+            <div class="col-md-7 personalInfo">
+                <span class="formCapsLabel">Personal</span>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                    <label for="name" class="col-md-4 control-label">Name</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="name" placeholder="Name">
+                    <p class="help-block">Publicly displayed to recognize your contributions</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="col-md-4 control-label">Email</label>
+                    <div class="col-md-8">
+                      <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-4 col-md-8">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Notify me when my pledge is secured
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="col-md-4 exampleCosts">
+                <strong>Example Costs</strong>
+                <ul>
+                    <li>$500 pays airfare for one doctor</li>
+                    <li>$100 buys a home disinfection kit to protect one family</li>
+                    <li>$20 pays for a sanitary family burial</li>
+                    <li>$5 buys a gallon of bleach for a hospital</li>
+                </ul>
+
+            </div>
+            <div class="col-md-7 personalInfo paymentInfo" >
+                <span class="formCapsLabel">Payment</span>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                    <label for="cardNumber" class="col-md-4 control-label">Card Number</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="cardNumber">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="cardName" class="col-md-4 control-label">Full Name</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="cardName">
+                    <p class="help-block">As it appears on your card</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="expirationMonth" class="col-md-4 control-label">Expiration Date</label>
+                    <div class="col-md-2">
+                      <input type="text" class="form-control" id="expirationMonth" placeholder="MM">
+                    </div>
+
+                    <div class="col-md-2 expirationYear">
+                      <input type="text" class="form-control" id="expirationYear" placeholder="YY">
+                    </div>
+
+                    <label for="expirationMonth" class="col-md-1 col-md-offset-1 control-label">CVC</label>
+                    <div class="col-md-2">
+                      <input type="text" class="form-control" id="expirationMonth" placeholder="CVC">
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="col-md-4 yourPledge" >
+               <h3 class="text-primary">Your Pledge</h3>
+
+               <div class="input-group input-group-lg paddingTop5">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                <p class="help-block">It's up to you. 
+                Any amount of $1 or more.</p>
+                <button class="btn btn-lg btn-success center-block pledgeBtn confirmPledge">Confirm Pledge</button>
+            </div>
+            <div class="col-md-7 expectations">
+                <strong>Expectations</strong>
+                    <ul>
+                        <li>Secured pledges will go towards Doctors without Borders to fight Ebola</li>
+                        <li>Secure your pledge by having 3 friends contribute using your referral link</li>
+                        <li>Pledges that are not secured within 3 days will not be processed</li>
+                    </ul>
+            </div>
+            <div class="col-md-4 pledgeNotes">
+                    <p>This pledge will only be donated if at least 3 people pledge through your referral link by Sun, Nov 16 2014 10:35 PM CDT.</p>
+            </div>
+        </div>
+    </div>
