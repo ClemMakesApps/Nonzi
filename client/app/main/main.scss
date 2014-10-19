@@ -1,12 +1,23 @@
-
-
+body{
+    background-color: #fff;  
+    color: #666;    
+}
 
 h1.headline {
-    font-size: 60px;
+    font-size: 80px;
+    line-height:100px;
+    color: #285e8e;             
+}
+
+h2{
+    font-size:38px;
+    color:#fff;
+    color: #666;    
 }
 
 .container-fluid {
-    max-width:1200px;
+    width:80%;
+    max-width:1000px;
 }
 
 .main {
@@ -14,14 +25,41 @@ h1.headline {
 }
 
 .number {
-    font-size:50px;
-    border: solid 3px #428bca;
-    border-radius: 15px;
+    font-size:30px; 
+    text-align:center;
+    width:50px;
+    float:left;
+    margin-right: 20px;
+    background-color: #fff;   
+    border-radius: 50px;
+    border: solid 3px #306dbe;
+}                       
+    
+
+.center>.row{
+    text-align:center;
+    padding:  10px;
+    
 }
 
-.numberContent {
-    margin-top:7px;
-    font-size:18px;
+.center{
+    margin-top: 30px;
+    overflow:hidden;
+    font-size: 20px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.box {
+    margin-top:30px;
+    background-color:#eee;
+    border-radius: 15px;
+    height:150px;
+    padding: 23px;
+}
+
+.box>h4{
+    font-size: 30px;
 }
 
 .step {
@@ -38,9 +76,79 @@ h1.headline {
 }
 
 .splash {
-    background-image: url(../../../assets/images/splash.jpg);
-    width:100%;
-    max-width:500px;
-    height:100%;
+    background-image: url(../../../assets/images/homesplash.jpg);
+    height:400px;
     background-size:cover;
+    background-position: top left;
+}
+
+
+.btn-primary {
+    background-color: #306dbe; 
+    font-size: 40px; 
+}
+
+.you{
+    border-radius: 40px;
+    overflow: hidden;
+    border: 3px solid #bd3801;
+}
+
+.top img, .next img, .bottom img{
+    border-radius: 40px;
+    overflow: hidden;
+    border: 3px solid #bd3801;
+}
+
+.center .row .info{
+    font-size: 25px;
+    display:inline-block;
+}
+
+.even {
+    text-align: justify;
+}
+.even > img {
+    display: inline-block;
+    vertical-align: top;
+}
+.even:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+}
+
+.top{
+    padding:0 12px;
+}
+
+.bottom{
+    padding:0 25px;
+    margin-top:-20px;
+}
+
+.operator {
+    font-size: 60px;
+    color: #666;
+    padding-top: 15px;
+}
+
+.impact{
+    font-size: 40px;
+    padding-top: 12px;
+    color: #bd3801;
+    padding-top: 15px;
+    line-height:80px;
+}
+
+.infograph{
+    background-color:#eee;
+    margin: 30px 0px;
+    border-radius: 15px;
+    padding-top: 20px;
+    height:255px;
+}
+
+.box p{
+    padding: 10px 25px;
 }

@@ -6,6 +6,12 @@ angular.module('nonziApp')
       .state('pledge', {
         url: '/pledge',
         templateUrl: 'app/pledge/pledge.html',
-        controller: 'PledgeCtrl',
+        controller: 'PledgeCtrl'
+      })
+
+      .state('pledge.id', {
+        url: '/pledge/{id}',
+        templateUrl: 'app/pledge/pledge.html',
+        controller: 'PledgeCtrl'
       });
   });
