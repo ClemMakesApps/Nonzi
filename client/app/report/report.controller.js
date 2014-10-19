@@ -25,7 +25,7 @@ angular.module('nonziApp')
     else{
       $scope.timeRemaining = 0;
     }
-
+    
     if($scope.people == 0) {
       $scope.securedPledge = true;
     }
@@ -41,6 +41,6 @@ angular.module('nonziApp')
 
     $scope.referPledge = function() {
       $anchorScroll(0);
-      $location.path("/pledge/" + $scope.donation._id);
+      $state.go('pledge', {referralID: Donation._id});
     }
   }]);

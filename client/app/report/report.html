@@ -47,7 +47,7 @@
 		    	<div class="col-md-5" ng-hide="securedPledge || failedPledge">
 		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:0px;font-size: 40px;">
 		    			Will you contribute?
-		    			<button class="btn btn-lg btn-success center-block pledgeBtn" style="margin-top:20px" ng-click="referPledge()">Pledge Now<div>$1 minimum</div></button>
+		    			<button ng-click="goToPledge()" class="btn btn-lg btn-success center-block pledgeBtn" style="margin-top:20px">Pledge Now<div>$1 minimum</div></button>
 		    		</div>
 		    		<div class="col-md-6 col-md-offset-3" style="margin-top:20px">
 		    			<p>This pledge will only be donated if at least 3 people pledge here by {{expiration | date:'EEE, MMM d yyyy'}}.</p>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nonziApp')
-  .controller('PledgeCtrl', ['$scope', '$location', '$anchorScroll', 'Donation', function ($scope, $location, $anchorScroll, Donation) {
+  .controller('PledgeCtrl', ['$scope', '$location', '$anchorScroll', 'Donation', '$stateParams', function ($scope, $location, $anchorScroll, Donation, $stateParams) {
 	var today = new Date();
 	today.setDate(today.getDate() + 3);
 	$scope.expiration = today;
@@ -12,7 +12,8 @@ angular.module('nonziApp')
 	    		"downlineAmount":$scope.pledgeAmount,
 	    		"amount":$scope.pledgeAmount,
 	    		"user":$scope.name,
-	    		"createdAt": new Date()
+	    		"createdAt": new Date(),
+          "upline": $stateParams.referralID
 	    	};
 
 	    	Donation.save(pledge).$promise.then(function(result) {
