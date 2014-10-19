@@ -38,7 +38,6 @@ var updateDownlineAmount = function(doc, num){
 
   var afterSave = function(doc){
     var downlineAmount;
-    console.log('***UPLINE', doc.upline, doc.upline != null);
     doc.downlineAmount = doc.amount;
     doc.save(function(err){
       console.log(err);
@@ -71,6 +70,7 @@ exports.show = function(req, res) {
 // Creates a new donation in the DB.
 exports.create = function(req, res) {
   Donation.create(req.body, function(err, donation) {
+    console.log(donation);
     afterSave(donation);
     if(err) { return handleError(res, err); }
     return res.json(201, donation);

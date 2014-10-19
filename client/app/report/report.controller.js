@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('nonziApp')
-  .controller('ReportCtrl',['$scope', 'Donation', function ($scope, Donation) {
+  .controller('ReportCtrl', ['$scope', 'Donation', '$state',
+    function ($scope, Donation, $state) {
     console.log(Donation);
     $scope.donation = Donation;
     console.log(Donation.downline.length);
@@ -19,4 +20,7 @@ angular.module('nonziApp')
       $scope.timeRemaining = 0;
     }
     $scope.message = 'Hello';
+    $scope.goToPledge = function(){
+      $state.go('pledge', {referralID: Donation._id});
+    }
   }]);
