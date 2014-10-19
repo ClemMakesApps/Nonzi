@@ -16,11 +16,4 @@ var DonationSchema = new Schema({
   createdAt: Date
 });
 
-DonationSchema.pre('save', function(next){
-  var now = new Date();
-  if ( !this.createdAt ) {
-    this.createdAt = now;
-  }
-});
-
 module.exports = mongoose.model('Donation', DonationSchema);
