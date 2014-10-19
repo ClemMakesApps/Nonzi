@@ -9,21 +9,21 @@
                     <div class="form-group">
                     <label for="name" class="col-md-4 control-label">Name</label>
                     <div class="col-md-8">
-                      <input type="text" class="form-control" id="name" placeholder="Name">
+                      <input type="text" class="form-control" id="name" placeholder="Name" ng-model="name">
                     <p class="help-block">Publicly displayed to recognize your contributions</p>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="email" class="col-md-4 control-label">Email</label>
                     <div class="col-md-8">
-                      <input type="email" class="form-control" id="email" placeholder="Email">
+                      <input type="email" class="form-control" id="email" placeholder="Email" ng-model="email">
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-offset-4 col-md-8">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox"> Notify me when my pledge is secured
+                          <input type="checkbox" ng-model="notify"> Notify me when my pledge is secured
                         </label>
                       </div>
                     </div>
@@ -59,16 +59,16 @@
                   <div class="form-group">
                     <label for="expirationMonth" class="col-md-4 control-label">Expiration Date</label>
                     <div class="col-md-2">
-                      <input type="text" class="form-control" id="expirationMonth" placeholder="MM">
+                      <input type="text" class="form-control" id="expirationMonth" placeholder="MM" maxlength="2">
                     </div>
 
                     <div class="col-md-2 expirationYear">
-                      <input type="text" class="form-control" id="expirationYear" placeholder="YY">
+                      <input type="text" class="form-control" id="expirationYear" placeholder="YY" maxlength="2">
                     </div>
 
                     <label for="expirationMonth" class="col-md-1 col-md-offset-1 control-label">CVC</label>
                     <div class="col-md-2">
-                      <input type="text" class="form-control" id="expirationMonth" placeholder="CVC">
+                      <input type="text" class="form-control" id="expirationMonth" placeholder="CVC" maxlength="3">
                     </div>
                   </div>
                 </form>
@@ -78,11 +78,11 @@
 
                <div class="input-group input-group-lg paddingTop5">
                   <span class="input-group-addon">$</span>
-                  <input type="text" class="form-control" placeholder="">
+                  <input type="text" class="form-control" ng-model="pledgeAmount">
                 </div>
                 <p class="help-block">It's up to you. 
                 Any amount of $1 or more.</p>
-                <button class="btn btn-lg btn-success center-block pledgeBtn confirmPledge">Confirm Pledge</button>
+                <button class="btn btn-lg btn-success center-block pledgeBtn confirmPledge" ng-click="confirmPledge()">Confirm Pledge</button>
             </div>
             <div class="col-md-7 expectations">
                 <strong>Expectations</strong>
