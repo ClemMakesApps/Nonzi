@@ -4,13 +4,23 @@ angular.module('nonziApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('report', {
-        url: '/report',
+        url: '/report/:id',
         templateUrl: 'app/report/report.html',
         controller: 'ReportCtrl',
         resolve: {
-          DonationLoaded: ['DonationLoader',
-            function(DonationLoader){
-              return DonationLoader();
+          Donation: ['$q', 'Donation', '$stateParams',
+            function($q, Donation, $stateParams){
+              console.log($stateParams);
+              var delay = $q.defer();
+              Donation.get({'id': $stateParams.id},
+                function(donation){
+                  console.log('here');
+                  delay.resolve(donation);
+                },function(){
+                  console.log('here1');
+                  delay.reject("Unable to retrieve donation");
+                });
+                return delay.promise;
             }
           ]
         }

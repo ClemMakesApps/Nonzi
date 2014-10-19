@@ -13,9 +13,9 @@
 		    	<div class="col-md-8 col-md-offset-2 removepadding">
 		    		<div class="jumbotron text-right savior">
 						<div>
-			    			<h1>John Appleseed</h1>
+              <h1>{{donation.user}}</h1>
 			    			<p>pledged</p>
-			    			<h1>$100</h1>
+                <h1>${{donation.amount}}</h1>
 			    			<p>to fight Ebola<sup>1</sup></p>
 			    		</div>
 		    		</div>
@@ -29,10 +29,10 @@
 			    </div>
 
 		    	<div class="col-md-2 col-md-offset-3 statusPrompt well" style="margin-top:30px">
-		    		<div class="col-md-2 statusCounter">3</div>
+            <div class="col-md-2 statusCounter">{{timeRemaining}}</div>
 	    			<div class="col-md-9 col-md-offset-1" style="line-height:75px">Days Remaining</div>
 
-		    		<div class="col-md-2 statusCounter">3</div>
+            <div class="col-md-2 statusCounter">{{people}}</div>
 	    			<div class="col-md-9 col-md-offset-1" style="line-height:75px">Pledges Needed</div>
 
 		    		<div class="col-md-12 text-center" style="padding-top:10px">To Secure this Pledge</div>

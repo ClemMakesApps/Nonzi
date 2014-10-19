@@ -12,7 +12,15 @@ var DonationSchema = new Schema({
   isPaid: Boolean,
   downlineAmount: { type: Number, default: 0},
   downlineCount: {type: Number, default: 0},
-  firstTime: { type: Boolean, default: true}
+  firstTime: { type: Boolean, default: true},
+  createdAt: Date
+});
+
+DonationSchema.pre('save', function(next){
+  var now = new Date();
+  if ( !this.createdAt ) {
+    this.createdAt = now;
+  }
 });
 
 module.exports = mongoose.model('Donation', DonationSchema);

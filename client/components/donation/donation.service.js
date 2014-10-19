@@ -3,7 +3,7 @@
 angular.module('nonziApp')
   .factory('Donation', ['$resource', 
     function($resource){
-      return $resource('/api/donations/:id', { id: '@_id'},
+      return $resource('/api/donations/:id', { id: '@id'},
       {
         getArray: {
           method: 'GET',
@@ -14,12 +14,12 @@ angular.module('nonziApp')
   ]);
 
 angular.module('nonziApp')
-.factory('DonationLoader', ['$q', 'Donation',
-  function($q, Donation){
+.factory('DonationLoader', ['$q', 'Donation', '$stateParams',
+  function($q, Donation, $stateParams){
     return function(){
-      console.log(Donation);
+      console.log($stateParams);
       var delay = $q.defer();
-      Donation.getArray(null,
+      Donation.get({'id': $stateParams.id},
         function(donation){
           console.log('here');
           delay.resolve(donation);

@@ -63,6 +63,7 @@ exports.show = function(req, res) {
   Donation.findById(req.params.id, function (err, donation) {
     if(err) { return handleError(res, err); }
     if(!donation) { return res.send(404); }
+    console.log(donation);
     return res.json(donation);
   });
 };
