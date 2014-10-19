@@ -2,7 +2,9 @@
 
 angular.module('nonziApp')
   .controller('PledgeCtrl', ['$scope', '$location', 'Donation', function ($scope, $location, Donation) {
-    console.log(Donation);
+	var today = new Date();
+	today.setDate(today.getDate() + 3);
+	$scope.expiration = today;
 
     $scope.confirmPledge = function() {
     	if($scope.pledgeAmount != null && $scope.name != null) {
@@ -12,8 +14,9 @@ angular.module('nonziApp')
 	    		"user":$scope.name
 	    	};
 
-	    	Donation.save(pledge);
-	    	$location.path("/report");
+	    	Donation.save(pledge).$promise.then(function(result) {
+		    	$location.path("/report/result._id");
+	    	});
     	}
     }
 }]);
