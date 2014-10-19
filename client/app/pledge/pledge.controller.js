@@ -11,12 +11,14 @@ angular.module('nonziApp')
 	    	var pledge = {
 	    		"downlineAmount":$scope.pledgeAmount,
 	    		"amount":$scope.pledgeAmount,
-	    		"user":$scope.name
+	    		"user":$scope.name,
+	    		"createdAt": new Date()
 	    	};
 
 	    	Donation.save(pledge).$promise.then(function(result) {
+	    		console.log(result);
 		        $anchorScroll(0);
-		    	$location.path("/report/result._id");
+		    	$location.path("/report/" + result._id);
 	    	});
     	}
     }
