@@ -1,5 +1,4 @@
-Nonzi
-=====
+
 Changing the world, One dollar at a time.
 # Fight Ebola
 
