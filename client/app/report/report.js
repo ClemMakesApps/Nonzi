@@ -6,6 +6,13 @@ angular.module('nonziApp')
       .state('report', {
         url: '/report',
         templateUrl: 'app/report/report.html',
-        controller: 'ReportCtrl'
+        controller: 'ReportCtrl',
+        resolve: {
+          DonationLoaded: ['DonationLoader',
+            function(DonationLoader){
+              return DonationLoader();
+            }
+          ]
+        }
       });
   });

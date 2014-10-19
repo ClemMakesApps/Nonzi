@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('nonziApp')
-  .controller('ReportCtrl', function ($scope) {
+  .controller('ReportCtrl',['$scope', 'Donation', function ($scope, Donation) {
+    console.log(Donation);
     $scope.message = 'Hello';
-  });
+  }]);
