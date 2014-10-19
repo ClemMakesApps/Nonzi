@@ -13,7 +13,7 @@
     "errorhandler": "~1.0.0",
     "compression": "~1.0.1",
     "lodash": "~2.4.1",
-    "q": "~1.0.1",
+    "Q": "~1.0.1",
     "mongoose-q": "~0.0.13",
     "ejs": "~0.8.4",
     "mongoose": "~3.8.8",
