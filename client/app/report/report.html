@@ -28,7 +28,7 @@
 			    	</div>
 			    </div>
 
-		    	<div class="col-md-2 col-md-offset-3 statusPrompt well" style="margin-top:30px">
+		    	<div class="col-md-2 col-md-offset-3 statusPrompt well" style="margin-top:30px" ng-hide="securedPledge">
             <div class="col-md-2 statusCounter">{{timeRemaining}}</div>
 	    			<div class="col-md-9 col-md-offset-1" style="line-height:75px">Days Remaining</div>
 
@@ -37,20 +37,36 @@
 
 		    		<div class="col-md-12 text-center" style="padding-top:10px">To Secure this Pledge</div>
 		    	</div>
-		    	<!-- <div class="col-md-2 col-md-offset-3 statusPrompt well text-center" style="margin-top:70px;font-size:30px">
+		    	<div class="col-md-2 col-md-offset-3 statusPrompt well text-center" style="margin-top:70px;font-size:30px" ng-show="securedPledge">
 		    		<span>Total Impact</span>
-		    		<strong style="display:block;">$5,000</strong>
-		    		<div style="display:block;font-size:15px">50 People Pledged</div>
-		    	</div> -->
+		    		<strong style="display:block;">${{donation.downlineAmount}}</strong>
+		    		<div style="display:block;font-size:15px">{{donation.downlineCount + 1}} People Pledged</div>
+		    	</div>
 
 
-		    	<div class="col-md-5">
+		    	<div class="col-md-5" ng-hide="securedPledge || failedPledge">
 		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:0px;font-size: 40px;">
 		    			Will you contribute?
-		    			<button class="btn btn-lg btn-success center-block pledgeBtn" style="margin-top:20px">Pledge Now<div>$1 minimum</div></button>
+		    			<button class="btn btn-lg btn-success center-block pledgeBtn" style="margin-top:20px" ng-click="referPledge()">Pledge Now<div>$1 minimum</div></button>
 		    		</div>
 		    		<div class="col-md-6 col-md-offset-3" style="margin-top:20px">
-		    			<p>This pledge will only be donated if at least 3 people pledge here by Sun, Nov 16 2014 10:35 PM CDT.</p>
+		    			<p>This pledge will only be donated if at least 3 people pledge here by {{expiration | date:'EEE, MMM d yyyy'}}.</p>
+		    		</div>
+		    	</div>
+
+		    	<div class="col-md-5" ng-show="securedPledge">
+		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:70px;font-size: 40px;">
+		    			<button class="btn btn-lg btn-primary center-block pledgeBtn" style="margin-top:20px" ng-click="goToHome()">Learn More</button>
+		    		</div>
+		    	</div>
+
+		    	<div class="col-md-5" ng-show="failedPledge">
+		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:0px;font-size: 40px;">
+		    			Pledge Failed
+		    			<button class="btn btn-lg btn-primary center-block pledgeBtn" style="margin-top:20px" ng-click="goToHome()">Learn More</button>
+		    		</div>
+		    		<div class="col-md-6 col-md-offset-3" style="margin-top:20px;padding-left:35px;">
+		    			<p>{{donation.user}} failed to secure this pledge before {{expiration | date:'EEE, MMM d yyyy'}}.</p>
 		    		</div>
 		    	</div>
 			</div>
