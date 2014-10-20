@@ -1,5 +1,4 @@
 'use strict';
-var q = require('Q');
 
 var mongoose = require('mongoose-q')(require('mongoose')),
     Schema = mongoose.Schema;
