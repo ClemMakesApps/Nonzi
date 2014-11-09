@@ -91,7 +91,8 @@ exports.update = function(req, res) {
   });
 };
 
-// Deletes a donation from the DB.
+// Remove DELETE donation api call
+/*
 exports.destroy = function(req, res) {
   Donation.findById(req.params.id, function (err, donation) {
     if(err) { return handleError(res, err); }
@@ -102,7 +103,7 @@ exports.destroy = function(req, res) {
     });
   });
 };
-
+*/
 function handleError(res, err) {
   return res.send(500, err);
 }

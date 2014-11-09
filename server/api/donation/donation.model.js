@@ -8,6 +8,7 @@ var DonationSchema = new Schema({
   downline: [{type: Schema.Types.ObjectId, ref: 'Donation'}],
   amount: Number,
   user: String,
+  organization: String, //field to specify which organization
   isPaid: Boolean,
   downlineAmount: { type: Number, default: 0},
   downlineCount: {type: Number, default: 0},
