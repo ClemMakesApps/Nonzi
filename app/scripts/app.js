@@ -20,13 +20,9 @@ angular
   .constant('URL', "http://localhost:3000")
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/donation',{
+        templateUrl: 'views/donation.html',
+        controller: 'DonationCtrl'
       })
       .otherwise({
         redirectTo: '/'
