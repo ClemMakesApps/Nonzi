@@ -1,0 +1,77 @@
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<!--<script type="text/javascript">stLight.options({publisher: "ca253d80-e3d5-44f2-9b5f-adc567e29511", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>-->
+<div class="container-fluid reportContainer">
+			<div class="row">
+        <div ng-show="didDonate" class="alert alert-success" role="alert" style="padding: 20px;font-size: 16px;"><strong>Thank you for fighting Ebola with us.</strong> Bookmark this page to see how many friends need to pledge before your donation is released and to watch your impact grow.</div>
+
+				<!-- <div style="background-color:black">
+					Expires in 1 day,
+					5 hours and 10 mins
+				</div> -->
+
+		    	<div class="col-md-8 col-md-offset-2 removepadding">
+		    		<div class="jumbotron text-right savior">
+						<div>
+              <h1>{{donation.user}}</h1>
+			    			<p>pledged</p>
+                <h1>{{donation.amount | currency}}</h1>
+			    			<p>to fight Ebola<sup>1</sup></p>
+			    		</div>
+		    		</div>
+		    	</div>
+		    	<div class="row">
+			    	<div class="col-md-4 col-md-offset-2">
+						<span class='st_facebook_hcount' displayText='Facebook'></span>
+						<span class='st_twitter_hcount' displayText='Tweet'></span>
+						<span class='st_email_hcount' displayText='Email'></span>
+			    	</div>
+			    </div>
+
+		    	<div class="col-md-2 col-md-offset-3 statusPrompt well" style="margin-top:30px" ng-hide="securedPledge">
+            <div class="col-md-2 statusCounter">{{timeRemaining}}</div>
+	    			<div class="col-md-9 col-md-offset-1" style="line-height:75px">Days Remaining</div>
+
+            <div class="col-md-2 statusCounter">{{people}}</div>
+	    			<div class="col-md-9 col-md-offset-1" style="line-height:75px">Pledges Needed</div>
+
+		    		<div class="col-md-12 text-center" style="padding-top:10px">To Secure this Pledge</div>
+		    	</div>
+		    	<div class="col-md-2 col-md-offset-3 statusPrompt well text-center" style="margin-top:70px;font-size:30px" ng-show="securedPledge">
+		    		<span>Total Impact</span>
+		    		<strong style="display:block;">${{donation.downlineAmount}}</strong>
+		    		<div style="display:block;font-size:15px">{{donation.downlineCount + 1}} People Pledged</div>
+		    	</div>
+
+
+		    	<div class="col-md-5" ng-hide="securedPledge || failedPledge">
+		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:0px;font-size: 40px;">
+		    			Will you contribute?
+		    			<button ng-click="goToPledge()" class="btn btn-lg btn-success center-block pledgeBtn" style="margin-top:20px">Pledge Now<div>$1 minimum</div></button>
+		    		</div>
+		    		<div class="col-md-6 col-md-offset-3" style="margin-top:20px">
+		    			<p>This pledge will only be donated if at least 3 people pledge here by {{expiration | date:'EEE, MMM d yyyy'}}.</p>
+		    		</div>
+		    	</div>
+
+		    	<div class="col-md-5" ng-show="securedPledge">
+		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:70px;font-size: 40px;">
+		    			<button class="btn btn-lg btn-primary center-block pledgeBtn" style="margin-top:20px" ng-click="goToHome()">Learn More</button>
+		    		</div>
+		    	</div>
+
+		    	<div class="col-md-5" ng-show="failedPledge">
+		    		<div class="col-md-12 statusPrompt text-center" style="margin-top:0px;font-size: 40px;">
+		    			Pledge Failed
+		    			<button class="btn btn-lg btn-primary center-block pledgeBtn" style="margin-top:20px" ng-click="goToHome()">Learn More</button>
+		    		</div>
+		    		<div class="col-md-6 col-md-offset-3" style="margin-top:20px;padding-left:35px;">
+		    			<p>{{donation.user}} failed to secure this pledge before {{expiration | date:'EEE, MMM d yyyy'}}.</p>
+		    		</div>
+		    	</div>
+			</div>
+				<div class="col-md-8 col-md-offset-2 footnotes">
+
+			1. In partnership with <a href="http://doctorswithoutborders.com">Doctors Without Borders</a>
+				</div>
+		</div>
