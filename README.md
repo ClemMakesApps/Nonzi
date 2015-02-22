@@ -2,8 +2,6 @@
 Changing the world, One dollar at a time.
 # Fight Ebola
 
-Fight Ebola is built on Node, MongoDB, Express, and AngularJS.
-
 ## Prerequisites
  1. Install nodeJS (http://nodejs.org/)
 Once you have node and npm installed, go the application root directory (where package.json is located), and do:
