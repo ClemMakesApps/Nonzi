@@ -8,10 +8,9 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope,$location, $anchorScroll) {
+    $scope.contribute = function() {
+      $anchorScroll(0);
+      $location.path("/pledge");
+    }
   });

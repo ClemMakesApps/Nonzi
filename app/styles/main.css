@@ -1,79 +1,161 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+body{
+    background-color: #fff;
+    color: #666;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+h1.headline {
+    font-size: 80px;
+    line-height:100px;
+    color: #285e8e;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+h2{
+    font-size:38px;
+    color:#fff;
+    color: #666;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
+.mainIntro .container-fluid {
+    width:80%;
+    max-width:1000px;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+.main {
+    padding-left:50px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+.number {
+    font-size:30px;
+    text-align:center;
+    width:50px;
+    float:left;
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    border: solid 3px #306dbe;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+
+.center>.row{
+    text-align:center;
+    padding:  10px;
+
+}
+
+.center{
+    margin-top: 30px;
+    overflow:hidden;
+    font-size: 20px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.box {
+    margin-top:30px;
+    background-color:#eee;
+    border-radius: 15px;
+    height:150px;
+    padding: 23px;
+}
+
+.box>h4{
+    font-size: 30px;
+}
+
+.step {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.intro {
+    margin-top:30px;
+}
+
+.callToAction {
+    margin-top:20px;
+}
+
+.splash {
+    background-image: url(/images/homesplash.jpg);
+    height:400px;
+    background-size:cover;
+    background-position: top left;
+}
+
+
+.btn-primary {
+    background-color: #306dbe;
+    font-size: 40px;
+}
+
+.you{
+    border-radius: 40px;
+    overflow: hidden;
+    border: 3px solid #bd3801;
+}
+
+.top img, .next img, .bottom img{
+    border-radius: 40px;
+    overflow: hidden;
+    border: 3px solid #bd3801;
+}
+
+.center .row .info{
+    font-size: 25px;
+    display:inline-block;
+}
+
+.even {
+    text-align: justify;
+}
+.even > img {
+    display: inline-block;
+    vertical-align: top;
+}
+.even:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+}
+
+.top{
+    padding:0 12px;
+}
+
+.bottom{
+    padding:0 25px;
+    margin-top:-20px;
+}
+
+.operator {
+    font-size: 60px;
+    color: #666;
+    padding-top: 15px;
+}
+
+.impact{
+    font-size: 40px;
+    padding-top: 12px;
+    color: #bd3801;
+    padding-top: 15px;
+    line-height:80px;
+}
+
+.infograph{
+    background-color:#eee;
+    margin: 30px 0px;
+    border-radius: 15px;
+    padding-top: 20px;
+    height:255px;
+}
+
+.box p{
+    padding: 10px 25px;
 }
