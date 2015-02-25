@@ -35,7 +35,7 @@
       rgba(0, 0, 0, 0.3)
     ), url("../images/bear.jpg");
     background-size: cover;
-	background-position: 220% 17%;
+	background-position: 50% 17%;
 	z-index:1;
 }
 
