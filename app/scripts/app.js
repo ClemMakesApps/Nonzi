@@ -26,6 +26,14 @@ angular
     templateUrl: 'views/main.html',
     controller: 'MainCtrl'
   })
+  .state('terms', {
+    url: '/terms',
+    templateUrl: 'views/toc.html'
+  })
+  .state('privacy', {
+    url: '/privacy',
+    templateUrl: 'views/privacy.html'
+  })
   .state('report', {
     url: '/report/:id',
     templateUrl: 'views/report.html',
