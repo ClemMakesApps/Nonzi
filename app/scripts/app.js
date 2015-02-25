@@ -19,12 +19,16 @@ angular
   'ui.router'
 ])
 .constant('URL', 'http://localhost:3000')
-.config(function ($stateProvider,$urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
   .state('main', {
     url: '/',
     templateUrl: 'views/main.html',
     controller: 'MainCtrl'
+  })
+  .state('contribute', {
+    url: '/contribute',
+    templateUrl: 'views/contribute.html'
   })
   .state('terms', {
     url: '/terms',
@@ -62,4 +66,5 @@ angular
   controller: 'PledgeCtrl'
 });
 $urlRouterProvider.otherwise('/');
+
 });
