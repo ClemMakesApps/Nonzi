@@ -7,12 +7,16 @@ Changing the world, One dollar at a time.
 Once you have node and npm installed, go the application root directory (where package.json is located), and do:
 ```
 $ npm install (or sudo npm install)
+
+2. Install Grunt
+
+$ npm install -g grunt-cli
 ```
-2. Install Bower if you didn't already have it.
+3. Install Bower if you didn't already have it.
 ```
 $ npm install -g bower
 ```
-3. Install Bower dependencies.
+4. Install Bower dependencies.
 ```
 $ bower install
 ```
@@ -20,7 +24,7 @@ $ bower install
 ## Run the application
 To run the application do:
 ```
-$ grunt serve
+$ grunt serve (--force if needed)
 ```
 Open your browser at http://localhost:9000
 
