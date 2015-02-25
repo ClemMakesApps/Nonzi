@@ -18,7 +18,7 @@ angular
   'ng-token-auth',
   'ui.router'
 ])
-.constant('URL', "http://localhost:3000")
+.constant('URL', 'http://localhost:3000')
 .config(function ($stateProvider,$urlRouterProvider) {
   $stateProvider
   .state('main', {
@@ -41,7 +41,7 @@ angular
           delay.resolve(donation);
         },function(){
           console.log('here1');
-          delay.reject("Unable to retrieve donation");
+          delay.reject('Unable to retrieve donation');
         });
         return delay.promise;
       }
@@ -52,6 +52,6 @@ angular
   url: '/pledge?referralID',
   templateUrl: 'views/pledge.html',
   controller: 'PledgeCtrl'
-})
+});
 $urlRouterProvider.otherwise('/');
 });

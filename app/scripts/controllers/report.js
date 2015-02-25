@@ -9,7 +9,7 @@
  */
 angular.module('appApp')
   .controller('ReportCtrl', function ($scope,$location, $anchorScroll, $state, Donation, localStorageService) {
-    $scope.didDonate = localStorageService.get('didDonate') === "true";
+    $scope.didDonate = localStorageService.get('didDonate') === 'true';
     console.log($scope.didDonate);
     if($scope.didDonate){
       localStorageService.set('didDonate', false);
@@ -28,7 +28,7 @@ angular.module('appApp')
     var today = new Date();
 
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-    var timeRemaining = Math.round(Math.abs((today.getTime() - $scope.expiration.getTime())/(oneDay)))
+    var timeRemaining = Math.round(Math.abs((today.getTime() - $scope.expiration.getTime())/(oneDay)));
 
     if(timeRemaining <= 3){
       $scope.timeRemaining = timeRemaining;
@@ -37,21 +37,21 @@ angular.module('appApp')
       $scope.timeRemaining = 0;
     }
 
-    if($scope.people == 0) {
+    if($scope.people === 0) {
       $scope.securedPledge = true;
     }
 
-    if($scope.people != 3 && $scope.timeRemaining == 0) {
+    if($scope.people !== 3 && $scope.timeRemaining === 0) {
       $scope.failedPledge = true;
     }
 
     $scope.goToHome = function() {
       $anchorScroll(0);
-      $location.path("/");
-    }
+      $location.path('/');
+    };
 
     $scope.goToPledge = function() {
       $anchorScroll(0);
       $state.go('pledge', {referralID: Donation._id});
-    }
+    };
   });

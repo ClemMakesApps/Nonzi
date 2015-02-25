@@ -13,7 +13,7 @@ angular.module('appApp')
 
     $scope.saveDonation = function(){
       Donation.save($scope.donation,function(){
-        console.log("Donation saved");
+        console.log('Donation saved');
       });
-    }
+    };
   }]);

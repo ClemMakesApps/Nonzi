@@ -11,6 +11,6 @@ angular.module('appApp')
   .controller('MainCtrl', function ($scope,$location, $anchorScroll) {
     $scope.contribute = function() {
       $anchorScroll(0);
-      $location.path("/pledge");
-    }
+      $location.path('/pledge');
+    };
   });
