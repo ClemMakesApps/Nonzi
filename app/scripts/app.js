@@ -30,6 +30,10 @@ angular
     url: '/contribute',
     templateUrl: 'views/contribute.html'
   })
+  .state('receipt', {
+    url: '/receipt',
+    templateUrl: 'views/receipt.html'
+  })
   .state('terms', {
     url: '/terms',
     templateUrl: 'views/toc.html'

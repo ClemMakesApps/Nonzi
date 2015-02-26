@@ -1,0 +1,272 @@
+<style>
+.small-logo {
+    color: black;
+    margin-right: 10px;
+}
+
+.org-link {
+    color: black;
+    text-decoration: underline;
+}
+
+.header-overview {
+    padding: 15px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.proj-name {
+    display: inline;
+}
+
+.proj-details {
+    margin-left: 28px;
+}
+
+.title-normal {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.pledge {
+    background-color: #E3F5F1;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.perks {
+    cursor: pointer;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.perks:hover {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-promo {
+    background-color: #278570;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promo-tag {
+    display: inherit;
+    margin-bottom: 5px;
+}
+
+/*override*/
+.btn-success {
+    background-color: #50E3C2;
+    color: black;
+    border-color: transparent;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+/*override*/
+.btn-success:hover {
+    background-color:#278570;
+    border-color: transparent;
+    color: white; 
+}
+
+.btn-clear {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #50E3C2;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.pledge-input {
+    border: 1px solid black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 80px 7px 35px;
+    display: inline;
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pledge-input:focus {
+    outline: 0;
+}
+
+/*override*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.form-pledge {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.currency-label {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.perk-selected {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-selected .fa-check-square {
+    color: #73E8CE;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 40px;
+}
+
+
+.thankful {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url("../images/thankful.jpg");
+    background-size: cover;
+    background-position: 50% 17%;
+    width:100%;
+    height: 100%;
+}
+
+.bg-container-image {
+    margin-top:0px;
+    height: 100%;
+}
+
+html, body {
+    width:100%; 
+    height:100%;
+}
+
+.text-thanks {
+    line-height: 50px;
+    margin-bottom: 15px;
+}
+
+.share-tag {
+    line-height: 35px;
+    font-weight: normal;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-pledged {
+    font-size: 20px;
+}
+
+.share-tools {
+    top: 350px;
+}
+
+.thanks-heading {
+    top: 30px;
+}
+
+.social-links {
+    font-size: 50px;
+}
+
+.fa-facebook-square {
+    color: #3B5998;
+}
+
+.fa-twitter-square {
+    color: #4099FF;
+}
+
+.fa-google-plus-square {
+    color: #DD4B39;
+}
+
+.fa-facebook-square:hover,
+.fa-twitter-square:hover,
+.fa-google-plus-square:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook-square:after,
+.fa-twitter-square:after,
+.fa-google-plus-square:after {
+    content: "";
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    display: block;
+    position: absolute;
+    bottom:4px;
+    left:1px;
+    z-index: -1;
+}
+/*
+.ng-scope  {
+    height: 100%;
+}*/
+</style>
+</head>
+<body>
+<header class="header-overview">
+    <a class="small-logo" href="#">M</a>
+    <h2 class="proj-name">Bhatti Mines School</h2>
+    <div class="proj-details">
+        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
+        <span>(33% Raised)</span>
+    </div>
+</header>
+<div class="container-fluid thankful bg-container-image">
+    <div class="col-md-offset-3 col-md-6 text-center text-white thanks-heading">
+        <h1 class="text-thanks">Thank you John, <br>for supporting the Bhatti Mines School</h1>
+        <span class="text-pledged">You pledged $4</span>
+    </div>
+    <div class="col-md-offset-3 col-md-6 text-center text-white share-tools">
+        <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
+        <div class="social-links">
+            <a href="#"><span class="fa fa-facebook-square"></span></a>
+            <a href="#"><span class="fa fa-twitter-square"></span></a>
+            <a href="#"><span class="fa fa-google-plus-square"></span></a>
+        </div>
+    </div>
+</div>
+<!-- <footer></footer> -->
