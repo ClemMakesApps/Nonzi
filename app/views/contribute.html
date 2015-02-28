@@ -34,8 +34,7 @@
     padding: 40px;
     border-radius: 10px;
 }
-
-.perks {
+.perks{
     cursor: pointer;
     background-color: #E3F5F1;
     border-radius: 10px;
@@ -45,11 +44,13 @@
     padding-top: 5px;
     margin-bottom: 15px;
     position: relative;
+	text-decoration:none;
 }
 
 .perks:hover {
     background-color: #278570;
     color: white;
+	text-decoration:none;
 }
 
 .perk-promo {
@@ -64,6 +65,11 @@
 .promo-tag {
     display: inherit;
     margin-bottom: 5px;
+}
+
+a[role=button], a[role=button]:focus, a[role=button]:hover{
+	text-decoration:none;
+	color:inherit;
 }
 
 /*override*/
@@ -188,27 +194,35 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-6 content">
-            <div class="perk-promo">
-                <span class="promo-tag">Would you consider giving $5 a month instead for more impact?</span>
-                <div>
-                    <button type="button" class="btn btn-clear animated infinite pulse">Yes</button>
-                    <button type="button" class="btn btn-clear">No</button>
-                </div>
-            </div>
-            <div class="perks perk-selected">
-                <h3>$4</h3>
-                <span>Can help educate a child for 7 days</span>
-                <span class="fa fa-check-square"></span>
-            </div>
-            <div class="perks">
-                <h3>$17</h3>
-                <span>Can help educate a child for a month</span>
-            </div>
-            <div class="perks">
-                <h3>$195</h3>
-                <span>Can help educate a child for a year</span>
-            </div>
-            <button type="button" class="btn btn-success pull-right">Continue</button>
+            <a role="button" href="javascript;:">
+				<div class="perk-promo">
+					<span class="promo-tag">Would you consider giving $5 a month instead for more impact?</span>
+					<div>
+						<button type="button" class="btn btn-clear animated infinite pulse">Yes</button>
+						<button type="button" class="btn btn-clear">No</button>
+					</div>
+				</div>
+			</a>
+            <a role="button" href="javascript;:">
+				<div class="perks perk-selected">
+					<h3>$4</h3>
+					<span>Can help educate a child for 7 days</span>
+					<span class="fa fa-check-square"></span>
+				</div>
+			</a>
+            <a role="button" href="javascript;:">
+				<div class="perks">
+					<h3>$17</h3>
+					<span>Can help educate a child for a month</span>
+				</div>
+			</a>
+            <a role="button" href="javascript;:">
+				<div class="perks">
+					<h3>$195</h3>
+					<span>Can help educate a child for a year</span>
+				</div>
+			</a>
+            <button role="button" type="button" class="btn btn-success pull-right">Continue</button>
         </div>
     </div>
 </div>

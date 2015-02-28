@@ -57,6 +57,45 @@
 		.leaderboard .row {padding-bottom: 10px;}
 		.leaderboard span {padding-top:12px; padding-left: 10px; display:inline-block;}
 		.btn-play{width:200px;}
+
+.perks{
+    cursor: pointer;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    position: relative;
+	text-decoration:none;
+}
+
+.perks:hover {
+    background-color: #278570;
+    color: white;
+	text-decoration:none;
+}
+
+.perk-promo {
+    background-color: #278570;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promo-tag {
+    display: inherit;
+    margin-bottom: 5px;
+}
+
+a[role=button], a[role=button]:focus, a[role=button]:hover{
+text-decoration:none;
+color:inherit;
+}
+
 	</style>
 	
 </head>
@@ -187,12 +226,25 @@
 					<p class="text-center small">
 						Campaign will end on April 30, 2015 10:00 CMT							
 					</p> 
-					<button type="button" class="btn btn-block btn-lg btn-default">
-						<h3>
-							$25
-						</h3>
-						<p>Can help feed a kid for a week</p>
-					</button>
+					<a role="button" href="javascript;:">
+						<div class="perks perk-selected">
+							<h3>$4</h3>
+							<span>Can help educate a child for 7 days</span>
+							<span class="fa fa-check-square"></span>
+						</div>
+					</a>
+					<a role="button" href="javascript;:">
+						<div class="perks">
+							<h3>$17</h3>
+							<span>Can help educate a child for a month</span>
+						</div>
+					</a>
+					<a role="button" href="javascript;:">
+						<div class="perks">
+							<h3>$195</h3>
+							<span>Can help educate a child for a year</span>
+						</div>
+					</a>
 					<div class="leaderboard">
 						<h3>
 							Leaderboard
