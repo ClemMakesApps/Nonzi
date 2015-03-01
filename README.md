@@ -1,11 +1,14 @@
 # MultiplyMe
 
-## Getting Started
+## Getting Started (Easy Way)
+1. ```$sh setup.sh```
+
+## Getting Started (Hard Way)
 1. Install nodeJS (http://nodejs.org/)
-Once you have node and npm installed, go the application root directory (where package.json is located), and do ```$ npm install (or sudo npm install)```
-2. Install Grunt using ```$ npm install -g grunt-cli```
-3. Install Bower if you didn't already have it. ```$ npm install -g bower```
-4. Install Bower dependencies. ```$ bower install```
+Once you have node and npm installed, go the application root directory (where package.json is located), and do ```$npm install (or sudo npm install)```
+2. Install Grunt using ```$npm install -g grunt-cli```
+3. Install Bower if you didn't already have it. ```$npm install -g bower```
+4. Install Bower dependencies. ```$bower install```
 
 ## Run the application
 To run the application do:
