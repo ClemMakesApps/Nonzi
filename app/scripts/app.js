@@ -21,14 +21,19 @@ angular
 .constant('URL', 'http://localhost:3000')
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
+  // .state('main', {
+  //   url: '/',
+  //   templateUrl: 'views/main.html',
+  //   controller: 'MainCtrl'
+  // })
   .state('main', {
     url: '/',
-    templateUrl: 'views/main.html',
-    controller: 'MainCtrl'
+    templateUrl: 'views/firstpage.html'
   })
   .state('contribute', {
-    url: '/contribute',
-    templateUrl: 'views/contribute.html'
+    url: '/contribute?suggested',
+    templateUrl: 'views/contribute.html',
+    controller: 'ContributeCtrl'
   })
   .state('receipt', {
     url: '/receipt',
@@ -41,34 +46,7 @@ angular
   .state('privacy', {
     url: '/privacy',
     templateUrl: 'views/privacy.html'
-  })
-  .state('report', {
-    url: '/report/:id',
-    templateUrl: 'views/report.html',
-    controller: 'ReportCtrl',
-    resolve: {
-      Donation: ['$q', 'Donation', '$stateParams',
-      function($q, Donation, $stateParams){
-        console.log($stateParams);
-        var delay = $q.defer();
-        Donation.get({'id': $stateParams.id},
-        function(donation){
-          console.log('here');
-          delay.resolve(donation);
-        },function(){
-          console.log('here1');
-          delay.reject('Unable to retrieve donation');
-        });
-        return delay.promise;
-      }
-    ]
-  }
-})
-.state('pledge', {
-  url: '/pledge?referralID',
-  templateUrl: 'views/pledge.html',
-  controller: 'PledgeCtrl'
-});
+  });
 $urlRouterProvider.otherwise('/');
 
 });

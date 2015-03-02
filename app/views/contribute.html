@@ -183,7 +183,7 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="form-group">
                 <div class="form-pledge">
                     <span class="currency-symbol">$</span>
-                    <input type="number" class="pledge-input" autofocus>
+                    <input type="number" class="pledge-input" ng-model="pledge" ng-blur="checkSuggestion()" autofocus>
                     <span class="currency-label">USD</span>
                 </div>
                 <div class="checkbox">
@@ -194,34 +194,21 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-6 content">
-            <a role="button" href="javascript;:">
-				<div class="perk-promo">
-					<span class="promo-tag">Would you consider giving $5 a month instead for more impact?</span>
-					<div>
-						<button type="button" class="btn btn-clear animated infinite pulse">Yes</button>
-						<button type="button" class="btn btn-clear">No</button>
-					</div>
+			<div class="perk-promo" ng-hide="suggestion == -1">
+				<span class="promo-tag">Would you consider giving ${{suggestion}} a month instead for more impact?</span>
+				<div>
+                    <button type="button" class="btn btn-clear">No</button>
+					<button type="button" class="btn btn-clear animated infinite pulse">Yes</button>
 				</div>
-			</a>
-            <a role="button" href="javascript;:">
-				<div class="perks perk-selected">
-					<h3>$4</h3>
-					<span>Can help educate a child for 7 days</span>
-					<span class="fa fa-check-square"></span>
-				</div>
-			</a>
-            <a role="button" href="javascript;:">
-				<div class="perks">
-					<h3>$17</h3>
-					<span>Can help educate a child for a month</span>
-				</div>
-			</a>
-            <a role="button" href="javascript;:">
-				<div class="perks">
-					<h3>$195</h3>
-					<span>Can help educate a child for a year</span>
-				</div>
-			</a>
+			</div>
+            <h4>Suggested Donations</h4>
+            <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+                <div class="perks" ng-class="{'perk-selected':$index == selected}">
+                    <h3>${{suggest.amount}}</h3>
+                    <span>{{suggest.message}}</span>
+                    <span class="fa fa-check-square" ng-show="$index == selected"></span>
+                </div>
+            </a>
             <button role="button" type="button" class="btn btn-success pull-right">Continue</button>
         </div>
     </div>
