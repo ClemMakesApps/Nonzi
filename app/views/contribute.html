@@ -183,12 +183,12 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="form-group">
                 <div class="form-pledge">
                     <span class="currency-symbol">$</span>
-                    <input type="number" class="pledge-input" ng-model="pledge" ng-blur="checkSuggestion()" autofocus>
+                    <input type="number" class="pledge-input" min="1" ng-model="pledge" autofocus>
                     <span class="currency-label">USD</span>
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox"> Make this a recurring monthly gift. Cancel Anytime.
+                        <input type="checkbox" ng-model="selectedRecurring"> Make this a recurring monthly gift. Cancel Anytime.
                     </label>
                 </div>
             </div>
@@ -204,7 +204,7 @@ input[type=number]::-webkit-outer-spin-button {
             <h4>Suggested Donations</h4>
             <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
                 <div class="perks" ng-class="{'perk-selected':$index == selected}">
-                    <h3>${{suggest.amount}}</h3>
+                    <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
                     <span>{{suggest.message}}</span>
                     <span class="fa fa-check-square" ng-show="$index == selected"></span>
                 </div>
