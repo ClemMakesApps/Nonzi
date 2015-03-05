@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('ContributeCtrl', function ($scope, $stateParams) {
+  .controller('ContributeCtrl', function ($scope, $stateParams, $timeout) {
   	$scope.selected = $stateParams.suggested;
 
   	$scope.suggestedDonations = [{
@@ -27,13 +27,12 @@ angular.module('appApp')
 
 	$scope.suggestion = -1; 
 
-
 	$scope.calculateSuggestion = function(pledgeAmount) {
 		return Math.floor(pledgeAmount/12);
 	}
 
 	$scope.checkSuggestion = function() {
-		if($scope.pledge > 0 && ($scope.selected == null || $scope.selected == -1) && $scope.suggestion == -1) {
+		if($scope.pledge > 12 && ($scope.selected == null || $scope.selected == -1) && $scope.suggestion == -1) {
 			$scope.suggestion = $scope.calculateSuggestion($scope.pledge);
 		}
 	}
@@ -68,15 +67,38 @@ angular.module('appApp')
 		return -1;
 	}
 
+	var suggestionTimer = null;
 	$scope.watchPledgeAndRecurring = function(newValue, oldValue) {
 		if(newValue != oldValue) {
 			$scope.selected = $scope.catchSuggestion($scope.pledge, $scope.selectedRecurring);
 
-			// if($scope.selected == -1) {
-			// 	$scope.checkSuggestion();
-			// }
+			if($scope.suggestion == -1) {
+				$timeout.cancel(suggestionTimer);
+				var suggestionTimer = $timeout(
+                        function() {
+							$scope.checkSuggestion();
+
+                        	var alert = angular.element( document.querySelector( '.perk-promo' ) );
+							alert.addClass('animated bounceIn');    
+                        },
+                        2000
+                    );
+			}
 		}
 	}
+
+	$scope.hidePromo = function() {
+		var alert = angular.element( document.querySelector( '.perk-promo' ) );
+		alert.addClass('bounceOut'); 
+		$scope.prevDisplayed = true;   
+	}
+
+	$scope.yesPromo = function() {
+		$scope.hidePromo();
+		$scope.pledge = $scope.suggestion;
+		$scope.selectedRecurring = true;
+	}
+
 
 
 	$scope.$watch('pledge', $scope.watchPledgeAndRecurring);

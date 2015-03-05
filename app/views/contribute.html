@@ -162,6 +162,10 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 40px;
 }
 
+.no-margin-top {
+    margin-top: 0px;
+}
+
 </style>
 </head>
 <body>
@@ -194,14 +198,14 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-6 content">
-			<div class="perk-promo" ng-hide="suggestion == -1">
+			<div class="perk-promo" ng-hide="suggestion == -1 || prevDisplayed == true">
 				<span class="promo-tag">Would you consider giving ${{suggestion}} a month instead for more impact?</span>
 				<div>
-                    <button type="button" class="btn btn-clear">No</button>
-					<button type="button" class="btn btn-clear animated infinite pulse">Yes</button>
+                    <button type="button" class="btn btn-clear" ng-click="hidePromo()">No</button>
+					<button type="button" class="btn btn-clear animated infinite pulse" ng-click="yesPromo()">Yes</button>
 				</div>
 			</div>
-            <h4>Suggested Donations</h4>
+            <h4 class="no-margin-top">Suggested Donations</h4>
             <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
                 <div class="perks" ng-class="{'perk-selected':$index == selected}">
                     <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
