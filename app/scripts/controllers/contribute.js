@@ -71,8 +71,8 @@ angular.module('appApp')
 	$scope.watchPledgeAndRecurring = function(newValue, oldValue) {
 		if(newValue != oldValue) {
 			$scope.selected = $scope.catchSuggestion($scope.pledge, $scope.selectedRecurring);
-
-			if($scope.suggestion == -1) {
+			
+			if($scope.suggestion == -1 && newValue != true) {
 				$timeout.cancel(suggestionTimer);
 				var suggestionTimer = $timeout(
                         function() {
