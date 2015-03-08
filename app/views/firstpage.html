@@ -1,62 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>MultiplyMe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Le styles -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-			$('.btn-play').mouseenter( function(){
-				$('.background').animate({
-				marginTop: "40px",
-				  }, 1000);
-				$('div').removeClass( "whitefont" );
-				$('.btn-play').hide();
-				$('.spacer').animate({
-					marginTop: "56.25%",
-					height: "0"
-				  }, 1000, function() {
-					$('.background').css( "z-index", "3" )
-				  });
-  			});
-		});
-	</script>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-            <script src="../assets/js/html5shiv.js"></script>
-        <![endif]-->
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="../assets/ico/favicon.png">
 	
-	
-	<style>
-		.video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
-		.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-		.spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
-		.topspacer {height: 200px;}
-		.background {position: absolute; margin-top: 0; z-index: -1; top: 0; left: 0; right: 0;}
-		.container {width:100%;max-width:900px;margin:0 auto;padding:0 15px;}
-		.fullwidth {width:100%; padding: 0; margin:0;clear:both;}
-		.white {background-color: white; padding-top: 30px;}
-		.whitefont, .whitefont a {color: white}
-		a.underline {text-decoration: underline;}
-		.btn-default, .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open>.dropdown-toggle.btn-default{background-color:transparent;}
-		.btn-primary {margin: 5px 10%; background-color: teal; width: 80%;}
-		.leaderboard img {width:50px;height:auto;}
-		.leaderboard .row {padding-bottom: 10px;}
-		.leaderboard span {padding-top:12px; padding-left: 10px; display:inline-block;}
-		.btn-play{width:200px;}
+<style>
+.video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
+.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
+.topspacer {height: 200px;}
+.background {position: absolute; margin-top: 0; z-index: -1; top: 0; left: 0; right: 0;}
+.container {width:100%;max-width:900px;margin:0 auto;padding:0 15px;}
+.fullwidth {width:100%; padding: 0; margin:0;clear:both;}
+.white {background-color: white; padding-top: 30px;}
+.whitefont, .whitefont a {color: white}
+a.underline {text-decoration: underline;}
+.btn-default, .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open>.dropdown-toggle.btn-default{background-color:transparent;}
+.btn-primary {margin: 5px 10%; background-color: teal; width: 80%;}
+.leaderboard img {width:50px;height:auto;}
+.leaderboard .row {padding-bottom: 10px;}
+.leaderboard span {padding-top:12px; padding-left: 10px; display:inline-block;}
+.btn-play{width:200px;}
 
 .perks{
     cursor: pointer;
@@ -96,6 +55,13 @@ text-decoration:none;
 color:inherit;
 }
 
+.topbar{height: 259px;}
+.affix{top:0; background-color: white; border-bottom: 1px black solid;width:100%; left: 0; right: 0; margin: 0; padding: 0;}
+.whitefont .affix, .whitefont .affix a {color: black;}
+.affix p, .affix .text-left, .affix .btn {display:none;}
+.showme {display:none;}
+.affix .showme{display:inline-block;}
+
 	</style>
 	
 </head>
@@ -123,35 +89,37 @@ color:inherit;
 			</div>
 		</div>
 	</div>
-		<div class="container whitefont">
-			<div class="row clearfix">
+		<div class="container whitefont topbar" >
+			<div class="row clearfix" data-spy="affix" data-offset-top="345">
 				<div class="col-md-8 column">
+					<div class="showme">m</div>
 					<h1>
-						Bhatti School Mines
+						{{::cause}}Bhatti School Mines
 					</h1>
 					<h3>
-						by <a class="underline" href="http://multiplyme.in">Amala Foundation</a>
+						by <a class="underline" target="_blank" href="{{org.link}}">{{::org.name}}Amala Foundation</a>
 					</h3>
+					<h4 class="showme">{{raised.percent}}% raised</h4>
 					<p>
-						 Through the partnership, over 200 children have been offered an alternative to child labor, a way out of extreme poverty, hope for the future and the freedom to thrive. We fund and implement life saving awufibeakw efaiwehjnf aiwejfbnha ewaiejnf lsrkjg se rg nseoirgse rg jsoeirjg os eirjgpos eirj g;os eirjg
+						 {{::blurb}}
 					</p> 
 					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
 				</div>
 				<div class="col-md-4 column">
 					<h2 class="text-left">
-						30
+						30{{supporters}}
 					</h2>
 					<p class="text-left">
 						supporters
 					</p>
 					<h2 class="text-left">
-						$150
+						${{raised.dollars}}
 					</h2>
 					<p class="text-left">
 						donated of 28,000
 					</p>
 					<h2 class="text-left">
-						27
+						27{{days.remaining}}
 					</h2>
 					<p class="text-left">
 						days to go
@@ -226,7 +194,16 @@ color:inherit;
 					<p class="text-center small">
 						Campaign will end on April 30, 2015 10:00 CMT							
 					</p> 
-					<a role="button" href="javascript;:">
+					
+					
+            <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+                <div class="perks" ng-class="{'perk-selected':$index == selected}">
+                    <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
+                    <span>{{suggest.message}}</span>
+                    <span class="fa fa-check-square" ng-show="$index == selected"></span>
+                </div>
+            </a>
+			<!--		<a role="button" href="javascript;:">
 						<div class="perks perk-selected">
 							<h3>$4</h3>
 							<span>Can help educate a child for 7 days</span>
@@ -244,7 +221,7 @@ color:inherit;
 							<h3>$195</h3>
 							<span>Can help educate a child for a year</span>
 						</div>
-					</a>
+					</a>-->
 					<div class="leaderboard">
 						<h3>
 							Leaderboard
@@ -254,10 +231,10 @@ color:inherit;
 								<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-circle" />
 							</div>
 							<div class="col-sm-6 column">
-								<span>Sally S.</span>
+								<span>Sally S.{{leader.name}}</span>
 							</div>
 							<div class="col-sm-4 column">
-								<span>$150<span>
+								<span>$150{{leader.amount}}<span>
 							</div>
 						</div>
 						<div class="row clearfix">
@@ -279,8 +256,6 @@ color:inherit;
 	<div class="background">
 		<div class="video">
 		<iframe src="http://player.vimeo.com/video/102413354?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-		<!--<iframe src="https://www.youtube.com/embed/GGeO5EDwP5A" frameborder="0" allowfullscreen></iframe>-->
 	<div style="position: absolute; top:0;left:0;right:0;width:100%;height:100%;background-color:black; z-index: -3;"></div>
 		</div>
 	</div>
-</body>
