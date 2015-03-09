@@ -36,6 +36,10 @@ angular
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
+  .state('payment', {
+    url: '/payment',
+    templateUrl: 'views/payment.html'
+  })
   .state('receipt', {
     url: '/receipt',
     templateUrl: 'views/receipt.html'
