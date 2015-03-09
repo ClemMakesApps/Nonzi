@@ -1,4 +1,4 @@
-	
+
 <style>
 .video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
 .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -66,7 +66,7 @@ color:inherit;
 	
 </head>
 
-<body>
+<body>	
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column whitefont">
@@ -94,14 +94,14 @@ color:inherit;
 				<div class="col-md-8 column">
 					<div class="showme">m</div>
 					<h1>
-						{{::cause}}Bhatti School Mines
+						{{cause}}Bhatti School Mines
 					</h1>
 					<h3>
-						by <a class="underline" target="_blank" href="{{org.link}}">{{::org.name}}Amala Foundation</a>
+						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}Amala Foundation</a>
 					</h3>
 					<h4 class="showme">{{raised.percent}}% raised</h4>
 					<p>
-						 {{::blurb}}
+						 {{blurb}}
 					</p> 
 					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
 				</div>
@@ -173,6 +173,22 @@ color:inherit;
 									<p>
 										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
 									</p> 
+									
+									 
+									  <div class="panel-group" id="accordion">
+										<div class="panel panel-default" ng-repeat="qa in faq">
+											<div class="panel-heading">
+												<h4 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{qa.number}}">{{qa.question}}</a>
+												</h4>
+											</div>
+											<div id="collapse{{qa.number}}" class="panel-collapse collapse">
+												<div class="panel-body">
+													<p>{{qa.answer}}</p>
+												</div>
+											</div>
+										</div>
+									</div>
 									<button type="button" class="btn btn-xs btn-default">Ask a Question</button>
 								</p>
 							</div>
@@ -192,10 +208,10 @@ color:inherit;
 				<div class="col-md-4 column">
 					 <button type="button" class="btn btn-lg btn-primary">Contribute</button>
 					<p class="text-center small">
-						Campaign will end on April 30, 2015 10:00 CMT							
+						Campaign will end on {{timer}}						
 					</p> 
-					
-					
+	<!--				
+-->
             <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
                 <div class="perks" ng-class="{'perk-selected':$index == selected}">
                     <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
@@ -203,49 +219,19 @@ color:inherit;
                     <span class="fa fa-check-square" ng-show="$index == selected"></span>
                 </div>
             </a>
-			<!--		<a role="button" href="javascript;:">
-						<div class="perks perk-selected">
-							<h3>$4</h3>
-							<span>Can help educate a child for 7 days</span>
-							<span class="fa fa-check-square"></span>
-						</div>
-					</a>
-					<a role="button" href="javascript;:">
-						<div class="perks">
-							<h3>$17</h3>
-							<span>Can help educate a child for a month</span>
-						</div>
-					</a>
-					<a role="button" href="javascript;:">
-						<div class="perks">
-							<h3>$195</h3>
-							<span>Can help educate a child for a year</span>
-						</div>
-					</a>-->
 					<div class="leaderboard">
 						<h3>
 							Leaderboard
 						</h3>
-						<div class="row clearfix">
+						<div class="row clearfix" ng-repeat="leader in leaderBoard">
 							<div class="col-sm-2 column">
-								<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-circle" />
+								<img alt="140x140" src="{{leader.img}}" class="img-circle" />
 							</div>
 							<div class="col-sm-6 column">
-								<span>Sally S.{{leader.name}}</span>
+								<span>{{leader.first}} {{leader.last}}</span>
 							</div>
 							<div class="col-sm-4 column">
-								<span>$150{{leader.amount}}<span>
-							</div>
-						</div>
-						<div class="row clearfix">
-							<div class="col-sm-2 column">
-								<img alt="140x140" src="http://lorempixel.com/140/140/" class="img-circle" />
-							</div>
-							<div class="col-sm-6 column">
-								<span>Josh S.</span>
-							</div>
-							<div class="col-sm-4 column">
-								<span>$50<span>
+								<span>${{leader.amount}}<span>
 							</div>
 						</div>
 					</div>
