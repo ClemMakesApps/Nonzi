@@ -94,32 +94,32 @@ color:inherit;
 				<div class="col-md-8 column">
 					<div class="showme">m</div>
 					<h1>
-						{{cause}}Bhatti School Mines
+						{{cause.name}}
 					</h1>
 					<h3>
-						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}Amala Foundation</a>
+						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}</a>
 					</h3>
-					<h4 class="showme">{{raised.percent}}% raised</h4>
+					<h4 class="showme">{{money.percent}}% raised</h4>
 					<p>
-						 {{blurb}}
+						 {{cause.blurb}}
 					</p> 
 					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
 				</div>
 				<div class="col-md-4 column">
 					<h2 class="text-left">
-						30{{supporters}}
+						{{supporters}}
 					</h2>
 					<p class="text-left">
 						supporters
 					</p>
 					<h2 class="text-left">
-						${{raised.dollars}}
+						${{money.raised}}
 					</h2>
 					<p class="text-left">
-						donated of 28,000
+						donated of {{money.requested}}
 					</p>
 					<h2 class="text-left">
-						27{{days.remaining}}
+						{{days.remaining}}
 					</h2>
 					<p class="text-left">
 						days to go
@@ -150,10 +150,8 @@ color:inherit;
 									<h3>
 										Why should you support us?
 									</h3>
-									<img alt="infographic placeholder" src="http://lorempixel.com/140/140/" />
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
+									<img alt="infographic placeholder" src="images/{{cause.image}}" />
+									<p>{{cause.why}}</p> 
 									<h3>
 										How can I help?
 									</h3>
@@ -164,9 +162,7 @@ color:inherit;
 									<h3>
 										Risks and Challenges
 									</h3>
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
+									<p>{{cause.risks}}</p> 
 									<h3>
 										FAQ
 									</h3>
@@ -179,10 +175,10 @@ color:inherit;
 										<div class="panel panel-default" ng-repeat="qa in faq">
 											<div class="panel-heading">
 												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{qa.number}}">{{qa.question}}</a>
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index + 1}}">{{qa.question}}</a>
 												</h4>
 											</div>
-											<div id="collapse{{qa.number}}" class="panel-collapse collapse">
+											<div id="collapse{{$index + 1}}" class="panel-collapse collapse">
 												<div class="panel-body">
 													<p>{{qa.answer}}</p>
 												</div>
@@ -206,19 +202,17 @@ color:inherit;
 					</div>
 				</div>
 				<div class="col-md-4 column">
-					 <button type="button" class="btn btn-lg btn-primary">Contribute</button>
+					 <button type="button" href="/#/contribute" class="btn btn-lg btn-primary">Contribute</button>
 					<p class="text-center small">
-						Campaign will end on {{timer}}						
+						Campaign will end on {{days.end}}						
 					</p> 
-	<!--				
--->
-            <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
-                <div class="perks" ng-class="{'perk-selected':$index == selected}">
-                    <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
-                    <span>{{suggest.message}}</span>
-                    <span class="fa fa-check-square" ng-show="$index == selected"></span>
-                </div>
-            </a>
+					<a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+						<div class="perks" ng-class="{'perk-selected':$index == selected}">
+							<h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
+							<span>{{suggest.message}}</span>
+							<span class="fa fa-check-square" ng-show="$index == selected"></span>
+						</div>
+					</a>
 					<div class="leaderboard">
 						<h3>
 							Leaderboard
