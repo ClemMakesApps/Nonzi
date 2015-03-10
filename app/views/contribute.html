@@ -206,14 +206,14 @@ input[type=number]::-webkit-outer-spin-button {
 				</div>
 			</div>
             <h4 class="no-margin-top">Suggested Donations</h4>
-            <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+            <div ng-repeat="suggest in suggestedDonations" ng-click="selectPerk($index)">
                 <div class="perks" ng-class="{'perk-selected':$index == selected}">
                     <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
                     <span>{{suggest.message}}</span>
                     <span class="fa fa-check-square" ng-show="$index == selected"></span>
                 </div>
-            </a>
-            <button role="button" type="button" class="btn btn-success pull-right">Continue</button>
+            </div>
+            <a role="button" class="btn btn-success pull-right" href="/#/payment">Continue</a>
         </div>
     </div>
 </div>
