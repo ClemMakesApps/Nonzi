@@ -225,6 +225,42 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 16px;
     color: black !important;
 }
+
+.grayText {
+  color: #808080;
+  font-size: 12px; 
+}
+
+.secureText {
+  margin-left: 15px;
+}
+
+.sub-label {
+  font-size: 12px;
+}
+
+#refer {
+  width: 88%;
+  display: inline;
+}
+
+#cvc {
+  width: 60%;
+  display: inline;
+}
+
+.question-tooltip {
+  margin-left: 5px;
+}
+
+#cardNumber {
+  display: inline;
+}
+
+.creditcard-images {
+  height: 25px;
+  margin-top: 2.5px;
+}
 </style>
 </head>
 <body>
@@ -237,29 +273,36 @@ input[type=number]::-webkit-outer-spin-button {
     </div>
 </header>
 <div class="container-fluid">
-	<div class="col-md-offset-2 col-md-5">
+	<div class="col-md-offset-2 col-md-6">
 		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time. If you successfully complete the challenge, your pledge will be donated and your card will be charged $40. <a href="#">Learn More.</a></span>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged $40 upon completion of the challenge. <a href="#">Learn More.</a></span>
 	</div>
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8">
-        <div class="col-lg-6 col-md-5 content paymentFields">
-            <h4 class="subheader">Card Information</h4>
+        <div class="col-lg-7 col-md-5 content paymentFields">
+            <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
             <form class="form-horizontal">
               <div class="form-group">
-                <label for="name" class="col-sm-4 control-label">Name</label>
-                <div class="col-sm-8">
+                <label for="name" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-9" style="padding-right: 25px">
                   <input type="text" class="form-control" id="name" placeholder="Name">
                 </div>
               </div>
               <div class="form-group">
-                <label for="cardNumber" class="col-sm-4 control-label">Card number</label>
-                <div class="col-sm-8">
+                <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
+                <div class="col-sm-9">
+                  <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
+
                   <input type="text" class="form-control" id="cardNumber" placeholder="Card number">
+                  </div>
+                  <img src="../images/visa.png"  class="creditcard-images">
+                  <img src="../images/mastercard.png" class="creditcard-images" >
+                  <img src="../images/amex.png"  class="creditcard-images">
+                  <img src="../images/discover.png" class="creditcard-images">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Expiration</label>
-                <div class="col-sm-2" style="margin-right:-15px">
+                <label class="col-sm-3 control-label">Expiration</label>
+                <div class="col-sm-2" style="margin-right:-25px">
                   <select class="form-control">
                       <option>01</option>
                       <option>02</option>
@@ -280,39 +323,39 @@ input[type=number]::-webkit-outer-spin-button {
                       <option>2015</option>
                     </select>
                 </div>
-                <div class="col-sm-4" style="padding-right:5px">
-                    <label for="cvc" class="col-sm-3 control-label">CVC</label>
+                <div class="col-sm-5">
+                    <label for="cvc" class="col-sm-2 col-sm-offset-1 control-label">CVC</label>
                     <div class="col-sm-9 cvcField">
-                      <input type="text" class="form-control" id="cvc" placeholder="CVN">
+                      <input type="text" class="form-control" id="cvc" placeholder="CVN"><span class="glyphicon glyphicon-question-sign question-tooltip grayText"></span>
                     </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="zip" class="col-sm-4 control-label">Billing ZIP Code</label>
-                <div class="col-sm-4" style="padding-right:10px">
+                <label for="zip" class="col-sm-3 control-label">Billing ZIP code</label>
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="zip" placeholder="ZIP Code">
                 </div>
               </div>
               <h4 class="subheader newPaymentSection">Your Information</h4>
               <div class="form-group">
-                <label for="refer" class="col-sm-4 control-label">Referred by</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="refer" placeholder="" disabled>
+                <label for="refer" class="col-sm-3 control-label">Referred by</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="refer" placeholder="" disabled><span class="glyphicon glyphicon-question-sign question-tooltip grayText"></span>
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:0px">
-                <label for="email" class="col-sm-4 control-label">Email<p>(for your receipt)</p></label>
+                <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
                 <div class="col-sm-8">
                   <input type="email" class="form-control" id="email" placeholder="Email address">
                 </div>
               </div>
               <div class="form-group">
-                <label for="verifyEmail" class="col-sm-4 control-label">Verify email<p>(just in case)</p></label>
+                <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
                 <div class="col-sm-8">
                   <input type="email" class="form-control" id="verifyEmail" placeholder="Verify email address">
                   <div class="checkbox">
                       <label>
-                        <input type="checkbox"> Send me campaign updates
+                        <input type="checkbox" checked> Send me campaign updates
                       </label>
                     </div>
                 </div>
@@ -320,14 +363,14 @@ input[type=number]::-webkit-outer-spin-button {
               <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
               <p>Cancel reocurring donations, measure your impact and <a href="#">more.</a></p>
               <div class="form-group">
-                <label for="password" class="col-sm-4 control-label">New password</label>
+                <label for="password" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control" id="password" placeholder="New password">
                 </div>
               </div>
             </form>
         </div>
-        <div class="col-lg-5 col-md-offset-1 col-md-6 content">
+        <div class="col-lg-5 col-md-6 content">
 			<div class="perk-background rounded-background">
                 <span>Pledge Amount</span>
                 <a class="pull-right" href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
