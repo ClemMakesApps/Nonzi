@@ -19,7 +19,11 @@ angular
   'ui.router'
 ])
 .constant('URL', 'http://localhost:3000')
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider,$authProvider) {
+  $authProvider.configure({
+      apiUrl: 'http://localhost:3000'
+  });
+
   $stateProvider
    .state('main', {
      url: '/',
