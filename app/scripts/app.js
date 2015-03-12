@@ -51,6 +51,11 @@ angular
   .state('privacy', {
     url: '/privacy',
     templateUrl: 'views/privacy.html'
+  })
+  .state('signin',{
+    url: '/signin',
+    templateUrl: 'views/signin.html',
+    controller: 'SigninCtrl'
   });
 $urlRouterProvider.otherwise('/');
 
