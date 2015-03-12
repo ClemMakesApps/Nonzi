@@ -37,6 +37,12 @@ angular.module('appApp')
 		}
 	}
 
+	$scope.selectPerk = function(index) {
+		$scope.selected = index;
+		$scope.pledge = $scope.suggestedDonations[index].amount;
+		$scope.selectedRecurring = $scope.suggestedDonations[index].recurring;
+	}
+
 	$scope.loadSuggestion = function() {
 		if($scope.selected <= $scope.suggestedDonations.length) {
 			var selected = $scope.suggestedDonations[$scope.selected];

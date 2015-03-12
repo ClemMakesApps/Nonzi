@@ -1,0 +1,481 @@
+<style>
+.small-logo {
+    color: black;
+    margin-right: 10px;
+}
+
+.org-link {
+    color: black;
+    text-decoration: underline;
+}
+
+.header-overview {
+    padding: 15px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.proj-name {
+    display: inline;
+}
+
+.proj-details {
+    margin-left: 45px;
+}
+
+.title-normal {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.pledge {
+    background-color: #E3F5F1;
+    padding: 40px;
+    border-radius: 10px;
+}
+.perks{
+    cursor: pointer;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    position: relative;
+	text-decoration:none;
+}
+
+.perks:hover {
+    background-color: #278570;
+    color: white;
+	text-decoration:none;
+}
+
+.perk-promo {
+    background-color: #278570;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promo-tag {
+    display: inherit;
+    margin-bottom: 5px;
+}
+
+a[role=button], a[role=button]:focus, a[role=button]:hover{
+	text-decoration:none;
+	color:inherit;
+}
+
+/*override*/
+.btn-success {
+    background-color: #50E3C2;
+    color: black;
+    border-color: transparent;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+/*override*/
+.btn-success:hover {
+    background-color:#278570;
+    border-color: transparent;
+    color: white; 
+}
+
+.btn-clear {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #50E3C2;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.pledge-font {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+}
+
+.pledge-input {
+    border: 1px solid black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 80px 7px 35px;
+    display: inline;
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pledge-input:focus {
+    outline: 0;
+}
+
+/*override*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.form-pledge {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.currency-label {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.perk-selected {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-selected .fa-check-square {
+    color: #73E8CE;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 40px;
+}
+
+.no-margin-top {
+    margin-top: 0px;
+}
+
+.paymentFields {
+    padding-left: 0px;
+}
+
+/*override*/
+.control-label {
+    text-align: left !important;
+    font-weight: normal;
+}
+
+.noPaddingRight {
+    padding-right: 0px;
+}
+
+.cvcField {
+    padding-right: 0px;
+    padding-left: 30px;
+}
+
+.subheader {
+    margin-bottom: 20px;
+}
+
+.newPaymentSection {
+    margin-top: 50px;
+}
+
+.hasSubtext {
+    margin-bottom: 5px;
+}
+
+.block {
+    display: block;
+}
+
+.perk-background {
+    background-color: #E3F5F1;
+}
+
+.rounded-background {
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.btn-action {
+    width: 45%;
+    height: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 16px;
+    color: black !important;
+}
+
+.grayText {
+  color: #808080;
+  font-size: 12px; 
+}
+
+.secureText {
+  margin-left: 15px;
+}
+
+.sub-label {
+  font-size: 12px;
+}
+
+#refer {
+  width: 88%;
+  display: inline;
+}
+
+#cvc {
+  width: 60%;
+  display: inline;
+}
+
+.question-tooltip {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.question-tooltip,
+.question-tooltip:hover,
+.question-tooltip:focus {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#cardNumber {
+  display: inline;
+}
+
+.creditcard-images {
+  height: 25px;
+  margin-top: 2.5px;
+}
+
+.tooltip {
+  width:200px;
+}
+
+.challenge-steps {
+  margin-left: 30px;
+  padding-right: 0;
+  list-style-type: none;
+  margin-top: 30px;
+}
+
+.challenge-steps li {
+  counter-increment: step-counter;
+  margin-bottom: 20px;
+  font-size: 20px;
+  position: relative;
+  min-height: 80px;
+}
+
+.challenge-steps li::before {
+  content: counter(step-counter);
+  margin-right: 15px;
+  margin-left: -38px;
+  font-size: 22px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  
+  border-radius: 50px;
+  padding-top: 25px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 25px;
+}
+
+.challenge-steps li:hover:before {
+  content: counter(step-counter);
+  margin-right: 15px;
+  margin-left: -38px;
+  font-size: 22px;
+  background-color: #278570;
+  color: white;
+}
+
+.challenge-steps .subtext {
+  font-size: 13px;
+  line-height: 15px;
+  margin-top: 10px;
+}
+
+.challenge-steps .long-steps {
+  position: absolute;
+  top: -15px;
+  line-height: 22px;
+}
+</style>
+</head>
+<body>
+<header class="header-overview">
+    <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
+    <h2 class="proj-name">Bhatti Mines School</h2>
+    <div class="proj-details">
+        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
+        <span>(33% Raised)</span>
+    </div>
+</header>
+<div class="container-fluid">
+	<div class="col-md-offset-2 col-md-6">
+		<h2 class="title-normal">Payment Information</h2>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged $40 upon completion of the challenge. <a href="#">Learn More.</a></span>
+	</div>
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8">
+        <div class="col-lg-7 col-md-5 content paymentFields">
+            <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Name</label>
+                <div class="col-sm-9" style="padding-right: 25px">
+                  <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
+                <div class="col-sm-9">
+                  <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
+
+                  <input type="text" class="form-control" id="cardNumber" placeholder="Card number">
+                  </div>
+                  <img src="../images/visa.png"  class="creditcard-images">
+                  <img src="../images/mastercard.png" class="creditcard-images" >
+                  <img src="../images/amex.png"  class="creditcard-images">
+                  <img src="../images/discover.png" class="creditcard-images">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Expiration</label>
+                <div class="col-sm-2" style="margin-right:-25px">
+                  <select class="form-control">
+                      <option>01</option>
+                      <option>02</option>
+                      <option>03</option>
+                      <option>04</option>
+                      <option>05</option>
+                      <option>06</option>
+                      <option>07</option>
+                      <option>08</option>
+                      <option>09</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                    </select>
+                </div>
+                <div class="col-sm-3" style="margin-right: -35px;padding-right: 35px;px">
+                  <select class="form-control">
+                      <option>2015</option>
+                    </select>
+                </div>
+                <div class="col-sm-5">
+                    <label for="cvc" class="col-sm-2 col-sm-offset-1 control-label">CVC</label>
+                    <div class="col-sm-9 cvcField">
+                      <input type="text" class="form-control" id="cvc" placeholder="CVN">
+                      <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express"><span class="glyphicon glyphicon-question-sign grayText"></span></button>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="zip" class="col-sm-3 control-label">Billing ZIP code</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="zip" placeholder="ZIP Code">
+                </div>
+              </div>
+              <h4 class="subheader newPaymentSection">Your Information</h4>
+              <div class="form-group">
+                <label for="refer" class="col-sm-3 control-label">Referred by</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="refer" placeholder="" disabled>
+                  <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="This field is auto filled based on the link in which you selected to contribute"><span class="glyphicon glyphicon-question-sign grayText"></span></button>
+                </div>
+              </div>
+              <div class="form-group" style="margin-bottom:0px">
+                <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
+                <div class="col-sm-8">
+                  <input type="email" class="form-control" id="email" placeholder="Email address">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
+                <div class="col-sm-8">
+                  <input type="email" class="form-control" id="verifyEmail" placeholder="Verify email address">
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" checked> Send me campaign updates
+                      </label>
+                    </div>
+                </div>
+              </div>
+              <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
+              <p>Cancel reocurring donations, measure your impact and <a href="#">more.</a></p>
+              <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-8">
+                  <input type="password" class="form-control" id="password" placeholder="New password">
+                  <p class="text-center" style="margin-top:5px">or</p>
+                 <div class="col-sm-8 col-sm-offset-2">
+                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px">
+                    <i class="fa fa-facebook"></i> Sign in with Facebook
+                  </a>
+                 </div>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="col-lg-5 col-md-6 content">
+			<div class="perk-background rounded-background">
+                <span>Pledge Amount</span>
+                <a class="pull-right" href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                <span class="pledge-font block clearfix">$40.00 USD</span>
+            </div>
+            <div class="perk-background rounded-background text-center">
+                <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
+                <p>Use your social network to make more impact</p>
+                <div class="text-left">
+                    <ol class="challenge-steps">
+                        <li><span>Pledge a donation</span></li>
+                        <li>
+                          <span class="long-steps">
+                            Invite 3 friends to pledge within 3 days
+                            <p class="subtext">Donations will count as well</p>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="long-steps">
+                            Your pledge is donated
+                            <p class="subtext">Login to your account to check your impact stats</p>
+                          </span>
+                        </li>
+                    </ol>
+                </div>
+                <button type="button" class="btn btn-info btn-action">Just<br><span style="font-weight:bold;font-size:16px;">Donate</span></button>
+                <button type="button" class="btn btn-success btn-action">Take the<br><span style="font-weight:bold;font-size:16px;">Challenge</span></button>
+            </div>
+            <p>By proceeding you agree to MultiplyMe’s <br><a href="#/terms">Terms of Use</a> and <a href="#/privacy">Privacy Policy</a><p>
+        </div>
+    </div>
+</div>
+<footer></footer>
+<script type="text/javascript">$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})</script>
