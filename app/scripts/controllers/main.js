@@ -27,22 +27,22 @@ angular.module('appApp')
 	$scope.leaderBoard = [{
   		'first': 'Donatello',
   		'last': 'Turtle',
-  		'img': 'http://lorempixel.com/140/140/',
+  		'img': '205e460b479e2e5b48aec07710c08d50',
   		'amount': 100
   	},{
   		'first': 'Raphael',
   		'last': 'Turtle',
-  		'img': 'http://lorempixel.com/140/140/',
+  		'img': '205e460b479e2e5b48aec07710c08d50',
   		'amount': 75
   	},{
   		'first': 'Leonardo',
   		'last': 'Turtle',
-  		'img': 'http://lorempixel.com/140/140/',
+  		'img': '205e460b479e2e5b48aec07710c08d50',
   		'amount': 50
   	},{
   		'first': 'Michelangelo',
   		'last': 'Turtle',
-  		'img': 'http://lorempixel.com/140/140/',
+  		'img': '205e460b479e2e5b48aec07710c08d50', 
   		'amount': 25
   	}]
 	
@@ -68,6 +68,7 @@ angular.module('appApp')
 		'why': 'Why dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in mihdolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in mold.',
 		'image': 'network.png',
 		'risks': 'Risks Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui. Proin massa magna, vulputate nec bibendum nec, posuere nec lacus',
+		'supporters':30
   	}
 	
 	
@@ -78,14 +79,13 @@ angular.module('appApp')
 	var parsedStart=Date.parse(dateStart);
 	var parsedLength = dateLength * 86400000;
 	var parsedEnd = parsedLength + parsedStart;
-	var dateEnd =  new Date(parsedEnd);
 
 	var requested = 30294;
 	var raised = 12000;
 	var percent = 30294-12000;
 	
 	$scope.days = {
-		'end' : dateEnd.getDate() + '/' + (dateEnd.getMonth()+1) + '/' + dateEnd.getFullYear(),
+		'end' : parsedEnd, //dateEnd.getDate() + '/' + (dateEnd.getMonth()+1) + '/' + dateEnd.getFullYear(),
 		'remaining' : Math.round((parsedEnd-parsedToday)/86400000) 
 	}
 	
@@ -94,5 +94,7 @@ angular.module('appApp')
 		'raised' : 12000,
 		'percent' : Math.round(12000/30294*100)
 	}
+	
+
 	
 });
