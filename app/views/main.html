@@ -8,7 +8,7 @@
 .container {width:100%;max-width:900px;margin:0 auto;padding:0 15px;}
 .fullwidth {width:100%; padding: 0; margin:0;clear:both;}
 .white {background-color: white; padding-top: 30px;}
-.whitefont, .whitefont a {color: white}
+.whitefont, .whitefont a, .whitefont a:hover {color: white}
 a.underline {text-decoration: underline;}
 .btn-default, .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open>.dropdown-toggle.btn-default{background-color:transparent;}
 .btn-primary {margin: 5px 10%; background-color: teal; width: 80%;}
@@ -16,6 +16,7 @@ a.underline {text-decoration: underline;}
 .leaderboard .row {padding-bottom: 10px;}
 .leaderboard span {padding-top:12px; padding-left: 10px; display:inline-block;}
 .btn-play{width:200px;}
+.btn-xs{padding: 1px 30px;}
 
 .perks{
     cursor: pointer;
@@ -57,11 +58,21 @@ color:inherit;
 
 .topbar{height: 259px;}
 .affix{top:0; background-color: white; border-bottom: 1px black solid;width:100%; left: 0; right: 0; margin: 0; padding: 0;}
-.whitefont .affix, .whitefont .affix a {color: black;}
+.whitefont .affix, .whitefont .affix a, whitefont .affix a:hover {color: black;}
 .affix p, .affix .text-left, .affix .btn {display:none;}
 .showme {display:none;}
 .affix .showme{display:inline-block;}
-
+.h1, .h2, .h3, h1, h2, h3 {margin-top:10px;margin-bottom: 5px;}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{border: none transparent; border-bottom: #278570 3px solid; font-weight: bold;}
+.nav-tabs{border: none transparent}
+.nav-tabs>li>a{color:#000;}
+h4 {font-size:16px;font-weight:bold;}
+.panel-default>.panel-heading{background-color:#fff;border:none transparent;padding: 5px 0;}
+.panel-default{border:none transparent;}
+.panel{-webkit-box-shadow: none; box-shadow: none;}
+.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{border-top:none transparent;}
+.panel a:focus, .panel a:hover{text-decoration:none;}
+@lessthan920: 
 	</style>
 	
 </head>
@@ -69,7 +80,7 @@ color:inherit;
 <body>	
 	<div class="container">
 		<div class="row clearfix">
-			<div class="col-md-12 column whitefont">
+			<div class="col-sm-12 column whitefont">
 				<nav class="primarynav" role="navigation">
 					<ul class="nav nav-pills">
 						<li>
@@ -82,7 +93,7 @@ color:inherit;
 	</div>
 	<div class="fullwidth">
 		<div class="row clearfix">
-			<div class="col-md-12 column">
+			<div class="col-sm-12 column">
 				<div class="spacer topspacer">
 					<img class="btn-play" src="http://technine.com/wp-content/uploads/2014/10/white-play-button-png.png"/>
 				</div>
@@ -91,35 +102,35 @@ color:inherit;
 	</div>
 		<div class="container whitefont topbar" >
 			<div class="row clearfix" data-spy="affix" data-offset-top="345">
-				<div class="col-md-8 column">
+				<div class="col-sm-8 column">
 					<div class="showme">m</div>
 					<h1>
-						{{cause}}Bhatti School Mines
+						{{cause.name}}
 					</h1>
 					<h3>
-						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}Amala Foundation</a>
+						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}</a>
 					</h3>
-					<h4 class="showme">{{raised.percent}}% raised</h4>
+					<h4 class="showme">{{money.percent}}% raised</h4>
 					<p>
-						 {{blurb}}
+						 {{cause.blurb}}
 					</p> 
 					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
 				</div>
-				<div class="col-md-4 column">
+				<div class="col-sm-4 column">
 					<h2 class="text-left">
-						30{{supporters}}
+						{{cause.supporters}}
 					</h2>
 					<p class="text-left">
 						supporters
 					</p>
 					<h2 class="text-left">
-						${{raised.dollars}}
+						${{money.raised}}
 					</h2>
 					<p class="text-left">
-						donated of 28,000
+						donated of ${{money.requested}}
 					</p>
 					<h2 class="text-left">
-						27{{days.remaining}}
+						{{days.remaining}}
 					</h2>
 					<p class="text-left">
 						days to go
@@ -131,7 +142,7 @@ color:inherit;
 	<div class="fullwidth white">
 		<div class="container">		
 			<div class="row clearfix">
-				<div class="col-md-8 column">
+				<div class="col-sm-8 column">
 					<div class="tabbable" id="tabs-694560">
 						<ul class="nav nav-tabs">
 							<li class="active">
@@ -141,91 +152,100 @@ color:inherit;
 								<a href="#updates" data-toggle="tab">Updates (2)</a>
 							</li>
 							<li>
-								<a href="#comments" data-toggle="tab">Comments (20)</a>
+								<a href="#comments" data-toggle="tab">Comments <span class="disqus-comment-count" data-disqus-identifier="bhattimines"></span>
+								</a>
 							</li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="description">
 								<p>
-									<h3>
+									<h4>
 										Why should you support us?
-									</h3>
-									<img alt="infographic placeholder" src="http://lorempixel.com/140/140/" />
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
-									<h3>
+									</h4>
+									<img alt="infographic placeholder" src="images/{{cause.image}}" />
+									<p>{{cause.why}}</p> 
+									<h4>
 										How can I help?
-									</h3>
+									</h4>
 									<img alt="infographic placeholder" src="http://lorempixel.com/140/140/" />
 									<p>
 										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
 									</p> 
-									<h3>
+									<h4>
 										Risks and Challenges
-									</h3>
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
-									<h3>
+									</h4>
+									<p>{{cause.risks}}</p> 
+									<h4>
 										FAQ
-									</h3>
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
-									
-									 
+									</h4>	
 									  <div class="panel-group" id="accordion">
 										<div class="panel panel-default" ng-repeat="qa in faq">
 											<div class="panel-heading">
-												<h4 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{qa.number}}">{{qa.question}}</a>
-												</h4>
+												<h5 class="panel-title">
+													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index + 1}}">{{qa.question}}</a>
+												</h5>
 											</div>
-											<div id="collapse{{qa.number}}" class="panel-collapse collapse">
+											<div id="collapse{{$index + 1}}" class="panel-collapse collapse">
 												<div class="panel-body">
 													<p>{{qa.answer}}</p>
 												</div>
 											</div>
 										</div>
 									</div>
-									<button type="button" class="btn btn-xs btn-default">Ask a Question</button>
+									<button type="button" class="btn btn-xs btn-default"   ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
+									<input type="text" ng-show="showfaq">
 								</p>
 							</div>
 							<div class="tab-pane" id="updates">
 								<p>
-									Howdy, I'm in Section 2.
-								</p>
+									<style type="text/css">
+<style type="text/css">
+<!--
+.display_archive {font-family: arial,verdana; font-size: 12px;}
+.campaign {line-height: 125%; margin: 5px;}
+//-->
+</style>
+<script language="javascript" src="http://us10.campaign-archive2.com/generate-js/?u=37aa354ead06ef426b16aa342&fid=981&show=10" type="text/javascript"></script>								</p>
 							</div>
 							<div class="tab-pane" id="comments">
 								<p>
-									Howdy, I'm in Section 2.
+									<div id="disqus_thread"></div>
+									<script type="text/javascript">
+										/* * * CONFIGURATION VARIABLES * * */
+										var disqus_shortname = 'multiplyme';
+										
+										/* * * DON'T EDIT BELOW THIS LINE * * */
+										(function() {
+											var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+											dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+											(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+										})();
+									</script>
+									<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 column">
-					 <button type="button" class="btn btn-lg btn-primary">Contribute</button>
+				<div class="col-sm-4 column">
+					 <button type="button" href="/#/contribute" class="btn btn-lg btn-primary">Contribute</button>
 					<p class="text-center small">
-						Campaign will end on {{timer}}						
+						Campaign will end on {{days.end | date:'MM/dd/yy'}}						
 					</p> 
-	<!--				
--->
-            <a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
-                <div class="perks" ng-class="{'perk-selected':$index == selected}">
-                    <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
-                    <span>{{suggest.message}}</span>
-                    <span class="fa fa-check-square" ng-show="$index == selected"></span>
-                </div>
-            </a>
+					<a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+						<div class="perks" ng-class="{'perk-selected':$index == selected}">
+							<h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
+							<span>{{suggest.message}}</span>
+							<span class="fa fa-check-square" ng-show="$index == selected"></span>
+						</div>
+					</a>
 					<div class="leaderboard">
 						<h3>
 							Leaderboard
 						</h3>
 						<div class="row clearfix" ng-repeat="leader in leaderBoard">
 							<div class="col-sm-2 column">
-								<img alt="140x140" src="{{leader.img}}" class="img-circle" />
+								<img alt="140x140" class="img-circle" src="http://www.gravatar.com/avatar/{{leader.hash}}?s=200&r=pg&d=mm" />
 							</div>
 							<div class="col-sm-6 column">
 								<span>{{leader.first}} {{leader.last}}</span>
@@ -245,3 +265,17 @@ color:inherit;
 	<div style="position: absolute; top:0;left:0;right:0;width:100%;height:100%;background-color:black; z-index: -3;"></div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		/* * * CONFIGURATION VARIABLES * * */
+		var disqus_shortname = 'multiplyme';
+		var disqus_identifier = 'bhattimines';
+		
+		/* * * DON'T EDIT BELOW THIS LINE * * */
+		(function () {
+			var s = document.createElement('script'); s.async = true;
+			s.type = 'text/javascript';
+			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+	</script>

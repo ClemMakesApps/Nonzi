@@ -273,6 +273,58 @@ input[type=number]::-webkit-outer-spin-button {
 .tooltip {
   width:200px;
 }
+
+.challenge-steps {
+  margin-left: 30px;
+  padding-right: 0;
+  list-style-type: none;
+  margin-top: 30px;
+}
+
+.challenge-steps li {
+  counter-increment: step-counter;
+  margin-bottom: 20px;
+  font-size: 20px;
+  position: relative;
+  min-height: 80px;
+}
+
+.challenge-steps li::before {
+  content: counter(step-counter);
+  margin-right: 15px;
+  margin-left: -38px;
+  font-size: 22px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  
+  border-radius: 50px;
+  padding-top: 25px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 25px;
+}
+
+.challenge-steps li:hover:before {
+  content: counter(step-counter);
+  margin-right: 15px;
+  margin-left: -38px;
+  font-size: 22px;
+  background-color: #278570;
+  color: white;
+}
+
+.challenge-steps .subtext {
+  font-size: 13px;
+  line-height: 15px;
+  margin-top: 10px;
+}
+
+.challenge-steps .long-steps {
+  position: absolute;
+  top: -15px;
+  line-height: 22px;
+}
 </style>
 </head>
 <body>
@@ -380,6 +432,12 @@ input[type=number]::-webkit-outer-spin-button {
                 <label for="password" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control" id="password" placeholder="New password">
+                  <p class="text-center" style="margin-top:5px">or</p>
+                 <div class="col-sm-8 col-sm-offset-2">
+                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px">
+                    <i class="fa fa-facebook"></i> Sign in with Facebook
+                  </a>
+                 </div>
                 </div>
               </div>
             </form>
@@ -395,12 +453,18 @@ input[type=number]::-webkit-outer-spin-button {
                 <p>Use your social network to make more impact</p>
                 <div class="text-left">
                     <ol class="challenge-steps">
-                        <li>Pledge a donation</li>
-                        <li>Invite 3 friends to pledge within 3 days
-                            <p>Donations will count as well</p>
+                        <li><span>Pledge a donation</span></li>
+                        <li>
+                          <span class="long-steps">
+                            Invite 3 friends to pledge within 3 days
+                            <p class="subtext">Donations will count as well</p>
+                          </span>
                         </li>
-                        <li>Your pledge is donated
-                            <p>Login to your account to check your impact stats</p>
+                        <li>
+                          <span class="long-steps">
+                            Your pledge is donated
+                            <p class="subtext">Login to your account to check your impact stats</p>
+                          </span>
                         </li>
                     </ol>
                 </div>
