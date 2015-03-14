@@ -7,7 +7,7 @@
  * # DonationCtrl
  * Controller of the appApp
  */
-angular.module('appApp')
+angular.module('multiplyMe')
   .controller('PaymentCtrl',['$scope',function ($scope) {
     $scope.payment = {}
     $scope.payment.user = {}
