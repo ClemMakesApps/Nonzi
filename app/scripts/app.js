@@ -2,14 +2,14 @@
 
 /**
 * @ngdoc overview
-* @name appApp
+* @name multiplyMe
 * @description
-* # appApp
+* # multiplyMe
 *
 * Main module of the application.
 */
 angular
-.module('appApp', [
+.module('multiplyMe', [
   'ngAnimate',
   'ngCookies',
   'ngResource',

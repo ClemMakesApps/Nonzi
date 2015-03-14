@@ -3,7 +3,7 @@
 describe('Controller: DonationCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('appApp'));
+  beforeEach(module('multiplyMe'));
 
   var DonationCtrl,
     scope;
