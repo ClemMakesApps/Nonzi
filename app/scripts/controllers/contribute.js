@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name appApp.controller:ContributeCtrl
+ * @name multiplyMe.controller:ContributeCtrl
  * @description
  * # ContributeCtrl
- * Controller of the appApp
+ * Controller of the multiplyMe
  */
-angular.module('appApp')
+angular.module('multiplyMe')
   .controller('ContributeCtrl', function ($scope, $stateParams, $timeout) {
   	$scope.selected = $stateParams.suggested;
 

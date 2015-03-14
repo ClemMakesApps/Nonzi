@@ -3,7 +3,7 @@
 describe('Service: URL', function () {
 
   // load the service's module
-  beforeEach(module('appApp'));
+  beforeEach(module('multiplyMe'));
 
   // instantiate service
   var URL;

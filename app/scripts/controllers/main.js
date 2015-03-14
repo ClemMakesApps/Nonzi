@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc function
- * @name appApp.controller:MainCtrl
+ * @name multiplyMe.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the appApp
+ * Controller of the multiplyMe
  */
-angular.module('appApp')
+angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $stateParams, $timeout) {
-
+  
   $scope.suggestedDonations = [{
     'amount': 195,
     'recurring': false,
