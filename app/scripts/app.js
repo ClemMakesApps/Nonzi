@@ -42,7 +42,8 @@ angular
   })
   .state('payment', {
     url: '/payment',
-    templateUrl: 'views/payment.html'
+    templateUrl: 'views/payment.html',
+    controller: 'PaymentCtrl'
   })
   .state('receipt', {
     url: '/receipt',
