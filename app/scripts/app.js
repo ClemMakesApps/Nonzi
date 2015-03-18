@@ -21,7 +21,7 @@ angular
 .constant('URL', 'http://localhost:3000')
 .config(function ($stateProvider, $urlRouterProvider,$authProvider) {
   $authProvider.configure({
-      apiUrl: 'http://localhost:3000'
+      apiUrl: 'api.multiplyme.in'
   });
 
   $stateProvider
