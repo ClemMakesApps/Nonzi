@@ -19,10 +19,13 @@ angular
   'ui.router'
 ])
 .constant('URL', 'http://localhost:3000')
-.config(function ($stateProvider, $urlRouterProvider,$authProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
   $authProvider.configure({
       apiUrl: 'api.multiplyme.in'
   });
+
+  $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('!');
 
   $stateProvider
    .state('main', {
