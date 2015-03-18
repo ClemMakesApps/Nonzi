@@ -59,12 +59,12 @@ angular.module('multiplyMe')
 
   $scope.org = {
     'name': 'Amala Foundation',
-    'url': 'html://amala.org',
+    'url': 'https://amalafoundation.org/',
   }
 
   $scope.cause = {
     'name': 'Bhatti Mines School',
-    'blurb': 'This is a blurb. Blurb blurb blurb',
+    'blurb': 'We fund and partner with Bhatti School Mines to help put an end to child labor, caste discrimination and poverty in New Delhi, India. ',
     'why': 'Why dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in mihdolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in mold.',
     'image': 'network.png',
     'risks': 'Risks Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui. Proin massa magna, vulputate nec bibendum nec, posuere nec lacus',
@@ -94,4 +94,20 @@ angular.module('multiplyMe')
     'raised' : 12000,
     'percent' : Math.round(12000/30294*100)
   }
+
+   
+    var vimeoFrame = $('#vimeoFrame')[0];
+    var player = $f(vimeoFrame);
+    
+    player.addEvent('ready', function() {
+        
+        player.addEvent('playProgress', onPlayProgress);
+    });
+
+    
+    function onPlayProgress(data, id) {
+        console.log(data.seconds + 's played');
+        $scope.highlights = true;
+        $scope.$apply();
+    }
 });

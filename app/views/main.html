@@ -1,11 +1,12 @@
 
+	
 <style>
 .video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
-.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 500px; }
 .spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
 .topspacer {height: 200px;}
 .background {position: absolute; margin-top: 0; z-index: -1; top: 0; left: 0; right: 0;}
-.container {width:100%;max-width:900px;margin:0 auto;padding:0 15px;}
+.container {width:100%;margin:0 auto;padding:0 15px;}
 .fullwidth {width:100%; padding: 0; margin:0;clear:both;}
 .white {background-color: white; padding-top: 30px;}
 .whitefont, .whitefont a, .whitefont a:hover {color: white}
@@ -73,42 +74,71 @@ h4 {font-size:16px;font-weight:bold;}
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{border-top:none transparent;}
 .panel a:focus, .panel a:hover{text-decoration:none;}
 @lessthan920: 
+
+.embed-container 
+{ 
+	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
+} 
+
+.embed-container iframe, .embed-container object, .embed-container embed 
+{ 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%%; 
+	height: 90%; 
+}
+
+.campaignContent {
+	position: absolute;
+	top: 90%;
+	padding-top: 10px;
+}
+
+.player .controls {
+  display: none;
+}
+
+.campaignHighlights {
+	position: absolute;
+	z-index: 100;
+	bottom: 120px;
+	width: 100%;
+}
+
+.campaignStats {
+	margin-left: 30px;
+}
+
+h1.campaignLabels {
+	font-size: 60px;
+	margin-bottom: 0px;
+	margin-left: -3px; /*fix weird bug*/
+}
+
+h3.campaignLabels {
+	font-size: 30px;
+	margin-top: 0px;
+}
+
+h2.campaignLabels {
+	font-size: 40px;
+}
+
+.campaign-tabs {
+	font-size: 18px;
+}
 	</style>
 	
 </head>
 
 <body>	
-	<div class="container">
-		<div class="row clearfix">
-			<div class="col-sm-12 column whitefont">
-				<nav class="primarynav" role="navigation">
-					<ul class="nav nav-pills">
-						<li>
-							<a href="http://multiplyme.in">MultiplyMe</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</div>
-	<div class="fullwidth">
-		<div class="row clearfix">
-			<div class="col-sm-12 column">
-				<div class="spacer topspacer">
-					<img class="btn-play" src="http://technine.com/wp-content/uploads/2014/10/white-play-button-png.png"/>
-				</div>
-			</div>
-		</div>
-	</div>
-		<div class="container whitefont topbar" >
-			<div class="row clearfix" data-spy="affix" data-offset-top="345">
-				<div class="col-sm-8 column">
-					<div class="showme">m</div>
-					<h1>
-						{{cause.name}}
-					</h1>
-					<h3>
-						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}</a>
+		<div class="container whitefont campaignHighlights" ng-hide="highlights">
+			<!-- <div class="row clearfix" data-spy="affix" data-offset-top="345"> -->
+				<div class="col-sm-offset-2 col-sm-5">
+					<h1 class="campaignLabels">{{cause.name}}</h1>
+					<h3 class="campaignLabels">
+						by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a>
 					</h3>
 					<h4 class="showme">{{money.percent}}% raised</h4>
 					<p>
@@ -116,35 +146,37 @@ h4 {font-size:16px;font-weight:bold;}
 					</p> 
 					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
 				</div>
-				<div class="col-sm-4 column">
-					<h2 class="text-left">
+				<div class="col-sm-offset-1 col-sm-2 campaignStats">
+					<h2 class="text-left campaignLabels">
 						{{cause.supporters}}
 					</h2>
 					<p class="text-left">
 						supporters
 					</p>
-					<h2 class="text-left">
+					<h2 class="text-left campaignLabels">
 						${{money.raised}}
 					</h2>
 					<p class="text-left">
 						donated of ${{money.requested}}
 					</p>
-					<h2 class="text-left">
+					<h2 class="text-left campaignLabels">
 						{{days.remaining}}
 					</h2>
 					<p class="text-left">
 						days to go
 					</p>
 				</div>
-				<hr>
-			</div>
+			<!-- </div> -->
 	</div>
-	<div class="fullwidth white">
+	<div class='embed-container'>
+		<iframe id="vimeoFrame" src='http://player.vimeo.com/video/14074949?api=1&title=0&byline=0&portrait=0&player_id=vimeoFrame' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	</div>
+	<div class="fullwidth white campaignContent">
 		<div class="container">		
 			<div class="row clearfix">
-				<div class="col-sm-8 column">
+				<div class="col-sm-offset-2 col-sm-5 column">
 					<div class="tabbable" id="tabs-694560">
-						<ul class="nav nav-tabs">
+						<ul class="nav nav-tabs campaign-tabs">
 							<li class="active">
 								<a href="#description" data-toggle="tab">Description</a>
 							</li>
@@ -227,11 +259,12 @@ h4 {font-size:16px;font-weight:bold;}
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4 column">
-					 <button type="button" href="/#/contribute" class="btn btn-lg btn-primary">Contribute</button>
+				<div class="col-sm-3 column">
+					 <button type="button" class="btn btn-lg btn-primary">Contribute</button>
 					<p class="text-center small">
 						Campaign will end on {{days.end | date:'MM/dd/yy'}}						
 					</p> 
+					<h3>Suggested Donations</h3>
 					<a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
 						<div class="perks" ng-class="{'perk-selected':$index == selected}">
 							<h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
@@ -259,12 +292,6 @@ h4 {font-size:16px;font-weight:bold;}
 			</div>
 		</div>
 	</div>
-	<div class="background">
-		<div class="video">
-		<iframe src="http://player.vimeo.com/video/102413354?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-	<div style="position: absolute; top:0;left:0;right:0;width:100%;height:100%;background-color:black; z-index: -3;"></div>
-		</div>
-	</div>
 	
 	<script type="text/javascript">
 		/* * * CONFIGURATION VARIABLES * * */
@@ -277,5 +304,7 @@ h4 {font-size:16px;font-weight:bold;}
 			s.type = 'text/javascript';
 			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+
+
 		}());
 	</script>
