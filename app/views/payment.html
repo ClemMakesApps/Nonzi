@@ -1,4 +1,9 @@
 <style>
+.btn-default,
+.btn-default:hover {
+  background-color: transparent;
+}
+
 .small-logo {
     color: black;
     margin-right: 10px;
@@ -325,9 +330,21 @@ input[type=number]::-webkit-outer-spin-button {
   top: -15px;
   line-height: 22px;
 }
+
+.highlightChallenge {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.challenge {
+  z-index: 10;
+  position: relative;
+}
 </style>
-</head>
-<body>
 <header class="header-overview">
     <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
     <h2 class="proj-name">Bhatti Mines School</h2>
@@ -445,7 +462,7 @@ input[type=number]::-webkit-outer-spin-button {
                   id="password" placeholder="New password">
                   <i ng-show="paymentForm.password.$error.minlength"  class="fa fa-close"></i>
                   <p class="text-center" style="margin-top:5px">or</p>
-                 <div class="col-sm-8 col-sm-offset-2">
+                 <div class="col-lg-8 col-lg-offset-2 col-sm-6 col-sm-offset-3">
                    <a class="btn btn-block btn-social btn-facebook" style="font-size:13px">
                     <i class="fa fa-facebook"></i> Sign in with Facebook
                   </a>
@@ -460,7 +477,7 @@ input[type=number]::-webkit-outer-spin-button {
                 <a class="pull-right" href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                 <span class="pledge-font block clearfix">$40.00 USD</span>
             </div>
-            <div class="perk-background rounded-background text-center">
+            <div class="perk-background rounded-background text-center challenge">
                 <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
                 <p>Use your social network to make more impact</p>
                 <div class="text-left">
@@ -480,13 +497,14 @@ input[type=number]::-webkit-outer-spin-button {
                         </li>
                     </ol>
                 </div>
-                <button type="button" class="btn btn-info btn-action">Just<br><span style="font-weight:bold;font-size:16px;">Donate</span></button>
+                <button type="button" class="btn btn-default btn-action">Just<br><span style="font-weight:bold;font-size:16px;">Donate</span></button>
                 <button type="button" class="btn btn-success btn-action">Take the<br><span style="font-weight:bold;font-size:16px;">Challenge</span></button>
             </div>
             <p>By proceeding you agree to MultiplyMe’s <br><a href="#/terms">Terms of Use</a> and <a href="#/privacy">Privacy Policy</a><p>
         </div>
     </div>
 </div>
+<!-- <div class="highlightChallenge"></div> -->
 <footer></footer>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()
