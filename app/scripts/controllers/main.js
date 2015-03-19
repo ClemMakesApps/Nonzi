@@ -27,7 +27,7 @@ angular.module('multiplyMe')
   $scope.leaderBoard = [{
     'first': 'Donatello',
     'last': 'Turtle',
-    'img': '205e460b479e2e5b48aec07710c08d50',
+    'img': 'e130a4be9fba5eb5d932c813fbe3a58d',
     'amount': 100
   },{
     'first': 'Raphael',
@@ -37,12 +37,12 @@ angular.module('multiplyMe')
   },{
     'first': 'Leonardo',
     'last': 'Turtle',
-    'img': '205e460b479e2e5b48aec07710c08d50',
+    'img': '205e460b479e2e5b48aec07410c08d50',
     'amount': 50
   },{
     'first': 'Michelangelo',
     'last': 'Turtle',
-    'img': '205e460b479e2e5b48aec07710c08d50', 
+    'img': '205e460b479e2e5b48aec07710c08d53', 
     'amount': 25
   }]
 
@@ -105,9 +105,18 @@ angular.module('multiplyMe')
     });
 
     
+
     function onPlayProgress(data, id) {
         console.log(data.seconds + 's played');
-        $scope.highlights = true;
-        $scope.$apply();
+        // $scope.highlights = true;
+        // $scope.$apply();
+
+        $( ".campaignHighlights" ).animate({"bottom": "-200px"}, 1000, function() {
+          $( ".campaignHighlights" ).removeClass("whitefont");
+          $( ".campaignHighlights" ).css("color","black");
+          $( ".campaignHighlights .btn" ).css("color","black");
+        });
+        $( ".campaignContent" ).animate({"padding-top": "300px"}, 1000);
+        player.removeEvent('playProgress');
     }
 });

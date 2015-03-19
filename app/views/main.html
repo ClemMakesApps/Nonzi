@@ -1,5 +1,3 @@
-
-	
 <style>
 .video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
 .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 500px; }
@@ -123,16 +121,41 @@ h3.campaignLabels {
 
 h2.campaignLabels {
 	font-size: 40px;
+	margin-bottom: 0px;
 }
 
 .campaign-tabs {
 	font-size: 18px;
 }
-	</style>
-	
-</head>
 
-<body>	
+nav.campaign {
+	position: absolute;
+	top: 10px;
+	z-index: 10;
+	color: white;
+	width: 100%;
+}
+
+.campaign .btn {
+	color: white;
+	float: right;
+	margin-right: 80px;
+}
+
+.campaign span {
+	margin-left: 80px;
+}
+
+.action-header {
+	margin-top: 30px;
+}
+	</style>
+		<nav class="campaign">
+			<span>MultiplyMe</span>
+			<a href="/signin" class="btn btn-xs btn-default text-right" type="button">
+				Sign In
+			</a>
+		</nav>
 		<div class="container whitefont campaignHighlights" ng-hide="highlights">
 			<!-- <div class="row clearfix" data-spy="affix" data-offset-top="345"> -->
 				<div class="col-sm-offset-2 col-sm-5">
@@ -260,12 +283,12 @@ h2.campaignLabels {
 					</div>
 				</div>
 				<div class="col-sm-3 column">
-					 <button type="button" class="btn btn-lg btn-primary">Contribute</button>
+					 <a class="btn btn-lg btn-primary" href="/contribute">Contribute</a>
 					<p class="text-center small">
 						Campaign will end on {{days.end | date:'MM/dd/yy'}}						
 					</p> 
-					<h3>Suggested Donations</h3>
-					<a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+					<h3 class="action-header">Suggested Donations</h3>
+					<a role="button" ng-href="/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
 						<div class="perks" ng-class="{'perk-selected':$index == selected}">
 							<h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
 							<span>{{suggest.message}}</span>
@@ -273,12 +296,10 @@ h2.campaignLabels {
 						</div>
 					</a>
 					<div class="leaderboard">
-						<h3>
-							Leaderboard
-						</h3>
+						<h3 class="action-header">Leaderboard</h3>
 						<div class="row clearfix" ng-repeat="leader in leaderBoard">
 							<div class="col-sm-2 column">
-								<img alt="140x140" class="img-circle" src="http://www.gravatar.com/avatar/{{leader.hash}}?s=200&r=pg&d=mm" />
+								<img alt="140x140" class="img-circle" ng-src="http://www.gravatar.com/avatar/{{leader.img}}?s=200&r=pg&d=mm" />
 							</div>
 							<div class="col-sm-6 column">
 								<span>{{leader.first}} {{leader.last}}</span>
