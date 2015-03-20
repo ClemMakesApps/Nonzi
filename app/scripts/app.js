@@ -50,7 +50,8 @@ angular
   })
   .state('receipt', {
     url: '/receipt',
-    templateUrl: 'views/receipt.html'
+    templateUrl: 'views/receipt.html',
+    controller: 'ReceiptCtrl'
   })
   .state('terms', {
     url: '/terms',
