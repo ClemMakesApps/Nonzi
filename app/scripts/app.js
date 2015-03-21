@@ -21,23 +21,27 @@ angular
 .constant('URL', 'http://localhost:3000')
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
   $authProvider.configure({
-      apiUrl: 'api.multiplyme.in'
+    apiUrl: 'https://api.multiplyme.in'
   });
 
   $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
 
   $stateProvider
-   .state('main', {
+    .state('auth', {
+      abstract: true,
+      template: '<ui-view/>',
+      resolve: {
+        auth: function($auth){
+          return $auth.validateUser();
+        }
+      }
+    })
+   .state('auth.main', {
      url: '/',
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
    })
-  //.state('main', {
-  //  url: '/',
-  //  templateUrl: 'views/firstpage.html',
-  //  controller: 'FirstpageCtrl'
-  //})
   .state('contribute', {
     url: '/contribute?suggested',
     templateUrl: 'views/contribute.html',
