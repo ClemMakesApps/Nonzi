@@ -167,7 +167,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .impact-box {
-    width: 200px;
+    width: 100%;
     height: 200px;
     background-color: #E3F5F1;
     border-radius: 10px;
@@ -187,6 +187,11 @@ input[type=number]::-webkit-outer-spin-button {
 .impact-section {
     position: relative;
     display: inline-block;
+    width: 100%;
+}
+
+.impact-section-container {
+    text-align: center;
 }
 
 .impact-container {
@@ -203,8 +208,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 .impact-operand {
     font-size: 50px;
-    line-height: 250px;
+    line-height: 250px;   
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .impact-operand {
+        font-size: 50px;
+        line-height: 100px;   
+        text-align: center;
+    }
 }
 
 .account-container {
@@ -223,8 +236,28 @@ input[type=number]::-webkit-outer-spin-button {
 .donation-management {
     position: absolute;
     bottom: 35px;
-    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     text-align: center;
+    width: 100%;
+}
+
+.btn-action {
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.btn-action div {
+    font-weight: bold;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn-logout {
+    position: absolute;
+    right: 20px;
+    top: 25px;
 }
 </style>
 <header class="header-overview">
@@ -233,30 +266,31 @@ input[type=number]::-webkit-outer-spin-button {
     <div class="proj-details">
         <span>Donor Portal</span>
     </div>
+    <button type="button" class="btn-default btn btn-logout">Logout</button>
 </header>
 <div class="container-fluid">
-    <div class="col-md-offset-2 col-md-8">
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12">
         <h2 class="title-strong">Welcome Clement!</h2>
         <div class="impact-container">
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Donation</span>
                     <div class="impact-box"><span class="impact-amount">$5</span></div>
                 </div>
             </div>
-            <div class="col-md-1 impact-operand">
-                +
+            <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
+                <span class="position-center">+</span>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Network</span>
                     <div class="impact-box"><span class="impact-amount">$100</span></div>
                 </div>
             </div>
-            <div class="col-md-1 impact-operand">
-                =
+            <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
+                <span class="position-center">=</span>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Impact</span>
                     <div class="impact-box actual-impact"><span class="impact-amount">$105</span></div>
@@ -264,8 +298,8 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
         </div>
     </div>
-    <div class="col-md-offset-2 col-md-8 account-container">
-        <div class="col-md-7">
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container">
+        <div class="col-lg-7 col-md-7 col-sm-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Change Password</h3>
@@ -295,7 +329,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-4 col-sm-4">
             <div class="panel panel-default" style="height: 264px">
                 <div class="panel-heading">
                     <h3 class="panel-title">Recurring Donation</h3>
@@ -304,8 +338,8 @@ input[type=number]::-webkit-outer-spin-button {
                     You are currently donating
                     <div class="impact-amount">$5 <span class="month-label">per month</span></div>
                     <div class="donation-management">
-                        <button type="submit" class="btn btn-danger">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Modify</button>
+                        <button type="button" class="btn btn-danger btn-action"><div>Cancel</div>Recurring</button>
+                        <button type="button" class="btn btn-primary btn-action"><div>Modify</div>Recurring</button>
                     </div>
                 </div>
             </div>
