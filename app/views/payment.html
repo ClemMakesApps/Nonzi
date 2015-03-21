@@ -15,13 +15,17 @@
 }
 
 .header-overview {
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom-color: black;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
 
 .proj-name {
+    font-size: 18px;
     display: inline;
 }
 
@@ -276,6 +280,12 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 2.5px;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .tooltip {
   width:200px;
 }
@@ -284,7 +294,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 30px;
   padding-right: 0;
   list-style-type: none;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .challenge-steps li {
@@ -340,7 +350,7 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-donate {
   display: block;
   margin-top: 5px;
-  color: black;
+  /*color: black;*/
   font-size: 12px;
 }
 
@@ -367,6 +377,11 @@ input[type=number]::-webkit-outer-spin-button {
 .payment-container {
   margin-top: 20px;
 }
+
+.btn-facebook:hover {
+  color: white;
+}
+
 </style>
 <header class="header-overview">
     <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
@@ -405,34 +420,21 @@ input[type=number]::-webkit-outer-spin-button {
                          ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number">
                   <span ng-show="paymentForm.cardNumber.$error.pattern"><i class="fa fa-close"></i></span>
                   </div>
-                  <img src="../images/visa.png"  class="creditcard-images">
-                  <img src="../images/mastercard.png" class="creditcard-images" >
-                  <img src="../images/amex.png"  class="creditcard-images">
-                  <img src="../images/discover.png" class="creditcard-images">
+                  <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
+                  <img src="../images/mastercard.png" class="creditcard-images" ng-class="{'grayscale':!mastercard}">
+                  <img src="../images/amex.png"  class="creditcard-images" ng-class="{'grayscale':!amex}">
+                  <img src="../images/discover.png" class="creditcard-images" ng-class="{'grayscale':!discover}">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Expiration</label>
                 <div class="col-sm-2" style="margin-right:-25px">
-                  <select class="form-control">
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
-                      <option>04</option>
-                      <option>05</option>
-                      <option>06</option>
-                      <option>07</option>
-                      <option>08</option>
-                      <option>09</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                    </select>
+                  <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths">
+                  </select>
                 </div>
                 <div class="col-sm-3" style="margin-right: -35px;padding-right: 35px;px">
-                  <select class="form-control">
-                      <option>2015</option>
-                    </select>
+                  <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears">
+                  </select>
                 </div>
                 <div class="col-sm-5">
                     <label for="cvc" class="col-sm-2 col-sm-offset-1 control-label">CVC</label>
@@ -485,14 +487,14 @@ input[type=number]::-webkit-outer-spin-button {
               <p>Cancel reocurring donations, measure your impact and <a href="#">more.</a></p>
               <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Password</label>
-                <div class="col-sm-8">
+                <div class="col-sm-9">
                   <div class="col-sm-7 password-container">
-                    <input name="password" ng-model="payment.user.password" ng-minlength="6" type="password" class="form-control"
+                    <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control"
                   id="password" placeholder="New password"> or
                   </div>
                   <div class="col-sm-5 btn-facebook-container">
-                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px">
-                    <i class="fa fa-facebook"></i> Sign in
+                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()">
+                    <i class="fa fa-facebook"></i> Use Facebook
                   </a>
                   </div>
                   <!-- <i ng-show="paymentForm.password.$error.minlength"  class="fa fa-close"></i> -->
@@ -535,7 +537,7 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
     </div>
 </div>
-<!-- <div class="highlightChallenge"></div> -->
+<div class="highlightChallenge" ng-show="highlightNext"></div>
 <footer></footer>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()
