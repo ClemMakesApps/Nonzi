@@ -5,7 +5,7 @@ angular.module('multiplyMe')
     // Service logic
     // ...
 
-    var url = 'https://104.131.176.248/api/v1/';
+    var url = 'https://api.multiplyme.in/v1/';
 
     // Public API here
     return url;
