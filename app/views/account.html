@@ -1,0 +1,249 @@
+<style>
+.small-logo {
+    color: black;
+    margin-right: 10px;
+}
+
+.org-link {
+    color: black;
+    text-decoration: underline;
+}
+
+.header-overview {
+    padding: 15px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.proj-name {
+    display: inline;
+}
+
+.proj-details {
+    margin-left: 45px;
+}
+
+.title-strong {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pledge {
+    background-color: #E3F5F1;
+    padding: 40px;
+    border-radius: 10px;
+}
+.perks{
+    cursor: pointer;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    position: relative;
+    text-decoration:none;
+}
+
+.perks:hover {
+    background-color: #278570;
+    color: white;
+    text-decoration:none;
+}
+
+.perk-promo {
+    background-color: #278570;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promo-tag {
+    display: inherit;
+    margin-bottom: 5px;
+}
+
+a[role=button], a[role=button]:focus, a[role=button]:hover{
+  text-decoration:none;
+  color:inherit;
+}
+
+/*override*/
+.btn-success {
+    background-color: #50E3C2;
+    color: black;
+    border-color: transparent;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+/*override*/
+.btn-success:hover {
+    background-color:#278570;
+    border-color: transparent;
+    color: white; 
+}
+
+.btn-clear {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #50E3C2;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.pledge-input {
+    border: 1px solid black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 80px 7px 35px;
+    display: inline;
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pledge-input:focus {
+    outline: 0;
+}
+
+/*override*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.form-pledge {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.currency-label {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.perk-selected {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-selected .fa-check-square {
+    color: #73E8CE;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 40px;
+}
+
+.no-margin-top {
+    margin-top: 0px;
+}
+
+.impact-box {
+    width: 200px;
+    height: 200px;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 5px;
+}
+
+.impact-amount {
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.impact-section {
+    position: relative;
+    display: inline-block;
+}
+
+.impact-container {
+    margin-top: 20px;
+}
+
+.impact-label {
+    font-size: 18px;
+}
+
+.actual-impact {
+    background-color: #73E8CE;
+}
+
+.impact-operand {
+    font-size: 50px;
+    line-height: 250px;
+    text-align: center;
+}
+
+
+</style>
+<header class="header-overview">
+    <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
+    <h2 class="proj-name">Bhatti Mines School</h2>
+    <div class="proj-details">
+        <span>Donor Portal</span>
+    </div>
+</header>
+<div class="container-fluid">
+  <div class="col-md-offset-2 col-md-8">
+    <h2 class="title-strong">Welcome Clement!</h2>
+    <div class="impact-container">
+        <div class="col-md-3">
+            <div class="impact-section">
+                <span class="impact-label">Your Donation</span>
+                <div class="impact-box"><span class="impact-amount">$5</span></div>
+            </div>
+        </div>
+        <div class="col-md-1 impact-operand">
+            +
+        </div>
+        <div class="col-md-3">
+            <div class="impact-section">
+                <span class="impact-label">Your Network</span>
+                <div class="impact-box"><span class="impact-amount">$100</span></div>
+            </div>
+        </div>
+        <div class="col-md-1 impact-operand">
+            =
+        </div>
+        <div class="col-md-3">
+            <div class="impact-section">
+                <span class="impact-label">Your Impact</span>
+                <div class="impact-box actual-impact"><span class="impact-amount">$105</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer></footer>

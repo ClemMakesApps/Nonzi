@@ -150,6 +150,10 @@ nav.campaign {
 .action-header {
 	margin-top: 30px;
 }
+
+.faq-title {
+  color: #337ab7;
+}
 </style>
 <nav class="campaign">
 	<span>MultiplyMe</span>
@@ -215,7 +219,7 @@ nav.campaign {
                 <div class="panel-group" id="accordion">
                   <div class="panel panel-default" ng-repeat="qa in faq">
                     <div class="panel-heading">
-                      <h5 class="panel-title">
+                      <h5 class="panel-title faq-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index + 1}}">{{qa.question}}</a>
                       </h5>
                     </div>

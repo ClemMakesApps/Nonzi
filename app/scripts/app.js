@@ -48,6 +48,10 @@ angular
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
+  .state('account', {
+    url: '/account',
+    templateUrl: 'views/account.html'
+  })
   .state('receipt', {
     url: '/receipt',
     templateUrl: 'views/receipt.html',
