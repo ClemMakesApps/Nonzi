@@ -9,6 +9,6 @@
  */
 angular.module('multiplyMe')
   .factory('Donation', ['$resource', 'api', function ($resource, api) {
-    return $resource(api + '/donations/:id');
+    return $resource(api + 'donations/:id');
     }]
   );
