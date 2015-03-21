@@ -37,7 +37,7 @@ angular
         }
       }
     })
-   .state('auth.main', {
+   .state('main', {
      url: '/',
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
@@ -52,7 +52,7 @@ angular
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
-  .state('account', {
+  .state('auth.account', {
     url: '/account',
     templateUrl: 'views/account.html'
   })
