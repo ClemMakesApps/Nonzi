@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams) {
+  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
     $scope.amount = $stateParams.amount;
     $scope.isSubscription = $stateParams.isSubscription ? 'A month' : ''
     var createToken = function(number, exp_month, exp_year, cvc){
@@ -54,6 +54,9 @@ angular.module('multiplyMe')
               token: token,
               email: payment.user.email
             }
+          },
+          function(result){
+            $state.go('receipt', {donationId: result.donation.id});
           });
         });
     }
