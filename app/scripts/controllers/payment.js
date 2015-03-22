@@ -10,7 +10,11 @@
 angular.module('multiplyMe')
   .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
     $scope.amount = $stateParams.amount;
-    $scope.isSubscription = $stateParams.isSubscription ? 'A month' : ''
+
+    if($stateParams.isSubscription == "true") {
+      $scope.isSubscription = true;
+    }
+
     var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
       Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');

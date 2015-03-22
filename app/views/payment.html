@@ -388,6 +388,11 @@ input[type=number]::-webkit-outer-spin-button {
   color: white;
 }
 
+.subscription-font {
+  font-size: 15px;
+  font-weight: normal;
+}
+
 </style>
 <header class="header-overview">
     <a class="small-logo" href="/"><img class="logo" src="../images/m.png"></a>
@@ -405,7 +410,7 @@ input[type=number]::-webkit-outer-spin-button {
   </div> -->
 	<div class="col-md-offset-2 col-md-6">
 		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged $40 upon completion of the challenge. <a href="#">Learn More.</a></span>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#">Learn More.</a></span>
 	</div>
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8">
         <div class="col-lg-7 col-md-5 content paymentFields">
@@ -514,7 +519,7 @@ input[type=number]::-webkit-outer-spin-button {
                 <span>Pledge Amount</span>
                 <a class="pull-right" href="/contribute"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                 <span class="pledge-font block clearfix">{{amount | currency}} USD</span>
-                <span class="pledge-font block clearfix">{{isSubscription}}</span>
+                <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
             </div>
             <div class="perk-background rounded-background text-center challenge">
                 <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
