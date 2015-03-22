@@ -48,7 +48,7 @@ angular
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment',
+    url: '/payment?isSubscription&amount',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
@@ -61,6 +61,10 @@ angular
     url: '/receipt',
     templateUrl: 'views/receipt.html',
     controller: 'ReceiptCtrl'
+  })
+  .state('sharedReceipt', {
+    url: '/sharedReceipt',
+    templateUrl: 'views/sharedReceipt.html'
   })
   .state('terms', {
     url: '/terms',

@@ -8,7 +8,70 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl',['$scope','$auth', '$timeout', '$state', function ($scope,$auth, $timeout, $state) {
+  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams) {
+    $scope.amount = $stateParams.amount;
+    $scope.isSubscription = $stateParams.isSubscription ? 'A month' : ''
+    var createToken = function(number, exp_month, exp_year, cvc){
+      var deferred = $q.defer();
+      Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
+      Stripe.card.createToken({
+        number: number,
+        exp_month: exp_month,
+        exp_year: exp_year,
+        cvc: cvc
+      },
+      function(status, response){
+        deferred.resolve(response.id);
+      });
+      return deferred.promise;
+    };
+
+    var logInUser = function(){
+      var payment = $scope.payment;
+      $auth.submitLogin({
+        email: payment.user.email,
+        password: $scope.password
+      }).then(function(){
+        createDonation();
+      });
+    }
+
+    var createDonation = function(){
+      var payment = $scope.payment;
+      createToken(
+        payment.cardNumber,
+        payment.expirationMonth,
+        payment.expirationYear,
+        payment.cvc)
+        .then(function(token){
+          Donation.save({
+            donation: {
+              amount: Math.floor($stateParams.amount * 100),
+              organization_id: 1,
+              is_subscription: $scope.isSubscription
+            },
+            card: {
+              token: token,
+              email: payment.user.email
+            }
+          });
+        });
+    }
+
+    $scope.submit = function(){
+      var payment = $scope.payment;
+      $auth.submitRegistration(
+        {
+          email: payment.user.email,
+          password: $scope.password,
+          password_confirmation: $scope.password
+        }
+      )
+      .then(function(result){
+        logInUser();
+      });
+    };
+
     $scope.payment = {}
     $scope.payment.user = {}
 
@@ -111,4 +174,4 @@ angular.module('multiplyMe')
     $scope.$watch('payment.cardNumber', $scope.highlightMerchant);
     $scope.$watch('password', $scope.highlightChallenge);
 
-  }]);
+  });

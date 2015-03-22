@@ -161,11 +161,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.thankful {
+.shared-receipt-bg {
     background: linear-gradient(
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
-    ), url("../images/thankful.jpg");
+    ), url("../images/shared-min.png");
     background-size: cover;
     background-position: 50% 17%;
     width:100%;
@@ -208,9 +208,8 @@ html, body {
     top: 30px;
 }
 
-.social-links .btn{
-    font-size: 50px !important;
-    /*height: 50px;*/
+.social-links {
+    font-size: 50px;
 }
 
 .fa-facebook-square {
@@ -245,14 +244,64 @@ html, body {
     left:1px;
     z-index: -1;
 }
-.social-actions{
-    font-size: 50px;
-    background-color: transparent;
-    border: none;
+.btn-social{
+  background-color: transparent;
+  border:none;
 }
 
-.fa-envelope {
-  font-size: 40px;
+.pyramid {
+    margin-top: 50px;
+}
+
+.unknown-donor {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px; 
+    background-color: #D8D8D8;
+    position: relative;
+}
+
+.unknown-donor span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.second-level {
+    margin-top: 30px;
+    color: black;
+}
+
+.lines {
+      margin-top: 20px;
+  margin-left: 0.5px;
+}
+
+.pledge-info {
+    font-weight: 200;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+
+.invitation {
+    margin-top: 25px;
+}
+
+.invitation-action .btn{
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.invitation-action {
+    margin-top: 30px;
 }
 
 nav.header-transparent {
@@ -280,18 +329,37 @@ nav.header-transparent {
 <nav class="header-transparent">
     <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
 </nav>
-<div class="container-fluid thankful bg-container-image">
-    <div class="col-md-offset-3 col-md-6 text-center text-white thanks-heading">
-        <h1 class="text-thanks">Thank you John, <br>for supporting the Bhatti Mines School</h1>
-        <span class="text-pledged">You pledged $4</span>
+<div class="container-fluid shared-receipt-bg bg-container-image">
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
+        <h1 class="text-thanks">John pledged $4 to support the<br>Bhatti Mines School</h1>
     </div>
-    <div class="col-md-offset-3 col-md-6 text-center text-white share-tools">
-        <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
-        <div class="social-links">
-            <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-            <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-            <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
-            <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center pyramid">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3 col-sm-offset-1 col-sm-10">
+                <img style="width:100px;float:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/rem/128.jpg" class="img-circle">
+            </div>
+        </div>
+        <div class="row lines">
+            <img src="../images/pyramid-arrows.png">
+        </div>
+        <div class="row second-level">
+             <div class="col-md-offset-2 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-1 col-xs-3">
+                <div class="unknown-donor"><span>?</span></div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="unknown-donor"><span>?</span></div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="unknown-donor"><span>You?</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-offset-3 col-md-6 text-center">
+        <h3 class="pledge-info">3 more pledges within 2 days are still needed <br> or this pledge will <em>not</em> be donated</h3>
+        <h3 class="text-white invitation">Will you join John in this cause?</h3>
+        <div class="invitation-action">
+            <a class="btn btn-primary btn-lg" href="/">Learn More</a>
+            <a class="btn btn-success btn-lg" href="/contribute">Contribute</a>
         </div>
     </div>
 </div>
