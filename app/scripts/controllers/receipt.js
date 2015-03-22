@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('multiplyMe')
-  .controller('ReceiptCtrl', ['$scope','$window','$location', function ($scope,$window,$location) {
+  .controller('ReceiptCtrl', function ($scope, $window, $location, $stateParams, Donation, $auth) {
+    $scope.amount = Donation.donation.amount / 100;
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
@@ -24,4 +25,4 @@ angular.module('multiplyMe')
         //   'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
-  }]);
+  });

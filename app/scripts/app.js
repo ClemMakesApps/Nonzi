@@ -60,7 +60,12 @@ angular
   .state('receipt', {
     url: '/receipt/:donationId',
     templateUrl: 'views/receipt.html',
-    controller: 'ReceiptCtrl'
+    controller: 'ReceiptCtrl',
+    resolve: {
+      Donation: function(DonationLoader, $stateParams){
+        return DonationLoader($stateParams.donationId);
+      }
+    }
   })
   .state('sharedReceipt', {
     url: '/sharedReceipt/:donationId',
