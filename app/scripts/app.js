@@ -48,7 +48,7 @@ angular
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment',
+    url: '/payment?isSubscription&amount',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
