@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl',['$scope','$auth', '$timeout' ,function ($scope,$auth, $timeout) {
+  .controller('PaymentCtrl',['$scope','$auth', '$timeout', '$state', function ($scope,$auth, $timeout, $state) {
     $scope.payment = {}
     $scope.payment.user = {}
 
@@ -45,10 +45,11 @@ angular.module('multiplyMe')
     $scope.register = function(){
       $auth.submitRegistration($scope.payment.user)
       .then(function(resp){
-
+        console.log('login successful ' + resp);
+        $state.go('/account');
       })
       .catch(function(error){
-
+        console.log(error);
       })
     }
 
@@ -66,10 +67,10 @@ angular.module('multiplyMe')
           for (var i=0; i<prefix.length; i++) {
                var exp = new RegExp ("^" + prefix[i]);
                if (exp.test (cardNo))
-                    return cards[cardType].cardName;            
+                    return cards[cardType].cardName;
          }
       }
-       return -1;       
+       return -1;
     }
 
 

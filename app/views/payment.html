@@ -498,7 +498,7 @@ input[type=number]::-webkit-outer-spin-button {
                   </a>
                   </div>
                   <!-- <i ng-show="paymentForm.password.$error.minlength"  class="fa fa-close"></i> -->
-                  
+
                 </div>
               </div>
             </form>
@@ -530,7 +530,9 @@ input[type=number]::-webkit-outer-spin-button {
                     </ol>
                 </div>
                 <!-- <button type="button" class="btn btn-default btn-action">Just<br><span style="font-weight:bold;font-size:16px;">Donate</span></button> -->
-                <button type="button" class="btn btn-success btn-action">Take the<br><span style="font-weight:bold;font-size:16px;">Challenge</span></button>
+                <button ng-click="register()" type="button" class="btn btn-success btn-action">
+                  Take the<br><span style="font-weight:bold;font-size:16px;">Challenge</span>
+                  </button>
                 <a class="btn-donate" href="#">I'd prefer to just donate</a>
             </div>
             <p>By proceeding you agree to MultiplyMe’s <br><a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a><p>

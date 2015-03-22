@@ -54,7 +54,8 @@ angular
   })
   .state('auth.account', {
     url: '/account',
-    templateUrl: 'views/account.html'
+    templateUrl: 'views/account.html',
+    controller: 'AccountCtrl'
   })
   .state('receipt', {
     url: '/receipt',
