@@ -58,12 +58,12 @@ angular
     controller: 'AccountCtrl'
   })
   .state('receipt', {
-    url: '/receipt',
+    url: '/receipt/:donationId',
     templateUrl: 'views/receipt.html',
     controller: 'ReceiptCtrl'
   })
   .state('sharedReceipt', {
-    url: '/sharedReceipt',
+    url: '/sharedReceipt/:donationId',
     templateUrl: 'views/sharedReceipt.html'
   })
   .state('terms', {
