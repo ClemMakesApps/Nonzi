@@ -11,7 +11,6 @@ angular.module('multiplyMe')
   .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams) {
     $scope.amount = $stateParams.amount;
     $scope.isSubscription = $stateParams.isSubscription ? 'A month' : ''
-    console.log('amount', $scope.amount);
     var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
       Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
@@ -69,7 +68,6 @@ angular.module('multiplyMe')
         }
       )
       .then(function(result){
-        //console.log(result);
         logInUser();
       });
     };
