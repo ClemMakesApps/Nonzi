@@ -18,5 +18,10 @@ angular.module('multiplyMe')
           '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
+      if(provider === 'email'){
+        // $window.open(
+        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
     }
   }]);

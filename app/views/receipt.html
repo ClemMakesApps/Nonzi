@@ -208,8 +208,9 @@ html, body {
     top: 30px;
 }
 
-.social-links {
-    font-size: 50px;
+.social-links .btn{
+    font-size: 50px !important;
+    /*height: 50px;*/
 }
 
 .fa-facebook-square {
@@ -244,9 +245,14 @@ html, body {
     left:1px;
     z-index: -1;
 }
-.btn-social{
-  background-color: transparent;
-  border:none;
+.social-actions{
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+}
+
+.fa-envelope {
+  font-size: 40px;
 }
 /*
 .ng-scope  {
@@ -271,9 +277,10 @@ html, body {
     <div class="col-md-offset-3 col-md-6 text-center text-white share-tools">
         <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
         <div class="social-links">
-            <button class="btn-social" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-            <button class="btn-social" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-            <button class="btn-social" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
+            <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
+            <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
+            <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
+            <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
         </div>
     </div>
 </div>
