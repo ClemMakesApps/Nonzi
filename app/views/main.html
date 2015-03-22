@@ -92,6 +92,7 @@ h4 {font-size:16px;font-weight:bold;}
 	top: 90%;
 	padding-top: 10px;
 	width: 100%;
+  margin-bottom: 50px;
 }
 
 .player .controls {
@@ -149,11 +150,19 @@ nav.campaign {
 
 .action-header {
 	margin-top: 30px;
+  font-size: 18px;
 }
 
 .faq-title {
   color: #337ab7;
 }
+
+.campaign-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
 </style>
 <nav class="campaign">
 	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
@@ -165,7 +174,7 @@ nav.campaign {
 		<h1 class="campaignLabels">{{cause.name}}</h1>
 		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
 		<p>{{cause.blurb}}</p> 
-		<a href="#" class="btn btn-xs btn-default">Share the Fundraiser</a>
+		<a href="#" class="btn btn-default">Share the Fundraiser</a>
 	</div>
 	<div class="col-sm-offset-1 col-sm-2 campaignStats">
 		<h2 class="text-left campaignLabels">{{cause.supporters}}</h2>
@@ -191,7 +200,7 @@ nav.campaign {
               <a href="#description" data-toggle="tab">Description</a>
             </li>
             <li>
-              <a href="#updates" data-toggle="tab">Updates (2)</a>
+              <a href="#updates" data-toggle="tab">Updates</a>
             </li>
             <li>
               <a href="#comments" data-toggle="tab">Comments 
@@ -202,20 +211,20 @@ nav.campaign {
           <div class="tab-content">
             <div class="tab-pane active" id="description">
               <p>
-                <h4>Why should you support us?</h4>
-                <img alt="infographic placeholder" src="images/{{cause.image}}" />
+                <h3 class="campaign-header">Why should you support us?</h3>
+                <img alt="infographic placeholder" src="images/{{cause.image}}" style="max-width:100%" />
                 <p>{{cause.why}}</p> 
 
-                <h4>How can I help?</h4>
-                <img alt="infographic placeholder" src="https://placeimg.com/140/140/people" />
+                <h3 class="campaign-header">How can I help?</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+                  Pray pray pray! I desire God to lead me in this journey. Please also contribute to my campaign - specifically, take the MultiplyMe challenge! My church has partnered with MultiplyMe to help raise more funds than I could normally raise.
+                  The main concept is for each of you to make a pledge to donate, invite 3 of your friends to join and pledge or donate within 3 days. We are basically replicating the ice bucket challenge for mission trip fundraising! It would be a <em>huge blessing</em> to be fully funded before I leave on my trip in May 1st. 
                 </p> 
 
-                <h4>Risks and Challenges</h4>
+                <h3 class="campaign-header">Risks and Challenges</h3>
                 <p>{{cause.risks}}</p> 
 
-                <h4>FAQ</h4>  
+                <h3 class="campaign-header">FAQ</h3>  
                 <div class="panel-group" id="accordion">
                   <div class="panel panel-default" ng-repeat="qa in faq">
                     <div class="panel-heading">
@@ -230,7 +239,7 @@ nav.campaign {
                     </div>
                   </div>
                 </div>
-                <button type="button" class="btn btn-xs btn-default" ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
+                <button type="button" class="btn btn-default" ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
                 <input type="text" ng-show="showfaq">
               </p>  
             </div>
@@ -267,7 +276,7 @@ nav.campaign {
         <p class="text-center small">
           Campaign will end on {{days.end | date:'MM/dd/yy'}}           
         </p> 
-        <h3 class="action-header">Suggested Donations</h3>
+        <h4 class="action-header">Suggested Donations</h3>
         <a role="button" ng-href="/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
@@ -279,7 +288,7 @@ nav.campaign {
           </div>
         </a>
         <div class="leaderboard">
-          <h3 class="action-header">Leaderboard</h3>
+          <h4 class="action-header">Leaderboard</h3>
           <div class="row clearfix" ng-repeat="leader in leaderBoard">
             <div class="col-sm-2 column">
               <img alt="140x140" class="img-circle" ng-src="https://www.gravatar.com/avatar/{{leader.img}}?s=200&r=pg&d=mm" />

@@ -12,18 +12,18 @@ angular.module('multiplyMe')
   	$scope.selected = $stateParams.suggested;
 
   	$scope.suggestedDonations = [{
-  		'amount': 195,
-  		'recurring': false,
-  		'message': 'Can help educate a child for a year'
-  	},{
-  		'amount': 17,
-  		'recurring': false,
-  		'message': 'Can help educate a child for a month'
-  	},{
-  		'amount': 4,
-  		'recurring': true,
-  		'message': 'Can help educate a child for 3 months'
-  	}]
+      'amount': 175,
+      'recurring': true,
+      'message': 'Can help fund my trip for a month'
+    },{
+      'amount': 70,
+      'recurring': false,
+      'message': 'Can help fund my trip for a day'
+    },{
+      'amount': 20,
+      'recurring': true,
+      'message': 'Can help fund basic travel for a month'
+    }]
 
 	$scope.suggestion = -1; 
 
