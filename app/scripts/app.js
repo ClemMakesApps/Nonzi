@@ -61,6 +61,10 @@ angular
     templateUrl: 'views/receipt.html',
     controller: 'ReceiptCtrl'
   })
+  .state('sharedReceipt', {
+    url: '/sharedReceipt',
+    templateUrl: 'views/sharedReceipt.html'
+  })
   .state('terms', {
     url: '/terms',
     templateUrl: 'views/toc.html'

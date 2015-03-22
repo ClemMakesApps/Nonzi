@@ -1,0 +1,352 @@
+<style>
+.small-logo {
+    color: black;
+    margin-right: 10px;
+}
+
+.org-link {
+    color: black;
+    text-decoration: underline;
+}
+
+.header-overview {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.proj-name {
+    font-size: 18px;
+    display: inline;
+}
+
+.proj-details {
+    margin-left: 45px;
+}
+
+.title-normal {
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.pledge {
+    background-color: #E3F5F1;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.perks {
+    cursor: pointer;
+    background-color: #E3F5F1;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.perks:hover {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-promo {
+    background-color: #278570;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.promo-tag {
+    display: inherit;
+    margin-bottom: 5px;
+}
+
+/*override*/
+.btn-success {
+    background-color: #50E3C2;
+    color: black;
+    border-color: transparent;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+}
+
+/*override*/
+.btn-success:hover {
+    background-color:#278570;
+    border-color: transparent;
+    color: white;
+}
+
+.btn-clear {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #50E3C2;
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.pledge-input {
+    border: 1px solid black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 7px 80px 7px 35px;
+    display: inline;
+    color: black;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.pledge-input:focus {
+    outline: 0;
+}
+
+/*override*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-pledge {
+    position: relative;
+}
+
+.currency-symbol {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.currency-label {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    line-height: 48px;
+}
+
+.perk-selected {
+    background-color: #278570;
+    color: white;
+}
+
+.perk-selected .fa-check-square {
+    color: #73E8CE;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 40px;
+}
+
+
+.shared-receipt-bg {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url("../images/shared-min.png");
+    background-size: cover;
+    background-position: 50% 17%;
+    width:100%;
+    height: 100%;
+}
+
+.bg-container-image {
+    margin-top:0px;
+    height: 100%;
+}
+
+html, body {
+    width:100%;
+    height:100%;
+}
+
+.text-thanks {
+    line-height: 50px;
+    margin-bottom: 15px;
+}
+
+.share-tag {
+    line-height: 35px;
+    font-weight: normal;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-pledged {
+    font-size: 20px;
+}
+
+.share-tools {
+    top: 350px;
+}
+
+.thanks-heading {
+    top: 30px;
+}
+
+.social-links {
+    font-size: 50px;
+}
+
+.fa-facebook-square {
+    color: #3B5998;
+}
+
+.fa-twitter-square {
+    color: #4099FF;
+}
+
+.fa-google-plus-square {
+    color: #DD4B39;
+}
+
+.fa-facebook-square:hover,
+.fa-twitter-square:hover,
+.fa-google-plus-square:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook-square:after,
+.fa-twitter-square:after,
+.fa-google-plus-square:after {
+    content: "";
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    display: block;
+    position: absolute;
+    bottom:4px;
+    left:1px;
+    z-index: -1;
+}
+.btn-social{
+  background-color: transparent;
+  border:none;
+}
+
+.pyramid {
+    margin-top: 50px;
+}
+
+.unknown-donor {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px; 
+    background-color: #D8D8D8;
+    position: relative;
+}
+
+.unknown-donor span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.second-level {
+    margin-top: 30px;
+    color: black;
+}
+
+.lines {
+      margin-top: 20px;
+  margin-left: 0.5px;
+}
+
+.pledge-info {
+    font-weight: 200;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+}
+
+.invitation {
+    margin-top: 25px;
+}
+
+.invitation-action .btn{
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.invitation-action {
+    margin-top: 30px;
+}
+
+</style>
+</head>
+<body>
+<!-- <header class="header-overview">
+    <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
+    <h2 class="proj-name">Bhatti Mines School</h2>
+    <div class="proj-details">
+        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
+        <span>(33% Raised)</span>
+    </div>
+</header> -->
+<div class="container-fluid shared-receipt-bg bg-container-image">
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
+        <h1 class="text-thanks">John pledged $4 to support the<br>Bhatti Mines School</h1>
+    </div>
+    <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center pyramid">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3 col-sm-offset-1 col-sm-10">
+                <img style="width:100px;float:left" src="https://s3.amazonaws.com/uifaces/faces/twitter/rem/128.jpg" class="img-circle">
+            </div>
+        </div>
+        <div class="row lines">
+            <img src="../images/pyramid-arrows.png">
+        </div>
+        <div class="row second-level">
+             <div class="col-md-offset-2 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-1 col-xs-3">
+                <div class="unknown-donor"><span>?</span></div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="unknown-donor"><span>?</span></div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="unknown-donor"><span>You?</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-offset-3 col-md-6 text-center">
+        <h3 class="pledge-info">3 more pledges within 2 days are still needed <br> or this pledge will <em>not</em> be donated</h3>
+        <h3 class="text-white invitation">Will you join John in this cause?</h3>
+        <div class="invitation-action">
+            <a class="btn btn-primary btn-lg" href="/">Learn More</a>
+            <a class="btn btn-success btn-lg" href="/contribute">Contribute</a>
+        </div>
+    </div>
+</div>
+<!-- <footer></footer> -->
