@@ -8,9 +8,11 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q) {
-
-    $scope.createToken = function(number, exp_month, exp_year, cvc){
+  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams) {
+    $scope.amount = $stateParams.amount;
+    $scope.isSubscription = $stateParams.isSubscription ? 'A month' : ''
+    console.log('amount', $scope.amount);
+    var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
       Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
       Stripe.card.createToken({
@@ -25,6 +27,38 @@ angular.module('multiplyMe')
       return deferred.promise;
     };
 
+    var logInUser = function(){
+      var payment = $scope.payment;
+      $auth.submitLogin({
+        email: payment.user.email,
+        password: $scope.password
+      }).then(function(){
+        createDonation();
+      });
+    }
+
+    var createDonation = function(){
+      var payment = $scope.payment;
+      createToken(
+        payment.cardNumber,
+        payment.expirationMonth,
+        payment.expirationYear,
+        payment.cvc)
+        .then(function(token){
+          Donation.save({
+            donation: {
+              amount: Math.floor($stateParams.amount * 100),
+              organization_id: 1,
+              is_subscription: $scope.isSubscription
+            },
+            card: {
+              token: token,
+              email: payment.user.email
+            }
+          });
+        });
+    }
+
     $scope.submit = function(){
       var payment = $scope.payment;
       $auth.submitRegistration(
@@ -34,24 +68,9 @@ angular.module('multiplyMe')
           password_confirmation: $scope.password
         }
       )
-      .then(function(){
-        $scope.createToken(
-          payment.cardNumber,
-          payment.expirationMonth,
-          payment.expirationYear,
-          payment.cvc)
-          .then(function(token){
-            Donation.save({
-              donation: {
-                amount: 100,
-                organization_id: 1
-              },
-              card: {
-                token: token,
-                email: payment.user.email
-              }
-            });
-          });
+      .then(function(result){
+        //console.log(result);
+        logInUser();
       });
     };
 
