@@ -8,7 +8,53 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl',['$scope','$auth', '$timeout' ,function ($scope,$auth, $timeout) {
+  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q) {
+
+    $scope.createToken = function(number, exp_month, exp_year, cvc){
+      var deferred = $q.defer();
+      Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
+      Stripe.card.createToken({
+        number: number,
+        exp_month: exp_month,
+        exp_year: exp_year,
+        cvc: cvc
+      },
+      function(status, response){
+        deferred.resolve(response.id);
+      });
+      return deferred.promise;
+    };
+
+    $scope.submit = function(){
+      var payment = $scope.payment;
+      $auth.submitRegistration(
+        {
+          email: payment.user.email,
+          password: $scope.password,
+          password_confirmation: $scope.password
+        }
+      )
+      .then(function(){
+        $scope.createToken(
+          payment.cardNumber,
+          payment.expirationMonth,
+          payment.expirationYear,
+          payment.cvc)
+          .then(function(token){
+            Donation.save({
+              donation: {
+                amount: 100,
+                organization_id: 1
+              },
+              card: {
+                token: token,
+                email: payment.user.email
+              }
+            });
+          });
+      });
+    };
+
     $scope.payment = {}
     $scope.payment.user = {}
 
@@ -110,4 +156,4 @@ angular.module('multiplyMe')
     $scope.$watch('payment.cardNumber', $scope.highlightMerchant);
     $scope.$watch('password', $scope.highlightChallenge);
 
-  }]);
+  });
