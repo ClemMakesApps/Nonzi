@@ -36,7 +36,7 @@ angular.module('multiplyMe')
         email: payment.user.email,
         password: $scope.password
       }).then(function(){
-        createDonation();
+          createDonation();
       });
     }
 
@@ -71,7 +71,8 @@ angular.module('multiplyMe')
         {
           email: payment.user.email,
           password: $scope.password,
-          password_confirmation: $scope.password
+          password_confirmation: $scope.password,
+          name: payment.user.name
         }
       )
       .then(function(result){
@@ -115,11 +116,7 @@ angular.module('multiplyMe')
     $scope.register = function(){
       $auth.submitRegistration($scope.payment.user)
       .then(function(resp){
-        console.log('login successful ' + resp);
         $state.go('/account');
-      })
-      .catch(function(error){
-        console.log(error);
       })
     }
 
