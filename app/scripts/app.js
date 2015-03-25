@@ -8,6 +8,7 @@
 *
 * Main module of the application.
 */
+
 angular
 .module('multiplyMe', [
   'ngAnimate',
@@ -86,4 +87,6 @@ angular
   });
 $urlRouterProvider.otherwise('/');
 
+}).run(function ($rootScope){
+  $rootScope.config = config;
 });
