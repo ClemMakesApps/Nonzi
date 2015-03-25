@@ -2,6 +2,7 @@
 
 angular.module('multiplyMe')
   .controller('ReceiptCtrl', function ($scope, $window, $location, $stateParams, Donation, $auth) {
+    $scope.donorName = Donation.name;
     $scope.amount = Donation.donation.amount / 100;
     $scope.share = function(provider){
       if(provider === 'facebook'){
