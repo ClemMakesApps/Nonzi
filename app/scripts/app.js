@@ -70,7 +70,13 @@ angular
   })
   .state('sharedReceipt', {
     url: '/sharedReceipt/:donationId',
-    templateUrl: 'views/sharedReceipt.html'
+    templateUrl: 'views/sharedReceipt.html',
+    controller: 'SharedReceiptCtrl',
+    resolve: {
+      ShareTree: function(ShareTreeLoader, $stateParams){
+        return ShareTreeLoader($stateParams.donationId);
+      }
+    }
   })
   .state('terms', {
     url: '/terms',
