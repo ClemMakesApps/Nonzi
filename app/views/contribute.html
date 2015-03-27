@@ -206,8 +206,8 @@ input[type=number]::-webkit-outer-spin-button {
       </div>
     </div>
     <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-6 content">
-      <div class="perk-promo" ng-hide="suggestion == -1 || prevDisplayed == true">
-        <span class="promo-tag">Would you consider giving ${{suggestion}} a month instead for more impact?</span>
+      <div class="perk-promo" ng-hide="suggestedAmount == -1 || forceHideSuggested == true">
+        <span class="promo-tag">Would you consider giving {{suggestedAmount | currency:undefined:0}} a month instead for more impact?</span>
         <div>
           <button type="button" class="btn btn-clear" ng-click="hidePromo()">No</button>
           <button type="button" class="btn btn-clear animated infinite pulse" ng-click="yesPromo()">Yes</button>
@@ -215,10 +215,10 @@ input[type=number]::-webkit-outer-spin-button {
       </div>
       <h4 class="no-margin-top">Suggested Donations</h4>
       <div ng-repeat="suggest in suggestedDonations" ng-click="selectPerk($index)">
-        <div class="perks" ng-class="{'perk-selected':$index == selected}">
+        <div class="perks" ng-class="{'perk-selected':$index == selectedPerk}">
           <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
           <span>{{suggest.message}}</span>
-          <span class="fa fa-check-square" ng-show="$index == selected"></span>
+          <span class="fa fa-check-square" ng-show="$index == selectedPerk"></span>
         </div>
       </div>
       <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})">Continue</a>
