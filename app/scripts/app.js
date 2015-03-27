@@ -44,7 +44,7 @@ angular
      controller: 'MainCtrl'
    })
   .state('contribute', {
-    url: '/contribute?suggested',
+    url: '/contribute?isSubscription&amount',
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })

@@ -517,7 +517,7 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="col-lg-5 col-md-6 content">
 			 <div class="perk-background rounded-background">
                 <span>Pledge Amount</span>
-                <a class="pull-right" href="/contribute"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                <a class="pull-right" ng-href="/contribute?isSubscription={{isSubscription}}&amount={{amount}}"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                 <span class="pledge-font block clearfix">{{amount | currency}} USD</span>
                 <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
             </div>

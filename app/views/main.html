@@ -277,7 +277,7 @@ nav.campaign {
           Campaign will end on {{days.end | date:'MM/dd/yy'}}           
         </p> 
         <h4 class="action-header">Suggested Donations</h3>
-        <a role="button" ng-href="/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
+        <a role="button" ng-href="/contribute?isSubscription={{suggestedDonations[$index].recurring}}&amount={{suggestedDonations[$index].amount}}" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
               ${{suggest.amount}} 
