@@ -10,10 +10,7 @@
 angular.module('multiplyMe')
   .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
     $scope.amount = $stateParams.amount;
-
-    if($stateParams.isSubscription == "true") {
-      $scope.isSubscription = true;
-    }
+    $scope.isSubscription == $stateParams.isSubscription == "true";
 
     var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
@@ -66,6 +63,12 @@ angular.module('multiplyMe')
     }
 
     $scope.submit = function(){
+      $scope.enableLoading = true;
+      var submitBtn = angular.element(document.querySelector( '.btn-action' ));
+      submitBtn.attr("disabled", "disabled");
+      var lead = angular.element(document.querySelector( '.lead-in' ));
+      lead.text("Initating");
+
       var payment = $scope.payment;
       $auth.submitRegistration(
         {
@@ -77,6 +80,7 @@ angular.module('multiplyMe')
       )
       .then(function(result){
         logInUser();
+        lead.text("Processing");
       });
     };
 
@@ -164,7 +168,6 @@ angular.module('multiplyMe')
         $scope.highlightNext = true;
       }
     }
-
 
     // var formCheckTimer = null;
     // $scope.checkForm = function(newValue, oldValue) {
