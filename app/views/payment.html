@@ -504,6 +504,10 @@ input[type=number]::-webkit-outer-spin-button {
             transform: rotate(450deg);
   }
 }
+
+.form-horizontal .has-feedback .name-feedback {
+  right: 30px;
+}
 </style>
 
 <header class="header-overview">
@@ -528,19 +532,23 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="col-lg-7 col-md-5 content paymentFields">
             <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
             <form name="paymentForm" class="form-horizontal">
-              <div class="form-group">
+              <div class="form-group has-success has-feedback">
                 <label for="name" class="col-sm-3 control-label">Name</label>
                 <div class="col-sm-9" style="padding-right: 25px">
-                  <input ng-model="payment.user.name" type="text" class="form-control" id="name" placeholder="Name">
+                  <input ng-model="payment.user.name" type="text" class="form-control" id="name" placeholder="Name"  aria-describedby="inputSuccess2Status">
+  <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true"></span>
+  <span id="inputSuccess2Status" class="sr-only">(success)</span>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group has-error has-feedback">
                 <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
                 <div class="col-sm-9">
                   <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
 
                   <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
-                         ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number">
+                         ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number"  aria-describedby="inputError2Status">
+  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+  <span id="inputError2Status" class="sr-only">(error)</span>
                   <span ng-show="paymentForm.cardNumber.$error.pattern"><i class="fa fa-close"></i></span>
                   </div>
                   <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
