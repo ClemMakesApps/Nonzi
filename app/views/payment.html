@@ -298,46 +298,29 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .challenge-steps {
-  margin-left: 30px;
-  padding-right: 0;
-  list-style-type: none;
-  margin-top: 50px;
+  padding-bottom: 20px;
 }
 
-.challenge-steps li {
-  counter-increment: step-counter;
-  margin-bottom: 20px;
-  font-size: 20px;
-  position: relative;
-  min-height: 80px;
+.challenge-steps .instructions.single-line {
+  line-height: 75px;
 }
 
-.challenge-steps li::before {
-  content: counter(step-counter);
-  margin-right: 15px;
-  margin-left: -38px;
-  font-size: 22px;
-  background-color: white;
-  color: black;
-  font-weight: bold;
+.challenge-steps .instructions.two-line {
+  margin-top: 4px;
+}
 
-  border-radius: 50px;
-  padding-top: 25px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 25px;
+.challenge-steps .instructions {
+  text-align: left;
+  padding-left: 0px;
+  font-size: 19px;
+  line-height: 22px;
 }
 
 .challenge-steps .subtext {
   font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 0px;
   line-height: 15px;
-  margin-top: 10px;
-}
-
-.challenge-steps .long-steps {
-  position: absolute;
-  top: -15px;
-  line-height: 22px;
 }
 
 .highlightChallenge {
@@ -508,6 +491,11 @@ input[type=number]::-webkit-outer-spin-button {
 .form-horizontal .has-feedback .name-feedback {
   right: 30px;
 }
+
+.challenge-description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 </style>
 
 <header class="header-overview">
@@ -644,22 +632,33 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="perk-background rounded-background text-center challenge">
                 <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
                 <p>Use your social network to multiply your impact</p>
-                <div class="text-left">
-                    <ol class="challenge-steps">
-                        <li><span>Pledge a donation</span></li>
-                        <li>
-                          <span class="long-steps">
-                            Invite 3 friends to pledge within 3 days
-                            <p class="subtext">Donations will count as well</p>
-                          </span>
-                        </li>
-                        <li>
-                          <span class="long-steps">
-                            Your pledge is donated
-                            <p class="subtext">Login to your account to check your impact stats</p>
-                          </span>
-                        </li>
-                    </ol>
+                <div class="challenge-description">
+                   <div class="row challenge-steps">
+                    <div class="col-md-4 col-md-offset-1">
+                      <img src="../images/1.png">
+                    </div>
+                    <div class="col-md-7 instructions single-line">
+                      Pledge a donation
+                    </div>
+                  </div>
+                  <div class="row challenge-steps">
+                    <div class="col-md-4 col-md-offset-1">
+                      <img src="../images/2.png">
+                    </div>
+                    <div class="col-md-7 instructions two-line">
+                      Invite 3 friends to pledge within 3 days
+                      <p class="subtext">Donations will count as well</p>
+                    </div>
+                  </div>
+                  <div class="row challenge-steps">
+                    <div class="col-md-4 col-md-offset-1">
+                      <img src="../images/3.png">
+                    </div>
+                    <div class="col-md-7 instructions two-line">
+                      Your pledge is donated
+                      <p class="subtext">Login to your account to check your impact stats</p>
+                    </div>
+                  </div>
                 </div>
                 <button ng-click="submit()" type="button" class="btn btn-success btn-action">
                   <svg ng-show="enableLoading" class="spinner" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
