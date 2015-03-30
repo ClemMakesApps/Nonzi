@@ -1,119 +1,119 @@
 <style>
 .small-logo {
-    color: black;
-    margin-right: 10px;
+  color: black;
+  margin-right: 10px;
 }
 
 .org-link {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
 .header-overview {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .proj-name {
-    font-size: 18px;
-    display: inline;
+  font-size: 18px;
+  display: inline;
 }
 
 .proj-details {
-    margin-left: 45px;
+  margin-left: 45px;
 }
 
 .title-normal {
-    font-weight: normal;
-    margin-bottom: 5px;
+  font-weight: normal;
+  margin-bottom: 5px;
 }
 
 .pledge {
-    background-color: #E3F5F1;
-    padding: 40px;
-    border-radius: 10px;
+  background-color: #E3F5F1;
+  padding: 40px;
+  border-radius: 10px;
 }
 
 .perks {
-    cursor: pointer;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    position: relative;
+  cursor: pointer;
+  background-color: #E3F5F1;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  position: relative;
 }
 
 .perks:hover {
-    background-color: #278570;
-    color: white;
+  background-color: #278570;
+  color: white;
 }
 
 .perk-promo {
-    background-color: #278570;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    text-align: center;
+  background-color: #278570;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .promo-tag {
-    display: inherit;
-    margin-bottom: 5px;
+  display: inherit;
+  margin-bottom: 5px;
 }
 
 /*override*/
 .btn-success {
-    background-color: #50E3C2;
-    color: black;
-    border-color: transparent;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
+  background-color: #50E3C2;
+  color: black;
+  border-color: transparent;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
 }
 
 /*override*/
 .btn-success:hover {
-    background-color:#278570;
-    border-color: transparent;
-    color: white;
+  background-color:#278570;
+  border-color: transparent;
+  color: white;
 }
 
 .btn-clear {
-    background-color: transparent;
-    border-color: transparent;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #50E3C2;
-    font-weight: bold;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #50E3C2;
+  font-weight: bold;
 }
 
 .content {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .pledge-input {
-    border: 1px solid black;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 7px 80px 7px 35px;
-    display: inline;
-    color: black;
-    width: 100%;
-    border-radius: 5px;
+  border: 1px solid black;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 7px 80px 7px 35px;
+  display: inline;
+  color: black;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .pledge-input:focus {
-    outline: 0;
+  outline: 0;
 }
 
 /*override*/
@@ -124,131 +124,134 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-pledge {
-    position: relative;
+  position: relative;
 }
 
 .currency-symbol {
-    position: absolute;
-    top: 3px;
-    left: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  line-height: 48px;
 }
 
 .currency-label {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  line-height: 48px;
 }
 
 .perk-selected {
-    background-color: #278570;
-    color: white;
+  background-color: #278570;
+  color: white;
 }
 
 .perk-selected .fa-check-square {
-    color: #73E8CE;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 40px;
+  color: #73E8CE;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 40px;
 }
 
 
 .thankful {
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
-    ), url("../images/thankful.jpg");
-    background-size: cover;
-    background-position: 50% 17%;
-    width:100%;
-    height: 100%;
+  background: linear-gradient(
+  rgba(0, 0, 0, 0.4),
+  rgba(0, 0, 0, 0.4)
+  ), url("../images/thankful.jpg");
+  background-size: cover;
+  background-position: 50% 17%;
+  width:100%;
+  height: 100%;
 }
 
 .bg-container-image {
-    margin-top:0px;
-    height: 100%;
+  margin-top:0px;
+  height: 100%;
 }
 
 html, body {
-    width:100%;
-    height:100%;
+  width:100%;
+  height:100%;
 }
 
 .text-thanks {
-    line-height: 50px;
-    margin-bottom: 15px;
+  line-height: 50px;
+  margin-bottom: 15px;
 }
 
 .share-tag {
-    line-height: 35px;
-    font-weight: normal;
+  line-height: 35px;
+  font-weight: normal;
 }
 
 .text-white {
-    color: white;
+  color: white;
 }
 
 .text-pledged {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .share-tools {
-    top: 350px;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
 }
 
 .thanks-heading {
-    top: 30px;
+  top: 30px;
 }
 
 .social-links .btn{
-    font-size: 50px !important;
-    /*height: 50px;*/
+  font-size: 50px !important;
 }
 
 .fa-facebook-square {
-    color: #3B5998;
+  color: #3B5998;
 }
 
 .fa-twitter-square {
-    color: #4099FF;
+  color: #4099FF;
 }
 
 .fa-google-plus-square {
-    color: #DD4B39;
+  color: #DD4B39;
 }
 
 .fa-facebook-square:hover,
 .fa-twitter-square:hover,
-.fa-google-plus-square:hover {
-    opacity: 0.7;
+.fa-google-plus-square:hover,
+.fa-envelope:hover {
+  opacity: 0.7;
 }
 
 .fa-facebook-square:after,
 .fa-twitter-square:after,
 .fa-google-plus-square:after {
-    content: "";
-    background-color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 7px;
-    display: block;
-    position: absolute;
-    bottom:4px;
-    left:1px;
-    z-index: -1;
+  content: "";
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  display: block;
+  position: absolute;
+  bottom:4px;
+  left:1px;
+  z-index: -1;
 }
 .social-actions{
-    font-size: 50px;
-    background-color: transparent;
-    border: none;
+  font-size: 50px;
+  background-color: transparent;
+  border: none;
 }
 
 .fa-envelope {
@@ -256,43 +259,54 @@ html, body {
 }
 
 nav.header-transparent {
-    position: absolute;
-    top: 10px;
-    z-index: 10;
-    color: white;
-    width: 100%;
+  position: absolute;
+  top: 10px;
+  z-index: 10;
+  color: white;
+  width: 100%;
 }
 
 .header-transparent span {
-    margin-left: 15px;
+  margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .text-thanks {
+    line-height: 25px;
+    font-size: 20px;
+  }
+
+  .text-pledged {
+    font-size: 15px;
+  }
+
+  .share-tag {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.anchor-bottom {
+  bottom: 10px;
+  position: absolute;
 }
 </style>
-</head>
-<body>
-<!-- <header class="header-overview">
-    <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
-    <h2 class="proj-name">Bhatti Mines School</h2>
-    <div class="proj-details">
-        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
-        <span>(33% Raised)</span>
-    </div>
-</header> -->
 <nav class="header-transparent">
-    <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
+  <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
 </nav>
+
 <div class="container-fluid thankful bg-container-image">
-    <div class="col-md-offset-3 col-md-6 text-center text-white thanks-heading">
-      <h1 class="text-thanks">Thank you {{donorName}}, <br>for supporting the India Mission Trip</h1>
-        <span class="text-pledged">You pledged {{amount | currency}}</span>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8 col-xs-12 text-center text-white thanks-heading">
+    <h1 class="text-thanks">Thank you {{donorName}}, <br>for supporting the India Mission Trip</h1>
+    <span class="text-pledged">You pledged {{amount | currency}}</span>
+  </div>
+  <div class="col-xs-12 text-center text-white share-tools">
+    <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
+    <div class="social-links">
+      <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
+      <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
+      <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
+      <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
     </div>
-    <div class="col-md-offset-3 col-md-6 text-center text-white share-tools">
-        <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
-        <div class="social-links">
-            <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-            <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-            <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
-            <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
-        </div>
-    </div>
+  </div>
 </div>
-<!-- <footer></footer> -->
