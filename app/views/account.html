@@ -303,7 +303,7 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Donation</span>
-                    <div class="impact-box"><span class="impact-amount">${{donation.amount}}<div class="month-label">per month</div></span></div>
+                    <div class="impact-box"><span class="impact-amount">{{personal_impact | currency}}<div class="month-label">per month</div></span></div>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
@@ -312,7 +312,7 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Network</span>
-                    <div class="impact-box"><span class="impact-amount">${{donation.downline_amount}}</span></div>
+                    <div class="impact-box"><span class="impact-amount">{{network_impact | currency}}</span></div>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
@@ -321,7 +321,7 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Impact <button type="button" class="btn btn-default impact-tooltip" data-toggle="tooltip" data-placement="top" title="Typical recurring donation last more than a year. That number is reflected in this calculation."><span class="glyphicon glyphicon-question-sign grayText"></span></button></span>
-                    <div class="impact-box actual-impact"><span class="impact-amount">${{donation.amount + donation.downline_amount}}</span></div>
+                    <div class="impact-box actual-impact"><span class="impact-amount">{{personal_impact + network_impact | currency}}</span></div>
                 </div>
             </div>
         </div>

@@ -8,13 +8,10 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', ['$scope', '$state', 'Donation', '$auth', function ($scope, $state, Donation, $auth) {
-    $scope.donation = {}
+  .controller('AccountCtrl', function ($scope, $state, Donation, $auth) {
+    $scope.personal_impact = $auth.user.personal_impact;
+    $scope.network_impact = $auth.user.network_impact;
     // Donation ID is hard coded right now
-    Donation.get({id:1}).$promise.then( function (data){
-      $scope.donation = data.donation;
-      $scope.monthly = Math.floor(($scope.donation.amount / 12) * 100) / 100;
-    });
     //Email hard coded
     $scope.updatePassword = function(){
       $auth.submitLogin({
@@ -39,4 +36,4 @@ angular.module('multiplyMe')
       });
     }
 
-  }]);
+  });
