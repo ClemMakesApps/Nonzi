@@ -2,14 +2,15 @@
 
 /**
 * @ngdoc overview
-* @name appApp
+* @name multiplyMe
 * @description
-* # appApp
+* # multiplyMe
 *
 * Main module of the application.
 */
+
 angular
-.module('appApp', [
+.module('multiplyMe', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
@@ -19,30 +20,63 @@ angular
   'ui.router'
 ])
 .constant('URL', 'http://localhost:3000')
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
+  $authProvider.configure({
+    apiUrl: 'https://api.multiplyme.in'
+  });
+
+  $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('!');
+
   $stateProvider
+    .state('auth', {
+      abstract: true,
+      template: '<ui-view/>',
+      resolve: {
+        auth: function($auth){
+          return $auth.validateUser();
+        }
+      }
+    })
    .state('main', {
      url: '/',
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
    })
-  //.state('main', {
-  //  url: '/',
-  //  templateUrl: 'views/firstpage.html',
-  //  controller: 'FirstpageCtrl'
-  //})
   .state('contribute', {
-    url: '/contribute?suggested',
+    url: '/contribute?isSubscription&amount',
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment',
-    templateUrl: 'views/payment.html'
+    url: '/payment?isSubscription&amount',
+    templateUrl: 'views/payment.html',
+    controller: 'PaymentCtrl'
+  })
+  .state('auth.account', {
+    url: '/account',
+    templateUrl: 'views/account.html',
+    controller: 'AccountCtrl'
   })
   .state('receipt', {
-    url: '/receipt',
-    templateUrl: 'views/receipt.html'
+    url: '/receipt/:donationId',
+    templateUrl: 'views/receipt.html',
+    controller: 'ReceiptCtrl',
+    resolve: {
+      Donation: function(DonationLoader, $stateParams){
+        return DonationLoader($stateParams.donationId);
+      }
+    }
+  })
+  .state('sharedReceipt', {
+    url: '/sharedReceipt/:donationId',
+    templateUrl: 'views/sharedReceipt.html',
+    controller: 'SharedReceiptCtrl',
+    resolve: {
+      ShareTree: function(ShareTreeLoader, $stateParams){
+        return ShareTreeLoader($stateParams.donationId);
+      }
+    }
   })
   .state('terms', {
     url: '/terms',
@@ -51,7 +85,14 @@ angular
   .state('privacy', {
     url: '/privacy',
     templateUrl: 'views/privacy.html'
+  })
+  .state('signin',{
+    url: '/signin',
+    templateUrl: 'views/signin.html',
+    controller: 'SigninCtrl'
   });
 $urlRouterProvider.otherwise('/');
 
+}).run(function ($rootScope){
+  $rootScope.config = config;
 });

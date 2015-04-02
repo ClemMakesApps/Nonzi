@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name appApp.controller:AboutCtrl
+ * @name multiplyMe.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the appApp
+ * Controller of the multiplyMe
  */
-angular.module('appApp')
+angular.module('multiplyMe')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

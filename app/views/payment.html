@@ -1,4 +1,9 @@
 <style>
+.btn-default,
+.btn-default:hover {
+  background-color: transparent;
+}
+
 .small-logo {
     color: black;
     margin-right: 10px;
@@ -9,24 +14,35 @@
     text-decoration: underline;
 }
 
+.logo {
+    width: 30px;
+    float: left;
+    margin-top: 10px;
+}
+
 .header-overview {
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom-color: black;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }
 
 .proj-name {
+    font-size: 18px;
     display: inline;
 }
 
 .proj-details {
-    margin-left: 45px;
+    margin-left: 40px;
 }
 
 .title-normal {
     font-weight: normal;
     margin-bottom: 5px;
+    margin-top: 0px;
 }
 
 .pledge {
@@ -87,7 +103,7 @@ a[role=button], a[role=button]:focus, a[role=button]:hover{
 .btn-success:hover {
     background-color:#278570;
     border-color: transparent;
-    color: white; 
+    color: white;
 }
 
 .btn-clear {
@@ -125,10 +141,10 @@ a[role=button], a[role=button]:focus, a[role=button]:hover{
 }
 
 /*override*/
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form-pledge {
@@ -218,17 +234,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .btn-action {
-    width: 45%;
+    width: 100%;
     height: 60px;
     padding-left: 10px;
     padding-right: 10px;
     line-height: 16px;
     color: black !important;
+    position: relative;
 }
 
 .grayText {
   color: #808080;
-  font-size: 12px; 
+  font-size: 12px;
 }
 
 .secureText {
@@ -270,211 +287,439 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 2.5px;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
 .tooltip {
   width:200px;
 }
 
 .challenge-steps {
-  margin-left: 30px;
-  padding-right: 0;
-  list-style-type: none;
-  margin-top: 30px;
+  padding-bottom: 20px;
 }
 
-.challenge-steps li {
-  counter-increment: step-counter;
-  margin-bottom: 20px;
-  font-size: 20px;
-  position: relative;
-  min-height: 80px;
+.challenge-steps .instructions.single-line {
+  /* IE */
+  display:-ms-flexbox;
+  -ms-flex-align:center;
+
+  /* Firefox */
+  display:-moz-box;
+  -moz-box-align:center;
+
+  /* Safari, Opera, and Chrome */
+  display:-webkit-box;
+  -webkit-box-align:center;
+
+  /* W3C */
+  display:box;
+  box-align:center;
+
+  height: 75px;
 }
 
-.challenge-steps li::before {
-  content: counter(step-counter);
-  margin-right: 15px;
-  margin-left: -38px;
-  font-size: 22px;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  
-  border-radius: 50px;
-  padding-top: 25px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 25px;
+.challenge-steps .instructions.two-line {
+  margin-top: 4px;
 }
 
-.challenge-steps li:hover:before {
-  content: counter(step-counter);
-  margin-right: 15px;
-  margin-left: -38px;
-  font-size: 22px;
-  background-color: #278570;
-  color: white;
+.challenge-steps .instructions {
+  text-align: left;
+  padding-left: 0px;
+  font-size: 19px;
+  line-height: 22px;
 }
 
 .challenge-steps .subtext {
   font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 0px;
   line-height: 15px;
-  margin-top: 10px;
 }
 
-.challenge-steps .long-steps {
+.highlightChallenge {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.challenge {
+  z-index: 10;
+  position: relative;
+}
+
+.btn-donate {
+  display: block;
+  margin-top: 5px;
+  /*color: black;*/
+  font-size: 12px;
+}
+
+.btn-social {
+  padding-left: 35px;
+}
+
+.btn-facebook-container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.password-container {
+  padding-left: 0px;
+  padding-right: 5px;
+}
+
+#password {
+  width: calc(100% - 25px);
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.payment-container {
+  margin-top: 20px;
+}
+
+.btn-facebook:hover {
+  color: white;
+}
+
+.subscription-font {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.btn-success[disabled] {
+  background-color: rgba(80, 227, 194, 0.49);
+  border-color: transparent;
+}
+
+
+.spinner {
   position: absolute;
-  top: -15px;
-  line-height: 22px;
+  left: 10px;
+  top: 9px;
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #000000;
+  }
+  25% {
+    stroke: #000000;
+  }
+  50% {
+    stroke: #000000;
+  }
+  75% {
+    stroke: #000000;
+  }
+  100% {
+    stroke: #000000;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #000000;
+  }
+  25% {
+    stroke: #000000;
+  }
+  50% {
+    stroke: #000000;
+  }
+  75% {
+    stroke: #000000;
+  }
+  100% {
+    stroke: #000000;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+
+.form-horizontal .has-feedback .name-feedback {
+  right: 30px;
+}
+
+.challenge-description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.credit-cards {
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.email-form-group {
+  margin-bottom: 0px;
+}
+
+.expiration-container {
+  padding-left: 0px;
+}
+@media (max-width: 768px) { 
+  .email-form-group {
+    margin-bottom: 15px;
+  }
+
+  .btn-facebook-container {
+    margin-top: 15px;
+  }
+
+  .expiration-container {
+    margin-left: -7px;
+  }
+
+  .credit-cards {
+    text-align: center;
+    margin-top: 5px;
+  }
 }
 </style>
-</head>
-<body>
+
 <header class="header-overview">
-    <a class="small-logo" href="#"><img style="width:30px" src="../images/m1.png"></a>
-    <h2 class="proj-name">Bhatti Mines School</h2>
+    <a class="small-logo" href="/"><img class="logo" src="../images/m.png"></a>
+    <h2 class="proj-name">India Mission Trip</h2>
     <div class="proj-details">
-        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
+        <span>by <a class="org-link" href="#">The Well Austin</a><span>
         <span>(33% Raised)</span>
     </div>
 </header>
-<div class="container-fluid">
-	<div class="col-md-offset-2 col-md-6">
-		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged $40 upon completion of the challenge. <a href="#">Learn More.</a></span>
-	</div>
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8">
-        <div class="col-lg-7 col-md-5 content paymentFields">
-            <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
-            <form class="form-horizontal">
-              <div class="form-group">
-                <label for="name" class="col-sm-3 control-label">Name</label>
-                <div class="col-sm-9" style="padding-right: 25px">
-                  <input type="text" class="form-control" id="name" placeholder="Name">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
-                <div class="col-sm-9">
-                  <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
-
-                  <input type="text" class="form-control" id="cardNumber" placeholder="Card number">
-                  </div>
-                  <img src="../images/visa.png"  class="creditcard-images">
-                  <img src="../images/mastercard.png" class="creditcard-images" >
-                  <img src="../images/amex.png"  class="creditcard-images">
-                  <img src="../images/discover.png" class="creditcard-images">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Expiration</label>
-                <div class="col-sm-2" style="margin-right:-25px">
-                  <select class="form-control">
-                      <option>01</option>
-                      <option>02</option>
-                      <option>03</option>
-                      <option>04</option>
-                      <option>05</option>
-                      <option>06</option>
-                      <option>07</option>
-                      <option>08</option>
-                      <option>09</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                    </select>
-                </div>
-                <div class="col-sm-3" style="margin-right: -35px;padding-right: 35px;px">
-                  <select class="form-control">
-                      <option>2015</option>
-                    </select>
-                </div>
-                <div class="col-sm-5">
-                    <label for="cvc" class="col-sm-2 col-sm-offset-1 control-label">CVC</label>
-                    <div class="col-sm-9 cvcField">
-                      <input type="text" class="form-control" id="cvc" placeholder="CVN">
-                      <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express"><span class="glyphicon glyphicon-question-sign grayText"></span></button>
-                    </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="zip" class="col-sm-3 control-label">Billing ZIP code</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="zip" placeholder="ZIP Code">
-                </div>
-              </div>
-              <h4 class="subheader newPaymentSection">Your Information</h4>
-              <div class="form-group">
-                <label for="refer" class="col-sm-3 control-label">Referred by</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" id="refer" placeholder="" disabled>
-                  <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="This field is auto filled based on the link in which you selected to contribute"><span class="glyphicon glyphicon-question-sign grayText"></span></button>
-                </div>
-              </div>
-              <div class="form-group" style="margin-bottom:0px">
-                <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control" id="email" placeholder="Email address">
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control" id="verifyEmail" placeholder="Verify email address">
-                  <div class="checkbox">
-                      <label>
-                        <input type="checkbox" checked> Send me campaign updates
-                      </label>
-                    </div>
-                </div>
-              </div>
-              <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
-              <p>Cancel reocurring donations, measure your impact and <a href="#">more.</a></p>
-              <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Password</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control" id="password" placeholder="New password">
-                  <p class="text-center" style="margin-top:5px">or</p>
-                 <div class="col-sm-8 col-sm-offset-2">
-                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px">
-                    <i class="fa fa-facebook"></i> Sign in with Facebook
-                  </a>
-                 </div>
-                </div>
-              </div>
-            </form>
-        </div>
-        <div class="col-lg-5 col-md-6 content">
-			<div class="perk-background rounded-background">
-                <span>Pledge Amount</span>
-                <a class="pull-right" href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-                <span class="pledge-font block clearfix">$40.00 USD</span>
-            </div>
-            <div class="perk-background rounded-background text-center">
-                <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
-                <p>Use your social network to make more impact</p>
-                <div class="text-left">
-                    <ol class="challenge-steps">
-                        <li><span>Pledge a donation</span></li>
-                        <li>
-                          <span class="long-steps">
-                            Invite 3 friends to pledge within 3 days
-                            <p class="subtext">Donations will count as well</p>
-                          </span>
-                        </li>
-                        <li>
-                          <span class="long-steps">
-                            Your pledge is donated
-                            <p class="subtext">Login to your account to check your impact stats</p>
-                          </span>
-                        </li>
-                    </ol>
-                </div>
-                <button type="button" class="btn btn-info btn-action">Just<br><span style="font-weight:bold;font-size:16px;">Donate</span></button>
-                <button type="button" class="btn btn-success btn-action">Take the<br><span style="font-weight:bold;font-size:16px;">Challenge</span></button>
-            </div>
-            <p>By proceeding you agree to MultiplyMe’s <br><a href="#/terms">Terms of Use</a> and <a href="#/privacy">Privacy Policy</a><p>
-        </div>
+<div class="container-fluid payment-container">
+  <!-- <div class="col-md-offset-2 col-md-8">
+    <div class="alert alert-info" role="alert">
+      <strong>You are Awesome!</strong> Clement's pledge is now one step closer to becoming donated.
     </div>
+  </div> -->
+	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12">
+		<h2 class="title-normal">Payment Information</h2>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#">Learn More.</a></span>
+	</div>
+  <div class="col-lg-offset-2 col-lg-8 col-sm-12">
+    
+    <div class="col-lg-7 col-sm-7 content paymentFields">
+      <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
+        <form name="paymentForm" class="form-horizontal">
+          <div class="form-group has-success has-feedback">
+            <label for="name" class="col-sm-3 control-label">Name</label>
+            <div class="col-sm-9" style="padding-right: 25px">
+              <input ng-model="payment.user.name" type="text" class="form-control" id="name" placeholder="Name"  aria-describedby="inputSuccess2Status">
+              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true"></span>
+              <span id="inputSuccess2Status" class="sr-only">(success)</span>
+            </div>
+          </div>
+          <div class="form-group has-error has-feedback">
+            <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
+            <div class="col-sm-9">
+              <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
+                <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
+                       ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number"  aria-describedby="inputError2Status">
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                <span id="inputError2Status" class="sr-only">(error)</span>
+                <span ng-show="paymentForm.cardNumber.$error.pattern"><i class="fa fa-close"></i></span>
+              </div>
+              <div class="credit-cards col-xs-12 col-sm-6">
+                <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
+                <img src="../images/mastercard.png" class="creditcard-images" ng-class="{'grayscale':!mastercard}">
+                <img src="../images/amex.png"  class="creditcard-images" ng-class="{'grayscale':!amex}">
+                <img src="../images/discover.png" class="creditcard-images" ng-class="{'grayscale':!discover}">
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-8 col-xs-7">
+            <label class="col-sm-5 col-xs-12 control-label" style="padding-left:0px;">Expiration</label>
+            <div class="col-sm-7 col-xs-12 expiration-container">
+              <div class="col-sm-5 col-xs-5" style="padding-left: 7px;padding-right: 0px;">
+                <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
+              </div>
+              <div class="col-sm-7 col-xs-7" style="padding-right: 0px;padding-left: 10px;">
+                <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-sm-4 col-xs-5" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;">
+            <div>
+              <label for="cvc" class="col-sm-3 control-label" style="padding-left: 0px;">CVC</label>
+              <div class="col-sm-9 cvcField" style="padding-left: 5px;">
+                <input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN">
+                <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
+                  <span class="glyphicon glyphicon-question-sign grayText"></span>
+                </button>
+                <i ng-show="paymentForm.cvc.$error.pattern" class="fa fa-close"></i>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="zip" class="col-sm-3 control-label">Postal code</label>
+            <div class="col-sm-4">
+              <input ng-model="payment.zip" name="zip" type="text" class="form-control"
+                     ng-pattern="/^[0-9]{5}$/"  id="zip" placeholder="Postal Code">
+              <i ng-show="paymentForm.zip.$error.pattern" class="fa fa-close"></i>
+            </div>
+          </div>
+          <h4 class="subheader newPaymentSection">Your Information</h4>
+          <div class="form-group email-form-group">
+            <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
+            <div class="col-sm-8">
+              <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
+                     type="email" class="form-control" id="email" placeholder="Email address">
+              <i ng-show="paymentForm.email.$error.pattern" class="fa fa-close"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
+            <div class="col-sm-8">
+              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" placeholder="Verify email address">
+              <i ng-show="payment.user.email != payment.user.verifyEmail" class="fa fa-close"></i>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked> Send me campaign updates
+                </label>
+              </div>
+            </div>
+          </div>
+          <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
+          <p>Cancel recurring donations, measure your impact and <a href="#">more.</a></p>
+          <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+              <div class="col-sm-7 password-container">
+                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password"> 
+                or
+              </div>
+              <div class="col-sm-5 btn-facebook-container">
+                <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()">
+                  <i class="fa fa-facebook"></i> Use Facebook
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+    
+    <div class="col-lg-5 col-sm-5 content">
+      <div class="perk-background rounded-background">
+        <span>Pledge Amount</span>
+        <a class="pull-right" ng-href="/contribute?isSubscription={{isSubscription}}&amount={{amount}}">
+          <span class="glyphicon glyphicon-pencil"></span> Edit
+        </a>
+        <span class="pledge-font block clearfix">{{amount | currency}} USD</span>
+        <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
+      </div>
+      <div class="perk-background rounded-background text-center challenge">
+        <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
+        <p>Use your social network to multiply your impact</p>
+        <div class="challenge-description">
+          <div class="row challenge-steps">
+            <div class="col-md-4 col-md-offset-1 col-xs-4">
+              <img src="../images/1.png">
+            </div>
+            <div class="col-md-7 col-xs-8 instructions single-line">
+              Pledge a donation
+            </div>
+          </div>
+          <div class="row challenge-steps">
+            <div class="col-md-4 col-md-offset-1 col-xs-4">
+              <img src="../images/2.png">
+            </div>
+            <div class="col-md-7 col-xs-8 instructions two-line">
+              Invite 3 friends to pledge within 3 days
+              <p class="subtext">Donations will count as well</p>
+            </div>
+          </div>
+          <div class="row challenge-steps">
+            <div class="col-md-4 col-md-offset-1 col-xs-4">
+              <img src="../images/3.png">
+            </div>
+            <div class="col-md-7 col-xs-8 instructions two-line">
+              Your pledge is donated
+              <p class="subtext">Login to your account to check your impact stats</p>
+            </div>
+          </div>
+        </div>
+        <button ng-click="submit()" type="button" class="btn btn-success btn-action">
+          <svg ng-show="enableLoading" class="spinner" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+          </svg>
+          <div class="lead-in">Take the</div>
+          <span style="font-weight:bold;font-size:16px;">Challenge</span>
+        </button>
+        <a class="btn-donate" href="#">I'd prefer to just donate</a>
+      </div>
+      <p>By proceeding you agree to MultiplyMe’s <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a><p>
+    </div>
+  </div>
 </div>
+<div class="highlightChallenge" ng-show="highlightNext"></div>
 <footer></footer>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()

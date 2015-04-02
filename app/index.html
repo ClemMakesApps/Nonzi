@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
@@ -12,15 +13,15 @@
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="styles/animate.css">
+  <link rel="stylesheet" href="styles/style.css">
   <!-- endbuild -->
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
-  <link rel="stylesheet" href="styles/animate.css">
-  <link rel="stylesheet" href="styles/style.css">
 </head>
-<body ng-app="appApp">
+<body ng-app="multiplyMe">
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -77,6 +78,7 @@
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
+  <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
@@ -85,8 +87,15 @@
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/contribute.js"></script>
   <script src="scripts/controllers/donation.js"></script>
-  <script src="scripts/controllers/pledge.js"></script>
-  <script src="scripts/controllers/report.js"></script>
+  <script src="scripts/controllers/signin.js"></script>
+  <script src="scripts/controllers/payment.js"></script>
+  <script src="scripts/controllers/receipt.js"></script>
+  <script src="scripts/controllers/account.js"></script>
+  <script src="scripts/services/api.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script src="scripts/services/shareTree.js"></script>
+  <script src="scripts/controllers/sharedReceipt.js"></script>
+  <script src="scripts/config/config.js"></script>
   <!-- endbuild -->
 </body>
 </html>

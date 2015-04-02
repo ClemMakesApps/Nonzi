@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name appApp.controller:DonationCtrl
+ * @name multiplyMe.controller:DonationCtrl
  * @description
  * # DonationCtrl
- * Controller of the appApp
+ * Controller of the multiplyMe
  */
-angular.module('appApp')
+angular.module('multiplyMe')
   .controller('DonationCtrl',['$scope','Donation', function ($scope,Donation) {
     $scope.donation = Donation.get({id:$scope.id});
 

@@ -1,11 +1,10 @@
-
 <style>
 .video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
-.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 500px; }
 .spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
 .topspacer {height: 200px;}
 .background {position: absolute; margin-top: 0; z-index: -1; top: 0; left: 0; right: 0;}
-.container {width:100%;max-width:900px;margin:0 auto;padding:0 15px;}
+.container {width:100%;margin:0 auto;padding:0 15px;}
 .fullwidth {width:100%; padding: 0; margin:0;clear:both;}
 .white {background-color: white; padding-top: 30px;}
 .whitefont, .whitefont a, .whitefont a:hover {color: white}
@@ -74,209 +73,250 @@ h4 {font-size:16px;font-weight:bold;}
 .panel a:focus, .panel a:hover{text-decoration:none;}
 .nav>li>a:focus, .nav>li>a:hover {background-color:transparent;font-weight:bold;}
 @lessthan920: 
-	</style>
-	
-</head>
 
-<body>	
-	<div class="container">
-		<div class="row clearfix">
-			<div class="col-sm-12 column whitefont">
-				<nav class="primarynav" role="navigation">
-					<ul class="nav nav-pills">
-						<li>
-							<a href="http://multiplyme.in">MultiplyMe</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</div>
-	<div class="fullwidth">
-		<div class="row clearfix">
-			<div class="col-sm-12 column">
-				<div class="spacer topspacer">
-					<img class="btn-play" src="http://technine.com/wp-content/uploads/2014/10/white-play-button-png.png"/>
-				</div>
-			</div>
-		</div>
-	</div>
-		<div class="container whitefont topbar" >
-			<div class="row clearfix" data-spy="affix" data-offset-top="345">
-				<div class="col-sm-8 column">
-					<div class="showme">m</div>
-					<h1>
-						{{cause.name}}
-					</h1>
-					<h3>
-						by <a class="underline" target="_blank" href="{{org.link}}">{{org.name}}</a>
-					</h3>
-					<h4 class="showme">{{money.percent}}% raised</h4>
-					<p>
-						 {{cause.blurb}}
-					</p> 
-					<a href="#" class="btn btn-xs btn-default" type="button">Share the Fundraiser</a>
-				</div>
-				<div class="col-sm-4 column">
-					<h2 class="text-left">
-						{{cause.supporters}}
-					</h2>
-					<p class="text-left">
-						supporters
-					</p>
-					<h2 class="text-left">
-						${{money.raised}}
-					</h2>
-					<p class="text-left">
-						donated of ${{money.requested}}
-					</p>
-					<h2 class="text-left">
-						{{days.remaining}}
-					</h2>
-					<p class="text-left">
-						days to go
-					</p>
-				</div>
-				<hr>
-			</div>
-	</div>
-	<div class="fullwidth white">
-		<div class="container">		
-			<div class="row clearfix">
-				<div class="col-sm-8 column">
-					<div class="tabbable" id="tabs-694560">
-						<ul class="nav nav-tabs">
-							<li class="active">
-								<a href="#description" data-toggle="tab">Description</a>
-							</li>
-							<li>
-								<a href="#updates" data-toggle="tab">Updates (2)</a>
-							</li>
-							<li>
-								<a href="#comments" data-toggle="tab">Comments <span class="disqus-comment-count" data-disqus-identifier="bhattimines"></span>
-								</a>
-							</li>
-						</ul>
-						<div class="tab-content">
-							<div class="tab-pane active" id="description">
-								<p>
-									<h4>
-										Why should you support us?
-									</h4>
-									<img alt="infographic placeholder" src="images/{{cause.image}}" />
-									<p>{{cause.why}}</p> 
-									<h4>
-										How can I help?
-									</h4>
-									<img alt="infographic placeholder" src="http://lorempixel.com/140/140/" />
-									<p>
-										Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
-									</p> 
-									<h4>
-										Risks and Challenges
-									</h4>
-									<p>{{cause.risks}}</p> 
-									<h4>
-										FAQ
-									</h4>	
-									  <div class="panel-group" id="accordion">
-										<div class="panel panel-default" ng-repeat="qa in faq">
-											<div class="panel-heading">
-												<h5 class="panel-title">
-													<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index + 1}}">{{qa.question}}</a>
-												</h5>
-											</div>
-											<div id="collapse{{$index + 1}}" class="panel-collapse collapse">
-												<div class="panel-body">
-													<p>{{qa.answer}}</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<button type="button" class="btn btn-xs btn-default"   ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
-									<input type="text" ng-show="showfaq">
-								</p>
-							</div>
-							<div class="tab-pane" id="updates">
-								<p>
-									<style type="text/css">
-<style type="text/css">
-<!--
-.display_archive {font-family: arial,verdana; font-size: 12px;}
-.campaign {line-height: 125%; margin: 5px;}
-//-->
+.embed-container 
+{ 
+	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
+} 
+
+.embed-container iframe, .embed-container object, .embed-container embed 
+{ 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%%; 
+	height: 90%; 
+}
+
+.campaignContent {
+	position: absolute;
+	top: 90%;
+	padding-top: 10px;
+	width: 100%;
+  margin-bottom: 50px;
+}
+
+.player .controls {
+  display: none;
+}
+
+.campaignHighlights {
+	position: absolute;
+	z-index: 100;
+	bottom: 120px;
+	width: 100%;
+}
+
+.campaignStats {
+	margin-left: 30px;
+}
+
+h1.campaignLabels {
+	font-size: 60px;
+	margin-bottom: 0px;
+	margin-left: -3px; /*fix weird bug*/
+}
+
+h3.campaignLabels {
+	font-size: 30px;
+	margin-top: 0px;
+}
+
+h2.campaignLabels {
+	font-size: 40px;
+	margin-bottom: 0px;
+}
+
+.campaign-tabs {
+	font-size: 18px;
+}
+
+nav.campaign {
+	position: absolute;
+	top: 10px;
+	z-index: 10;
+	color: white;
+	width: 100%;
+}
+
+.campaign .btn {
+	color: white;
+	float: right;
+	margin-right: 85px;
+}
+
+.campaign span {
+	margin-left: 85px;
+}
+
+.action-header {
+	margin-top: 30px;
+  font-size: 18px;
+}
+
+.faq-title {
+  color: #337ab7;
+}
+
+.campaign-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
 </style>
-<script language="javascript" src="http://us10.campaign-archive2.com/generate-js/?u=37aa354ead06ef426b16aa342&fid=981&show=10" type="text/javascript"></script>								</p>
-							</div>
-							<div class="tab-pane" id="comments">
-								<p>
-									<div id="disqus_thread"></div>
-									<script type="text/javascript">
-										/* * * CONFIGURATION VARIABLES * * */
-										var disqus_shortname = 'multiplyme';
-										
-										/* * * DON'T EDIT BELOW THIS LINE * * */
-										(function() {
-											var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-											dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-											(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-										})();
-									</script>
-									<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-4 column">
-					 <button type="button" href="/#/contribute" class="btn btn-lg btn-primary">Contribute</button>
-					<p class="text-center small">
-						Campaign will end on {{days.end | date:'MM/dd/yy'}}						
-					</p> 
-					<a role="button" ng-href="/#/contribute?suggested={{$index}}" ng-repeat="suggest in suggestedDonations">
-						<div class="perks" ng-class="{'perk-selected':$index == selected}">
-							<h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
-							<span>{{suggest.message}}</span>
-							<span class="fa fa-check-square" ng-show="$index == selected"></span>
-						</div>
-					</a>
-					<div class="leaderboard">
-						<h3>
-							Leaderboard
-						</h3>
-						<div class="row clearfix" ng-repeat="leader in leaderBoard">
-							<div class="col-sm-2 column">
-								<img alt="140x140" class="img-circle" src="http://www.gravatar.com/avatar/{{leader.hash}}?s=200&r=pg&d=mm" />
-							</div>
-							<div class="col-sm-6 column">
-								<span>{{leader.first}} {{leader.last}}</span>
-							</div>
-							<div class="col-sm-4 column">
-								<span>${{leader.amount}}<span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+<nav class="campaign">
+	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
+	<a href="/signin" class="btn btn-default text-right">Sign In</a>
+</nav>
+
+<div class="container whitefont campaignHighlights" ng-hide="highlights">
+	<div class="col-sm-offset-2 col-sm-5">
+		<h1 class="campaignLabels">{{cause.name}}</h1>
+		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
+		<p>{{cause.blurb}}</p> 
+		<a href="#" class="btn btn-default">Share the Fundraiser</a>
 	</div>
-	<div class="background">
-		<div class="video">
-		<iframe src="http://player.vimeo.com/video/102413354?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-	<div style="position: absolute; top:0;left:0;right:0;width:100%;height:100%;background-color:black; z-index: -3;"></div>
-		</div>
+	<div class="col-sm-offset-1 col-sm-2 campaignStats">
+		<h2 class="text-left campaignLabels">{{cause.supporters}}</h2>
+		<p class="text-left">supporters</p>
+		<h2 class="text-left campaignLabels">{{money.raised | currency:"$":0}}</h2>
+		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
+		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
+		<p class="text-left">days to go</p>
 	</div>
-	
-	<script type="text/javascript">
-		/* * * CONFIGURATION VARIABLES * * */
-		var disqus_shortname = 'multiplyme';
-		var disqus_identifier = 'bhattimines';
-		
-		/* * * DON'T EDIT BELOW THIS LINE * * */
-		(function () {
-			var s = document.createElement('script'); s.async = true;
-			s.type = 'text/javascript';
-			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-			(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-		}());
-	</script>
+</div>
+
+<div class='embed-container'>
+	<iframe id="vimeoFrame" src='https://player.vimeo.com/video/74538535?api=1&title=0&byline=0&portrait=0&player_id=vimeoFrame' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+
+<div class="white campaignContent">
+	<div class="container">		
+		<div class="row">
+			<div class="col-sm-offset-2 col-sm-5 column">
+				<div class="tabpanel">
+          <ul class="nav nav-tabs campaign-tabs">
+            <li class="active">
+              <a href="#description" data-toggle="tab">Description</a>
+            </li>
+            <li>
+              <a href="#updates" data-toggle="tab">Updates</a>
+            </li>
+            <li>
+              <a href="#comments" data-toggle="tab">Comments 
+                <span class="disqus-comment-count" data-disqus-identifier="bhattimines"></span>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="description">
+              <p>
+                <h3 class="campaign-header">Why should you support us?</h3>
+                <img alt="infographic placeholder" src="images/{{cause.image}}" style="max-width:100%" />
+                <p>{{cause.why}}</p> 
+
+                <h3 class="campaign-header">How can I help?</h3>
+                <p>
+                  Pray pray pray! I desire God to lead me in this journey. Please also contribute to my campaign - specifically, take the MultiplyMe challenge! My church has partnered with MultiplyMe to help raise more funds than I could normally raise.
+                  The main concept is for each of you to make a pledge to donate, invite 3 of your friends to join and pledge or donate within 3 days. We are basically replicating the ice bucket challenge for mission trip fundraising! It would be a <em>huge blessing</em> to be fully funded before I leave on my trip in May 1st. 
+                </p> 
+
+                <h3 class="campaign-header">Risks and Challenges</h3>
+                <p>{{cause.risks}}</p> 
+
+                <h3 class="campaign-header">FAQ</h3>  
+                <div class="panel-group" id="accordion">
+                  <div class="panel panel-default" ng-repeat="qa in faq">
+                    <div class="panel-heading">
+                      <h5 class="panel-title faq-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index + 1}}">{{qa.question}}</a>
+                      </h5>
+                    </div>
+                    <div id="collapse{{$index + 1}}" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <p>{{qa.answer}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-default" ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
+                <input type="text" ng-show="showfaq">
+              </p>  
+            </div>
+            <div class="tab-pane" id="updates">
+              <p>
+                  <!--<script language="javascript" src="http://us10.campaign-archive2.com/generate-js/?u=37aa354ead06ef426b16aa342&fid=981&show=10" type="text/javascript"></script>-->  
+              </p>
+            </div>
+            <div class="tab-pane" id="comments">
+              <p>
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                  /* * * CONFIGURATION VARIABLES * * */
+                  var disqus_shortname = 'multiplyme';
+
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                  })();
+                </script>
+                <noscript>
+                  Please enable JavaScript to view the 
+                  <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+                </noscript>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 column">
+        <a class="btn btn-lg btn-primary" href="/contribute">Contribute</a>
+        <p class="text-center small">
+          Campaign will end on {{days.end | date:'MM/dd/yy'}}           
+        </p> 
+        <h4 class="action-header">Suggested Donations</h3>
+        <a role="button" ng-href="/contribute?isSubscription={{suggestedDonations[$index].recurring}}&amount={{suggestedDonations[$index].amount}}" ng-repeat="suggest in suggestedDonations">
+          <div class="perks" ng-class="{'perk-selected':$index == selected}">
+            <h3>
+              ${{suggest.amount}} 
+              <span style="font-size:12px" ng-show="suggest.recurring">per month</span>
+            </h3>
+            <span>{{suggest.message}}</span>
+            <span class="fa fa-check-square" ng-show="$index == selected"></span>
+          </div>
+        </a>
+        <div class="leaderboard">
+          <h4 class="action-header">Leaderboard</h3>
+          <div class="row clearfix" ng-repeat="leader in leaderBoard">
+            <div class="col-sm-2 column">
+              <img alt="140x140" class="img-circle" ng-src="https://www.gravatar.com/avatar/{{leader.img}}?s=200&r=pg&d=mm" />
+            </div>
+            <div class="col-sm-6 column">
+              <span>{{leader.first}} {{leader.last}}</span>
+            </div>
+            <div class="col-sm-4 column">
+              <span>${{leader.amount}}<span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES * * */
+var disqus_shortname = 'multiplyme';
+var disqus_identifier = 'bhattimines';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>

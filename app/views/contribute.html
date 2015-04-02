@@ -1,70 +1,74 @@
 <style>
 .small-logo {
-    color: black;
-    margin-right: 10px;
+  color: black;
+  margin-right: 10px;
 }
 
 .org-link {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
 .header-overview {
-    padding: 15px;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .proj-name {
-    display: inline;
+  font-size: 18px;
+  display: inline;
 }
 
 .proj-details {
-    margin-left: 28px;
+  margin-left: 40px;
 }
 
 .title-normal {
-    font-weight: normal;
-    margin-bottom: 5px;
+  font-weight: normal;
+  margin-bottom: 5px;
 }
 
 .pledge {
-    background-color: #E3F5F1;
-    padding: 40px;
-    border-radius: 10px;
+  background-color: #E3F5F1;
+  padding: 40px;
+  border-radius: 10px;
 }
 .perks{
-    cursor: pointer;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    position: relative;
-	text-decoration:none;
+  cursor: pointer;
+  background-color: #E3F5F1;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  position: relative;
+  text-decoration:none;
 }
 
 .perks:hover {
-    background-color: #278570;
-    color: white;
-	text-decoration:none;
+  background-color: #278570;
+  color: white;
+  text-decoration:none;
 }
 
 .perk-promo {
-    background-color: #278570;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    text-align: center;
+  background-color: #278570;
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .promo-tag {
-    display: inherit;
-    margin-bottom: 5px;
+  display: inherit;
+  margin-bottom: 5px;
 }
 
 a[role=button], a[role=button]:focus, a[role=button]:hover{
@@ -74,48 +78,48 @@ a[role=button], a[role=button]:focus, a[role=button]:hover{
 
 /*override*/
 .btn-success {
-    background-color: #50E3C2;
-    color: black;
-    border-color: transparent;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
+  background-color: #50E3C2;
+  color: black;
+  border-color: transparent;
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
 }
 
 /*override*/
 .btn-success:hover {
-    background-color:#278570;
-    border-color: transparent;
-    color: white; 
+  background-color:#278570;
+  border-color: transparent;
+  color: white; 
 }
 
 .btn-clear {
-    background-color: transparent;
-    border-color: transparent;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #50E3C2;
-    font-weight: bold;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #50E3C2;
+  font-weight: bold;
 }
 
 .content {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .pledge-input {
-    border: 1px solid black;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 7px 80px 7px 35px;
-    display: inline;
-    color: black;
-    width: 100%;
-    border-radius: 5px;
+  border: 1px solid black;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 7px 80px 7px 35px;
+  display: inline;
+  color: black;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .pledge-input:focus {
-    outline: 0;
+  outline: 0;
 }
 
 /*override*/
@@ -126,95 +130,99 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-pledge {
-    position: relative;
+  position: relative;
 }
 
 .currency-symbol {
-    position: absolute;
-    top: 3px;
-    left: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  line-height: 48px;
 }
 
 .currency-label {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+  line-height: 48px;
 }
 
 .perk-selected {
-    background-color: #278570;
-    color: white;
+  background-color: #278570;
+  color: white;
 }
 
 .perk-selected .fa-check-square {
-    color: #73E8CE;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 40px;
+  color: #73E8CE;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 40px;
 }
 
 .no-margin-top {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
+.logo {
+  width: 30px;
+  float: left;
+  margin-top: 10px;
+}
 </style>
-</head>
-<body>
 <header class="header-overview">
-    <a class="small-logo" href="#">M</a>
-    <h2 class="proj-name">Bhatti Mines School</h2>
-    <div class="proj-details">
-        <span>by <a class="org-link" href="#">Amala Foundation</a><span>
-        <span>(33% Raised)</span>
-    </div>
+  <a class="small-logo" href="/"><img class="logo" src="../images/m.png"></a>
+  <h2 class="proj-name">Bhatti Mines School</h2>
+  <div class="proj-details">
+    <span>by <a class="org-link" href="#">Amala Foundation</a><span>
+    <span>(33% Raised)</span>
+  </div>
 </header>
+
 <div class="container-fluid">
-	<div class="col-md-offset-2 col-md-5">
-		<h2 class="title-normal">Enter your Contribution</h2>
-		<span>Any amount of $1 or more</span>
-	</div>
-    <div class="col-lg-offset-2 col-lg-7 col-md-offset-2 col-md-8">
-        <div class="col-lg-6 col-md-5 pledge content">
-            <div class="form-group">
-                <div class="form-pledge">
-                    <span class="currency-symbol">$</span>
-                    <input type="number" class="pledge-input" min="1" ng-model="pledge" autofocus>
-                    <span class="currency-label">USD</span>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" ng-model="selectedRecurring"> Make this a recurring monthly gift. Cancel Anytime.
-                    </label>
-                </div>
-            </div>
+  <div class="col-lg-offset-2 col-lg-5">
+    <h2 class="title-normal">Enter your Contribution</h2>
+    <span>Any amount of $1 or more</span>
+  </div>
+  <div class="col-lg-offset-2 col-lg-7 col-md-12 col-sm-12">
+    <div class="col-lg-6 col-md-6 col-sm-6 pledge content">
+      <div class="form-group">
+        <div class="form-pledge">
+          <span class="currency-symbol">$</span>
+          <input type="number" class="pledge-input" min="1" ng-model="pledge" autofocus>
+          <span class="currency-label">USD</span>
         </div>
-        <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-6 content">
-			<div class="perk-promo" ng-hide="suggestion == -1 || prevDisplayed == true">
-				<span class="promo-tag">Would you consider giving ${{suggestion}} a month instead for more impact?</span>
-				<div>
-                    <button type="button" class="btn btn-clear" ng-click="hidePromo()">No</button>
-					<button type="button" class="btn btn-clear animated infinite pulse" ng-click="yesPromo()">Yes</button>
-				</div>
-			</div>
-            <h4 class="no-margin-top">Suggested Donations</h4>
-            <div ng-repeat="suggest in suggestedDonations" ng-click="selectPerk($index)">
-                <div class="perks" ng-class="{'perk-selected':$index == selected}">
-                    <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
-                    <span>{{suggest.message}}</span>
-                    <span class="fa fa-check-square" ng-show="$index == selected"></span>
-                </div>
-            </div>
-            <a role="button" class="btn btn-success pull-right" href="/#/payment">Continue</a>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="selectedRecurring"> Make this a recurring monthly gift. Cancel Anytime.
+          </label>
         </div>
+      </div>
     </div>
+    <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-6 content">
+      <div class="perk-promo" ng-hide="suggestedAmount == -1 || forceHideSuggested == true">
+        <span class="promo-tag">Would you consider giving {{suggestedAmount | currency:undefined:0}} a month instead for more impact?</span>
+        <div>
+          <button type="button" class="btn btn-clear" ng-click="hidePromo()">No</button>
+          <button type="button" class="btn btn-clear animated infinite pulse" ng-click="yesPromo()">Yes</button>
+        </div>
+      </div>
+      <h4 class="no-margin-top">Suggested Donations</h4>
+      <div ng-repeat="suggest in suggestedDonations" ng-click="selectPerk($index)">
+        <div class="perks" ng-class="{'perk-selected':$index == selectedPerk}">
+          <h3>${{suggest.amount}} <span style="font-size:12px" ng-show="suggest.recurring">per month</span></h3>
+          <span>{{suggest.message}}</span>
+          <span class="fa fa-check-square" ng-show="$index == selectedPerk"></span>
+        </div>
+      </div>
+      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})">Continue</a>
+    </div>
+  </div>
 </div>
 <footer></footer>

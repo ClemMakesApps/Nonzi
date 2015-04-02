@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: PledgeCtrl', function () {
+describe('Controller: SharedreceiptCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('multiplyMe'));
+  beforeEach(module('multiplyMeApp'));
 
-  var PledgeCtrl,
+  var SharedreceiptCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PledgeCtrl = $controller('PledgeCtrl', {
+    SharedreceiptCtrl = $controller('SharedreceiptCtrl', {
       $scope: scope
     });
   }));
