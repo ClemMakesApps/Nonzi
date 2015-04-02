@@ -315,44 +315,156 @@ nav.header-transparent {
 .header-transparent span {
   margin-left: 15px;
 }
+
+.img-pyramid {
+  padding-bottom: 20px;
+}
+
+.first-child {
+  position: absolute;
+  left: -25px;
+}
+
+.second-child {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.third-child {
+  position: absolute;
+  right: -25px;
+}
+
+.shared-cta {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 0px;
+}
+
+
+.pyramid-children {
+  height: 75px;
+}
+
+@media (max-width: 550px), ( max-height: 750px ){
+  .pyramid {
+    /*margin-top: 30px;*/
+    position: absolute;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 0px;
+  }
+
+  .text-thanks {
+    line-height: 23px;
+    font-size: 18px;
+  }
+
+  .img-pyramid {
+    max-width: 90%;
+  }
+
+  .img-circle,
+  .first-child div,
+  .second-child div,
+  .third-child div {
+    width: 50px;
+    height: 50px;
+  }
+
+  .unknown-donor span{
+    font-size: 16px;
+  }
+
+  .first-child {
+    left: 0px;
+  }
+
+  .third-child {
+    right: 0px;
+  }
+
+  .lines {
+    margin-top: 5px;
+  }
+
+  .img-pyramid {
+    padding-bottom: 5px;
+  }
+
+  .pledge-info,
+  .invitation {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .invitation-action .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .invitation {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .invitation-action {
+    margin-top: 20px;
+  }
+
+  .shared-cta {
+    left: 0px;
+  }
+
+  .pyramid-children {
+    height: 50px;
+  }
+
+}
 </style>
 
 <nav class="header-transparent">
   <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
 </nav>
 <div class="container-fluid shared-receipt-bg bg-container-image">
-  <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
+  <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
     <h1 class="text-thanks">{{name}} pledged $4 to support the<br>India Mission Trip</h1>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center pyramid">
-    <div class="row">
-      <div class="col-md-offset-5 col-md-3 col-xs-offset-1 col-xs-10 col-sm-offset-5 col-sm-3">
-        <img style="width:100px;float:left" ng-src="{{parent.image_url}}" class="img-circle">
-      </div>
+    <div class="col-xs-12">
+      <img ng-src="{{parent.image_url}}" class="img-circle">
     </div>
-    <div class="row lines">
-      <img src="../images/pyramid-arrows.png">
-    </div>
-    <div class="row second-level">
-      <div ng-switch on="!!children[0]" class="col-md-offset-2 col-md-3 col-sm-offset-1 col-sm-3 col-xs-offset-1 col-xs-3">
+    <div class="col-xs-12 lines" style="
+    max-width: 350px;
+    left: 50%;
+    transform: translate(-50%,0);
+">
+      <img src="../images/pyramid-arrows.png" class="img-pyramid">
+      <div class="pyramid-children">
+        <div ng-switch on="!!children[0]" class="first-child">
         <div ng-switch-when="true">
           <img style="width:100px" ng-src="{{children[0].image_url}}" class="img-circle">
         </div>
         <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
       </div>
-      <div ng-switch on="!!children[1]" class="col-md-3 col-sm-3 col-xs-3">
+      <div ng-switch on="!!children[1]" class="second-child">
         <div ng-switch-when="true">
           <img style="width:100px" ng-src="{{children[0].image_url}}" class="img-circle">
         </div>
         <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
       </div>
-      <div class="col-md-3 col-sm-3 col-xs-3">
+      <div class="third-child">
         <div class="unknown-donor"><span>You?</span></div>
+      </div>
       </div>
     </div>
   </div>
-  <div class="col-md-offset-3 col-md-6 text-center">
-    <h3 class="pledge-info">3 more pledges within 2 days are still needed <br> or this pledge will <em>not</em> be donated</h3>
+  <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 text-center shared-cta">
+    <h3 class="pledge-info">3 more pledges within 2 days are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
     <h3 class="text-white invitation">Will you join {{name}} in this cause?</h3>
     <div class="invitation-action">
         <a class="btn btn-primary btn-lg" href="/">Learn More</a>
