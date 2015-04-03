@@ -169,6 +169,13 @@ angular.module('multiplyMe')
       }
     }
 
+    $scope.donate = function() {
+      var btn = angular.element(document.querySelector( '.btn-donate' ));
+      btn.text("Donating...");
+
+      $scope.donating = true;
+    }
+
     // var formCheckTimer = null;
     // $scope.checkForm = function(newValue, oldValue) {
     //   if(newValue != oldValue) {
