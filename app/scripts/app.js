@@ -68,8 +68,8 @@ angular
       }
     }
   })
-  .state('sharedReceipt', {
-    url: '/sharedReceipt/:donationId',
+  .state('share', {
+    url: '/share/:donationId',
     templateUrl: 'views/sharedReceipt.html',
     controller: 'SharedReceiptCtrl',
     resolve: {
