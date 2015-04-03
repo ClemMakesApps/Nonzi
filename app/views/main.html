@@ -164,6 +164,10 @@ nav.campaign {
   margin-top: 30px;
 }
 
+.modal-backdrop {
+  bottom: 0;
+  position: fixed;
+}
 </style>
 <nav class="campaign">
 	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
@@ -240,8 +244,8 @@ nav.campaign {
                     </div>
                   </div>
                 </div>
-                <button type="button" class="btn btn-default" ng-hide="showfaq" ng-click="showfaq = ! showfaq">Ask a Question</button>
-                <input type="text" ng-show="showfaq">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#questionModal">Ask a Question</button>
+                <!-- <input type="text" ng-show="showfaq"> -->
               </p>  
             </div>
             <div class="tab-pane" id="updates">
@@ -320,3 +324,23 @@ s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }());
 </script>
+
+<div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Ask a Question</h4>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <embed src="https://docs.google.com/forms/d/1BE3uL45ElmwyldgPHnnO1tUGXdEwLgdEGyFSi53BZIU/viewform" style="width:100%;height:500px"></embed>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
