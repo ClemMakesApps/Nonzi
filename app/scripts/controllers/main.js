@@ -8,8 +8,8 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('MainCtrl', function ($scope, $stateParams, $timeout) {
-  
+  .controller('MainCtrl', function ($scope, $stateParams, $timeout, LeaderboardLoader) {
+
   $scope.suggestedDonations = [{
     'amount': 175,
     'recurring': true,
@@ -24,27 +24,14 @@ angular.module('multiplyMe')
     'message': 'Can help fund basic travel for a month'
   }]
 
-  $scope.leaderBoard = [{
-    'first': 'John',
-    'last': 'Ellmore',
-    'img': 'e130a4be9fba5eb5d932c813fbe3a58d',
-    'amount': 5050
-  },{
-    'first': 'Rebecca',
-    'last': 'Mince',
-    'img': '205e460b479e2e5b48aec07710c08d50',
-    'amount': 3000
-  },{
-    'first': 'Sally',
-    'last': 'Smith',
-    'img': '205e460b479e2e5b48aec07410c08d50',
-    'amount': 2000
-  },{
-    'first': 'Bill',
-    'last': 'Jones',
-    'img': '205e460b479e2e5b48aec07710c08d53', 
-    'amount': 1950
-  }]
+  LeaderboardLoader(10).then(function(result){
+    var i;
+    $scope.leaders = [];
+    for(i=0 ; i < result.leaders.length; i++){
+      $scope.leaders[i] = result.leaders[i];
+      $scope.leaders[i].img = md5(result.leaders[i].email.toLowerCase());
+    }
+  });
 
   $scope.faq = [{
     'question': 'How often will you send us trip updates?',
@@ -89,7 +76,7 @@ angular.module('multiplyMe')
 
   $scope.days = {
     'end' : parsedEnd, //dateEnd.getDate() + '/' + (dateEnd.getMonth()+1) + '/' + dateEnd.getFullYear(),
-    'remaining' : Math.round((parsedEnd-parsedToday)/86400000) 
+    'remaining' : Math.round((parsedEnd-parsedToday)/86400000)
   }
 
   $scope.money = {
@@ -98,16 +85,16 @@ angular.module('multiplyMe')
     'percent' : Math.round(12000/50000*100)
   }
 
-   
+
     var vimeoFrame = $('#vimeoFrame')[0];
     var player = $f(vimeoFrame);
-    
+
     player.addEvent('ready', function() {
-        
+
         player.addEvent('playProgress', onPlayProgress);
     });
 
-    
+
 
     function onPlayProgress(data, id) {
         console.log(data.seconds + 's played');

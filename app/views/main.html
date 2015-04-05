@@ -72,20 +72,20 @@ h4 {font-size:16px;font-weight:bold;}
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{border-top:none transparent;}
 .panel a:focus, .panel a:hover{text-decoration:none;}
 .nav>li>a:focus, .nav>li>a:hover {background-color:transparent;font-weight:bold;}
-@lessthan920: 
+@lessthan920:
 
-.embed-container 
-{ 
-	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; 
-} 
+.embed-container
+{
+	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+}
 
-.embed-container iframe, .embed-container object, .embed-container embed 
-{ 
-	position: absolute; 
-	top: 0; 
-	left: 0; 
-	width: 100%%; 
-	height: 90%; 
+.embed-container iframe, .embed-container object, .embed-container embed
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%%;
+	height: 90%;
 }
 
 .campaignContent {
@@ -178,7 +178,7 @@ nav.campaign {
 	<div class="col-sm-offset-2 col-sm-5">
 		<h1 class="campaignLabels">{{cause.name}}</h1>
 		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
-		<p>{{cause.blurb}}</p> 
+		<p>{{cause.blurb}}</p>
 		<a href="#" class="btn btn-default">Share the Fundraiser</a>
 	</div>
 	<div class="col-sm-offset-1 col-sm-2 campaignStats">
@@ -196,7 +196,7 @@ nav.campaign {
 </div>
 
 <div class="white campaignContent">
-	<div class="container">		
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-offset-2 col-sm-5 column">
 				<div class="tabpanel">
@@ -208,7 +208,7 @@ nav.campaign {
               <a href="#updates" data-toggle="tab">Updates</a>
             </li>
             <li>
-              <a href="#comments" data-toggle="tab">Comments 
+              <a href="#comments" data-toggle="tab">Comments
                 <span class="disqus-comment-count" data-disqus-identifier="bhattimines"></span>
               </a>
             </li>
@@ -218,18 +218,18 @@ nav.campaign {
               <p>
                 <h3 class="campaign-header">Why should you support us?</h3>
                 <img alt="infographic placeholder" src="images/{{cause.image}}" style="max-width:100%" />
-                <p>{{cause.why}}</p> 
+                <p>{{cause.why}}</p>
 
                 <h3 class="campaign-header">How can I help?</h3>
                 <p>
                   Pray pray pray! I desire God to lead me in this journey. Please also contribute to my campaign - specifically, take the MultiplyMe challenge! My church has partnered with MultiplyMe to help raise more funds than I could normally raise.
-                  The main concept is for each of you to make a pledge to donate, invite 3 of your friends to join and pledge or donate within 3 days. We are basically replicating the ice bucket challenge for mission trip fundraising! It would be a <em>huge blessing</em> to be fully funded before I leave on my trip in May 1st. 
-                </p> 
+                  The main concept is for each of you to make a pledge to donate, invite 3 of your friends to join and pledge or donate within 3 days. We are basically replicating the ice bucket challenge for mission trip fundraising! It would be a <em>huge blessing</em> to be fully funded before I leave on my trip in May 1st.
+                </p>
 
                 <h3 class="campaign-header">Risks and Challenges</h3>
-                <p>{{cause.risks}}</p> 
+                <p>{{cause.risks}}</p>
 
-                <h3 class="campaign-header">FAQ</h3>  
+                <h3 class="campaign-header">FAQ</h3>
                 <div class="panel-group" id="accordion">
                   <div class="panel panel-default" ng-repeat="qa in faq">
                     <div class="panel-heading">
@@ -246,10 +246,10 @@ nav.campaign {
                 </div>
                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#questionModal">Ask a Question</button>
                 <!-- <input type="text" ng-show="showfaq"> -->
-              </p>  
+              </p>
             </div>
             <div class="tab-pane" id="updates">
-              <p> 
+              <p>
                   <embed src="http://us6.campaign-archive2.com/home/?u=beeeff6f4448a7714fc9237c6&id=60a15965b1" style="width:100%;height:800px"></embed>
               </p>
             </div>
@@ -268,7 +268,7 @@ nav.campaign {
                   })();
                 </script>
                 <noscript>
-                  Please enable JavaScript to view the 
+                  Please enable JavaScript to view the
                   <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
                 </noscript>
               </p>
@@ -279,13 +279,13 @@ nav.campaign {
       <div class="col-sm-3 column">
         <a class="btn btn-lg btn-primary" href="/contribute">Contribute</a>
         <p class="text-center small">
-          Campaign will end on {{days.end | date:'MM/dd/yy'}}           
-        </p> 
+          Campaign will end on {{days.end | date:'MM/dd/yy'}}
+        </p>
         <h4 class="action-header">Suggested Donations</h3>
         <a role="button" ng-href="/contribute?isSubscription={{suggestedDonations[$index].recurring}}&amount={{suggestedDonations[$index].amount}}" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
-              ${{suggest.amount}} 
+              ${{suggest.amount}}
               <span style="font-size:12px" ng-show="suggest.recurring">per month</span>
             </h3>
             <span>{{suggest.message}}</span>
@@ -294,15 +294,16 @@ nav.campaign {
         </a>
         <div class="leaderboard">
           <h4 class="action-header">Leaderboard</h3>
-          <div class="row clearfix" ng-repeat="leader in leaderBoard">
+          <div class="row clearfix" ng-repeat="leader in leaders">
             <div class="col-sm-2 column">
+
               <img alt="140x140" class="img-circle" ng-src="https://www.gravatar.com/avatar/{{leader.img}}?s=200&r=pg&d=mm" />
             </div>
             <div class="col-sm-6 column">
-              <span>{{leader.first}} {{leader.last}}</span>
+              <span>{{ leader.name }}</span>
             </div>
             <div class="col-sm-4 column">
-              <span>${{leader.amount}}<span>
+              <span>${{ leader.contribution }}<span>
             </div>
           </div>
         </div>
@@ -310,7 +311,6 @@ nav.campaign {
     </div>
   </div>
 </div>
-
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES * * */
 var disqus_shortname = 'multiplyme';

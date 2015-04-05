@@ -19,7 +19,7 @@ angular
   'ng-token-auth',
   'ui.router'
 ])
-.constant('URL', 'http://localhost:3000')
+.constant('URL', 'https://api.multiplyme.in/')
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
   $authProvider.configure({
     apiUrl: 'https://api.multiplyme.in'
