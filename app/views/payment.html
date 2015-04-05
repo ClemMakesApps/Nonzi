@@ -542,7 +542,7 @@ input[type=number]::-webkit-outer-spin-button {
 .expiration-container {
   padding-left: 0px;
 }
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .email-form-group {
     margin-bottom: 15px;
   }
@@ -597,10 +597,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @keyframes bouncedelay {
-  0%, 80%, 100% { 
+  0%, 80%, 100% {
     transform: scale(0.0);
     -webkit-transform: scale(0.0);
-  } 40% { 
+  } 40% {
     transform: scale(1.0);
     -webkit-transform: scale(1.0);
   }
@@ -626,14 +626,15 @@ input[type=number]::-webkit-outer-spin-button {
 		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#">Learn More.</a></span>
 	</div>
   <div class="col-lg-offset-2 col-lg-8 col-sm-12">
-    
+
     <div class="col-lg-7 col-sm-7 content paymentFields">
       <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
         <form name="paymentForm" class="form-horizontal">
           <div class="form-group has-success has-feedback">
             <label for="name" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" placeholder="Name"  aria-describedby="inputSuccess2Status">
+              <input ng-model="payment.user.name" type="text" class="form-control" id="name"
+                      ng-required="true"  placeholder="Name"  aria-describedby="inputSuccess2Status">
               <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true"></span>
               <span id="inputSuccess2Status" class="sr-only">(success)</span>
             </div>
@@ -714,7 +715,7 @@ input[type=number]::-webkit-outer-spin-button {
             <label for="password" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">
               <div class="col-sm-7 password-container">
-                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password"> 
+                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password">
                 or
               </div>
               <div class="col-sm-5 btn-facebook-container">
@@ -726,7 +727,7 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
         </form>
     </div>
-    
+
     <div class="col-lg-5 col-sm-5 content">
       <div class="perk-background rounded-background">
         <span>Pledge Amount</span>
