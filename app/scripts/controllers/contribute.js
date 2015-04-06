@@ -42,8 +42,7 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
 
   $scope.hidePromo = function() {
-    var alert = angular.element( document.querySelector( '.perk-promo' ) );
-    alert.addClass('bounceOut'); 
+    $scope.showPromo = false;
     $scope.forceHideSuggested = true;   
   }
 
@@ -89,8 +88,9 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
           if($scope.selectedRecurring == false) {
             //last minute abort if selected
             $scope.checkSuggestion();
-            var alert = angular.element(document.querySelector( '.perk-promo' ));
-            alert.addClass('animated bounceIn');
+            // var alert = angular.element(document.querySelector( '.perk-promo' ));
+            // alert.addClass('animated bounceIn');
+            $scope.showPromo = true;
           }
         }
 

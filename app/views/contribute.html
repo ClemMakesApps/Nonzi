@@ -206,7 +206,7 @@ input[type=number]::-webkit-outer-spin-button {
       </div>
     </div>
     <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-6 content">
-      <div class="perk-promo" ng-hide="suggestedAmount == -1 || forceHideSuggested == true">
+      <div class="perk-promo" ng-hide="suggestedAmount == -1 || forceHideSuggested == true" ng-class="{animated: showPromo, bounceIn: showPromo, bounceOut: !showPromo}">
         <span class="promo-tag">Would you consider giving {{suggestedAmount | currency:undefined:0}} a month instead for more impact?</span>
         <div>
           <button type="button" class="btn btn-clear" ng-click="hidePromo()">No</button>
