@@ -64,10 +64,7 @@ angular.module('multiplyMe')
 
     $scope.submit = function(){
       $scope.enableLoading = true;
-      var submitBtn = angular.element(document.querySelector( '.btn-action' ));
-      submitBtn.attr("disabled", "disabled");
-      var lead = angular.element(document.querySelector( '.lead-in' ));
-      lead.text("Initating");
+      $scope.challengeProgress = "Initating";
 
       var payment = $scope.payment;
       $auth.submitRegistration(
@@ -80,7 +77,7 @@ angular.module('multiplyMe')
       )
       .then(function(result){
         logInUser();
-        lead.text("Processing");
+        $scope.challengeProgress = "Processing";
       });
     };
 
