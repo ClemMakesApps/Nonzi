@@ -47,35 +47,28 @@ angular.module('multiplyMe')
   }]
 
   $scope.faq = [{
-    'question': 'How often will you send us trip updates?',
-    'answer': 'My goal is to send them at least once every two weeks but realistically, it maybe more likely to be sent once every month.',
+    'question': 'How often will we get updates about the school?',
+    'answer': 'There is very little infrastructure at Bhatti Mines, electricity is spotty and there is no available internet. Once a month they give us an update by phone, and once a year a group of volunteers comes from America to visit the school and get more in depth updates.',
   },{
-    'question': 'Are you partnering with any missions organizations?',
-    'answer': 'Yes! I will be partnering with the International Missions Board (IMB).',
-  },{
-    'question': 'Will you be doing this mission trip alone?',
-    'answer': 'Somewhat. My church and the International Missions Board (IMB) will be sending mission trips to my area every couple months to assist with my work.',
-  },{
-    'question': 'Can we still support you after this campaign is over?',
-    'answer': 'If you are interested, please send me an email at fraser@gmail.com.',
+    'question': 'What happens if my friends don\'t respond in time?',
+    'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   }]
 
   $scope.org = {
-    'name': 'The Well Austin',
+    'name': 'The Amala Foundation',
     'url': 'https://thewellaustin.com/',
   }
 
   $scope.cause = {
-    'name': 'India Mission Trip',
-    'blurb': 'Fraser is raising funds for a two year trip to share the gospel with low income families and plant churches in New Delhi, India',
-    'why': 'Several years ago, God began placing a burden in my heart to share the gospel with the nations of the world (Specifically, unreached nations). Since then, I have been searching out for opportunities and discovering the nation God has placed upon my heart. Last year, my pastor at The Well Austin approached me about an opportunity to go to India to plant a new church as part of the Acts 29 Network. After praying and seeking wise counsel over the past several months, I have decided to go on this trip. I just put in my two weeks notice at my full time job at Facebook and am stepping out in faith that God will lead me every step of the way.',
+    'name': 'Bhatti Mines School',
+    'blurb': 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.',
+    'why': '   Bhatti Mines community is one of the most impoverished in the Delhi area. There is no running water, electricity, adequate food and shelter, or health services. Before the Bhatti Mines had a school, manual labor started in childhood, seeking an education was impossible, and this community was trapped in the cycle of poverty.<br/> But twelve years ago, Santosh and Archana Singh invested in the future of this community. With funding from people like you, they build a free school. Instead of laboring for survival, children can now pursue an education. The school is full of positive role models, adults who care about the success of their students. Each year, approximately 200 children are offered an alternative to child labor, a route out of extreme poverty. Children who attend school are more likely to grow up healthy, earn a living wage, marry later, and pass on a better life to the next generation. For these kids, Bhatti Mines School means hope for the future and freedom to thrive.',
     'image': 'indiademographic.jpg',
-    'risks': 'Although I feel that God is calling me to go on this trip, I am stepping out in faith. I will be quitting my full time job and am unsure what types of fruit I will see in India during these 2 years. My goal is to see at least one church planted with 50 regular attendees before I finish but that is totally dependent on God.',
-    'supporters':30
+    'supporters':0
   }
 
 
-  var dateStart='2015-03-15';
+  var dateStart='2015-04-15';
   var dateLength=30;
   var dateToday=new Date();
   var parsedToday=Date.parse(dateToday);
@@ -85,7 +78,7 @@ angular.module('multiplyMe')
 
   var requested = 50000;
   var raised = 12000;
-  var percent = 50000-12000;
+  var percent =  Math.round(raised/requested*100)
 
   $scope.days = {
     'end' : parsedEnd, //dateEnd.getDate() + '/' + (dateEnd.getMonth()+1) + '/' + dateEnd.getFullYear(),
@@ -94,8 +87,8 @@ angular.module('multiplyMe')
 
   $scope.money = {
     'requested' : 50000,
-    'raised' : 12000,
-    'percent' : Math.round(12000/50000*100)
+    'raised' : 0,
+    'percent' : Math.round(0/50000*100)
   }
 
    
@@ -114,12 +107,40 @@ angular.module('multiplyMe')
         // $scope.highlights = true;
         // $scope.$apply();
 
-        $( ".campaignHighlights" ).animate({"bottom": "-200px"}, 1000, function() {
+        $( ".campaignHighlights" ).animate({"top": "540px"}, 1000, function() {
           $( ".campaignHighlights" ).removeClass("whitefont");
           $( ".campaignHighlights" ).css("color","black");
           $( ".campaignHighlights .btn" ).css("color","black");
         });
-        $( ".campaignContent" ).animate({"padding-top": "300px"}, 1000);
+        $( ".campaignContent" ).animate({"padding-top": "490px"}, 1000);
         player.removeEvent('playProgress');
     }
+
+    $scope.share = function(provider){
+      if(provider === 'facebook'){
+        $window.open(
+         '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent($location.absUrl()),
+         'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'twitter'){
+        $window.open(
+          '//www.twitter.com/intent/tweet?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'google'){
+        $window.open(
+          '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'email'){
+        // $window.open(
+        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+    }
+
 });
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
