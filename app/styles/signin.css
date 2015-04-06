@@ -7,13 +7,13 @@ html body{
 }
 
 .rounded-background {
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
 .light-gray-background {
-    background-color: rgb(227,227,227);
+  background-color: rgb(227,227,227);
 }
 .green-color{
   color: rgb(46,148,131);
@@ -25,3 +25,11 @@ html body{
 .login-btn{
   margin-top: 40px;
 }
+/*
+#loginForm input.ng-invalid {
+  border: 1px solid red;
+}
+#loginForm input.ng-valid {
+  border: 1px solid green;
+}
+*/
