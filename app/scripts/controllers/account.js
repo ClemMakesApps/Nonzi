@@ -11,6 +11,8 @@ angular.module('multiplyMe')
   .controller('AccountCtrl', function ($scope, $state, Donation, $auth) {
     $scope.personal_impact = $auth.user.personal_impact;
     $scope.network_impact = $auth.user.network_impact;
+    $scope.name = $auth.user.name;
+    console.log('name', $scope.name);
     // Donation ID is hard coded right now
     //Email hard coded
     $scope.updatePassword = function(){
