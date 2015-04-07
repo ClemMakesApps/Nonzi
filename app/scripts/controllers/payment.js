@@ -12,6 +12,19 @@ angular.module('multiplyMe')
     $scope.amount = $stateParams.amount;
     $scope.isSubscription == $stateParams.isSubscription == "true";
 
+    var validateFormSubmission = function(){
+      var payment = $scope.payment;
+      return payment.user.name
+        && payment.cardNumber
+        && payment.expirationYear
+        && payment.expirationMonth
+        && payment.cvc
+        && payment.zip
+        && payment.user.email
+        && payment.user.verifyEmail
+        && $scope.password;
+    }
+
     var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
       Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
@@ -66,19 +79,27 @@ angular.module('multiplyMe')
       $scope.enableLoading = true;
       $scope.challengeProgress = "Initating";
 
-      var payment = $scope.payment;
-      $auth.submitRegistration(
-        {
-          email: payment.user.email,
-          password: $scope.password,
-          password_confirmation: $scope.password,
-          name: payment.user.name
-        }
-      )
-      .then(function(result){
-        logInUser();
-        $scope.challengeProgress = "Processing";
-      });
+      if(validateFormSubmission()){
+        $scope.enableLoading = true;
+        $scope.challengeProgress = "Initating";
+
+        var payment = $scope.payment;
+        $auth.submitRegistration(
+            {
+              email: payment.user.email,
+              password: $scope.password,
+              password_confirmation: $scope.password,
+              name: payment.user.name
+            }
+            )
+          .then(function(result){
+            logInUser();
+            $scope.challengeProgress = "Processing";
+          })
+      }
+     else{
+      console.log('somethin wrong');
+     }
     };
 
     $scope.payment = {}
