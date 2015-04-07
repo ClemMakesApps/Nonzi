@@ -103,6 +103,12 @@ angular.module('multiplyMe')
             logInUser();
             $scope.challengeProgress = "Processing";
           })
+        .catch(function(response){
+          $scope.enableLoading = false;
+          var errors = response.data.errors;
+          $scope.donating = false;
+          $scope.challengeProgress = errors.full_messages[0];
+        });
       }
      else{
       console.log('somethin wrong');
