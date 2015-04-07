@@ -7,7 +7,7 @@
 .container {width:100%;margin:0 auto;padding:0 15px;}
 .fullwidth {width:100%; padding: 0; margin:0;clear:both;}
 .white {background-color: white; padding-top: 30px;}
-.whitefont, .whitefont a, .whitefont a:hover {color: white}
+.whitefont, .whitefont a, .whitefont a:hover, .whitefont .btn, .whitefont .btn.active:focus, .whitefont .btn.active {color: white}
 a.underline {text-decoration: underline;}
 .btn-default, .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open>.dropdown-toggle.btn-default{background-color:transparent;}
 .btn-primary {margin: 5px 10%; background-color: teal; width: 80%;}
@@ -72,11 +72,16 @@ h4 {font-size:16px;font-weight:bold;}
 .panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{border-top:none transparent;}
 .panel a:focus, .panel a:hover{text-decoration:none;}
 .nav>li>a:focus, .nav>li>a:hover {background-color:transparent;font-weight:bold;}
-@lessthan920:
+
 
 .embed-container
 {
-	position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%;
+	min-height: 590px;
 }
 
 .embed-container iframe, .embed-container object, .embed-container embed
@@ -84,13 +89,12 @@ h4 {font-size:16px;font-weight:bold;}
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%%;
+	width: 100%;
 	height: 90%;
 }
 
 .campaignContent {
 	position: absolute;
-	top: 90%;
 	padding-top: 10px;
 	width: 100%;
   margin-bottom: 50px;
@@ -211,6 +215,55 @@ padding: 5px 5px;
   bottom: 0;
   position: fixed;
 }
+}
+
+.social-links .btn{
+  font-size: 27px !important;
+}
+
+.fa-facebook-square {
+  color: #3B5998;
+}
+
+.fa-twitter-square {
+  color: #4099FF;
+}
+
+.fa-google-plus-square {
+  color: #DD4B39;
+}
+
+.fa-facebook-square:hover,
+.fa-twitter-square:hover,
+.fa-google-plus-square:hover,
+.fa-envelope:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook-square:after,
+.fa-twitter-square:after,
+.fa-google-plus-square:after {
+  content: "";
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 7px;
+  display: block;
+  position: absolute;
+  bottom:4px;
+  left:1px;
+  z-index: -1;
+}
+.social-actions{
+  font-size: 27px;
+  background-color: transparent;
+  border: none;
+}
+
+.fa-envelope {
+  font-size: 27px;
+  color:burlywood;
+}
 </style>
 <nav class="campaign">
 	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
@@ -223,8 +276,8 @@ padding: 5px 5px;
 		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
 		<p>{{cause.blurb}}</p> 
 		<div class="popover-cntr" style="position:relative;">
-		  <a href="#" class="btn btn-default">Share the Fundraiser</a>
-		  <div class="popover fade right in" role="tooltip" id="popover644569" style="left:170px; display: block;">
+		  <a href="#" class="btn btn-default" ng-click="showPopover()">Share the Fundraiser</a>
+		  <div class="popover fade right in"  ng-show="popover" role="tooltip" id="popover644569" style="left:170px; display: block;">
 		    <div class="arrow" style="top: 40%;"></div>
 			<h3 class="popover-title" style="display: none;"></h3>
 			<div class="popover-content">

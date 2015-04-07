@@ -8,7 +8,7 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('MainCtrl', function ($scope, $stateParams, $timeout, LeaderboardLoader) {
+  .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, LeaderboardLoader) {
 
   $scope.suggestedDonations = [{
     'amount': 175,
@@ -54,6 +54,29 @@ angular.module('multiplyMe')
     'supporters':0
   }
 
+  
+    $scope.share = function(provider){
+      if(provider === 'facebook'){
+        $window.open(
+         '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent($location.absUrl()),
+         'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'twitter'){
+        $window.open(
+          '//www.twitter.com/intent/tweet?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'google'){
+        $window.open(
+          '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'email'){
+        // $window.open(
+        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+    }
 
   var dateStart='2015-04-15';
   var dateLength=30;
@@ -89,6 +112,13 @@ angular.module('multiplyMe')
 
 
 
+  $scope.popover = false;
+
+  $scope.showPopover = function(){
+    $scope.popover = true;  
+	console.log("");
+  };
+
     function onPlayProgress(data, id) {
         console.log(data.seconds + 's played');
         // $scope.highlights = true;
@@ -103,31 +133,10 @@ angular.module('multiplyMe')
         player.removeEvent('playProgress');
     }
 
-    $scope.share = function(provider){
-      if(provider === 'facebook'){
-        $window.open(
-         '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent($location.absUrl()),
-         'sharer', 'toolbar=0,status=0,width=500,height=500');
-      }
-      if(provider === 'twitter'){
-        $window.open(
-          '//www.twitter.com/intent/tweet?url=' + encodeURIComponent($location.absUrl()),
-          'sharer', 'toolbar=0,status=0,width=500,height=500');
-      }
-      if(provider === 'google'){
-        $window.open(
-          '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
-          'sharer', 'toolbar=0,status=0,width=500,height=500');
-      }
-      if(provider === 'email'){
-        // $window.open(
-        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
-        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
-      }
-    }
+
+
 
 });
-
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
