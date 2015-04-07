@@ -768,14 +768,14 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
           </div>
         </div>
-        <button ng-click="submit()" type="button" class="btn btn-success btn-action" ng-disabled="donating || enableLoading">
+        <button ng-click="challengeSubmit()" type="button" class="btn btn-success btn-action" ng-disabled="donating || enableLoading">
           <svg ng-show="enableLoading" class="spinner" width="40px" height="40px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
           </svg>
           <div class="lead-in">{{challengeProgress || "Take the"}}</div>
           <span style="font-weight:bold;font-size:16px;">Challenge</span>
         </button>
-        <button class="btn-donate" href="#" ng-click="donate()" ng-disabled="donating">I'd prefer to just donate</button>
+        <button class="btn-donate" href="#" ng-click="unchallengedSubmit()" ng-disabled="donating">I'd prefer to just donate</button>
         <div class="donate-spinner" ng-show="donating">
           <div class="bounce1"></div>
           <div class="bounce2"></div>

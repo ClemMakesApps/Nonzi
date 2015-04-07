@@ -62,7 +62,8 @@ angular.module('multiplyMe')
             donation: {
               amount: Math.floor($stateParams.amount * 100),
               organization_id: 1,
-              is_subscription: $scope.isSubscription
+              is_subscription: $scope.isSubscription,
+              is_challenged: $scope.isChallenged
             },
             card: {
               token: token,
@@ -75,10 +76,16 @@ angular.module('multiplyMe')
         });
     }
 
-    $scope.submit = function(){
-      $scope.enableLoading = true;
-      $scope.challengeProgress = "Initating";
+    $scope.challengeSubmit = function(){
+      $scope.isChallenged = true;
+      submit();
+    }
+    $scope.unchallengedSubmit = function(){
+      $scope.isChallenged = false;
+      submit();
+    }
 
+    var submit = function(){
       if(validateFormSubmission()){
         $scope.enableLoading = true;
         $scope.challengeProgress = "Initating";
