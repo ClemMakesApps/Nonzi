@@ -24,7 +24,7 @@ angular.module('multiplyMe')
     'message': 'Can help fund basic travel for a month'
   }]
 
-  LeaderboardLoader(10).then(function(result){
+  LeaderboardLoader(5).then(function(result){
     var i;
     $scope.leaders = [];
     for(i=0 ; i < result.leaders.length; i++){
