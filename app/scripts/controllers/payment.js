@@ -11,6 +11,8 @@ angular.module('multiplyMe')
   .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
     $scope.amount = $stateParams.amount;
     $scope.isSubscription == $stateParams.isSubscription == "true";
+    $scope.signedIn = $auth.user.signedIn;
+    $scope.name = $auth.user.name;
 
     var validateFormSubmission = function(){
       var payment = $scope.payment;
@@ -207,6 +209,11 @@ angular.module('multiplyMe')
       $scope.donating = true;
     }
 
+    $scope.signout = function() {
+      $auth.signOut().then(function (resp) {
+        $scope.signedIn = false;
+      });
+    }
     // var formCheckTimer = null;
     // $scope.checkForm = function(newValue, oldValue) {
     //   if(newValue != oldValue) {

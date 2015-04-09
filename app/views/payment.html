@@ -605,6 +605,10 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-transform: scale(1.0);
   }
 }
+
+.disabled {
+  opacity: 0.5;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
@@ -703,15 +707,18 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
           <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
           <p>Cancel recurring donations, measure your impact and <a href="#">more.</a></p>
-          <div class="form-group">
+          <div class="alert alert-info" role="alert" ng-show="signedIn">
+            <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link" ng-click="signout()">{{name}}?</button>
+          </div>
+          <div class="form-group" ng-class="{disabled : signedIn}">
             <label for="password" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">
               <div class="col-sm-7 password-container">
-                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password">
+                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-disabled="signedIn">
                 or
               </div>
               <div class="col-sm-5 btn-facebook-container">
-                <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()">
+                <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()" ng-disabled="signedIn">
                   <i class="fa fa-facebook"></i> Use Facebook
                 </a>
               </div>
