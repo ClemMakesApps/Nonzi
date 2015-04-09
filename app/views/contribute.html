@@ -188,6 +188,11 @@ input[type=number]::-webkit-outer-spin-button {
 .pledge-error .currency-label {
   color: #a94442;
 }
+
+.btn-success[disabled] {
+  background-color: rgba(80, 227, 194, 0.49);
+  border-color: transparent;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid">
@@ -201,7 +206,7 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="form-group" ng-class="{'pledge-error': contributeForm.pledge.$error.pattern}">
           <div class="form-pledge">
             <span class="currency-symbol">$</span>
-            <input name="pledge" id="pledge" type="number" class="pledge-input" min="1" ng-model="pledge" ng-pattern="/^[1-9]\d*(\.\d+)?$/" autofocus>
+            <input name="pledge" id="pledge" type="number" class="pledge-input" min="1" ng-model="pledge" ng-pattern="/^[1-9]\d*(\.\d+)?$/" required autofocus>
             <span class="currency-label">USD</span>
           </div>
           <div class="checkbox">
@@ -228,7 +233,7 @@ input[type=number]::-webkit-outer-spin-button {
           <span class="fa fa-check-square" ng-show="$index == selectedPerk"></span>
         </div>
       </div>
-      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})" ng-disabled="contributeForm.pledge.$error.pattern">Continue</a>
+      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})" ng-disabled="contributeForm.$invalid">Continue</a>
     </div>
   </div>
 </div>
