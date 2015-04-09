@@ -8,10 +8,17 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
+  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
+    $rootScope.$on('auth:validation-success', function(ev, user) {
+      $scope.signedIn = true;
+    });
+    $rootScope.$on('auth:validation-error', function(ev) {
+      $scope.signedIn = false;
+    });
+
+    $scope.signedIn = $auth.user.signedIn;
     $scope.amount = $stateParams.amount;
     $scope.isSubscription == $stateParams.isSubscription == "true";
-    $scope.signedIn = $auth.user.signedIn;
     $scope.authUser = {
       'name': $auth.user.name,
       'email': $auth.user.email
@@ -27,17 +34,28 @@ angular.module('multiplyMe')
     $scope.expirationYears = [];
     $scope.expirationMonths = [];
 
-    var validateFormSubmission = function(){
+    var validateCard = function(){
       var payment = $scope.payment;
-      return payment.user.name
+        return payment.user.name
         && payment.cardNumber
         && payment.expirationYear
         && payment.expirationMonth
         && payment.cvc
         && payment.zip
-        && payment.user.email
+    }
+
+    var validateUser = function(){
+      var payment = $scope.payment;
+        return payment.user.email
         && payment.user.verifyEmail
         && $scope.password;
+    }
+
+    var validateFormSubmission = function(){
+      return ($scope.signedIn
+        && validateCard())
+        || (validateUser()
+        && validateCard());
     }
 
     var createToken = function(number, exp_month, exp_year, cvc){
@@ -61,12 +79,13 @@ angular.module('multiplyMe')
         email: payment.user.email,
         password: $scope.password
       }).then(function(){
-          createDonation();
+        createDonation();
       });
     }
 
     var createDonation = function(){
       var payment = $scope.payment;
+      var email = payment.user.email ? payment.user.email : $auth.user.email;
       createToken(
         payment.cardNumber,
         payment.expirationMonth,
@@ -82,7 +101,7 @@ angular.module('multiplyMe')
             },
             card: {
               token: token,
-              email: payment.user.email
+              email: email
             }
           },
           function(result){
@@ -102,39 +121,48 @@ angular.module('multiplyMe')
       submit();
     }
 
-    var submit = function(){
-      if(validateFormSubmission()){
 
+    var submit = function(){
+      console.log($scope.signedIn);
+      if(validateFormSubmission()){
         if(!$scope.donating) {
           $scope.enableLoading = true;
           $scope.challengeProgress = "Initating";
         }
+        if(!$scope.signedIn){
 
-        var payment = $scope.payment;
-        $auth.submitRegistration(
-            {
-              email: payment.user.email,
-              password: $scope.password,
-              password_confirmation: $scope.password,
-              name: payment.user.name
-            }
-            )
-          .then(function(result){
-            logInUser();
-            if(!$scope.donating) {
-              $scope.challengeProgress = "Processing";
-            }
-          })
-        .catch(function(response){
-          $scope.enableLoading = false;
-          var errors = response.data.errors;
-          $scope.donating = false;
-          $scope.challengeProgress = errors.full_messages[0];
-        });
+          var payment = $scope.payment;
+          $auth.submitRegistration(
+              {
+                email: payment.user.email,
+                password: $scope.password,
+                password_confirmation: $scope.password,
+                name: payment.user.name
+              }
+              )
+            .then(function(result){
+              if(!$scope.donating) {
+                $scope.challengeProgress = "Processing";
+              }
+              logInUser();
+            })
+          .catch(function(response){
+            $scope.enableLoading = false;
+            var errors = response.data.errors;
+            $scope.donating = false;
+            $scope.challengeProgress = errors.full_messages[0];
+          });
+        }
+        else{
+          if(!$scope.donating) {
+            $scope.challengeProgress = "Processing";
+          }
+          createDonation();
+        }
       }
-     else{
-      console.log('somethin wrong');
-     }
+      else{
+        console.log('somethin wrong');
+      }
     };
 
     $scope.generateYears = function() {
@@ -163,13 +191,6 @@ angular.module('multiplyMe')
       }
     }
     $scope.generateMonths();
-
-    $scope.register = function(){
-      $auth.submitRegistration($scope.payment.user)
-      .then(function(resp){
-        $state.go('/account');
-      })
-    }
 
     function getMerchantProvider(cardNo){                      //cardNo is the credit card number
       var cards = new Array();
