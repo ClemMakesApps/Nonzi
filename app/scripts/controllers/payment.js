@@ -19,6 +19,7 @@ angular.module('multiplyMe')
 
     $scope.payment = {}
     $scope.payment.user = {
+      'name': $scope.authUser.name,
       'email': $scope.authUser.email,
       'verifyEmail': $scope.authUser.email
     }

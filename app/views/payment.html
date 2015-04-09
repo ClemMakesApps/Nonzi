@@ -641,6 +641,9 @@ input[type=number]::-webkit-outer-spin-button {
 
     <div class="col-lg-7 col-sm-7 content paymentFields">
       <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
+        <div class="alert alert-info" role="alert" ng-show="signedIn">
+          <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link signout-payments" ng-click="signout()">{{authUser.name}}?</button>
+        </div>
         <form name="paymentForm" class="form-horizontal">
           <div class="form-group has-success has-feedback">
             <label for="name" class="col-sm-3 control-label">Name</label>
@@ -701,9 +704,6 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
           </div>
           <h4 class="subheader newPaymentSection">Your Information</h4>
-          <div class="alert alert-info" role="alert" ng-show="signedIn">
-            <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link signout-payments" ng-click="signout()">{{authUser.name}}?</button>
-          </div>
           <div class="form-group email-form-group">
             <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
             <div class="col-sm-8">
