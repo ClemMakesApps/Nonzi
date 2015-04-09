@@ -175,6 +175,19 @@ input[type=number]::-webkit-outer-spin-button {
   float: left;
   margin-top: 10px;
 }
+
+.pledge-error input{
+  border-color: #a94442;
+  color: #a94442;
+}
+
+.pledge-error .currency-symbol {
+  color: #a94442;
+}
+
+.pledge-error .currency-label {
+  color: #a94442;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid">
@@ -184,18 +197,20 @@ input[type=number]::-webkit-outer-spin-button {
   </div>
   <div class="col-lg-offset-2 col-lg-7 col-md-12 col-sm-12">
     <div class="col-lg-6 col-md-6 col-sm-6 pledge content">
-      <div class="form-group">
-        <div class="form-pledge">
-          <span class="currency-symbol">$</span>
-          <input type="number" class="pledge-input" min="1" ng-model="pledge" autofocus>
-          <span class="currency-label">USD</span>
+      <form name="contributeForm">
+        <div class="form-group" ng-class="{'pledge-error': contributeForm.pledge.$error.pattern}">
+          <div class="form-pledge">
+            <span class="currency-symbol">$</span>
+            <input name="pledge" id="pledge" type="number" class="pledge-input" min="1" ng-model="pledge" ng-pattern="/^[1-9]\d*(\.\d+)?$/" autofocus>
+            <span class="currency-label">USD</span>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="selectedRecurring"> Make this a recurring monthly gift. Cancel Anytime.
+            </label>
+          </div>
         </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" ng-model="selectedRecurring"> Make this a recurring monthly gift. Cancel Anytime.
-          </label>
-        </div>
-      </div>
+      </form>
     </div>
     <div class="col-lg-5 col-lg-offset-1 col-md-offset-1 col-md-5 col-sm-6 content">
       <div class="perk-promo" ng-hide="suggestedAmount == -1 || forceHideSuggested == true" ng-class="{animated: showPromo, bounceIn: showPromo, bounceOut: !showPromo}">
@@ -213,7 +228,7 @@ input[type=number]::-webkit-outer-spin-button {
           <span class="fa fa-check-square" ng-show="$index == selectedPerk"></span>
         </div>
       </div>
-      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})">Continue</a>
+      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})" ng-disabled="contributeForm.pledge.$error.pattern">Continue</a>
     </div>
   </div>
 </div>
