@@ -609,6 +609,22 @@ input[type=number]::-webkit-outer-spin-button {
 .disabled {
   opacity: 0.5;
 }
+
+.updates-checkbox {
+  z-index: 1;
+}
+
+.signout-payments {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  margin-bottom: 1px;
+  padding-left: 0px;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
@@ -685,31 +701,31 @@ input[type=number]::-webkit-outer-spin-button {
             </div>
           </div>
           <h4 class="subheader newPaymentSection">Your Information</h4>
+          <div class="alert alert-info" role="alert" ng-show="signedIn">
+            <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link signout-payments" ng-click="signout()">{{authUser.name}}?</button>
+          </div>
           <div class="form-group email-form-group">
             <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
             <div class="col-sm-8">
               <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
-                     type="email" class="form-control" id="email" placeholder="Email address">
+                     type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn">
               <i ng-show="paymentForm.email.$error.pattern" class="fa fa-close"></i>
             </div>
           </div>
           <div class="form-group">
             <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
             <div class="col-sm-8">
-              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" placeholder="Verify email address">
+              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email">
               <i ng-show="payment.user.email != payment.user.verifyEmail" class="fa fa-close"></i>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" checked> Send me campaign updates
+                  <input class="updates-checkbox" type="checkbox" checked> Send me campaign updates
                 </label>
               </div>
             </div>
           </div>
           <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
           <p>Cancel recurring donations, measure your impact and <a href="#">more.</a></p>
-          <div class="alert alert-info" role="alert" ng-show="signedIn">
-            <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link" ng-click="signout()">{{name}}?</button>
-          </div>
           <div class="form-group" ng-class="{disabled : signedIn}">
             <label for="password" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">

@@ -12,7 +12,19 @@ angular.module('multiplyMe')
     $scope.amount = $stateParams.amount;
     $scope.isSubscription == $stateParams.isSubscription == "true";
     $scope.signedIn = $auth.user.signedIn;
-    $scope.name = $auth.user.name;
+    $scope.authUser = {
+      'name': $auth.user.name,
+      'email': $auth.user.email
+    };
+
+    $scope.payment = {}
+    $scope.payment.user = {
+      'email': $scope.authUser.email,
+      'verifyEmail': $scope.authUser.email
+    }
+
+    $scope.expirationYears = [];
+    $scope.expirationMonths = [];
 
     var validateFormSubmission = function(){
       var payment = $scope.payment;
@@ -117,12 +129,6 @@ angular.module('multiplyMe')
      }
     };
 
-    $scope.payment = {}
-    $scope.payment.user = {}
-
-    $scope.expirationYears = [];
-    $scope.expirationMonths = [];
-
     $scope.generateYears = function() {
       var thisYear = new Date().getFullYear();
       for(var i = 0; i < 15; i++) {
@@ -212,6 +218,8 @@ angular.module('multiplyMe')
     $scope.signout = function() {
       $auth.signOut().then(function (resp) {
         $scope.signedIn = false;
+        $scope.payment.user.email = '';
+        $scope.payment.user.verifyEmail = '';
       });
     }
     // var formCheckTimer = null;
