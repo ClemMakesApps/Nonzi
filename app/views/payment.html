@@ -790,7 +790,7 @@ input[type=number]::-webkit-outer-spin-button {
           <div class="lead-in">{{challengeProgress || "Take the"}}</div>
           <span style="font-weight:bold;font-size:16px;">Challenge</span>
         </button>
-        <button class="btn-donate" href="#" ng-click="unchallengedSubmit()" ng-disabled="donating">I'd prefer to just donate</button>
+        <button class="btn-donate" ng-click="unchallengedSubmit()" ng-disabled="donating">{{donateStatus || "I'd prefer to just donate"}}</button>
         <div class="donate-spinner" ng-show="donating">
           <div class="bounce1"></div>
           <div class="bounce2"></div>

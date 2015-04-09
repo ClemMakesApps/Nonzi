@@ -96,13 +96,18 @@ angular.module('multiplyMe')
     }
     $scope.unchallengedSubmit = function(){
       $scope.isChallenged = false;
+      $scope.donateStatus = "Donating...";
+      $scope.donating = true;
       submit();
     }
 
     var submit = function(){
       if(validateFormSubmission()){
-        $scope.enableLoading = true;
-        $scope.challengeProgress = "Initating";
+
+        if(!$scope.donating) {
+          $scope.enableLoading = true;
+          $scope.challengeProgress = "Initating";
+        }
 
         var payment = $scope.payment;
         $auth.submitRegistration(
@@ -115,7 +120,9 @@ angular.module('multiplyMe')
             )
           .then(function(result){
             logInUser();
-            $scope.challengeProgress = "Processing";
+            if(!$scope.donating) {
+              $scope.challengeProgress = "Processing";
+            }
           })
         .catch(function(response){
           $scope.enableLoading = false;
@@ -206,13 +213,6 @@ angular.module('multiplyMe')
       if(oldValue != null) {
         $scope.highlightNext = true;
       }
-    }
-
-    $scope.donate = function() {
-      var btn = angular.element(document.querySelector( '.btn-donate' ));
-      btn.text("Donating...");
-
-      $scope.donating = true;
     }
 
     $scope.signout = function() {
