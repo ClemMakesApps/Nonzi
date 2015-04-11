@@ -656,11 +656,11 @@ input[type=number]::-webkit-outer-spin-button {
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
-  <!-- <div class="col-md-offset-2 col-md-8">
-    <div class="alert alert-info" role="alert">
-      <strong>You are Awesome!</strong> Clement's pledge is now one step closer to becoming donated.
+  <div class="col-md-offset-2 col-md-8">
+    <div class="alert alert-success" role="alert" ng-show="hasReferral">
+      <strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.
     </div>
-  </div> -->
+  </div>
 	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12">
 		<h2 class="title-normal">Payment Information</h2>
 		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#">Learn More.</a></span>
