@@ -233,7 +233,7 @@ input[type=number]::-webkit-outer-spin-button {
           <span class="fa fa-check-square" ng-show="$index == selectedPerk"></span>
         </div>
       </div>
-      <a role="button" class="btn btn-success pull-right" ui-sref="payment({isSubscription: selectedRecurring, amount: pledge})" ng-disabled="contributeForm.$invalid">Continue</a>
+      <a role="button" class="btn btn-success pull-right" ng-href="/payment?isSubscription={{selectedRecurring}}&amount={{pledge}}&{{referHref}}" ng-disabled="contributeForm.$invalid">Continue</a>
     </div>
   </div>
 </div>

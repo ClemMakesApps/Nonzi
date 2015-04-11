@@ -39,17 +39,17 @@ angular
       }
     })
    .state('main', {
-     url: '/',
+     url: '/?refer',
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
    })
   .state('contribute', {
-    url: '/contribute?isSubscription&amount',
+    url: '/contribute?isSubscription&amount&refer',
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment?isSubscription&amount',
+    url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })

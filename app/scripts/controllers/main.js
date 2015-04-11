@@ -9,6 +9,11 @@
  */
 angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, LeaderboardLoader) {
+  $scope.referral = Number($stateParams.refer);
+
+  if($scope.referral) {
+    $scope.referHref = 'refer=' + $scope.referral;
+  }
 
   $scope.suggestedDonations = [{
     'amount': 175,
