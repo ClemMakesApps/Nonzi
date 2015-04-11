@@ -33,6 +33,8 @@ angular.module('multiplyMe')
 
     $scope.expirationYears = [];
     $scope.expirationMonths = [];
+    $scope.referralName = "John Appleseed";
+    $scope.hasReferral = Boolean($stateParams.refer);
 
     var validateCard = function(){
       var payment = $scope.payment;

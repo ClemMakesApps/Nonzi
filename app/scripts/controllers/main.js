@@ -9,6 +9,11 @@
  */
 angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, LeaderboardLoader) {
+  $scope.referral = Number($stateParams.refer);
+
+  if($scope.referral) {
+    $scope.referHref = 'refer=' + $scope.referral;
+  }
 
   $scope.suggestedDonations = [{
     'amount': 175,
@@ -43,7 +48,7 @@ angular.module('multiplyMe')
 
   $scope.org = {
     'name': 'The Amala Foundation',
-    'url': 'https://thewellaustin.com/',
+    'url': 'https://amalafoundation.org/',
   }
 
   $scope.cause = {

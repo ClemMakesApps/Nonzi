@@ -15,6 +15,11 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   $scope.suggestedAmount = -1; 
   $scope.forceHideSuggested = false;  
   $scope.callbackDelay = 3000;  //milliseconds
+  $scope.referral = Number($stateParams.refer);
+
+  if($scope.referral) {
+    $scope.referHref = 'refer=' + $scope.referral;
+  }
 
 	$scope.suggestedDonations = [{
     'amount': 175,

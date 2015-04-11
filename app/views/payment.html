@@ -207,6 +207,9 @@ input[type=number]::-webkit-outer-spin-button {
     padding-left: 30px;
 }
 
+.cvcField input{
+  padding-right: 18px !important;
+}
 .subheader {
     margin-bottom: 20px;
 }
@@ -521,7 +524,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-horizontal .has-feedback .name-feedback {
-  right: 30px;
+  right: 30px !important;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+  right: 10px;
+}
+
+.has-feedback .form-control {
+  padding-right: 25px;
 }
 
 .challenge-description {
@@ -542,6 +553,7 @@ input[type=number]::-webkit-outer-spin-button {
 .expiration-container {
   padding-left: 0px;
 }
+
 @media (max-width: 768px) {
   .email-form-group {
     margin-bottom: 15px;
@@ -625,14 +637,30 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 1px;
   padding-left: 0px;
 }
+
+.form-horizontal .has-feedback .cvc-feedback {
+  right: 40px;
+}
+
+.email-feedback {
+  right: 20px !important; 
+}
+
+#email, #verifyEmail {
+  padding-right: 30px;
+}
+
+.checkbox {
+  color: black !important;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
-  <!-- <div class="col-md-offset-2 col-md-8">
-    <div class="alert alert-info" role="alert">
-      <strong>You are Awesome!</strong> Clement's pledge is now one step closer to becoming donated.
+  <div class="col-md-offset-2 col-md-8">
+    <div class="alert alert-success" role="alert" ng-show="hasReferral">
+      <strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.
     </div>
-  </div> -->
+  </div>
 	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12">
 		<h2 class="title-normal">Payment Information</h2>
 		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#">Learn More.</a></span>
@@ -642,27 +670,29 @@ input[type=number]::-webkit-outer-spin-button {
     <div class="col-lg-7 col-sm-7 content paymentFields">
       <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
         <div class="alert alert-info" role="alert" ng-show="signedIn">
-          <strong>Welcome back!</strong> Not <button type="button" class="btn btn-link signout-payments" ng-click="signout()">{{authUser.name}}?</button>
+          <strong>Welcome back!</strong> <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
         </div>
         <form name="paymentForm" class="form-horizontal">
-          <div class="form-group has-success has-feedback">
+          <div class="form-group has-feedback" ng-class="{'has-error':paymentForm.name.$error.pattern, 'has-success':!paymentForm.name.$error.pattern}">
             <label for="name" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name"
-                      ng-required="true"  placeholder="Name"  aria-describedby="inputSuccess2Status">
-              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true"></span>
-              <span id="inputSuccess2Status" class="sr-only">(success)</span>
+              <input ng-model="payment.user.name" type="text" class="form-control" id="name" ng-pattern="/^[a-zA-Z]{1}[a-zA-Z\s]+[a-zA-Z]/"
+                      ng-required="true"  placeholder="Name"  aria-describedby="nameInputSuccess">
+              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$error.pattern"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$error.pattern"></span>
+              <span id="nameInputSuccess" class="sr-only">(success)</span>
             </div>
           </div>
-          <div class="form-group has-error has-feedback">
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty}">
             <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
             <div class="col-sm-9">
               <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
                 <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
-                       ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number"  aria-describedby="inputError2Status">
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                <span id="inputError2Status" class="sr-only">(error)</span>
-                <span ng-show="paymentForm.cardNumber.$error.pattern"><i class="fa fa-close"></i></span>
+                       ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number">
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty"></span>
+
+                <!-- <span ng-show="paymentForm.cardNumber.$error.pattern"><i class="fa fa-close"></i></span> -->
               </div>
               <div class="credit-cards col-xs-12 col-sm-6">
                 <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
@@ -683,40 +713,44 @@ input[type=number]::-webkit-outer-spin-button {
               </div>
             </div>
           </div>
-          <div class="form-group col-sm-4 col-xs-5" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;">
+          <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty}">
             <div>
               <label for="cvc" class="col-sm-3 control-label" style="padding-left: 0px;">CVC</label>
-              <div class="col-sm-9 cvcField" style="padding-left: 5px;">
+              <div class="col-sm-9 cvcField" style="padding-left: 5px;" >
                 <input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN">
+                <span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty"></span>
                 <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
                   <span class="glyphicon glyphicon-question-sign grayText"></span>
                 </button>
-                <i ng-show="paymentForm.cvc.$error.pattern" class="fa fa-close"></i>
               </div>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback" style="clear:both;" ng-class="{'has-error': paymentForm.zip.$error.pattern && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$error.pattern && paymentForm.zip.$dirty}">
             <label for="zip" class="col-sm-3 control-label">Postal code</label>
             <div class="col-sm-4">
               <input ng-model="payment.zip" name="zip" type="text" class="form-control"
                      ng-pattern="/^[0-9]{5}$/"  id="zip" placeholder="Postal Code">
-              <i ng-show="paymentForm.zip.$error.pattern" class="fa fa-close"></i>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$error.pattern && paymentForm.zip.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$error.pattern && paymentForm.zip.$dirty"></span>
             </div>
           </div>
           <h4 class="subheader newPaymentSection">Your Information</h4>
-          <div class="form-group email-form-group">
+          <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$error.pattern && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$error.pattern && paymentForm.email.$dirty}">
             <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
             <div class="col-sm-8">
               <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
                      type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn">
-              <i ng-show="paymentForm.email.$error.pattern" class="fa fa-close"></i>
+              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$error.pattern && paymentForm.email.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$error.pattern && paymentForm.email.$dirty"></span>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$error.pattern || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$error.pattern && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
             <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
             <div class="col-sm-8">
-              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email">
-              <i ng-show="payment.user.email != payment.user.verifyEmail" class="fa fa-close"></i>
+              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email">
+              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$error.pattern && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$error.pattern || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
               <div class="checkbox">
                 <label>
                   <input class="updates-checkbox" type="checkbox" checked> Send me campaign updates
@@ -724,19 +758,21 @@ input[type=number]::-webkit-outer-spin-button {
               </div>
             </div>
           </div>
-          <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
-          <p>Cancel recurring donations, measure your impact and <a href="#">more.</a></p>
-          <div class="form-group" ng-class="{disabled : signedIn}">
-            <label for="password" class="col-sm-3 control-label">Password</label>
-            <div class="col-sm-9">
-              <div class="col-sm-7 password-container">
-                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-disabled="signedIn">
-                or
-              </div>
-              <div class="col-sm-5 btn-facebook-container">
-                <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()" ng-disabled="signedIn">
-                  <i class="fa fa-facebook"></i> Use Facebook
-                </a>
+          <div ng-hide="signedIn">
+            <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
+            <p>Cancel recurring donations, measure your impact and <a href="#">more.</a></p>
+            <div class="form-group">
+              <label for="password" class="col-sm-3 control-label">Password</label>
+              <div class="col-sm-9">
+                <div class="col-sm-7 password-container">
+                  <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password">
+                  or
+                </div>
+                <div class="col-sm-5 btn-facebook-container">
+                  <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="highlightChallenge()">
+                    <i class="fa fa-facebook"></i> Use Facebook
+                  </a>
+                </div>
               </div>
             </div>
           </div>
