@@ -43,7 +43,7 @@ angular.module('multiplyMe')
 
   $scope.org = {
     'name': 'The Amala Foundation',
-    'url': 'https://thewellaustin.com/',
+    'url': 'https://amalafoundation.org/',
   }
 
   $scope.cause = {
