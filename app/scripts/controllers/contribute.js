@@ -7,7 +7,9 @@
  * # ContributeCtrl
  * Controller of the multiplyMe
  */
-angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $stateParams, $timeout) {
+angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $stateParams, $rootScope, $timeout) {
+  $rootScope.title = "Contribute to Bhatti Mines School Project";
+
   //Initalize 
   $scope.pledge = parseInt($stateParams.amount);
   $scope.selectedRecurring = $stateParams.isSubscription == "true";

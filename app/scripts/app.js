@@ -95,4 +95,8 @@ $urlRouterProvider.otherwise('/');
 
 }).run(function ($rootScope){
   $rootScope.config = config;
+
+  //Pre-render title before controller sets title
+  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
 });
+

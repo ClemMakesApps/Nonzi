@@ -8,8 +8,9 @@
 * Controller of the multiplyMe
 */
 angular.module('multiplyMe')
-.controller('SigninCtrl', function ($scope, $auth, $state) {
-
+.controller('SigninCtrl', function ($scope, $auth, $state, $rootScope) {
+  $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
+  
   $scope.user = {};
 
   $scope.login = function(){
