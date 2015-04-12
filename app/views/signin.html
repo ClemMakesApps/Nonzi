@@ -40,17 +40,19 @@ nav.nav-black {
           <h1 style="margin-top:0px">Donor Login</h1>
         </div>
         <form id="loginForm" name="loginForm" novalidate>
-          <div class="form-group">
+          <div class="form-group has-feedback" ng-class="{'has-error': loginForm.email.$error.pattern && loginForm.email.$dirty, 'has-success': !loginForm.email.$error.pattern && loginForm.email.$dirty}">
             <label for="email" class="control-label">Email Address</label>
             <input id="email" name="email" type="email" ng-model='user.email' class="form-control"
                    ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" required>
-            <i ng-show="loginForm.email.$error.pattern" class="fa fa-close"></i>
+            <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!loginForm.email.$error.pattern && loginForm.email.$dirty"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.email.$error.pattern && loginForm.email.$dirty"></span>
           </div>
-          <div class="form-group">
+          <div class="form-group has-feedback" ng-class="{'has-error': loginForm.password.$error.required && loginForm.password.$dirty, 'has-success': !loginForm.password.$error.required && loginForm.password.$dirty}">
             <label for="password" class="control-label">Password</label>
             <input id="password" name="password" type="password" ng-model='user.password'
                    ng-minlength="1" class="form-control" required>
-            <i ng-show="loginForm.password.$error.minlength" class="fa fa-close"></i>
+            <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!loginForm.password.$error.required && loginForm.password.$dirty"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.password.$error.required && loginForm.password.$dirty"></span>
           </div>
           <div class="login-btn">
             <button type="button" class="btn btn-info btn-action btn-block btn-lg"
