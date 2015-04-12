@@ -20,7 +20,10 @@ angular.module('multiplyMe')
         $state.go('auth.account');
 
       }).catch(function(resp){
-        console.log("error while logging in: " + resp); //for debugging purpose
+        console.log("error while logging in: ", resp); //for debugging purpose
+        $scope.user.password = '';
+        $scope.loginForm.$setPristine();
+        $scope.invalidCredentials = true;
       });
     }
   };
