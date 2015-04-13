@@ -8,8 +8,9 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, LeaderboardLoader) {
+  .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, $rootScope, LeaderboardLoader) {
   $scope.referral = Number($stateParams.refer);
+  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
 
   if($scope.referral) {
     $scope.referHref = 'refer=' + $scope.referral;

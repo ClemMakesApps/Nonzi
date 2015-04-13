@@ -8,7 +8,9 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $window, $location, $state, Donation, $auth) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth) {
+    $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
+
     $scope.personal_impact = $auth.user.personal_impact;
     $scope.network_impact = $auth.user.network_impact;
     $scope.name = $auth.user.name;
