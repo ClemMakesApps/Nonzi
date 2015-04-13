@@ -8,7 +8,7 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $state, Donation, $auth) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, Donation, $auth) {
     $scope.personal_impact = $auth.user.personal_impact;
     $scope.network_impact = $auth.user.network_impact;
     $scope.name = $auth.user.name;
@@ -38,4 +38,29 @@ angular.module('multiplyMe')
       });
     }
 
+	
+	
+    $scope.share = function(provider){
+      if(provider === 'facebook'){
+        $window.open(
+         '//www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent($location.absUrl()),
+         'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'twitter'){
+        $window.open(
+          '//www.twitter.com/intent/tweet?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'google'){
+        $window.open(
+          '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'email'){
+        // $window.open(
+        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
+        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+    }
+	
   });
