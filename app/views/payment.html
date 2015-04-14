@@ -673,14 +673,12 @@ input[type=number]::-webkit-outer-spin-button {
           <strong>Welcome back!</strong> <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
         </div>
         <form name="paymentForm" class="form-horizontal">
-          <div class="form-group has-feedback" ng-class="{'has-error':paymentForm.name.$error.pattern, 'has-success':!paymentForm.name.$error.pattern}">
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$error.pattern && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$error.pattern && paymentForm.name.$dirty}">
             <label for="name" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" ng-pattern="/^[a-zA-Z]{1}[a-zA-Z\s]+[a-zA-Z]/"
-                      ng-required="true"  placeholder="Name"  aria-describedby="nameInputSuccess">
-              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$error.pattern"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$error.pattern"></span>
-              <span id="nameInputSuccess" class="sr-only">(success)</span>
+              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-zA-Z0-9]*[a-zA-Z]+[a-zA-Z0-9]*$/" ng-required="true" placeholder="Name">
+              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$error.pattern && paymentForm.name.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$error.pattern && paymentForm.name.$dirty"></span>
             </div>
           </div>
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty}">
