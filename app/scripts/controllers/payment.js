@@ -86,6 +86,7 @@ angular.module('multiplyMe')
     }
 
     var createDonation = function(){
+      var referrer = $stateParams.refer
       var payment = $scope.payment;
       var email = payment.user.email ? payment.user.email : $auth.user.email;
       createToken(
@@ -97,9 +98,10 @@ angular.module('multiplyMe')
           Donation.save({
             donation: {
               amount: Math.floor($stateParams.amount * 100),
-              organization_id: 1,
               is_subscription: $scope.isSubscription,
-              is_challenged: $scope.isChallenged
+              is_challenged: $scope.isChallenged,
+              parent_id: referrer,
+              organization_id: 1
             },
             card: {
               token: token,
@@ -125,7 +127,6 @@ angular.module('multiplyMe')
 
 
     var submit = function(){
-      console.log($scope.signedIn);
       if(validateFormSubmission()){
         if(!$scope.donating) {
           $scope.enableLoading = true;
