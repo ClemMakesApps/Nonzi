@@ -45,6 +45,15 @@ angular.module('multiplyMe')
   },{
     'question': 'What happens if my friends don\'t respond in time?',
     'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
+  },{
+    'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
+    'answer': 'No. If your friend donated directly, the money is going straight to Bhatti Mines School. If they took the challenge, they still have 3 days from when their challenge began.',
+  },{
+    'question': 'Do my friends have to match my pledge?',
+    'answer': 'No, but you can encourage them to if you wish. The minimum donation is $1, and there is no maximum.',
+  },{
+    'question': 'How do you know who is giving because of my pledge?',
+    'answer': 'When you complete your donation you will be given a unique share link so that we can figure out who refered who. On your account page you can keep track of how much money you\'ve personally raised through referals to your unique link.',
   }]
 
   $scope.org = {
@@ -55,8 +64,7 @@ angular.module('multiplyMe')
   $scope.cause = {
     'name': 'Bhatti Mines School',
     'blurb': 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.',
-    'why': 'Bhatti Mines is one of the most impoverished communities in the Delhi area. Its residents have no running water, electricity, adequate food and shelter, or health services. With no schools in the community, a child’s only path for survival was a life of manual labor from an early age. This community was trapped in the cycle of poverty.<br/>   Until 2003 when Santosh and Archana Singh invested in the future of this community. With funding from people like you, they were able to build a school--and give the community access to education for the first time. Now, instead of laboring to survive, children have opportunities to pursue an education and a better life. <br/>The school is full of positive role models and teachers who care about the success of their students. Each year, approximately 200 children are offered an alternative to manual labor and a route out of extreme poverty. Children who attend school are more likely to grow up healthy, earn a living wage, marry later, and pass on a better life to the next generation. For these kids, Bhatti Mines School means hope for the future and freedom to thrive.',
-    'image': 'indiademographic.jpg',
+    'image': 'infographic.png',
     'supporters':0
   }
 
@@ -121,21 +129,20 @@ angular.module('multiplyMe')
   $scope.popover = false;
 
   $scope.showPopover = function(){
-    $scope.popover = true;  
-	console.log("");
+    $scope.popover = !$scope.popover; 
   };
-
+  
     function onPlayProgress(data, id) {
         console.log(data.seconds + 's played');
         // $scope.highlights = true;
         // $scope.$apply();
 
-        $( ".campaignHighlights" ).animate({"top": "540px"}, 1000, function() {
+        $( ".campaignHighlights" ).animate({"margin-top": "50%"}, 1000, function() {
           $( ".campaignHighlights" ).removeClass("whitefont");
           $( ".campaignHighlights" ).css("color","black");
           $( ".campaignHighlights .btn" ).css("color","black");
         });
-        $( ".campaignContent" ).animate({"padding-top": "490px"}, 1000);
+        $( ".campaignContent" ).animate({"margin-top": "490px"}, 1000);
         player.removeEvent('playProgress');
     }
 
