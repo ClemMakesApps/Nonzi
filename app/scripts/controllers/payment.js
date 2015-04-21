@@ -153,7 +153,8 @@ angular.module('multiplyMe')
             $scope.enableLoading = false;
             var errors = response.data.errors;
             $scope.donating = false;
-            $scope.challengeProgress = errors.full_messages[0];
+            $scope.errorMessage = errors.full_messages[0];
+            $scope.highlightNext = false;
           });
         }
         else{
@@ -234,9 +235,17 @@ angular.module('multiplyMe')
       }
     }
 
+    var highlightTimer = null;
+    $scope.callbackDelay = 3000;  //milliseconds
     $scope.highlightChallenge = function(newValue, oldValue) {
-      if(oldValue != null) {
-        $scope.highlightNext = true;
+      if($scope.paymentForm.$dirty == true && $scope.highlightNext == null) {
+        $timeout.cancel(highlightTimer);
+
+        var callback = function() {
+          $scope.highlightNext = true;
+        }
+
+        var highlightTimer = $timeout(callback, $scope.callbackDelay);
       }
     }
 
@@ -247,16 +256,12 @@ angular.module('multiplyMe')
         $scope.payment.user.verifyEmail = '';
       });
     }
-    // var formCheckTimer = null;
-    // $scope.checkForm = function(newValue, oldValue) {
-    //   if(newValue != oldValue) {
-    //       $timeout.cancel(formCheckTimer);
-    //       var formCheckTimer = $timeout(function() {
-    //       }, 3000);
-    //     }
-    //   }
-    // }
+
+    $scope.disableHighlightNext = function() {
+      $scope.highlightNext = false;
+    }
+
     $scope.$watch('payment.cardNumber', $scope.highlightMerchant);
-    $scope.$watch('password', $scope.highlightChallenge);
+    $scope.$watch('paymentForm.$valid', $scope.highlightChallenge);
 
   });
