@@ -127,6 +127,8 @@ angular.module('multiplyMe')
 
 
     var submit = function(){
+      $timeout.cancel(highlightTimer);
+
       if(validateFormSubmission()){
         if(!$scope.donating) {
           $scope.enableLoading = true;
