@@ -13,6 +13,10 @@ angular.module('multiplyMe')
   
   $scope.user = {};
 
+  $scope.forgotPassword = function(){
+    $auth.requestPasswordReset($scope.forgotEmail);
+  }
+
   $scope.login = function(){
     if($scope.loginForm.$valid){
       $auth.submitLogin($scope.user)
