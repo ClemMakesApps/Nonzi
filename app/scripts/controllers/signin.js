@@ -14,7 +14,7 @@ angular.module('multiplyMe')
   $scope.user = {};
 
   $scope.forgotPassword = function(){
-    $auth.requestPasswordReset($scope.forgotEmail);
+    $auth.requestPasswordReset({email: $scope.forgotEmail});
   }
 
   $scope.login = function(){
