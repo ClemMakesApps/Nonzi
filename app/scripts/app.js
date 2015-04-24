@@ -86,6 +86,10 @@ angular
     url: '/privacy',
     templateUrl: 'views/privacy.html'
   })
+  .state('mailchimp', {
+    url: '/mailchimp',
+    templateUrl: 'views/mailchimp.html'
+  })
   .state('signin',{
     url: '/signin',
     templateUrl: 'views/signin.html',
