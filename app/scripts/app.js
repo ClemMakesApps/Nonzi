@@ -68,8 +68,8 @@ angular
       }
     }
   })
-  .state('share', {
-    url: '/share/:donationId',
+  .state('sharedReceipt', {
+    url: '/sharedReceipt/:donationId',
     templateUrl: 'views/sharedReceipt.html',
     controller: 'SharedReceiptCtrl',
     resolve: {
@@ -77,6 +77,11 @@ angular
         return ShareTreeLoader($stateParams.donationId);
       }
     }
+  })
+  .state('share', {
+    url: '/share/:donationId',
+    templateUrl: 'views/share.html',
+    controller: 'ShareCtrl'
   })
   .state('terms', {
     url: '/terms',

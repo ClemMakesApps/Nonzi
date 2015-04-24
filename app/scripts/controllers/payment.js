@@ -109,7 +109,8 @@ angular.module('multiplyMe')
             }
           },
           function(result){
-            $state.go('receipt', {donationId: result.donation.id});
+            localStorage.setItem("receiptYes", "true");
+            $state.go('share', {donationId: result.donation.id});
           });
         });
     }
