@@ -248,6 +248,16 @@ border:none;
 .campaignHighlights .col-sm-5{
 min-width: 400px;}
 
+.whitefont .btn.btn-xs-screen{
+display:none;
+color:white;
+width:70%;
+margin-left:0;
+margin-top: 20px;
+margin-right: 0;
+min-width:118px;
+}
+
 @media (min-width: 900px) {
 .campaignHighlights{
 padding-top: 7%;}
@@ -265,6 +275,12 @@ min-width: 300px;}
 .whitefont {color:black}
 .whitefont a, .whitefont a:hover, .whitefont .btn, .whitefont .btn.active:focus, .whitefont .btn.active
  {color: #286090;}
+ .whitefont .btn.btn-xs-screen{
+ display:block;
+ }
+ .btn-md-screen{
+ display:none;
+ }
 }
 
 @media (max-width: 610px) {
@@ -306,26 +322,26 @@ padding: 5px 5px;
 width:100%;
 }
 .campaignContent{
-margin-top:394px;
+margin-top:466px;
 }
+.campaignStats{
+margin-left:0;}
 }
 
-@media (max-width: 450px) {
-.campaignContent{
-margin-top:421px}
-}
 
 @media (max-width: 360px) {
 .campaignContent{
-margin-top:447px}
+margin-top:500px}
 .campaign-tabs>li>a{
 font-size: 14px;
 }
+.perks{max-width: 322px}
 }
 @media (min-width: 1125px) {
 .campaignHighlights{
 margin-top: 15%;}
 }
+
 
 </style>
 <nav class="campaign">
@@ -361,6 +377,8 @@ margin-top: 15%;}
 		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
 		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
 		<p class="text-left">days to go</p>
+        <a class="btn btn-lg btn-xs-screen btn-primary" href="/contribute?{{referHref}}">Contribute</a>
+
 	</div>
 </div>
 
@@ -448,8 +466,8 @@ margin-top: 15%;}
         </div>
       </div>
       <div class="col-md-3 col-sm-4 column">
-        <a class="btn btn-lg btn-primary" href="/contribute?{{referHref}}">Contribute</a>
-        <p class="text-center small">
+         <a class="btn btn-lg btn-md-screen btn-primary" href="/contribute?{{referHref}}">Contribute</a>
+         <p class="text-center small">
           Campaign will end on {{days.end | date:'MM/dd/yy'}}
         </p>
         <h4 class="action-header">Suggested Donations</h3>
