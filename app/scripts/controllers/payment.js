@@ -70,7 +70,13 @@ angular.module('multiplyMe')
         cvc: cvc
       },
       function(status, response){
-        deferred.resolve(response.id);
+        console.log('response', response);
+        if(response.error){
+          deferred.reject(response.error);
+        }
+        else{
+          deferred.resolve(response.id);
+        }
       });
       return deferred.promise;
     };
@@ -112,6 +118,9 @@ angular.module('multiplyMe')
             localStorage.setItem("receiptYes", "true");
             $state.go('share', {donationId: result.donation.id});
           });
+        }).catch(function(response){
+          $scope.enableLoading = false;
+          $scope.errorMessage = response.message;
         });
     }
 
@@ -152,13 +161,13 @@ angular.module('multiplyMe')
               }
               logInUser();
             })
-          .catch(function(response){
-            $scope.enableLoading = false;
-            var errors = response.data.errors;
-            $scope.donating = false;
-            $scope.errorMessage = errors.full_messages[0];
-            $scope.highlightNext = false;
-          });
+            .catch(function(response){
+              $scope.enableLoading = false;
+              var errors = response.data.errors;
+              $scope.donating = false;
+              $scope.errorMessage = errors.full_messages[0];
+              $scope.highlightNext = false;
+            });
         }
         else{
           if(!$scope.donating) {
