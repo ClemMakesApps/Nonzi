@@ -68,8 +68,8 @@ angular
       }
     }
   })
-  .state('share', {
-    url: '/share/:donationId',
+  .state('sharedReceipt', {
+    url: '/sharedReceipt/:donationId',
     templateUrl: 'views/sharedReceipt.html',
     controller: 'SharedReceiptCtrl',
     resolve: {
@@ -78,6 +78,11 @@ angular
       }
     }
   })
+  .state('share', {
+    url: '/share/:donationId',
+    templateUrl: 'views/share.html',
+    controller: 'ShareCtrl'
+  })
   .state('terms', {
     url: '/terms',
     templateUrl: 'views/toc.html'
@@ -85,6 +90,10 @@ angular
   .state('privacy', {
     url: '/privacy',
     templateUrl: 'views/privacy.html'
+  })
+  .state('mailchimp', {
+    url: '/mailchimp',
+    templateUrl: 'views/mailchimp.html'
   })
   .state('signin',{
     url: '/signin',
@@ -98,5 +107,10 @@ $urlRouterProvider.otherwise('/');
 
   //Pre-render title before controller sets title
   $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+
+  //Auto scroll to top
+  $rootScope.$on('$stateChangeSuccess', function() {
+     document.body.scrollTop = document.documentElement.scrollTop = 0;
+  });
 });
 
