@@ -107,5 +107,10 @@ $urlRouterProvider.otherwise('/');
 
   //Pre-render title before controller sets title
   $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+
+  //Auto scroll to top
+  $rootScope.$on('$stateChangeSuccess', function() {
+     document.body.scrollTop = document.documentElement.scrollTop = 0;
+  });
 });
 
