@@ -787,7 +787,7 @@ input[type=number]::-webkit-outer-spin-button {
     <div class="col-lg-5 col-sm-5 content">
       <div class="perk-background rounded-background">
         <span>Pledge Amount</span>
-        <a class="pull-right" ng-href="/contribute?isSubscription={{isSubscription}}&amount={{amount}}">
+        <a class="pull-right" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
           <span class="glyphicon glyphicon-pencil"></span> Edit
         </a>
         <span class="pledge-font block clearfix">{{amount | currency}} USD</span>
@@ -838,7 +838,7 @@ input[type=number]::-webkit-outer-spin-button {
           <div class="bounce3"></div>
         </div>
       </div>
-      <p>By proceeding you agree to MultiplyMe’s <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a><p>
+      <p>By proceeding you agree to MultiplyMe’s <a ui-sref="terms">Terms of Use</a> and <a ui-sref="privacy">Privacy Policy</a><p>
     </div>
   </div>
 </div>
