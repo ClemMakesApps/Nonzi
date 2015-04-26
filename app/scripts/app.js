@@ -25,8 +25,8 @@ angular
     apiUrl: 'https://api.multiplyme.in'
   });
 
-  $locationProvider.html5Mode(true);
-  $locationProvider.hashPrefix('!');
+  // $locationProvider.html5Mode(true);
+  // $locationProvider.hashPrefix('!');
 
   $stateProvider
     .state('auth', {
@@ -44,7 +44,10 @@ angular
      controller: 'MainCtrl'
    })
   .state('contribute', {
-    url: '/contribute?isSubscription&amount&refer',
+    url: '/contribute?isSubscription&amount',
+    params: {
+      refer: null,
+    },
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })

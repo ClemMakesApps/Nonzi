@@ -346,7 +346,7 @@ margin-top: 15%;}
 </style>
 <nav class="campaign">
 	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
-	<a href="/signin" class="btn btn-default text-right">Sign In</a>
+	<a ui-sref="signin" class="btn btn-default text-right">Sign In</a>
 </nav>
 
 <div class="container whitefont campaignHighlights" ng-hide="highlights">
@@ -377,7 +377,7 @@ margin-top: 15%;}
 		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
 		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
 		<p class="text-left">days to go</p>
-        <a class="btn btn-lg btn-xs-screen btn-primary" href="/contribute?{{referHref}}">Contribute</a>
+        <a class="btn btn-lg btn-xs-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
 
 	</div>
 </div>
@@ -466,12 +466,12 @@ margin-top: 15%;}
         </div>
       </div>
       <div class="col-md-3 col-sm-4 column">
-         <a class="btn btn-lg btn-md-screen btn-primary" href="/contribute?{{referHref}}">Contribute</a>
+         <a class="btn btn-lg btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
          <p class="text-center small">
           Campaign will end on {{days.end | date:'MM/dd/yy'}}
         </p>
         <h4 class="action-header">Suggested Donations</h3>
-        <a role="button" ng-href="/contribute?isSubscription={{suggestedDonations[$index].recurring}}&amount={{suggestedDonations[$index].amount}}&{{referHref}}" ng-repeat="suggest in suggestedDonations">
+        <a role="button" ui-sref="contribute({refer: referral, isSubscription: suggestedDonations[$index].recurring, amount: suggestedDonations[$index].amount})" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
               ${{suggest.amount}}
