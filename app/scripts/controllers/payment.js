@@ -24,6 +24,17 @@ angular.module('multiplyMe')
       'email': $auth.user.email
     };
 
+    $scope.facebook = function(){
+      $auth.authenticate('facebook')
+        .then(function(){
+          console.log('here');
+        })
+        .catch(function(){
+          console.log('there');
+        });
+      $scope.highlightChallenge();
+    }
+
     $scope.payment = {}
     $scope.payment.user = {
       'name': $scope.authUser.name,
@@ -70,7 +81,6 @@ angular.module('multiplyMe')
         cvc: cvc
       },
       function(status, response){
-        console.log('response', response);
         if(response.error){
           deferred.reject(response.error);
         }
@@ -88,7 +98,7 @@ angular.module('multiplyMe')
         password: $scope.password
       }).then(function(){
         createDonation();
-      });
+      })
     }
 
     var createDonation = function(){
