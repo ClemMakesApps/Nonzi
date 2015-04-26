@@ -150,6 +150,3 @@ angular.module('multiplyMe')
 
 
 });
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})

@@ -238,7 +238,16 @@ angular.module('multiplyMe')
        return -1;
     }
 
+ 
 
+  $scope.modal = false;
+
+  $scope.showModal = function(){
+	console.log("test");
+    $scope.modal = !$scope.modal; 
+  };
+  
+  
     $scope.visa = true;
     $scope.mastercard = true;
     $scope.amex = true;
@@ -287,3 +296,5 @@ angular.module('multiplyMe')
     $scope.$watch('paymentForm.$valid', $scope.highlightChallenge);
 
   });
+  
+ 
