@@ -52,7 +52,10 @@ angular
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment?isSubscription&amount&refer',
+    url: '/payment?isSubscription&amount',
+    params: {
+      refer: null,
+    },
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
@@ -103,7 +106,7 @@ angular
     templateUrl: 'views/signin.html',
     controller: 'SigninCtrl'
   });
-$urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/');
 
 }).run(function ($rootScope){
   $rootScope.config = config;
