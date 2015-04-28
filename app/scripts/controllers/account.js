@@ -21,6 +21,9 @@ angular.module('multiplyMe')
     $scope.network_impact = $auth.user.network_impact;
     $scope.recurring_amount = $auth.user.recurring_amount;
     $scope.name = $auth.user.name;
+    $scope.id = $auth.user.id;
+    $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.id;
+
     // Donation ID is hard coded right now
     //Email hard coded
     $scope.updatePassword = function(){
