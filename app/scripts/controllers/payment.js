@@ -265,15 +265,13 @@ angular.module('multiplyMe')
       }
        return -1;
     }
+    
+    $scope.modal = false;
 
- 
-
-  $scope.modal = false;
-
-  $scope.showModal = function(){
-  console.log("test");
-    $scope.modal = !$scope.modal; 
-  };
+    $scope.showModal = function(){
+    console.log("test");
+      $scope.modal = !$scope.modal; 
+    };
   
   
     $scope.visa = true;
