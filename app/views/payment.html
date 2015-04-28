@@ -60,13 +60,13 @@
     padding-top: 5px;
     margin-bottom: 15px;
     position: relative;
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .perks:hover {
     background-color: #278570;
     color: white;
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .perk-promo {
@@ -84,8 +84,8 @@
 }
 
 a[role=button], a[role=button]:focus, a[role=button]:hover{
-	text-decoration:none;
-	color:inherit;
+  text-decoration:none;
+  color:inherit;
 }
 
 /*override*/
@@ -665,10 +665,10 @@ input[type=number]::-webkit-outer-spin-button {
       <strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.
     </div>
   </div>
-	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">
-		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a ng-click="showModal()" href="javascript:;">Learn More.</a></span>
-	</div>
+  <div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">
+    <h2 class="title-normal">Payment Information</h2>
+    <span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a ng-click="showModal()" href="javascript:;">Learn More.</a></span>
+  </div>
   <div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12" ng-show="errorMessage">
     <div class="alert alert-danger alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -682,22 +682,22 @@ input[type=number]::-webkit-outer-spin-button {
           <strong>Welcome back!</strong> <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
         </div>
         <form name="paymentForm" class="form-horizontal">
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$error.pattern && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$error.pattern && paymentForm.name.$dirty}">
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
             <label for="name" class="col-sm-3 control-label">Name</label>
             <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^([A-Z][a-z]*((\s)))+[A-Z][a-z]*$/" placeholder="Name" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$error.pattern && paymentForm.name.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$error.pattern && paymentForm.name.$dirty"></span>
+              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
+              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
             </div>
           </div>
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty}">
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
             <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
             <div class="col-sm-9">
               <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
                 <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
                        ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number" required>
-                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty"></span>
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$error.pattern && paymentForm.cardNumber.$dirty"></span>
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
               </div>
               <div class="credit-cards col-xs-12 col-sm-6">
                 <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
@@ -714,48 +714,48 @@ input[type=number]::-webkit-outer-spin-button {
                 <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
               </div>
               <div class="col-sm-7 col-xs-7" style="padding-right: 0px;padding-left: 10px;">
-                <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
+                <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
               </div>
             </div>
           </div>
-          <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty}">
+          <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
             <div>
               <label for="cvc" class="col-sm-3 control-label" style="padding-left: 0px;">CVC</label>
               <div class="col-sm-9 cvcField" style="padding-left: 5px;" >
                 <input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN" required>
-                <span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty"></span>
-                <span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$error.pattern && paymentForm.cvc.$dirty"></span>
+                <span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
                 <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
                   <span class="glyphicon glyphicon-question-sign grayText"></span>
                 </button>
               </div>
             </div>
           </div>
-          <div class="form-group has-feedback" style="clear:both;" ng-class="{'has-error': paymentForm.zip.$error.pattern && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$error.pattern && paymentForm.zip.$dirty}">
+          <div class="form-group has-feedback" style="clear:both;" ng-class="{'has-error': paymentForm.zip.$invalid && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$invalid && paymentForm.zip.$dirty}">
             <label for="zip" class="col-sm-3 control-label">Postal code</label>
             <div class="col-sm-4">
               <input ng-model="payment.zip" name="zip" type="text" class="form-control"
                      ng-pattern="/^[0-9]{5}$/" id="zip" placeholder="Postal Code" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$error.pattern && paymentForm.zip.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$error.pattern && paymentForm.zip.$dirty"></span>
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
             </div>
           </div>
           <h4 class="subheader newPaymentSection">Your Information</h4>
-          <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$error.pattern && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$error.pattern && paymentForm.email.$dirty}">
+          <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$invalid && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$invalid && paymentForm.email.$dirty}">
             <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
             <div class="col-sm-8">
               <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
                      type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$error.pattern && paymentForm.email.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$error.pattern && paymentForm.email.$dirty"></span>
+              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
             </div>
           </div>
-          <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$error.pattern || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$error.pattern && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
+          <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
             <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
             <div class="col-sm-8">
               <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$error.pattern && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$error.pattern || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
+              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
               <div class="checkbox">
                 <label>
                   <input class="updates-checkbox" type="checkbox" checked> Send me campaign updates
@@ -845,24 +845,24 @@ input[type=number]::-webkit-outer-spin-button {
 <div class="highlightChallenge" ng-show="highlightNext" ng-click="disableHighlightNext()"></div>
 <footer></footer>
 <div class="modal-open">
-	<div id="myModal" class="modal fade in" ng-show="modal" style="display: block;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" ng-click="showModal()" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">MultiplyMe Challenge</h4>
-				</div>
-				<div class="modal-body">
-					<p>When you take the MultiplyMe challenge, your card won’t be charged until you get 3 friends to donate directly or take the challenge themselves. You will have a 3-day time limit to complete the challenge, which we hope will help motivate your friends to take action immediately. Everyone wants to do good, but without a time limit, it’s hard to remember that doing good starts now. <br/><br/>
-					Even if you don’t succeed in the challenge, your friend’s donations will still go to the nonprofit, and any friend of yours taking the challenge will still have 3 days to complete it. You will still have a chance to convert your pledge to a normal donation if you don’t succeed in your challenge, but you will be under no obligation to do so. <br/><br/>
-					Use the challenge as an opportunity to get your friends involved—the Bhatti Mines School needs everyone! Use your community to help theirs. </p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" ng-click="showModal()" class="btn btn-default" data-dismiss="modal">Got it!</button>
-				   </div>
-			</div>
-		</div>
-	</div>
+  <div id="myModal" class="modal fade in" ng-show="modal" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" ng-click="showModal()" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">MultiplyMe Challenge</h4>
+        </div>
+        <div class="modal-body">
+          <p>When you take the MultiplyMe challenge, your card won’t be charged until you get 3 friends to donate directly or take the challenge themselves. You will have a 3-day time limit to complete the challenge, which we hope will help motivate your friends to take action immediately. Everyone wants to do good, but without a time limit, it’s hard to remember that doing good starts now. <br/><br/>
+          Even if you don’t succeed in the challenge, your friend’s donations will still go to the nonprofit, and any friend of yours taking the challenge will still have 3 days to complete it. You will still have a chance to convert your pledge to a normal donation if you don’t succeed in your challenge, but you will be under no obligation to do so. <br/><br/>
+          Use the challenge as an opportunity to get your friends involved—the Bhatti Mines School needs everyone! Use your community to help theirs. </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" ng-click="showModal()" class="btn btn-default" data-dismiss="modal">Got it!</button>
+           </div>
+      </div>
+    </div>
+  </div>
 </div>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()

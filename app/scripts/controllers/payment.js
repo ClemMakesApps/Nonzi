@@ -8,9 +8,15 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state) {
+  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name) {
     $rootScope.$on('auth:validation-success', function(ev, user) {
       $scope.signedIn = true;
+      $scope.authUser.name = user.name;
+      $scope.payment.user = {
+        'name': user.name,
+        'email': user.email,
+        'verifyEmail': user.email
+      }
     });
     $rootScope.$on('auth:validation-error', function(ev) {
       $scope.signedIn = false;
@@ -44,8 +50,11 @@ angular.module('multiplyMe')
 
     $scope.expirationYears = [];
     $scope.expirationMonths = [];
-    $scope.referralName = "John Appleseed";
     $scope.hasReferral = Boolean($stateParams.refer);
+
+    if($scope.hasReferral) {
+      $scope.referralName = name.get($stateParams.refer);
+    }
 
     var validateCard = function(){
       var payment = $scope.payment;
@@ -128,9 +137,22 @@ angular.module('multiplyMe')
             localStorage.setItem("receiptYes", "true");
             $state.go('share', {donationId: result.donation.id});
           });
-        }).catch(function(response){
-          $scope.enableLoading = false;
-          $scope.errorMessage = response.message;
+        }).catch(function(response) {
+          if(response.code === "incorrect_number") {
+            $scope.payment.cardNumber = null;
+          }
+
+          if(response.code === "invalid_cvc") {
+            $scope.payment.cvc = null;
+          }
+
+          if(response.code === "card_declined") {
+            $scope.payment.cardNumber = null;
+            $scope.payment.cvc = null;
+          }
+
+          $scope.signedIn = true;
+          $scope.setErrorMessage(response.message);
         });
     }
 
@@ -145,6 +167,15 @@ angular.module('multiplyMe')
       submit();
     }
 
+    $scope.setErrorMessage = function(message) {
+      $anchorScroll(0);
+      $scope.challengeProgress = null;
+      $scope.enableLoading = false;
+      $scope.donating = false;
+      $scope.highlightNext = false;
+      $scope.errorMessage = message;
+      $timeout.cancel(highlightTimer);
+    }
 
     var submit = function(){
       $timeout.cancel(highlightTimer);
@@ -172,11 +203,8 @@ angular.module('multiplyMe')
               logInUser();
             })
             .catch(function(response){
-              $scope.enableLoading = false;
               var errors = response.data.errors;
-              $scope.donating = false;
-              $scope.errorMessage = errors.full_messages[0];
-              $scope.highlightNext = false;
+              $scope.setErrorMessage(errors.full_messages[0]);
             });
         }
         else{
@@ -243,7 +271,7 @@ angular.module('multiplyMe')
   $scope.modal = false;
 
   $scope.showModal = function(){
-	console.log("test");
+  console.log("test");
     $scope.modal = !$scope.modal; 
   };
   
@@ -273,7 +301,9 @@ angular.module('multiplyMe')
         $timeout.cancel(highlightTimer);
 
         var callback = function() {
-          $scope.highlightNext = true;
+          if(!$scope.errorMessage) {
+            $scope.highlightNext = true;
+          }
         }
 
         var highlightTimer = $timeout(callback, $scope.callbackDelay);
