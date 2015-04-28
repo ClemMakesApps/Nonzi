@@ -356,7 +356,7 @@ input[type=number]::-webkit-outer-spin-button {
 </style>
 
 <header class="header-overview">
-    <a class="small-logo" href="/"><img class="logo" src="../images/m.png"></a>
+    <a class="small-logo" ui-sref="main"><img class="logo" src="../images/m.png"></a>
     <h2 class="proj-name">Bhatti Mines School</h2>
     <div class="proj-details">
         <span>Donor Portal</span>
@@ -402,7 +402,7 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
     </div>
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container">
-        <div class="col-lg-7 col-md-7 col-sm-7">
+        <div  ng-class="{'col-lg-11': !recurring_amount, 'col-lg-7': recurring_amount, 'col-md-11': !recurring_amount, 'col-md-7': recurring_amount, 'col-sm-11': !recurring_amount, 'col-sm-7': recurring_amount}">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Change Password</h3>
@@ -432,7 +432,7 @@ input[type=number]::-webkit-outer-spin-button {
                 </div>
             </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-5">
+        <div class="col-lg-4 col-md-4 col-sm-4" ng-show="recurring_amount">
             <div class="panel panel-default" style="height: 264px">
                 <div class="panel-heading">
                     <h3 class="panel-title">Recurring Donation</h3>
