@@ -671,10 +671,7 @@ z-index:1039;
   </div>
 	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">
 		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#" class="btn btn-lg btn-success"
-   data-toggle="modal"
-   data-target="#learnMore">Click to open Modal</a>
-   <a<!-- ng-click="showModal()"--> href="javascript:;">Learn More.</a></span>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
 	</div>
   <div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12" ng-show="errorMessage">
     <div class="alert alert-danger alert-dismissible" role="alert">
