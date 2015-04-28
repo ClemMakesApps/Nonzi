@@ -50,10 +50,10 @@ angular.module('multiplyMe')
 
     $scope.expirationYears = [];
     $scope.expirationMonths = [];
-    $scope.hasReferral = Boolean($stateParams.refer);
-
+    $scope.hasReferral = !isNaN($stateParams.refer);
+    console.log($stateParams.refer);
     if($scope.hasReferral) {
-      $scope.referralName = name.get($stateParams.refer);
+      $scope.referralName = name.get({id: $stateParams.refer});
     }
 
     var validateCard = function(){

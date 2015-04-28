@@ -39,26 +39,17 @@ angular
       }
     })
    .state('main', {
-     url: '/',
-      params: {
-       refer: null,
-      },
+     url: '/?refer',
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
    })
   .state('contribute', {
-    url: '/contribute?isSubscription&amount',
-    params: {
-      refer: null,
-    },
+    url: '/contribute?isSubscription&amount&refer',
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
   .state('payment', {
-    url: '/payment?isSubscription&amount',
-    params: {
-      refer: null,
-    },
+    url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
   })
@@ -111,7 +102,7 @@ angular
   });
   $urlRouterProvider.otherwise('/');
 
-}).run(function ($rootScope){
+}).run(function ($rootScope, $animate){
   $rootScope.config = config;
 
   //Pre-render title before controller sets title
@@ -121,5 +112,9 @@ angular
   $rootScope.$on('$stateChangeSuccess', function() {
      document.body.scrollTop = document.documentElement.scrollTop = 0;
   });
+
+  $rootScope.$on('$stateChangeStart', function() {
+    $animate.enabled(false);
+  })
 });
 

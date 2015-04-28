@@ -21,4 +21,6 @@ angular.module('multiplyMe')
   } else {
     $scope.page = "sharedReceipt/" + $stateParams.donationId;
   }
+
+  $("#shareFrame").attr("src", "/#/" + $scope.page);
 });
