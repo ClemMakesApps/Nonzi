@@ -10,6 +10,12 @@ body{
     color: #666;
 }
 
+
+html, body{
+  height: 100%;
+  width:100%;
+}
+
 h1.headline {
     font-size: 80px;
     line-height:100px;

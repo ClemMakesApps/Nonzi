@@ -1,8 +1,20 @@
 <style>
+html, body{
+  height: 100%;
+  width:100%;
+}
+
+.impactstat{
+padding:0 0 10px 0;
+margin:0;
+}
+
 .small-logo {
   color: black;
   margin-right: 10px;
 }
+
+
 
 .org-link {
   color: black;
@@ -423,7 +435,7 @@ nav.header-transparent {
   .pyramid-children {
     height: 50px;
   }
-
+  
 }
 </style>
 
@@ -443,7 +455,8 @@ nav.header-transparent {
     left: 50%;
     transform: translate(-50%,0);
 ">
-      <img src="../images/pyramid-arrows.png" class="img-pyramid">
+	  <h3 class="pledge-info impactstat">Impact: $100</h3>
+      <img src="../images/pyramid-arrow.png" class="img-pyramid">
       <div class="pyramid-children">
         <div ng-switch on="!!children[0]" class="first-child">
         <div ng-switch-when="true">
