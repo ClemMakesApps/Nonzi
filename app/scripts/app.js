@@ -39,7 +39,10 @@ angular
       }
     })
    .state('main', {
-     url: '/?refer',
+     url: '/',
+      params: {
+       refer: null,
+      },
      templateUrl: 'views/main.html',
      controller: 'MainCtrl'
    })
