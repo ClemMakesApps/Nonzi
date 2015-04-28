@@ -657,6 +657,10 @@ input[type=number]::-webkit-outer-spin-button {
 .paymentHeading {
   padding-bottom: 20px;
 }
+
+.modal-backdrop{
+z-index:1039;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
@@ -667,7 +671,10 @@ input[type=number]::-webkit-outer-spin-button {
   </div>
 	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">
 		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a ng-click="showModal()" href="javascript:;">Learn More.</a></span>
+		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a href="#" class="btn btn-lg btn-success"
+   data-toggle="modal"
+   data-target="#learnMore">Click to open Modal</a>
+   <a<!-- ng-click="showModal()"--> href="javascript:;">Learn More.</a></span>
 	</div>
   <div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12" ng-show="errorMessage">
     <div class="alert alert-danger alert-dismissible" role="alert">
@@ -844,12 +851,12 @@ input[type=number]::-webkit-outer-spin-button {
 </div>
 <div class="highlightChallenge" ng-show="highlightNext" ng-click="disableHighlightNext()"></div>
 <footer></footer>
-<div class="modal-open">
-	<div id="myModal" class="modal fade in" ng-show="modal" style="display: block;">
+<!--div class="modal-open"-->
+	<div id="learnMore" class="modal fade"> 
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" ng-click="showModal()" aria-hidden="true">&times;</button>
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h4 class="modal-title">MultiplyMe Challenge</h4>
 				</div>
 				<div class="modal-body">
@@ -858,7 +865,7 @@ input[type=number]::-webkit-outer-spin-button {
 					Use the challenge as an opportunity to get your friends involved—the Bhatti Mines School needs everyone! Use your community to help theirs. </p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" ng-click="showModal()" class="btn btn-default" data-dismiss="modal">Got it!</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Got it!</button>
 				   </div>
 			</div>
 		</div>
