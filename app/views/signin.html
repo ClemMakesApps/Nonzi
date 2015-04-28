@@ -26,10 +26,26 @@ nav.nav-black {
   position: fixed;
   z-index: 1;
 }
+
+@media (max-width: 768px) {
+  .signin-container {
+    margin-top: 0px;
+  }
+
+  .login-box {
+    margin-top: 50px;
+  }
+
+  .signin-create-container,
+  .signin-forgot-container {
+    text-align: center;
+  }
+}
+
 </style>
 <nav class="nav-black">
   <span><img style="width:150px" src="../images/multiplymeDark.png"></span>
-  <a ui-sref="main" class="btn btn-default text-right">Return to Campaign</a>
+  <a ui-sref="main" class="btn btn-default text-right hidden-xs">Return to Campaign</a>
 </nav>
 <div class="container-fluid signin-container" >
   <div class="col-lg-4 col-lg-offset-4 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12 login-box">
@@ -63,10 +79,10 @@ nav.nav-black {
             ng-click="login()" ng-disabled="loginForm.$invalid">
             <span style="font-weight:bold;font-size:16px; padding-top:40px">Sign In</span>
           </button>
-          <div class="col-sm-6" style="padding-left:0px;padding-top:10px;">
+          <div class="col-sm-6 signin-forgot-container" style="padding-left:0px;padding-top:10px;">
             <button type="button" class="btn btn-link" data-toggle="modal" data-target=".forgot-password-modal">Forgot your password?</button>
           </div>
-          <div class="col-sm-6 text-right" style="padding-top:10px;padding-bottom:10px">
+          <div class="col-sm-6 text-right signin-create-container" style="padding-top:10px;padding-bottom:10px">
             Need an account?<br>Make a <a ui-sref="contribute">contribution</a>
           </div>
           <hr style="clear:both">
