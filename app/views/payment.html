@@ -265,7 +265,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #cvc {
-  width: 60%;
+  /*width: 60%;*/
   display: inline;
 }
 
@@ -555,6 +555,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (max-width: 768px) {
+  .cvc-form-group {
+    margin-top: 50px;
+  }
+
   .email-form-group {
     margin-bottom: 15px;
   }
@@ -639,7 +643,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .form-horizontal .has-feedback .cvc-feedback {
-  right: 40px;
+  right: 0px;
 }
 
 .email-feedback {
@@ -707,33 +711,37 @@ input[type=number]::-webkit-outer-spin-button {
               </div>
             </div>
           </div>
-          <div class="form-group col-sm-8 col-xs-7">
-            <label class="col-sm-5 col-xs-12 control-label" style="padding-left:0px;">Expiration</label>
-            <div class="col-sm-7 col-xs-12 expiration-container">
-              <div class="col-sm-5 col-xs-5" style="padding-left: 7px;padding-right: 0px;">
+          <!-- <div class="form-group col-sm-8 col-xs-7"> -->
+          <div class="form-group">
+            <label class="col-sm-3 control-label" >Expiration</label>
+            <div class="col-sm-4 col-xs-11">
+              <div class="col-sm-5 col-xs-5" style="padding-left: 0px;padding-right: 0px;">
                 <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
               </div>
               <div class="col-sm-7 col-xs-7" style="padding-right: 0px;padding-left: 10px;">
                 <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
               </div>
             </div>
-          </div>
-          <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
-            <div>
-              <label for="cvc" class="col-sm-3 control-label" style="padding-left: 0px;">CVC</label>
-              <div class="col-sm-9 cvcField" style="padding-left: 5px;" >
+          <!-- </div> -->
+          <!-- <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}"> -->
+            <div class="has-feedback cvc-form-group" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
+              <label for="cvc" class="col-sm-1 col-xs-12 control-label">CVC</label>
+              <div class="col-sm-2 col-xs-5" style="padding-right:0px">
                 <input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN" required>
                 <span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
                 <span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
-                <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
+               
+              </div>
+              <div class="col-sm-1" style="padding-left:0px">
+ <button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
                   <span class="glyphicon glyphicon-question-sign grayText"></span>
                 </button>
               </div>
             </div>
           </div>
           <div class="form-group has-feedback" style="clear:both;" ng-class="{'has-error': paymentForm.zip.$invalid && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$invalid && paymentForm.zip.$dirty}">
-            <label for="zip" class="col-sm-3 control-label">Postal code</label>
-            <div class="col-sm-4">
+            <label for="zip" class="col-sm-3 col-xs-12 control-label">Postal code</label>
+            <div class="col-sm-4 col-xs-7">
               <input ng-model="payment.zip" name="zip" type="text" class="form-control"
                      ng-pattern="/^[0-9]{5}$/" id="zip" placeholder="Postal Code" required>
               <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
@@ -799,7 +807,7 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="challenge-description">
           <div class="row challenge-steps">
             <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img src="../images/1.png">
+              <img class="img-responsive" src="../images/1.png">
             </div>
             <div class="col-md-7 col-xs-8 instructions single-line">
               Pledge a donation
@@ -807,7 +815,7 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
           <div class="row challenge-steps">
             <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img src="../images/2.png">
+              <img class="img-responsive" src="../images/2.png">
             </div>
             <div class="col-md-7 col-xs-8 instructions two-line">
               Invite 3 friends to pledge within 3 days
@@ -816,7 +824,7 @@ input[type=number]::-webkit-outer-spin-button {
           </div>
           <div class="row challenge-steps">
             <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img src="../images/3.png">
+              <img class="img-responsive" src="../images/3.png">
             </div>
             <div class="col-md-7 col-xs-8 instructions two-line">
               Your pledge is donated
