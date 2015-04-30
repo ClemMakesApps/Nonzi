@@ -2,7 +2,7 @@
 
 angular.module('multiplyMe')
   .controller('ReceiptCtrl', function ($scope, $window, $location, $stateParams, $rootScope, Donation, $auth) {
-    $rootScope.title = 'Thank you ' + Donation.name + 'for supporting the Bhatti Mines School';
+    $rootScope.title = 'Thank you ' + Donation.name + ' for supporting the Bhatti Mines School';
 
     $scope.donorName = Donation.name;
     $scope.amount = Donation.donation.amount / 100;
