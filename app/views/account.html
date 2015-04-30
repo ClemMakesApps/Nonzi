@@ -370,7 +370,12 @@ input[type=number]::-webkit-outer-spin-button {
             <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Donation</span>
-                    <div class="impact-box"><span class="impact-amount">{{personal_impact | currency}}<div class="month-label">per month</div></span></div>
+                    <div class="impact-box">
+                        <span class="impact-amount">
+                            {{personal_impact | currency}}
+                            <div class="month-label" ng-show="recurring_amount">per month</div>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
