@@ -277,6 +277,9 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-weight: bold;
   font-size: 25px;
@@ -340,6 +343,9 @@ nav.header-transparent {
 .second-child {
   position: absolute;
   left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
 
@@ -365,6 +371,9 @@ nav.header-transparent {
     position: absolute;
     top: 33%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     margin-left: 0px;
   }
@@ -453,7 +462,10 @@ nav.header-transparent {
     <div class="col-xs-12 lines" style="
     max-width: 350px;
     left: 50%;
-    transform: translate(-50%,0);
+    -webkit-transform: translate(-50%, 0);
+    -moz-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
 ">
 	  <h3 class="pledge-info impactstat">Impact: $100</h3>
       <img src="../images/pyramid-arrow.png" class="img-pyramid">
