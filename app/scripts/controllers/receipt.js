@@ -14,7 +14,7 @@ angular.module('multiplyMe')
       }
       if(provider === 'twitter'){
         $window.open(
-          '//www.twitter.com/intent/tweet?url=' + encodeURIComponent($location.absUrl()),
+          '//www.twitter.com/intent/tweet?text=Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me ' + encodeURIComponent($location.absUrl()),
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'google'){
