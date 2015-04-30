@@ -24,7 +24,7 @@ angular.module('multiplyMe')
       }
       if(provider === 'email'){
         $window.open(
-          'mailto:?subject=MultiplyMe&body=' + encodeURIComponent($location.absUrl()),
+          'mailto:?body=' + encodeURIComponent($location.absUrl()),
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
