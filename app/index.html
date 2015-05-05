@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="multiplyMe">
+<html class="no-js" ng-app="multiplyMe" style="height:100%">
 <head>
   <base href="/">
   <meta charset="utf-8">
@@ -10,11 +10,11 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
   <link rel="stylesheet" href="styles/animate.css">
   <link rel="stylesheet" href="styles/style.css">
   <!-- endbuild -->
@@ -27,7 +27,7 @@
   </script>
   <title ng-bind="title"></title>
 </head>
-<body ng-app="multiplyMe">
+<body ng-app="multiplyMe" style="height:100%">
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -74,6 +74,7 @@
   <!-- endbower -->
   <!-- endbuild -->
   <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+  <script src="https://js.stripe.com/v2/"></script>
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
@@ -89,7 +90,6 @@
   <script src="scripts/services/api.js"></script>
   <script src="scripts/directives/campaignHeader.js"></script>
   <script src="scripts/directives/embedSrc.js"></script>
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script src="scripts/services/shareTree.js"></script>
   <script src="scripts/controllers/sharedReceipt.js"></script>
   <script src="scripts/config/config.js"></script>

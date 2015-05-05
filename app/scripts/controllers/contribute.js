@@ -11,13 +11,23 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   $rootScope.title = "Contribute to Bhatti Mines School Project";
 
   //Initalize 
-  $scope.pledge = parseInt($stateParams.amount);
-  $scope.selectedRecurring = $stateParams.isSubscription == "true";
+  if($stateParams.amount != null) {
+    $scope.pledge = parseInt($stateParams.amount);
+  }
+
+  $scope.selectedRecurring = false;
+  if($stateParams.isSubscription != null) {
+    $scope.selectedRecurring = $stateParams.isSubscription == "true";
+  }
+
   $scope.selectedPerk = -1;
   $scope.suggestedAmount = -1; 
   $scope.forceHideSuggested = false;  
   $scope.callbackDelay = 3000;  //milliseconds
-  $scope.referral = Number($stateParams.refer);
+
+  if($stateParams.refer != null) {
+    $scope.referral = Number($stateParams.refer);
+  }
 
   if($scope.referral) {
     $scope.referHref = 'refer=' + $scope.referral;
@@ -116,4 +126,6 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
     }
   }
   $scope.init();
+
+  console.log($scope.referral);
 });

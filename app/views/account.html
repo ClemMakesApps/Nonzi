@@ -243,6 +243,9 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;    
 }
@@ -305,6 +308,9 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     bottom: 35px;
     left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     text-align: center;
     width: 100%;
@@ -365,12 +371,17 @@ input[type=number]::-webkit-outer-spin-button {
 </header>
 <div class="container-fluid">
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12">
-      <h2 class="title-strong">Welcome {{name}}! <span class="badge badge-leaderboard"><i class="fa fa-trophy"></i> 1st</span></h2>
+      <h2 class="title-strong">Welcome {{name}}! <!--<span class="badge badge-leaderboard"><i class="fa fa-trophy"></i> 1st</span>--></h2>
         <div class="impact-container">
             <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
                 <div class="impact-section">
                     <span class="impact-label">Your Donation</span>
-                    <div class="impact-box"><span class="impact-amount">{{personal_impact | currency}}<div class="month-label">per month</div></span></div>
+                    <div class="impact-box">
+                        <span class="impact-amount">
+                            {{personal_impact | currency}}
+                            <div class="month-label" ng-show="recurring_amount">per month</div>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">

@@ -86,9 +86,9 @@ angular.module('multiplyMe')
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'email'){
-        // $window.open(
-        //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
-        //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+        $window.open(
+          'mailto:?body=' + encodeURIComponent($location.absUrl()),
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
 

@@ -24,7 +24,7 @@ angular.module('multiplyMe')
 
     $scope.signedIn = $auth.user.signedIn;
     $scope.amount = $stateParams.amount;
-    $scope.isSubscription == $stateParams.isSubscription == "true";
+    $scope.isSubscription = $stateParams.isSubscription == "true";
     $scope.authUser = {
       'name': $auth.user.name,
       'email': $auth.user.email
@@ -50,10 +50,10 @@ angular.module('multiplyMe')
 
     $scope.expirationYears = [];
     $scope.expirationMonths = [];
-    $scope.hasReferral = Boolean($stateParams.refer);
-
+    $scope.hasReferral = !isNaN($stateParams.refer);
+    console.log($stateParams.refer);
     if($scope.hasReferral) {
-      $scope.referralName = name.get($stateParams.refer);
+      $scope.referralName = name.get({id: $stateParams.refer});
     }
 
     var validateCard = function(){
