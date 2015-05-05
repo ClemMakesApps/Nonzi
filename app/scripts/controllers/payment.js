@@ -24,7 +24,7 @@ angular.module('multiplyMe')
 
     $scope.signedIn = $auth.user.signedIn;
     $scope.amount = $stateParams.amount;
-    $scope.isSubscription == $stateParams.isSubscription == "true";
+    $scope.isSubscription = $stateParams.isSubscription == "true";
     $scope.authUser = {
       'name': $auth.user.name,
       'email': $auth.user.email
