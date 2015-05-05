@@ -54,6 +54,15 @@ angular.module('multiplyMe')
   },{
     'question': 'How do you know who is giving because of my pledge?',
     'answer': 'When you complete your donation you will be given a unique share link so that we can figure out who refered who. On your account page you can keep track of how much money you\'ve personally raised through referals to your unique link.',
+  },{
+    'question': 'If I don\'t complete my challenge, when do I see a refund?',
+    'answer': 'Your money is not removed from your account until AFTER you complete the challenge. You won\'t see a refund because there is nothing to refund.',
+  },{
+    'question': 'Is this tax deductable?',
+    'answer': 'Yes, and we\'ll be automatically sending you reciepts for your tax purposes.',
+  },{
+    'question': 'Will I be able to cancel a recurring donation later?',
+    'answer': 'Yes! When you make an pledge or donation you will create a password so that you can log in and cancel or edit your donation any time.',
   }]
 
   $scope.org = {

@@ -661,6 +661,10 @@ input[type=number]::-webkit-outer-spin-button {
 .paymentHeading {
   padding-bottom: 20px;
 }
+
+#learnMore{
+z-index: 10000;
+}
 </style>
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
@@ -852,8 +856,7 @@ input[type=number]::-webkit-outer-spin-button {
 </div>
 <div class="highlightChallenge" ng-show="highlightNext" ng-click="disableHighlightNext()"></div>
 <footer></footer>
-<div class="modal-open">
-  <div id="myModal" class="modal fade in" ng-show="modal" style="display: block;">
+  <div id="learnMore" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -871,7 +874,6 @@ input[type=number]::-webkit-outer-spin-button {
       </div>
     </div>
   </div>
-</div>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })</script>
