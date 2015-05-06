@@ -17,17 +17,17 @@ angular.module('multiplyMe')
   }
 
   $scope.suggestedDonations = [{
-    'amount': 175,
+    'amount': 16,
     'recurring': true,
-    'message': 'Can help fund my trip for a month'
+    'message': 'Sponsor a student per month'
   },{
-    'amount': 70,
+    'amount': 36,
     'recurring': false,
-    'message': 'Can help fund my trip for a day'
+    'message': 'Sponsor a teacher for one week'
   },{
-    'amount': 20,
-    'recurring': true,
-    'message': 'Can help fund basic travel for a month'
+    'amount': 191,
+    'recurring': false,
+    'message': 'Sponsor a student for a year'
   }]
 
   LeaderboardLoader(5).then(function(result){
@@ -151,7 +151,7 @@ angular.module('multiplyMe')
           $( ".campaignHighlights" ).css("color","black");
           $( ".campaignHighlights .btn" ).css("color","black");
         });
-        $( ".campaignContent" ).animate({"margin-top": "490px"}, 1000);
+        $( ".campaignContent" ).animate({"margin-top": "335px"}, 1000);
         player.removeEvent('playProgress');
     }
 

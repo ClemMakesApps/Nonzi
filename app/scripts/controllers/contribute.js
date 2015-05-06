@@ -34,17 +34,17 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
 
 	$scope.suggestedDonations = [{
-    'amount': 175,
+    'amount': 16,
     'recurring': true,
-    'message': 'Can help fund my trip for a month'
+    'message': 'Sponsor a student per month'
   },{
-    'amount': 70,
+    'amount': 36,
     'recurring': false,
-    'message': 'Can help fund my trip for a day'
+    'message': 'Sponsor a teacher for one week'
   },{
-    'amount': 20,
-    'recurring': true,
-    'message': 'Can help fund basic travel for a month'
+    'amount': 191,
+    'recurring': false,
+    'message': 'Sponsor a student for a year'
   }];
 
   //Suggestion related methods

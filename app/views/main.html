@@ -248,7 +248,7 @@ border:none;
 .campaignHighlights .col-sm-5{
 min-width: 400px;}
 
-.whitefont .btn.btn-xs-screen{
+.campaignStats .btn.btn-xs-screen{
 display:none;
 color:white;
 width:70%;
@@ -275,7 +275,7 @@ min-width: 300px;}
 .whitefont {color:black}
 .whitefont a, .whitefont a:hover, .whitefont .btn, .whitefont .btn.active:focus, .whitefont .btn.active
  {color: #286090;}
- .whitefont .btn.btn-xs-screen{
+ .campaignStats .btn.btn-xs-screen{
  display:block;
  }
  .btn-md-screen{
@@ -321,8 +321,8 @@ padding: 5px 5px;
 .campaignHighlights .col-xs-7, .campaignHighlights .col-xs-4 {
 width:100%;
 }
-.campaignContent{
-margin-top:466px;
+.campaignContent, .campaignContent[style="margin-top: 335px;"]{
+margin-top:466px !important;
 }
 .campaignStats{
 margin-left:0;}
@@ -492,7 +492,7 @@ margin-top: 15%;}
               <span>{{ leader.name }}</span>
             </div>
             <div class="col-xs-4 column">
-              <span>{{ leader.contribution  * .001 | currency:undefined:0 }}<span>
+              <span>{{ leader.contribution | currency:undefined:0 }}<span>
 
             </div>
           </div>
