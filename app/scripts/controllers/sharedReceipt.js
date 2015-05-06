@@ -8,6 +8,11 @@ angular.module('multiplyMe')
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
+    $scope.impact = ShareTree.parent.donation.amount * .01;
+    for(var i = 0; i < $scope.children.length; i++){
+      console.log($scope.children[i].donation);
+      $scope.impact += ($scope.children[i].donation.amount * .01);
+    }
     $scope.donationId = $stateParams.donationId;
     
     console.log(!!$scope.children[0]);
