@@ -35,6 +35,7 @@ angular.module('multiplyMe')
     $scope.leaders = [];
     for(i=0 ; i < result.leaders.length; i++){
       $scope.leaders[i] = result.leaders[i];
+      $scope.leaders[i].contribution /= 100
       $scope.leaders[i].img = md5(result.leaders[i].email.toLowerCase());
     }
   });
