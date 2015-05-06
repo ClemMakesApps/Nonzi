@@ -453,7 +453,7 @@ nav.header-transparent {
 </nav>
 <div class="container-fluid shared-receipt-bg bg-container-image">
   <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
-    <h1 class="text-thanks">{{name}} pledged $4 to support the<br>Bhatti Mines School</h1>
+    <h1 class="text-thanks">{{name}} pledged {{parent.donation.amount * .01 | currency}} to support the<br>Bhatti Mines School</h1>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center pyramid">
     <div class="col-xs-12">
@@ -467,18 +467,18 @@ nav.header-transparent {
     -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
 ">
-	  <h3 class="pledge-info impactstat">Impact: $100</h3>
+<h3 class="pledge-info impactstat">Impact: {{impact | currency}}</h3>
       <img src="../images/pyramid-arrow.png" class="img-pyramid">
       <div class="pyramid-children">
         <div ng-switch on="!!children[0]" class="first-child">
         <div ng-switch-when="true">
-          <img style="width:100px" ng-src="{{children[0].image_url}}" class="img-circle">
+          <img ng-src="{{children[0].image_url}}" class="img-circle">
         </div>
         <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
       </div>
       <div ng-switch on="!!children[1]" class="second-child">
         <div ng-switch-when="true">
-          <img style="width:100px" ng-src="{{children[0].image_url}}" class="img-circle">
+          <img ng-src="{{children[1].image_url}}" class="img-circle">
         </div>
         <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
       </div>
