@@ -361,7 +361,7 @@ margin-top: 15%;}
 	<a ui-sref="signin" class="btn btn-default text-right">Sign In</a>
 </nav>
 
-<div class="container whitefont campaignHighlights campaignHighlightsBackground" ng-hide="highlights">
+<div class="container whitefont campaignHighlights" ng-class="{campaignHighlightsBackground: !played}" ng-hide="highlights" ng-click="playVideo()">
 	<div class="col-sm-offset-2 col-sm-5 col-xs-7">
 		<h1 class="campaignLabels">{{cause.name}}</h1>
 		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>

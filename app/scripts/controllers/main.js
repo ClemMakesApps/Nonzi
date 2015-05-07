@@ -125,15 +125,20 @@ angular.module('multiplyMe')
   }
 
 
-    var vimeoFrame = $('#vimeoFrame')[0];
-    var player = $f(vimeoFrame);
+  var vimeoFrame = $('#vimeoFrame')[0];
+  var player = $f(vimeoFrame);
+  $scope.played = false;
 
-    player.addEvent('ready', function() {
+  player.addEvent('ready', function() {
 
-        player.addEvent('playProgress', onPlayProgress);
-    });
+      player.addEvent('playProgress', onPlayProgress);
+  });
 
-
+  $scope.playVideo = function() {
+    if(!$scope.played) {
+      player.api("play");
+    }
+  }
 
   $scope.popover = false;
 
@@ -145,7 +150,8 @@ angular.module('multiplyMe')
         console.log(data.seconds + 's played');
         // $scope.highlights = true;
         // $scope.$apply();
-
+        $scope.played = true;
+        $scope.$apply();
         $( ".campaignHighlights" ).animate({"margin-top": "50%"}, 1000, function() {
           $( ".campaignHighlights" ).removeClass("whitefont");
           $( ".campaignHighlights" ).css("color","black");
