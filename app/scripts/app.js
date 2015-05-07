@@ -81,7 +81,12 @@ angular
   .state('share', {
     url: '/share/:donationId',
     templateUrl: 'views/share.html',
-    controller: 'ShareCtrl'
+    controller: 'ShareCtrl',
+    resolve: {
+      Donation: function(DonationLoader, $stateParams){
+        return DonationLoader($stateParams.donationId);
+      }
+    }
   })
   .state('terms', {
     url: '/terms',
