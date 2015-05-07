@@ -8,7 +8,23 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation, account) {
+
+    account.get({id: $auth.user.id}, function(result){
+      $scope.personal_impact = result.personal_impact * .01;
+      $scope.network_impact = result.network_impact * .01;
+      $scope.total_impact = result.total_impact * .01;
+      $scope.recurring_amount = result.recurring_amount;
+      $scope.only_recurring = result.only_recurring;
+      if(result.only_recurring){
+        $scope.personal_impact /= 12;
+      }
+    });
+    UserDonation.get({id: $auth.user.id}, function(result){
+      $scope.donation_ids = result.donation_ids;
+      $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
+    });
+
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
@@ -17,12 +33,10 @@ angular.module('multiplyMe')
       }
     }
 
-    $scope.personal_impact = $auth.user.personal_impact * .001;
-    $scope.network_impact = $auth.user.network_impact * .001;
-    $scope.recurring_amount = $auth.user.recurring_amount * .001;
+    $scope.personal_impact = $auth.user.personal_impact * .01;
+    $scope.network_impact = $auth.user.network_impact * .01;
+    $scope.recurring_amount = $auth.user.recurring_amount * .01;
     $scope.name = $auth.user.name;
-    $scope.id = $auth.user.id;
-    $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.id;
 
     // Donation ID is hard coded right now
     //Email hard coded

@@ -6,6 +6,11 @@ angular.module('multiplyMe')
 
     $scope.donorName = Donation.name;
     $scope.amount = Donation.donation.amount / 100;
+    $scope.donated = !Donation.donation.is_challenged;
+
+    var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me ' + encodeURIComponent($location.absUrl());
+    var donatedText = 'Donated money to support a free school in India. Join me and make a difference '  + encodeURIComponent($location.absUrl()) + ' @AmalaFoundation';
+
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
@@ -13,8 +18,14 @@ angular.module('multiplyMe')
          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'twitter'){
+
+        var message = pledgeText;
+        if($scope.donated) {
+          message = donatedText;
+        }
+
         $window.open(
-          '//www.twitter.com/intent/tweet?text=Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me ' + encodeURIComponent($location.absUrl()),
+          '//www.twitter.com/intent/tweet?text=' + message,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'google'){

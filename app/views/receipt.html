@@ -301,10 +301,11 @@ nav.header-transparent {
 <div class="container-fluid thankful bg-container-image">
   <div class="col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8 col-xs-12 text-center text-white thanks-heading">
     <h1 class="text-thanks">Thank you {{donorName}}, <br>for supporting the Bhatti Mines School</h1>
-    <span class="text-pledged">You pledged {{amount | currency}}</span>
+    <span class="text-pledged">You <span ng-hide="donated">pledged</span><span ng-show="donated">donated</span> {{amount | currency}}</span>
   </div>
   <div class="col-xs-12 text-center text-white share-tools">
-    <h3 class="share-tag">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
+    <h3 class="share-tag" ng-hide="donated">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
+    <h3 class="share-tag" ng-show="donated">Share with your friends and<br>encourage them to join you!</h1>
     <div class="social-links">
       <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
       <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>

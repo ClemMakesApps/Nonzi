@@ -22,6 +22,11 @@ angular.module('multiplyMe')
       $scope.signedIn = false;
     });
 
+
+    if($stateParams.refer != null) {
+      $scope.referral = Number($stateParams.refer);
+    }
+  
     $scope.signedIn = $auth.user.signedIn;
     $scope.amount = $stateParams.amount;
     $scope.isSubscription = $stateParams.isSubscription == "true";
@@ -53,7 +58,12 @@ angular.module('multiplyMe')
     $scope.hasReferral = !isNaN($stateParams.refer);
     console.log($stateParams.refer);
     if($scope.hasReferral) {
-      $scope.referralName = name.get({id: $stateParams.refer});
+      name.get({id: $stateParams.refer}, function(result){
+        $scope.referralName = result.name;
+        $scope.referralChildren = result.number_of_children;
+        $scope.referralPaid = result.is_paid;
+        console.log(result);
+      });
     }
 
     var validateCard = function(){
