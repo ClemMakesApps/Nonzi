@@ -17,9 +17,9 @@ angular.module('multiplyMe')
       }
     }
 
-    $scope.personal_impact = $auth.user.personal_impact * .001;
-    $scope.network_impact = $auth.user.network_impact * .001;
-    $scope.recurring_amount = $auth.user.recurring_amount * .001;
+    $scope.personal_impact = $auth.user.personal_impact * .01;
+    $scope.network_impact = $auth.user.network_impact * .01;
+    $scope.recurring_amount = $auth.user.recurring_amount * .01;
     $scope.name = $auth.user.name;
     $scope.id = $auth.user.id;
     $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.id;
