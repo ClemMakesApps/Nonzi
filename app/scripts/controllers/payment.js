@@ -22,6 +22,11 @@ angular.module('multiplyMe')
       $scope.signedIn = false;
     });
 
+
+    if($stateParams.refer != null) {
+      $scope.referral = Number($stateParams.refer);
+    }
+  
     $scope.signedIn = $auth.user.signedIn;
     $scope.amount = $stateParams.amount;
     $scope.isSubscription = $stateParams.isSubscription == "true";
