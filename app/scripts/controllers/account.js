@@ -8,7 +8,12 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation) {
+
+    UserDonation.get({id: 202}, function(result){
+      $scope.donation_ids = result.donation_ids;
+      console.log($scope.donation_ids);
+    });
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
