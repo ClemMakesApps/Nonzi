@@ -669,8 +669,10 @@ z-index: 10000;
 <campaign-header></campaign-header>
 <div class="container-fluid payment-container">
   <div class="col-md-offset-2 col-md-8">
-    <div class="alert alert-success" role="alert" ng-show="hasReferral">
-      <strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.
+    <div class="alert alert-success" role="alert" ng-show="hasReferral && referralName">
+      <span ng-show="referralChildren < 2 && !referralPaid"><strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.</span>
+      <span ng-show="referralChildren == 2 && !referralPaid"><strong>You are Fantastic!</strong> {{referralName}}'s pledge will be donated after your contribution.</span>
+      <span ng-show="referralChildren >= 3 || referralPaid"><strong>{{referralName}} thanks you</strong> for joining in support for the Bhatti Mines School.</span>
     </div>
   </div>
 	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">

@@ -55,6 +55,9 @@ angular.module('multiplyMe')
     if($scope.hasReferral) {
       name.get({id: $stateParams.refer}, function(result){
         $scope.referralName = result.name;
+        $scope.referralChildren = result.number_of_children;
+        $scope.referralPaid = result.is_paid;
+        console.log(result);
       });
     }
 
