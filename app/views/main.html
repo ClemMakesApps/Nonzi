@@ -109,6 +109,12 @@ h4 {font-size:16px;font-weight:bold;}
 	top:40px;
 }
 
+.campaignHighlightsBackground {
+  padding-bottom:100px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
+  background-image: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.35), rgba(0,0,0,0.55), rgba(0,0,0,0.35), rgba(0,0,0,0.02));
+}
+
 .campaignStats {
 	margin-left: 30px;
 }
@@ -281,6 +287,12 @@ min-width: 300px;}
  .btn-md-screen{
  display:none;
  }
+
+ .campaignHighlightsBackground {
+    padding-bottom:0px;
+    text-shadow: none;
+    background-image: none;
+  }
 }
 
 @media (max-width: 610px) {
@@ -349,7 +361,7 @@ margin-top: 15%;}
 	<a ui-sref="signin" class="btn btn-default text-right">Sign In</a>
 </nav>
 
-<div class="container whitefont campaignHighlights" ng-hide="highlights">
+<div class="container whitefont campaignHighlights campaignHighlightsBackground" ng-hide="highlights">
 	<div class="col-sm-offset-2 col-sm-5 col-xs-7">
 		<h1 class="campaignLabels">{{cause.name}}</h1>
 		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
