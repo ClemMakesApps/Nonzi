@@ -8,8 +8,14 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation, account) {
 
+    account.get({id: $auth.user.id}, function(result){
+      $scope.personal_impact = result.personal_impact;
+      $scope.network_impact = result.network_impact;
+      $scope.recurring_amount = result.recurring_amount;
+      $scope.only_recurring = result.only_recurring;
+    });
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
       $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
