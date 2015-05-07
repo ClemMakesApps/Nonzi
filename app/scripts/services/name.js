@@ -2,5 +2,5 @@
 
 angular.module('multiplyMe')
   .factory('name', function ($resource, api) {
-    return $resource(api + 'name/:id', {id: '@id'} );
+    return $resource(api + 'names/:id', {id: '@id'} );
   });

@@ -53,7 +53,9 @@ angular.module('multiplyMe')
     $scope.hasReferral = !isNaN($stateParams.refer);
     console.log($stateParams.refer);
     if($scope.hasReferral) {
-      $scope.referralName = name.get({id: $stateParams.refer});
+      name.get({id: $stateParams.refer}, function(result){
+        $scope.referralName = result.name;
+      });
     }
 
     var validateCard = function(){
