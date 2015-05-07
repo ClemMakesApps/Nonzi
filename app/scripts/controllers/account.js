@@ -10,10 +10,11 @@
 angular.module('multiplyMe')
   .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation) {
 
-    UserDonation.get({id: 202}, function(result){
+    UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
-      console.log($scope.donation_ids);
+      $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
     });
+
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
@@ -26,8 +27,6 @@ angular.module('multiplyMe')
     $scope.network_impact = $auth.user.network_impact * .01;
     $scope.recurring_amount = $auth.user.recurring_amount * .01;
     $scope.name = $auth.user.name;
-    $scope.id = $auth.user.id;
-    $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.id;
 
     // Donation ID is hard coded right now
     //Email hard coded
