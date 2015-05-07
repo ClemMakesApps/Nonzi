@@ -383,9 +383,9 @@ margin-top: 15%;}
 		</div>
 	</div>
 	<div class="col-sm-offset-1 col-sm-2 col-xs-4 campaignStats">
-		<h2 class="text-left campaignLabels">{{cause.supporters}}</h2>
+		<h2 class="text-left campaignLabels">{{supporters}}</h2>
 		<p class="text-left">supporters</p>
-		<h2 class="text-left campaignLabels">{{money.raised | currency:"$":0}}</h2>
+		<h2 class="text-left campaignLabels">{{donation_amount | currency:"$":0}}</h2>
 		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
 		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
 		<p class="text-left">days to go</p>
