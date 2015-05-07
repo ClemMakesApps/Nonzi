@@ -11,10 +11,14 @@ angular.module('multiplyMe')
   .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation, account) {
 
     account.get({id: $auth.user.id}, function(result){
-      $scope.personal_impact = result.personal_impact;
-      $scope.network_impact = result.network_impact;
+      $scope.personal_impact = result.personal_impact * .01;
+      $scope.network_impact = result.network_impact * .01;
+      $scope.total_impact = result.total_impact * .01;
       $scope.recurring_amount = result.recurring_amount;
       $scope.only_recurring = result.only_recurring;
+      if(result.only_recurring){
+        $scope.personal_impact /= 12;
+      }
     });
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
