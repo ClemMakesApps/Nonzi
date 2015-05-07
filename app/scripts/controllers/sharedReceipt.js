@@ -13,4 +13,8 @@ angular.module('multiplyMe')
     
     console.log(!!$scope.children[0]);
     console.log($scope.name);
+
+    if(ShareTree.number_of_children >= 3) {
+        $scope.fulfilled = true;
+    }
   });

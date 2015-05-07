@@ -453,7 +453,7 @@ nav.header-transparent {
 </nav>
 <div class="container-fluid shared-receipt-bg bg-container-image">
   <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12 text-center text-white thanks-heading">
-    <h1 class="text-thanks">{{name}} pledged {{parent.donation.amount * .01 | currency}} to support the<br>Bhatti Mines School</h1>
+    <h1 class="text-thanks">{{name}} <span ng-hide="fulfilled">pledged</span><span ng-show="fulfilled">donated</span> {{parent.donation.amount * .01 | currency}} to support the<br>Bhatti Mines School</h1>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-1 col-sm-10 col-xs-12 text-center pyramid">
     <div class="col-xs-12">
@@ -476,11 +476,14 @@ nav.header-transparent {
         </div>
         <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
       </div>
-      <div ng-switch on="!!children[1]" class="second-child">
+      <div ng-switch on="!!children[1]" class="second-child" ng-hide="fulfilled">
         <div ng-switch-when="true">
           <img ng-src="{{children[1].image_url}}" class="img-circle">
         </div>
-        <div ng-switch-when="false" class="unknown-donor"><span>?</span></div>
+        <div ng-switch-when="false" class="unknown-donor"><span ng-hide="fulfilled">?</span></div>
+      </div>
+      <div class="second-child" ng-show="fulfilled">
+        <div class="unknown-donor"><span>...</span></div>
       </div>
       <div class="third-child">
         <div class="unknown-donor"><span>You?</span></div>
@@ -489,11 +492,13 @@ nav.header-transparent {
     </div>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 text-center shared-cta">
-    <h3 class="pledge-info">3 more pledges within 2 days are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
-    <h3 class="text-white invitation">Will you join {{name}} in this cause?</h3>
+    <h3 class="pledge-info" ng-hide="fulfilled">3 more pledges within 2 days are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
+    <h3 class="pledge-info" ng-show="fulfilled">That donation continues to multiply through generous friends</h3>
+    <h3 class="text-white invitation" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
+    <h3 class="text-white invitation" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
     <div class="invitation-action">
         <a class="btn btn-primary btn-lg" target="_top" ui-sref="main({refer: donationId})">Learn More</a>
-        <a class="btn btn-success btn-lg" target="_top" ui-sref="contribute({refer: donationId})">Contribute</a>
+        <a class="btn btn-success btn-lg" target="_top" ui-sref="contribute({refer: donationId})">Yes, I'd like to contribute</a>
     </div>
   </div>
 </div>
