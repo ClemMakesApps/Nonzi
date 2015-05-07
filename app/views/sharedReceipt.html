@@ -492,7 +492,7 @@ nav.header-transparent {
     </div>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 text-center shared-cta">
-    <h3 class="pledge-info" ng-hide="fulfilled">3 more pledges within 2 days are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
+    <h3 class="pledge-info" ng-hide="fulfilled">{{3 - children.length}} more pledges within <span ng-show="hoursRemaining > 24">{{daysRemaining}} days</span><span ng-show="hoursRemaining <= 24">{{hoursRemaining}} hours</span> are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
     <h3 class="pledge-info" ng-show="fulfilled">That donation continues to multiply through generous friends</h3>
     <h3 class="text-white invitation" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
     <h3 class="text-white invitation" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
