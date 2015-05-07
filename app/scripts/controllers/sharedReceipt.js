@@ -19,4 +19,8 @@ angular.module('multiplyMe')
     if(ShareTree.number_of_children >= 3) {
         $scope.fulfilled = true;
     }
+
+    if(ShareTree.paid) {
+        $scope.fulfilled = true;
+    }
   });
