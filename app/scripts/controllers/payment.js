@@ -172,7 +172,8 @@ angular.module('multiplyMe')
     }
     $scope.unchallengedSubmit = function(){
       $scope.isChallenged = false;
-      $scope.donateStatus = "Donating...";
+      $scope.donateStatus = "Processing";
+      $scope.donateTextLarge = "Donation";
       $scope.donating = true;
       submit();
     }
@@ -183,6 +184,10 @@ angular.module('multiplyMe')
       $scope.enableLoading = false;
       $scope.donating = false;
       $scope.highlightNext = false;
+
+      $scope.donateStatus = "Just";
+      $scope.donateTextLarge = "Donate";
+
       $scope.errorMessage = message;
       $timeout.cancel(highlightTimer);
     }
