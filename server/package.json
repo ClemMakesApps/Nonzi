@@ -1,0 +1,12 @@
+{
+  "name": "MultiplyMe",
+  "description": "Fundraiser for Bhatti Mines School",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "express": "latest",
+    "prerender-node": "latest",
+    "express-force-ssl": "latest",
+    "forever": "latest"
+  }
+}
