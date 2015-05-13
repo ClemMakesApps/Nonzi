@@ -3,5 +3,7 @@ dist
 .tmp
 .sass-cache
 bower_components
-
+server/node_modules
+server/keys/*
+server/public/*
 .DS_Store
