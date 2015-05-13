@@ -9,9 +9,23 @@ var options = {
   cert: fs.readFileSync('./keys/amala_multiplyme_in.crt')
 };
 
+function requireHTTPS(req, res, next) {
+    if (!req.secure) {
+        //FYI this should work for local development as well
+        var domain = "https://" + req.get("host");
+        if (process.env["SSL_PORT"]) {
+            domain = domain.replace(/:\d+$/, "");
+            domain += ":" + process.env["SSL_PORT"];
+        }
+        return res.redirect(domain + req.url);
+    }
+    next();
+}
+
 // Create a service (the app object is just a callback).
 var app = express();
-app.use(require('prerender-node').set('prerenderToken', '<INSERT KEY HERE>'));
+app.use(requireHTTPS);
+app.use(require('prerender-node').set('prerenderToken', 'olRRXliEAQsFqhC8QEmU'));
 app.use(express.static("public"));
 
 // Create an HTTP service.
