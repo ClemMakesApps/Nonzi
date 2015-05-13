@@ -6,4 +6,5 @@ bower_components
 server/node_modules
 server/keys/*
 server/public/*
+server/server.js
 .DS_Store
