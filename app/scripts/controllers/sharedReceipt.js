@@ -3,6 +3,7 @@
 angular.module('multiplyMe')
   .controller('SharedReceiptCtrl', function ($scope, $stateParams, $rootScope, ShareTree) {
     $rootScope.title = 'Will you join ' + ShareTree.parent.name + ' in supporting the Bhatti Mines School';
+    $rootScope.ogTitle = $rootScope.title;
 
     console.log(ShareTree);
     $scope.name = ShareTree.parent.name;

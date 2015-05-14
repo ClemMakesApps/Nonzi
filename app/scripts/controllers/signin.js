@@ -10,6 +10,7 @@
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope) {
   $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
+  $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
   
   $scope.user = {};
 

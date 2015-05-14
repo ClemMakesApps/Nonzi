@@ -106,7 +106,7 @@ angular
   });
   $urlRouterProvider.otherwise('/');
 
-}).run(function ($rootScope, $animate){
+}).run(function ($rootScope, $animate, $location){
   $rootScope.config = config;
 
   //Pre-render title before controller sets title
@@ -119,6 +119,18 @@ angular
 
   $rootScope.$on('$stateChangeStart', function() {
     $animate.enabled(false);
+
+    //Hack for defaulting description when the page is not the share page
+    var path = $location.path();
+    var found = path.indexOf("/share/");
+
+    if(found == -1) {
+      $rootScope.description = 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.';
+    }
+  })
+
+  $rootScope.$on('$viewContentLoaded', function() {
+    $rootScope.absUrl = $location.absUrl();
   })
 });
 

@@ -26,6 +26,8 @@ angular.module('multiplyMe')
     });
 
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
+    $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+    
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
         var result = userSubscription.delete();

@@ -9,6 +9,7 @@
  */
 angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $stateParams, $rootScope, $timeout) {
   $rootScope.title = "Contribute to the Bhatti Mines School Project";
+  $rootScope.ogTitle = $rootScope.title;
 
   //Initalize 
   if($stateParams.amount != null) {

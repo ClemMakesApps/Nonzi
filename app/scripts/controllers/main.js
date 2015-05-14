@@ -11,6 +11,7 @@ angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, $rootScope, LeaderboardLoader, organization) {
   $scope.referral = Number($stateParams.refer);
   $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+  $rootScope.ogTitle = $rootScope.title;
 
   if($scope.referral) {
     $scope.referHref = 'refer=' + $scope.referral;

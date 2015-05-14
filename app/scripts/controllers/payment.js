@@ -9,6 +9,9 @@
  */
 angular.module('multiplyMe')
   .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name) {
+    $rootScope.title = 'Contribute to the Bhatti Mines School Project';
+    $rootScope.ogTitle = $rootScope.title;
+
     $rootScope.$on('auth:validation-success', function(ev, user) {
       $scope.signedIn = true;
       $scope.authUser.name = user.name;
