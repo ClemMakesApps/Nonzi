@@ -25,8 +25,7 @@ angular
     apiUrl: 'https://api.multiplyme.in'
   });
 
-  // $locationProvider.html5Mode(true);
-  // $locationProvider.hashPrefix('!');
+  $locationProvider.hashPrefix('!');
 
   $stateProvider
     .state('auth', {
