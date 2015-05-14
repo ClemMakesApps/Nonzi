@@ -24,8 +24,14 @@ function requireHTTPS(req, res, next) {
 
 // Create a service (the app object is just a callback).
 var app = express();
+
+//Redirect HTTP to HTTPS
 app.use(requireHTTPS);
+
+//Prerender for SEO
 app.use(require('prerender-node').set('prerenderToken', 'olRRXliEAQsFqhC8QEmU'));
+
+//App setup
 app.use(express.static("public"));
 
 // Create an HTTP service.
