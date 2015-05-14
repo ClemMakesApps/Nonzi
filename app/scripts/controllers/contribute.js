@@ -8,7 +8,7 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $stateParams, $rootScope, $timeout) {
-  $rootScope.title = "Contribute to Bhatti Mines School Project";
+  $rootScope.title = "Contribute to the Bhatti Mines School Project";
 
   //Initalize 
   if($stateParams.amount != null) {
