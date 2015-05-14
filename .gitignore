@@ -8,3 +8,4 @@ server/keys/*
 server/public/*
 server/server.js
 .DS_Store
+*.pem
