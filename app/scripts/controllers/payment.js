@@ -47,17 +47,28 @@ angular.module('multiplyMe')
       response
         .then(function(response){
           console.log('it worked!', response);
-          $auth.authenticate('facebook', {params: {code: response.authResponse.signedRequest, provider_ignores_state: true}})
-            .then(function(){
-              console.log('here');
-            })
-            .catch(function(){
-              console.log('there');
-            });
+          if(response.authResponse == null){
+            $auth.authenticate('facebook')
+              .then(function(){
+                console.log('here');
+              })
+              .catch(function(){
+                console.log('there');
+              });
+          }
+          else{
+            $auth.authenticate('facebook', {params: {code: response.authResponse.signedRequest}})
+              .then(function(){
+                console.log('here');
+              })
+              .catch(function(){
+                console.log('there');
+              });
+          }
         })
-        .catch(function(response){
-          console.log('error', response);
-        });
+      .catch(function(response){
+        console.log('error', response);
+      });
       $scope.highlightChallenge();
     }
 
