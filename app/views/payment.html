@@ -765,7 +765,7 @@ z-index: 10000;
               <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
               <div class="checkbox">
                 <label>
-                  <input class="updates-checkbox" type="checkbox" checked> Send me campaign updates
+                  <input class="updates-checkbox" ng-model="subscribe" type="checkbox" checked> Send me campaign updates
                 </label>
               </div>
             </div>

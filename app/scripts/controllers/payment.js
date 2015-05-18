@@ -156,7 +156,8 @@ angular.module('multiplyMe')
             card: {
               token: token,
               email: email
-            }
+            },
+            subscribe: $scope.subscribe
           },
           function(result){
             localStorage.setItem("receiptYes", "true");
