@@ -47,7 +47,7 @@ angular.module('multiplyMe')
       response
         .then(function(response){
           console.log('it worked!', response);
-          $auth.authenticate('facebook', {params: {code: response.authResponse.signedRequest}})
+          $auth.authenticate('facebook', {params: {code: response.authResponse.signedRequest, provider_ignores_state: true}})
             .then(function(){
               console.log('here');
             })
