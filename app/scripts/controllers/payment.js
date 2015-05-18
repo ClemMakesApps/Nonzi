@@ -8,10 +8,9 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name) {
+  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name, $facebook) {
     $rootScope.title = 'Contribute to the Bhatti Mines School Project';
     $rootScope.ogTitle = $rootScope.title;
-
     $rootScope.$on('auth:validation-success', function(ev, user) {
       $scope.signedIn = true;
       $scope.authUser.name = user.name;
@@ -39,12 +38,25 @@ angular.module('multiplyMe')
     };
 
     $scope.facebook = function(){
-      $auth.authenticate('facebook')
-        .then(function(){
-          console.log('here');
+      console.log('FB', $facebook);
+      //console.log('READY', Facebook.isReady());
+      //while(!Facebook.isReady()){console.log('here')}
+      //var response = $facebook.getLoginStatus();
+      var response = $facebook.getLoginStatus();
+      console.log('hi', response);
+      response
+        .then(function(response){
+          console.log('it worked!', response);
+          $auth.authenticate('facebook', {params: {code: response.authResponse.signedRequest}})
+            .then(function(){
+              console.log('here');
+            })
+            .catch(function(){
+              console.log('there');
+            });
         })
-        .catch(function(){
-          console.log('there');
+        .catch(function(response){
+          console.log('error', response);
         });
       $scope.highlightChallenge();
     }

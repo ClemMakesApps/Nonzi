@@ -17,13 +17,15 @@ angular
   'ngSanitize',
   'ngTouch',
   'ng-token-auth',
-  'ui.router'
+  'ui.router',
+  'ngFacebook'
 ])
 .constant('URL', 'https://api.multiplyme.in/')
-.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
     apiUrl: 'https://api.multiplyme.in'
   });
+  $facebookProvider.setAppId('1417661645206719');
 
   $locationProvider.hashPrefix('!');
 
@@ -106,7 +108,7 @@ angular
   });
   $urlRouterProvider.otherwise('/');
 
-}).run(function ($rootScope, $animate, $location){
+}).run(function ($rootScope, $animate, $window, $location){
   $rootScope.config = config;
 
   //Pre-render title before controller sets title
@@ -132,5 +134,23 @@ angular
   $rootScope.$on('$viewContentLoaded', function() {
     $rootScope.absUrl = $location.absUrl();
   })
+
+  (function(){
+    // If we've already installed the SDK, we're done
+    if (document.getElementById('facebook-jssdk')) {return;}
+
+    // Get the first script element, which we'll use to find the parent node
+    var firstScriptElement = document.getElementsByTagName('script')[0];
+
+    // Create a new script element and set its id
+    var facebookJS = document.createElement('script'); 
+    facebookJS.id = 'facebook-jssdk';
+
+    // Set the new script's source to the source of the Facebook JS SDK
+    facebookJS.src = 'http://connect.facebook.net/en_US/all.js';
+
+    // Insert the Facebook JS SDK into the DOM
+    firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+  }());
 });
 
