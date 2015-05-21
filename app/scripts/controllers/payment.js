@@ -39,7 +39,6 @@ angular.module('multiplyMe')
     };
 
     $scope.facebook = function(){
-      console.log('FB', $facebook);
       //console.log('READY', Facebook.isReady());
       //while(!Facebook.isReady()){console.log('here')}
       //var response = $facebook.getLoginStatus();
@@ -174,6 +173,9 @@ angular.module('multiplyMe')
           function(result){
             localStorage.setItem("receiptYes", "true");
             $state.go('share', {donationId: result.donation.id});
+          },
+          function(response){
+            $scope.errorMessage = response.data.error;
           });
         }).catch(function(response) {
           if(response.code === "incorrect_number") {
