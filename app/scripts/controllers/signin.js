@@ -9,6 +9,8 @@
 */
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope) {
+  $scope.showRequestMessage = false;
+  $scope.showResetMessage = false;
   $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
   $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
   $scope.$on('auth:password-reset-confirm-success', function(){
@@ -18,12 +20,14 @@ angular.module('multiplyMe')
   $scope.user = {};
 
   $scope.resetPassword = function(){
-    $auth.updatePassword({password: $scope.passwordReset , password_confirmation: $scope.passwordResetConfirm});
+    $auth.updatePassword({password: $scope.passwordReset , password_confirmation: $scope.passwordResetConfirm}).then(function(){
+      $scope.showResetMessage = true; 
+    });
   }
 
   $scope.forgotPassword = function(){
     $auth.requestPasswordReset({email: $scope.forgotEmail}).then(function(){
-      console.log('here');
+      $scope.showRequestMessage = true;
     });
   }
 

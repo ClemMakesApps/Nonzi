@@ -105,6 +105,7 @@ nav.nav-black {
         <h4 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h4>
       </div>
       <div class="modal-body">
+        <div class="alert alert-success" ng-show="showResetMessage" role="alert">Password has been reset!</div>
         <div class="container-fluid">
           <form class="form-horizontal">
             <div class="form-group">
@@ -137,6 +138,7 @@ nav.nav-black {
         <h4 class="modal-title" id="forgotPasswordModalLabel">Forgot your Password</h4>
       </div>
       <div class="modal-body">
+        <div class="alert alert-success" ng-show="showRequestMessage" role="alert">Email has been set to reset your password</div>
         Please provide your email address and we will create a new password for you.
         <div class="container-fluid">
           <form class="form-horizontal">
