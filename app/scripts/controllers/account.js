@@ -22,12 +22,12 @@ angular.module('multiplyMe')
     });
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
-      $scope.share_link = "https://" + $location.host() + "/#/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
+      $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
     });
 
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
     $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
-    
+
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
         var result = userSubscription.delete();
