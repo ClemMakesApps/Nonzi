@@ -108,7 +108,7 @@ angular.module('multiplyMe')
       }
     }
 
-  var dateStart='2015-04-15';
+  var dateStart='2015-05-20';
   var dateLength=30;
   var dateToday=new Date();
   var parsedToday=Date.parse(dateToday);
