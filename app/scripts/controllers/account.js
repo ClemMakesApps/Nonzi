@@ -33,8 +33,11 @@ angular.module('multiplyMe')
 
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
-        var result = userSubscription.delete();
-        document.location.reload(true);
+        var result = userSubscription.delete()
+        .$promise.then(
+          function() {
+            document.location.reload(true);
+          });
       }
     }
 
