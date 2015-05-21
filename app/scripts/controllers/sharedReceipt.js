@@ -13,7 +13,8 @@ angular.module('multiplyMe')
     $scope.donationId = $stateParams.donationId;
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
     $scope.daysRemaining = Math.round($scope.hoursRemaining / 24);
-
+    $scope.recurring = ShareTree.parent.donation.is_subscription;
+    
     console.log(!!$scope.children[0]);
     console.log($scope.name);
 
