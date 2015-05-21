@@ -97,6 +97,38 @@ nav.nav-black {
   </div>
 </div>
 
+<div class="modal fade reset-password-modal" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" ng-model="passwordReset" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Password Confirmation</label>
+              <div class="col-sm-10">
+                <input type="password" ng-model="passwordResetConfirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="resetPassword()" type="button" class="btn btn-primary">Reset Password</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <div class="modal fade forgot-password-modal" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

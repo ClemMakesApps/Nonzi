@@ -11,11 +11,20 @@ angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope) {
   $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
   $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+  $scope.$on('auth:password-reset-confirm-success', function(){
+    $('.reset-password-modal').modal();
+  });
   
   $scope.user = {};
 
+  $scope.resetPassword = function(){
+    $auth.updatePassword({password: $scope.passwordReset , password_confirmation: $scope.passwordResetConfirm});
+  }
+
   $scope.forgotPassword = function(){
-    $auth.requestPasswordReset({email: $scope.forgotEmail});
+    $auth.requestPasswordReset({email: $scope.forgotEmail}).then(function(){
+      console.log('here');
+    });
   }
 
   $scope.login = function(){
