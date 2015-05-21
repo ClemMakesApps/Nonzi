@@ -34,7 +34,7 @@ angular.module('multiplyMe')
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
         var result = userSubscription.delete();
-        $state.reload();
+        document.location.reload(true);
       }
     }
 
