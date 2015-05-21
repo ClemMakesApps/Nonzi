@@ -52,7 +52,7 @@ angular.module('multiplyMe')
     //Email hard coded
     $scope.updatePassword = function(){
       $auth.submitLogin({
-        email: "frasermince@gmail.com",
+        email: $auth.user.email,
         password: $scope.oldPassword
       }).then( function (data){
         $auth.updatePassword({
