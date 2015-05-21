@@ -20,9 +20,12 @@ angular.module('multiplyMe')
         $scope.personal_impact /= 12;
       }
     });
+
+    var donationId = "";
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
-      $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.donation_ids[$scope.donation_ids.length - 1];
+      donationId = $scope.donation_ids[$scope.donation_ids.length - 1];
+      $scope.share_link = "https://" + $location.host() + "/#!/share/" + donationId;
     });
 
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
@@ -87,6 +90,38 @@ angular.module('multiplyMe')
         // $window.open(
         //   '//plus.google.com/share?url=' + encodeURIComponent($location.absUrl()),
         //   'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+    }
+
+    var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://amala.multiplyme.in/#!/share/' + donationId;
+    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://amala.multiplyme.in/#!/share/' + donationId + ' @AmalaFoundation';
+
+    $scope.share = function(provider){
+      if(provider === 'facebook'){
+        $window.open(
+         '//www.facebook.com/sharer/sharer.php?u=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+         'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'twitter'){
+
+        var message = pledgeText;
+        if($scope.donated) {
+          message = donatedText;
+        }
+
+        $window.open(
+          '//www.twitter.com/intent/tweet?text=' + message,
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'google'){
+        $window.open(
+          '//plus.google.com/share?url=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
+      }
+      if(provider === 'email'){
+        $window.open(
+          'mailto:?body=https://amala.multiplyme.in/#!/share/' + donationId,
+          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
 	
