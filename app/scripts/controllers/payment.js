@@ -23,6 +23,7 @@ angular.module('multiplyMe')
     $rootScope.$on('auth:validation-error', function(ev) {
       $scope.signedIn = false;
     });
+    $scope.subscribe = true;
 
 
     if($stateParams.refer != null) {
