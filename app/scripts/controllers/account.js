@@ -16,6 +16,8 @@ angular.module('multiplyMe')
       $scope.total_impact = result.total_impact * .01;
       $scope.recurring_amount = result.recurring_amount;
       $scope.only_recurring = result.only_recurring;
+      $scope.all_cancelled = result.all_cancelled;
+      console.log(result);
       if(result.only_recurring){
         $scope.personal_impact /= 12;
       }
