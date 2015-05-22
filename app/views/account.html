@@ -379,7 +379,7 @@ input[type=number]::-webkit-outer-spin-button {
                     <div class="impact-box">
                         <span class="impact-amount">
                             {{personal_impact | currency}}
-                            <div class="month-label" ng-show="only_recurring">per month</div>
+                            <div class="month-label" ng-show="only_recurring && !all_cancelled">per month</div>
                         </span>
                     </div>
                 </div>
