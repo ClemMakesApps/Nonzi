@@ -26,11 +26,11 @@ angular.module('multiplyMe')
   $scope.suggestedDonations = [{
     'amount': 16,
     'recurring': true,
-    'message': 'Sponsor a student per month'
+    'message': 'Sponsor a student'
   },{
-    'amount': 36,
+    'amount': 48,
     'recurring': false,
-    'message': 'Sponsor a teacher for one week'
+    'message': 'Sponsor a student for a quarter'
   },{
     'amount': 191,
     'recurring': false,
@@ -47,9 +47,6 @@ angular.module('multiplyMe')
   });
 
   $scope.faq = [{
-    'question': 'How often will we get updates about the school?',
-    'answer': 'There is very little infrastructure at Bhatti Mines, electricity is spotty and there is no available internet. Once a month they give us an update by phone, and once a year a group of volunteers comes from America to visit the school and get more in depth updates.',
-  },{
     'question': 'What happens if my friends don\'t respond in time?',
     'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   },{
@@ -108,15 +105,15 @@ angular.module('multiplyMe')
       }
     }
 
-  var dateStart='2015-05-20';
-  var dateLength=30;
+  var dateStart='2015-05-22';
+  var dateLength=34;
   var dateToday=new Date();
   var parsedToday=Date.parse(dateToday);
   var parsedStart=Date.parse(dateStart);
   var parsedLength = dateLength * 86400000;
   var parsedEnd = parsedLength + parsedStart;
 
-  var requested = 50000;
+  var requested = 7500;
   var raised = 12000;
   var percent =  Math.round(raised/requested*100)
 
@@ -126,9 +123,9 @@ angular.module('multiplyMe')
   }
 
   $scope.money = {
-    'requested' : 50000,
+    'requested' : 7500,
     'raised' : 0,
-    'percent' : Math.round(0/50000*100)
+    'percent' : Math.round(0/7500*100)
   }
 
 
