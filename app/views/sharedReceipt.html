@@ -366,10 +366,21 @@ nav.header-transparent {
 }
 
 @media (max-width: 550px), ( max-height: 750px ){
+  .btn-primary{
+  margin-bottom:5px;
+  }
+  
+  .shared-cta {
+  bottom: 0px;
+  }
+  
+  .invitation-action .btn{
+  margin-bottom: 5px;
+  }
   .pyramid {
     /*margin-top: 30px;*/
     position: absolute;
-    top: 33%;
+    top: 31%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -384,7 +395,7 @@ nav.header-transparent {
   }
 
   .img-pyramid {
-    max-width: 90%;
+    max-width: 75%;
   }
 
   .img-circle,
@@ -446,9 +457,19 @@ nav.header-transparent {
   }
   
 }
+@media only screen 
+  and (min-device-width: 260px) 
+  and (max-device-width: 600px)
+  and (orientation: portrait) {
+  
+  .hide-portrait{
+	display:none;
+  }
+  
+}
 </style>
 
-<nav class="header-transparent">
+<nav class="header-transparent hide-portrait">
   <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
 </nav>
 <div class="container-fluid shared-receipt-bg bg-container-image">
@@ -471,7 +492,7 @@ nav.header-transparent {
     -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
 ">
-<h3 class="pledge-info impactstat">Impact: {{impact | currency}}</h3>
+<h3 class="pledge-info impactstat hide-portrait">Impact: {{impact | currency}}</h3>
       <img src="../images/pyramid-arrow.png" class="img-pyramid">
       <div class="pyramid-children">
         <div ng-switch on="!!children[0]" class="first-child">
@@ -498,8 +519,8 @@ nav.header-transparent {
   <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 text-center shared-cta">
     <h3 class="pledge-info" ng-hide="fulfilled">{{3 - children.length}} more pledges within <span ng-show="hoursRemaining > 24">{{daysRemaining}} days</span><span ng-show="hoursRemaining <= 24">{{hoursRemaining}} hours</span> are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
     <h3 class="pledge-info" ng-show="fulfilled">That donation continues to multiply through generous friends</h3>
-    <h3 class="text-white invitation" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
-    <h3 class="text-white invitation" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
+    <h3 class="text-white invitation hide-portrait" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
+    <h3 class="text-white invitation hide-portrait" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
     <div class="invitation-action">
         <a class="btn btn-primary btn-lg" target="_top" ui-sref="main({refer: donationId})">Learn More</a>
         <a class="btn btn-success btn-lg" target="_top" ui-sref="contribute({refer: donationId})">Yes, I'd like to contribute</a>
