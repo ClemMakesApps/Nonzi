@@ -175,7 +175,24 @@ angular.module('multiplyMe')
             $state.go('share', {donationId: result.donation.id});
           },
           function(response){
-            $scope.errorMessage = response.data.error;
+            var errorMessage = response.data.error;
+
+            if(errorMessage === "Your card's security code is incorrect.") {
+              $scope.payment.cvc = null;
+            }
+
+            if(errorMessage === "Your card was declined.") {
+              $scope.payment.cardNumber = null;
+              $scope.payment.cvc = null;
+            }
+
+            if(errorMessage === "Your card has expired.") {
+              $scope.payment.cardNumber = null;
+              $scope.payment.cvc = null;
+            }
+
+            $scope.signedIn = true;
+            $scope.setErrorMessage(errorMessage);
           });
         }).catch(function(response) {
           if(response.code === "incorrect_number") {
