@@ -22,12 +22,17 @@ angular.module('multiplyMe')
         $scope.personal_impact /= 12;
       }
     });
+    $scope.showShare = false;
 
     var donationId = "";
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
       donationId = $scope.donation_ids[$scope.donation_ids.length - 1];
       $scope.share_link = "https://" + $location.host() + "/#!/share/" + donationId;
+
+      if(donationId != null) {
+        $scope.showShare = true;
+      }
     });
 
     $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
