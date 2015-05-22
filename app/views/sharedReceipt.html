@@ -457,15 +457,33 @@ nav.header-transparent {
   }
   
 }
-@media only screen 
-  and (min-device-width: 260px) 
-  and (max-device-width: 600px)
-  and (orientation: portrait) {
+@media (orientation: landscape) {
   
   .hide-portrait{
-	display:none;
+	display:none !important;
   }
-  
+  .thanks-heading{
+  top:0;
+  }
+  .pyramid{
+  width:50%;
+  top: 25%;
+  }
+  .img-circle, .first-child div, .second-child div, .third-child div{
+  width:45px;
+  height:45px;
+  }
+  .text-thanks{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  }
+  .invitation-action .btn{
+  font-size: 15px;
+  font-weight:bold;
+  }
+  .unknown-donor span{
+  font-size: 15px;
+  }
 }
 </style>
 
@@ -517,10 +535,10 @@ nav.header-transparent {
     </div>
   </div>
   <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12 text-center shared-cta">
-    <h3 class="pledge-info" ng-hide="fulfilled">{{3 - children.length}} more pledges within <span ng-show="hoursRemaining > 24">{{daysRemaining}} days</span><span ng-show="hoursRemaining <= 24">{{hoursRemaining}} hours</span> are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
+    <h3 class="pledge-info " ng-hide="fulfilled">{{3 - children.length}} more pledges within <span ng-show="hoursRemaining > 24">{{daysRemaining}} days</span><span ng-show="hoursRemaining <= 24">{{hoursRemaining}} hours</span> are still needed <br class="hidden-sm hidden-xs">or this pledge will <em>not</em> be donated</h3>
     <h3 class="pledge-info" ng-show="fulfilled">That donation continues to multiply through generous friends</h3>
-    <h3 class="text-white invitation hide-portrait" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
-    <h3 class="text-white invitation hide-portrait" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
+    <h3 class="text-white invitation hide-portrait hide-portrait" ng-hide="fulfilled">Will you join {{name}} in this cause?</h3>
+    <h3 class="text-white invitation hide-portrait hide-portrait" ng-show="fulfilled">Will you be {{name}}'s friend?</h3>
     <div class="invitation-action">
         <a class="btn btn-primary btn-lg" target="_top" ui-sref="main({refer: donationId})">Learn More</a>
         <a class="btn btn-success btn-lg" target="_top" ui-sref="contribute({refer: donationId})">Yes, I'd like to contribute</a>

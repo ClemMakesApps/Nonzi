@@ -25,4 +25,6 @@ angular.module('multiplyMe')
     if(ShareTree.paid) {
         $scope.fulfilled = true;
     }
+	
+	
   });
