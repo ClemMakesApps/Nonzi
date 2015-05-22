@@ -389,8 +389,6 @@ margin-top: 15%;}
 		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
 		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
 		<p class="text-left">days to go</p>
-        <a class="btn btn-lg btn-xs-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
-
 	</div>
 </div>
 
@@ -399,6 +397,10 @@ margin-top: 15%;}
 </div>
 
 <div class="white campaignContent">
+  <a class="btn btn-lg btn-xs-screen btn-primary visible-xs-block" ui-sref="contribute({refer: referral})">Contribute</a>
+  <p class="text-center small visible-xs-block">
+    Campaign will end on {{days.end | date:'MM/dd/yy'}}
+  </p>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-5 col-sm-8 column">
@@ -481,7 +483,7 @@ margin-top: 15%;}
       </div>
       <div class="col-md-3 col-sm-4 column">
          <a class="btn btn-lg btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
-         <p class="text-center small">
+         <p class="text-center small hidden-xs">
           Campaign will end on {{days.end | date:'MM/dd/yy'}}
         </p>
         <h4 class="action-header">Suggested Donations</h3>
