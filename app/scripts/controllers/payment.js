@@ -8,7 +8,7 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name, $facebook) {
+  .controller('PaymentCtrl', function ($rootScope, $scope, $auth, $timeout, Donation, $q, $stateParams, $state, $anchorScroll, name, $facebook, $window) {
     $rootScope.title = 'Contribute to the Bhatti Mines School Project';
     $rootScope.ogTitle = $rootScope.title;
     $rootScope.$on('auth:validation-success', function(ev, user) {
@@ -345,7 +345,9 @@ angular.module('multiplyMe')
 
         var callback = function() {
           if(!$scope.errorMessage) {
-            $scope.highlightNext = true;
+            if($window.innerWidth > 768) {
+              $scope.highlightNext = true;
+            }
           }
         }
 
