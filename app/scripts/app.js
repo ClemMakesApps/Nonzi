@@ -102,7 +102,7 @@ angular
     templateUrl: 'views/mailchimp.html'
   })
   .state('signin',{
-    url: '/signin',
+    url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',
     controller: 'SigninCtrl'
   });
