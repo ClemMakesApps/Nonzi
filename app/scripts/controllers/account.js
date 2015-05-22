@@ -18,7 +18,7 @@ angular.module('multiplyMe')
       $scope.only_recurring = result.only_recurring;
       $scope.all_cancelled = result.all_cancelled;
       console.log(result);
-      if(result.only_recurring){
+      if(result.only_recurring && !result.all_cancelled){
         $scope.personal_impact /= 12;
       }
     });
