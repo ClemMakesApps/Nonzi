@@ -412,7 +412,7 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
         </div>
     </div>
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container">
+    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container" ng-show="showShare">
          <div class="col-lg-11 col-md-11 col-sm-11">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -425,7 +425,7 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
     </div>
     <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container">
-        <div  ng-class="{'col-lg-11': !recurring_amount, 'col-lg-7': recurring_amount, 'col-md-11': !recurring_amount, 'col-md-7': recurring_amount, 'col-sm-11': !recurring_amount, 'col-sm-7': recurring_amount}">
+        <div  ng-class="{'col-lg-11': !recurring_amount || all_cancelled, 'col-lg-7': recurring_amount && !all_cancelled, 'col-md-11': !recurring_amount, 'col-md-7': recurring_amount, 'col-sm-11': !recurring_amount || all_cancelled, 'col-sm-7': recurring_amount && !all_cancelled}">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Change Password</h3>

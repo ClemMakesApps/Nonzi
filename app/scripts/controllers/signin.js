@@ -8,7 +8,7 @@
 * Controller of the multiplyMe
 */
 angular.module('multiplyMe')
-.controller('SigninCtrl', function ($scope, $auth, $state, $rootScope) {
+.controller('SigninCtrl', function ($scope, $auth, $state, $rootScope, $stateParams, EmailSubscribe) {
   $scope.showRequestMessage = false;
   $scope.showResetMessage = false;
   $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
@@ -16,12 +16,22 @@ angular.module('multiplyMe')
   $scope.$on('auth:password-reset-confirm-success', function(){
     $('.reset-password-modal').modal();
   });
-  
+
+  console.log('state', $stateParams);
+  if($stateParams.unsubscribe == 'true'){
+    $('.unsubscribe-modal').modal();
+  }
   $scope.user = {};
+
+  $scope.unsubscribeFromEmail = function(){
+    $auth.submitLogin({email: $scope.unsubscribeEmail, password: $scope.unsubscribePassword}).then(function(){
+      EmailSubscribe.delete();
+    });
+  }
 
   $scope.resetPassword = function(){
     $auth.updatePassword({password: $scope.passwordReset , password_confirmation: $scope.passwordResetConfirm}).then(function(){
-      $scope.showResetMessage = true; 
+      $scope.showResetMessage = true;
     });
   }
 
