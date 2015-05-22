@@ -25,7 +25,9 @@ angular.module('multiplyMe')
 
   $scope.unsubscribeFromEmail = function(){
     $auth.submitLogin({email: $scope.unsubscribeEmail, password: $scope.unsubscribePassword}).then(function(){
-      EmailSubscribe.delete();
+      EmailSubscribe.delete({}, function(){
+        $scope.unsubscribeSuccess = true;
+      });
     });
   }
 
