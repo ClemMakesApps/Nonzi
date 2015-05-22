@@ -118,7 +118,7 @@ angular.module('multiplyMe')
 
     var createToken = function(number, exp_month, exp_year, cvc){
       var deferred = $q.defer();
-      Stripe.setPublishableKey('pk_test_6cMTIQe6u51NWrawrcifDDkJ');
+      Stripe.setPublishableKey('pk_live_EBt6D9bzkUSm0cBuMh4HTpQ0');
       Stripe.card.createToken({
         number: number,
         exp_month: exp_month,
