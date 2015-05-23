@@ -18,7 +18,7 @@ angular.module('multiplyMe')
   }
 
   organization.get({id: 1}, function(result){
-    console.log('result', result);
+    //console.log('result', result);
     $scope.supporters = result.organization.donation_count;
     $scope.donation_amount = result.organization.donation_amount;
   });
@@ -151,7 +151,7 @@ angular.module('multiplyMe')
   };
   
     function onPlayProgress(data, id) {
-        console.log(data.seconds + 's played');
+        //console.log(data.seconds + 's played');
         // $scope.highlights = true;
         // $scope.$apply();
         $scope.played = true;
