@@ -14,7 +14,7 @@ angular.module('multiplyMe')
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
     $scope.daysRemaining = Math.round($scope.hoursRemaining / 24);
     $scope.recurring = ShareTree.parent.donation.is_subscription;
-    
+
     console.log(!!$scope.children[0]);
     console.log($scope.name);
 
@@ -25,6 +25,10 @@ angular.module('multiplyMe')
     if(ShareTree.paid) {
         $scope.fulfilled = true;
     }
-	
+
+
+	if (ShareTree.hours_remaining < 0) {
+        $scope.challengeOver = true;
+    }
 	
   });
