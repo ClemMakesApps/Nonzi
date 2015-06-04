@@ -6,7 +6,12 @@ var fs = require('fs');
 // This line is from the Node.js HTTPS documentation.
 var options = {
   key: fs.readFileSync('./keys/amala.multiplyme.in.key'),
-  cert: fs.readFileSync('./keys/amala_multiplyme_in.crt')
+  cert: fs.readFileSync('./keys/amala_multiplyme_in.crt'),
+  ca: [
+      fs.readFileSync('./keys/AddTrustExternalCARoot.crt'),
+      fs.readFileSync('./keys/COMODORSAAddTrustCA.crt'),
+      fs.readFileSync('./keys/COMODORSADomainValidationSecureServerCA.crt')
+    ]
 };
 
 function requireHTTPS(req, res, next) {
