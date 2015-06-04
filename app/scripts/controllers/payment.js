@@ -177,6 +177,10 @@ angular.module('multiplyMe')
           function(response){
             var errorMessage = response.data.error;
 
+            if(errorMessage == null) {
+              errorMessage = response.statusText + " (" + response.status + "). Please contact support@multiplyme.in";
+            }
+
             if(errorMessage === "Your card's security code is incorrect.") {
               $scope.payment.cvc = null;
             }
