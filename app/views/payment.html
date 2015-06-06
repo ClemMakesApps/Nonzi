@@ -742,7 +742,7 @@ z-index: 10000;
             <label for="zip" class="col-sm-3 col-xs-12 control-label">Postal code</label>
             <div class="col-sm-4 col-xs-7">
               <input ng-model="payment.zip" name="zip" type="text" class="form-control"
-                     ng-pattern="/^[0-9]{5}$/" id="zip" placeholder="Postal Code" required>
+                     ng-pattern="/^[0-9]{5,6}$/" id="zip" placeholder="Postal Code" required>
               <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
             </div>
