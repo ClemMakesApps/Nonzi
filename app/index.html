@@ -30,9 +30,10 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script src="scripts/config/config.js"></script>
   <script type="text/javascript">
     window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+t+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
-    heap.load("2326036023"); //Production
+    heap.load(config.heapAnalytics); //Production
   </script>
   <title ng-bind="title"></title>
 </head>
@@ -56,7 +57,7 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-60770553-2');
+  ga('create', config.googleAnalytics);
   ga('send', 'pageview');
   </script>
 
@@ -104,7 +105,6 @@
   <script src="scripts/directives/embedSrc.js"></script>
   <script src="scripts/services/shareTree.js"></script>
   <script src="scripts/controllers/sharedReceipt.js"></script>
-  <script src="scripts/config/config.js"></script>
   <script src="scripts/services/leaderboard.js"></script>
   <script src="scripts/lib/md5.js"></script>
 
@@ -137,7 +137,7 @@
   }
 
   if(getInternetExplorerVersion() != -1) {
-    alert("Apologies. IE is not fully supported at this time. Please use a different browser.")
+    alert("Apologies! IE is not fully supported at this time, some functionality may not work. Please use a different browser.")
   }
   </script>
 </body>
