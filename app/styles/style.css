@@ -1,4 +1,4 @@
-.stretch-image {
+/*.stretch-image {
 	top: 0px;
 	padding: 20px;
 	width: 100%;
@@ -62,3 +62,18 @@ footer {
 .container-fluid {
 	margin-top: 15px;
 }
+
+
+new styles*/
+
+body{
+font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+    color: #666;
+}
+
+html, body{
+  height: 100%;
+  width:100%;
+}
+

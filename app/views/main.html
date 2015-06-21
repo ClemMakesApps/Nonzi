@@ -1,5 +1,5 @@
 <style>
-.video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
+/*.video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
 .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 500px; }
 .spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
 .topspacer {height: 200px;}
@@ -353,19 +353,23 @@ font-size: 14px;
 .campaignHighlights{
 margin-top: 15%;}
 }
-
+*/
 
 </style>
+<div class="row referer" ng-show="hasToken">
+	<div class="col-xs-12">Welcome {{refererName}}'s Friend</div>
+</div>
+<div class="row flare" ><div class="col-sm-offset-2 col-sm-5"></div></div>
 <nav class="campaign">
 	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
 	<a ui-sref="signin" class="btn btn-default text-right">Sign In</a>
 </nav>
-
-<div class="container whitefont campaignHighlights" ng-class="{campaignHighlightsBackground: !played}" ng-hide="highlights" ng-click="playVideo()">
-	<div class="col-sm-offset-2 col-sm-5 col-xs-7">
-		<h1 class="campaignLabels">{{cause.name}}</h1>
-		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
-		<p>{{cause.blurb}}</p> 
+<h1 class="campaignLabels">{{cause.name}}</h1>
+<div class='embed-container'>
+	<iframe id="vimeoFrame" src='https://player.vimeo.com/video/127660524?api=1&title=0&byline=0&portrait=0&player_id=vimeoFrame' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div>
+<div class="container campaignHighlights" <!--ng-class="{campaignHighlightsBackground: !played}" ng-hide="highlights" ng-click="playVideo()"-->>
+	<!--<div class="col-sm-offset-2 col-sm-5 col-xs-7">
 		<div class="popover-cntr" style="position:relative;">
 		  <a href="#" class="btn btn-default" ng-click="showPopover()">Share the Fundraiser</a>
 		  <div class="popover fade right in"  ng-show="popover" role="tooltip" id="popover644569" style="left:170px; display: block;">
@@ -381,7 +385,7 @@ margin-top: 15%;}
 			</div>
 		  </div>
 		</div>
-	</div>
+	</div>-->
 	<div class="col-sm-offset-1 col-sm-2 col-xs-4 campaignStats">
 		<h2 class="text-left campaignLabels">{{supporters}}</h2>
 		<p class="text-left">supporters</p>
@@ -390,24 +394,26 @@ margin-top: 15%;}
 		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
 		<p class="text-left">days to go</p>
 	</div>
+	
+         <a class="btn btn-lg btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
+         <p class="text-center small hidden-xs">
+          Campaign will end on {{days.end | date:'MM/dd/yy'}}
+        </p>
 </div>
 
-<div class='embed-container'>
-	<iframe id="vimeoFrame" src='https://player.vimeo.com/video/127660524?api=1&title=0&byline=0&portrait=0&player_id=vimeoFrame' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-</div>
 
-<div class="white campaignContent">
+<div class="campaignContent"><!-- 
   <a class="btn btn-lg btn-xs-screen btn-primary visible-xs-block" ui-sref="contribute({refer: referral})">Contribute</a>
   <p class="text-center small visible-xs-block">
     Campaign will end on {{days.end | date:'MM/dd/yy'}}
-  </p>
+  </p> -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-5 col-sm-8 column">
 				<div class="tabpanel">
           <ul class="nav nav-tabs campaign-tabs">
             <li class="active">
-              <a href="#!/#description" data-toggle="tab">Description</a>
+              <a href="#!/#description" data-toggle="tab">Story</a>
             </li>
             <li>
               <a href="#!/#updates" data-toggle="tab">Updates</a>
@@ -492,11 +498,7 @@ margin-top: 15%;}
         </div>
       </div>
       <div class="col-md-3 col-sm-4 column">
-         <a class="btn btn-lg btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
-         <p class="text-center small hidden-xs">
-          Campaign will end on {{days.end | date:'MM/dd/yy'}}
-        </p>
-        <h4 class="action-header">Suggested Donations</h3>
+        <h4 class="action-header">Suggested Contributions</h3>
         <a role="button" ui-sref="contribute({refer: referral, isSubscription: suggestedDonations[$index].recurring, amount: suggestedDonations[$index].amount})" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
@@ -507,7 +509,7 @@ margin-top: 15%;}
             <span class="fa fa-check-square" ng-show="$index == selected"></span>
           </div>
         </a>
-        <div class="leaderboard">
+       <!--  <div class="leaderboard">
           <h4 class="action-header">Leaderboard</h3>
           <div class="row clearfix" ng-repeat="leader in leaders">
             <div class="col-xs-2 column">
@@ -521,7 +523,7 @@ margin-top: 15%;}
               <span>{{ leader.contribution * 0.01 | currency:undefined:0 }}<span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
