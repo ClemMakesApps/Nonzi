@@ -1,255 +1,202 @@
-$white: #fff;
-$dark: #000;
-$c1: #2c3e50; //darkslategray
-$c2: #038386; //teal
-$c3: #ecf0f1; //light
-$c4: #358286; //blue
-$c5: #1abc9c; //turqouise
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #fff;
+  color: #000; }
 
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  border-radius: $radius;
-};
+.sometimes-pad {
+  padding: 0px; }
 
-body{
-	font-family: 'Open Sans', sans-serif;
-	background-color: $white;
-	color: $dark;
-}
-
-.sometimes-pad{
-	padding:0px;
-}
-
-html, body{
+html, body {
   height: 100%;
-  width:100%;
-}
+  width: 100%; }
 
-body>div{
-	max-width:100%;
-	overflow-x:hidden;
-}
+body > div {
+  max-width: 100%;
+  overflow-x: hidden; }
 
-.referer h3{
-	margin-top: 20px;
-	margin-bottom: 30px;
-	font-size: 20px;
-	color: $white;
-}
+.referer h3 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #fff; }
 
-.flare{
-	background-color: $c2;
-	height: 12px;
-}
+.flare {
+  background-color: #038386;
+  height: 12px; }
 
-.referer{
-	background-color: $c1;
-	text-align: center;
-}
+.referer {
+  background-color: #2c3e50;
+  text-align: center; }
 
-h1 {margin-bottom: 20px;}
+h1 {
+  margin-bottom: 20px; }
 
-.cause{
-	font-size: 28px;
-	font-weight: bold;
-}
+.cause {
+  font-size: 28px;
+  font-weight: bold; }
 
-nav.campaign{
-	margin-top:20px;
-	margin-right:10px;
-	.text-center{
-		padding-left:16%;
-	}
-}
+nav.campaign {
+  margin-top: 20px;
+  margin-right: 10px; }
+  nav.campaign .text-center {
+    padding-left: 16%; }
 
-.sign-in, .ask{
-	color: $c5;
-	border: 3px solid $c5;
-	@include border-radius(6px);
-	font-size: 18px;
-	padding: 3px 8px;
-}
+.sign-in, .ask {
+  color: #1abc9c;
+  border: 3px solid #1abc9c;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 3px 8px; }
 
-.plus{
-	font-size: 35px;
+.plus {
+  font-size: 35px;
   margin-left: 10px;
   margin-right: 10px;
+  font-weight: bold; }
+
+.logo-multiply {
+  background: url("../images/m.png");
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
+.logo-partner {
+  background: url("../images/welllogo.png");
+  display: inline-block;
+  width: 50px;
+  height: 42px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: -8px; }
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 15px; }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.no-pad {
+  padding: 0px; }
+
+.details h2 {
   font-weight: bold;
-}
+  font-size: 24px; }
+.details p {
+  font-size: 18px; }
 
-.logo-multiply{
-	background: url('../images/m.png');
-	display:inline-block;  
-	width: 50px;
-	height: 25px;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-.logo-partner{
-	background: url('../images/welllogo.png');
-	display:inline-block;  
-	width: 50px;
-	height: 42px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	margin-bottom: -8px;
-}
-
-.embed-container{
-	position: relative; 
-	padding-bottom: 56.25%; 
-	height: 0; 
-	overflow: hidden; 
-	max-width: 100%;
-	width:100%;
-	margin-bottom:15px;
-	iframe, object, embed{	
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-}
-
-.no-pad{padding:0px;}
-
-.details{
-	h2 {
-		font-weight: bold;
-		font-size: 24px;
-	}
-	p {
-		font-size: 18px;
-	}
-}
-
-a.btn-primary{
+a.btn-primary {
   font-size: 22px;
   margin: 10px 8% 0px 8%;
   width: 84%;
   border-radius: 12px;
   padding: 10px;
-  background-color:$c5;
-  background-color:$c5;
-  border-color: $c5;
-}
+  background-color: #1abc9c;
+  background-color: #1abc9c;
+  border-color: #1abc9c; }
 
-a.btn-primary:hover, .btn-primary:focus{
-background-color: $c2;
-border-color: $c2;
-}
+a.btn-primary:hover, .btn-primary:focus {
+  background-color: #038386;
+  border-color: #038386; }
 
-.suggested{
-	.perks, .action-header{
-		margin: 20px 1% 0 8%;
-	}
-	.perks{
-		background-color: $c3;
-		padding: 20px 10px;
-		border-radius:12px;
-		color: $dark;
-		h3{
-			font-weight:bold;
-			margin-top: 5px;
-		}
-	}
-	a:hover{
-		text-decoration:none;
-	}
-}
+.suggested .perks, .suggested .action-header {
+  margin: 20px 1% 0 8%; }
+.suggested .perks {
+  background-color: #ecf0f1;
+  padding: 20px 10px;
+  border-radius: 12px;
+  color: #000; }
+  .suggested .perks h3 {
+    font-weight: bold;
+    margin-top: 5px; }
+.suggested a:hover {
+  text-decoration: none; }
 
-.content{
-	font-size: 18px;
-	h2{
-		font-size:20px;
-		font-weight:bold;
-	}
-	.nav-tabs{
-		border-color:$c4;
-		font-size: 20px;
-		font-weight: bold;
-		border-bottom: 5px solid $c4;
-		margin-right:20px;
-		li{
-			margin-bottom: -2px;
-			a{ 
-				padding: 10px 20px;
-				color: $dark
-			}
-			a:hover{
-				padding-bottom:8px;
-				background-color: $c3;
-				border-color: $c3;
-				border-radius: 12px 12px 0 0;
-				color: $dark;
-			}
-		}
-	}
-	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
-		background-color:$c4;
-		border:0 transparent;
-		color: $white;
-		border-bottom-color: transparent;
-		border-radius: 12px 12px 0 0;
-		padding-bottom:10px;
-	}
-}
-footer{
-	background-color: $c3;
-	font-size:16px;
-	.logo-full{
-		background: url('../images/multiplyMeDark.png');
-		width: 200px;
-		background-repeat: no-repeat;
-		background-size:contain;
-		height:40px;
-	}
-	a, label{display:block;
-		color: $dark;
-	}
-	label{
-		font-weight:bold;
-		margin-bottom: 12px;
-		clear: both;
-		padding-top: 20px;
-	}
-	a:hover{
-	}
-	input{
-		padding: 10px;
-		border-radius: 12px;
-		border: 1px solid teal;
-		width:250px;
-  }
-  .btn{
-		border-radius: 10px;
-		padding: 8px;
-		margin-top: -3px;
-		background-color: teal;
-		color: white;
-	}
-}
-.container{
-	background-color: $white;
-	border-radius: 0 0 18px 18px;
-}
+.content {
+  font-size: 18px; }
+  .content h2 {
+    font-size: 20px;
+    font-weight: bold; }
+  .content .nav-tabs {
+    border-color: #358286;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 5px solid #358286;
+    margin-right: 20px; }
+    .content .nav-tabs li {
+      margin-bottom: -2px; }
+      .content .nav-tabs li a {
+        padding: 10px 20px;
+        color: #000; }
+      .content .nav-tabs li a:hover {
+        padding-bottom: 8px;
+        background-color: #ecf0f1;
+        border-color: #ecf0f1;
+        border-radius: 12px 12px 0 0;
+        color: #000; }
+  .content .nav-tabs > li.active > a, .content .nav-tabs > li.active > a:hover, .content .nav-tabs > li.active > a:focus {
+    background-color: #358286;
+    border: 0 transparent;
+    color: #fff;
+    border-bottom-color: transparent;
+    border-radius: 12px 12px 0 0;
+    padding-bottom: 10px; }
 
-body{
-	background-color: $c3;
-}
+footer {
+  background-color: #ecf0f1;
+  font-size: 16px; }
+  footer .logo-full {
+    background: url("../images/multiplyMeDark.png");
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px; }
+  footer a, footer label {
+    display: block;
+    color: #000; }
+  footer label {
+    font-weight: bold;
+    margin-bottom: 12px;
+    clear: both;
+    padding-top: 20px; }
+  footer input {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid teal;
+    width: 250px; }
+  footer .btn {
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: -3px;
+    background-color: teal;
+    color: white; }
 
-.col-lg-inset{
-	padding: 1% 4%;
-}
+.container {
+  background-color: #fff;
+  border-radius: 0 0 18px 18px; }
+
+body {
+  background-color: #ecf0f1; }
+
+.col-lg-inset {
+  padding: 1% 4%; }
 
 /******  second page   ******/
-.step{
-	display: inline-block;
+.step {
+  display: inline-block;
   color: white;
   font-weight: bold;
   margin: 12px;
@@ -258,221 +205,184 @@ body{
   height: 40px;
   border-radius: 20px;
   width: 40px;
-	background-color: $c5;
-}
+  background-color: #1abc9c; }
 
-.step.active{
-	background-color: $c2;
-}
+.step.active {
+  background-color: #038386; }
 
-nav.campaign .text-center{padding-left: 0}
+nav.campaign .text-center {
+  padding-left: 0; }
 
-form{
-	background-color: $c3;
-	padding: 30px;
-	width: 100%;
-	border-radius: 12px;
-	margin-top:20px;
- .form-pledge{
-		border-radius: 12px;
-		padding: 5px;
-		border: 1px solid $dark;
-		background-color: $white;
-		position:relative;
-		span{
-			position:absolute;
-			top:10px;
-		}
-		.currency-label{
-			right:10px;
-		}
-		.currency-sympbol{
-			left:10px;
-		}
-		input{
-			width: 70%;
-			margin-left: 15px;
-			border: none 0px transparent;
-		}
-	}
- .checkbox input[type="checkbox"]{
-		width: 20px;
-		height: 20px;
-		background-color: white;
-		margin-left: -30px;
-	}
- .checkbox label{
-		font-size:12px;
-		padding-left: 30px;
-	}
- span{
-	font-size: 14px;
-	}
-}
+form {
+  background-color: #ecf0f1;
+  padding: 30px;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px; }
+  form .form-pledge {
+    border-radius: 12px;
+    padding: 5px;
+    border: 1px solid #000;
+    background-color: #fff;
+    position: relative; }
+    form .form-pledge span {
+      position: absolute;
+      top: 10px; }
+    form .form-pledge .currency-label {
+      right: 10px; }
+    form .form-pledge .currency-sympbol {
+      left: 10px; }
+    form .form-pledge input {
+      width: 70%;
+      margin-left: 15px;
+      border: none 0px transparent; }
+  form .checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    margin-left: -30px; }
+  form .checkbox label {
+    font-size: 12px;
+    padding-left: 30px; }
+  form span {
+    font-size: 14px; }
 
-h4.hidden-lg{
-	margin-top: 30px
-}
+h4.hidden-lg {
+  margin-top: 30px; }
 
-span.hidden-lg{
-	font-size:14px;
-}
+span.hidden-lg {
+  font-size: 14px; }
 
-.hidden-lg, .inset{
-	padding:0 20px;
-}
+.hidden-lg, .inset {
+  padding: 0 20px; }
 
-label.perks{
-	display:block;
-	background-color: $c3;
-	border-radius: 12px;
-	margin:20px;
-  padding:20px;
-  h3{
-		font-weight: bold;
-		margin-top: 5px;
-  }
-  span{font-weight:normal;}
-}
+label.perks {
+  display: block;
+  background-color: #ecf0f1;
+  border-radius: 12px;
+  margin: 20px;
+  padding: 20px; }
+  label.perks h3 {
+    font-weight: bold;
+    margin-top: 5px; }
+  label.perks span {
+    font-weight: normal; }
 
-label.perks.ng-scope.perk-selected{
-	background-color: $c5;
-}
+label.perks.ng-scope.perk-selected {
+  background-color: #1abc9c; }
 
-a.btn-primary.hidden-xs{
-	margin-bottom: 30px;
-	width:50%;
-}
+a.btn-primary.hidden-xs {
+  margin-bottom: 30px;
+  width: 50%; }
 
-.perk-promo{
-	display:block;
-	background-color: $c5;
-	color:white;
-	border-radius: 12px;
-	margin:20px;
-  padding:20px;
-	.btn{
-		width: 45%;
-		background-color:transparent;
-	}
-}
+.perk-promo {
+  display: block;
+  background-color: #1abc9c;
+  color: white;
+  border-radius: 12px;
+  margin: 20px;
+  padding: 20px; }
+  .perk-promo .btn {
+    width: 45%;
+    background-color: transparent; }
 
 /* Small devices (tablets, 768px and up)  */
 @media (min-width: 768px) {
+  .suggested .perks, .suggested .action-header {
+    margin-left: 0;
+    margin-right: 0; }
 
-	.suggested{
-		.perks, .action-header{
-		margin-left: 0;
-		margin-right: 0;
-		}
-	}
-	footer>:last-child{
-		margin-top: -40px;
-		label{
-		padding-top: 0px;
-		clear:none;
-		}
-	}
-	.referer h3{
-		font-size: 24px;
-	}
-	.cause{
-		font-size: 45px;
-		margin-bottom: 30px;
-	}
-	.campaign{
-		padding-bottom: 20px;
-	}
-	
-	.logo-multiply{
-		background: url('../images/multiplyMeDark.png');
-		width: 250px;
-		background-repeat: no-repeat;
-		background-size:contain;
-		height:46px
-	}
-	
-	.logo-partner{
-		width: 115px;
-		height: 100px;
-		margin-bottom: -28px;
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
-	
-	.plus{
-  font-size: 60px;
-  margin-left: 60px;
-  margin-right: 60px;
-  font-weight:normal;
-	}
-	
-	.sign-in, .ask{
-		padding:6px 30px;
-		font-size: 20px;
-		border-radius: 10px;
-	}
-	
-	.details{
-		h2 {
-			font-weight: normal;
-			font-size: 40px;
-		}
-		p {
-			font-size: 22px;
-			font-weight:bold;
-		}
-	}
-	
-	.btn-primary{
-	  padding: 20px;
-	}
-	
-	nav.campaign .text-center{padding-left: 7%;}
-	
-	.cause{font-weight:normal;}
-	
-	/*second page*/
-	.step{
-		padding: 21px 0;
-		font-size: 20px;
-		height: 70px;
-		width: 70px;
-		border-radius: 35px;
-	}
-}
+  footer > :last-child {
+    margin-top: -40px; }
+    footer > :last-child label {
+      padding-top: 0px;
+      clear: none; }
 
-/* Medium devices (desktops, 992px and up)*/ 
-@media (min-width: 992px) 
-{ 	
-	footer>:last-child{
-		margin-top: 0px
-	}
+  .referer h3 {
+    font-size: 24px; }
 
-	.plus{
-		font-size: 72px;
-	}
-	
-	.sometimes-pad{
-		padding-left: 2%;
-	}
+  .cause {
+    font-size: 45px;
+    margin-bottom: 30px; }
 
-	.btn-primary{
-		margin-left: 15px;
-	}
-	
-	.details{
-		.row{text-align:left;}
-		.no-pad{padding: 10px;}
-		/*	h2 {
-			font-size: 50px;
-		}
-		p {
-			font-size: 30px;
-			font-weight:normal;
-		}*/
-	}
-}
+  .campaign {
+    padding-bottom: 20px; }
 
+  .logo-multiply {
+    background: url("../images/multiplyMeDark.png");
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 46px; }
+
+  .logo-partner {
+    width: 115px;
+    height: 100px;
+    margin-bottom: -28px;
+    background-size: contain;
+    background-repeat: no-repeat; }
+
+  .plus {
+    font-size: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-weight: normal; }
+
+  .sign-in, .ask {
+    padding: 6px 30px;
+    font-size: 20px;
+    border-radius: 10px; }
+
+  .details h2 {
+    font-weight: normal;
+    font-size: 40px; }
+  .details p {
+    font-size: 22px;
+    font-weight: bold; }
+
+  .btn-primary {
+    padding: 20px; }
+
+  nav.campaign .text-center {
+    padding-left: 7%; }
+
+  .cause {
+    font-weight: normal; }
+
+  /*second page*/
+  .step {
+    padding: 21px 0;
+    font-size: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 35px; } }
+/* Medium devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  footer > :last-child {
+    margin-top: 0px; }
+
+  .plus {
+    font-size: 72px; }
+
+  .sometimes-pad {
+    padding-left: 2%; }
+
+  .btn-primary {
+    margin-left: 15px; }
+
+  .details {
+    /*	h2 {
+    	font-size: 50px;
+    	}
+    	p {
+    	font-size: 30px;
+    	font-weight:normal;
+    	}*/ }
+    .details .row {
+      text-align: left; }
+    .details .no-pad {
+      padding: 10px; } }
 /* Large devices (large desktops, 1200px and up) 
 @media (min-width: 1200px) {  }*/
+
+/*# sourceMappingURL=main.css.map */
