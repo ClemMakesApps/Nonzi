@@ -131,7 +131,7 @@ margin-bottom: -8px;
 	}
 }
 
-.btn-primary{
+a.btn-primary{
     font-size: 22px;
   margin: 10px 8% 0px 8%;
   width: 84%;
@@ -142,9 +142,9 @@ margin-bottom: -8px;
   border-color: $c5;
 }
 
-.btn-primary:hover, .btn-primary:focus{
-background-color: c2;
-border-color: c2;
+a.btn-primary:hover, .btn-primary:focus{
+background-color: $c2;
+border-color: $c2;
 }
 
 .suggested{
@@ -247,6 +247,129 @@ background-color: $c3;
 padding: 1% 4%;
 }
 
+
+
+
+
+/******  second page   ******/
+.step{
+display: inline-block;
+  color: white;
+  font-weight: bold;
+  margin: 12px;
+  padding: 8px 0;
+  font-size: 17px;
+  height: 40px;
+  border-radius: 20px;
+  width: 40px;
+background-color: $c5;
+}
+
+
+.step.active{
+background-color: $c2;
+}
+
+
+
+
+nav.campaign .text-center{padding-left: 0}
+
+form{
+background-color: $c3;
+padding: 30px;
+width: 100%;
+border-radius: 12px;
+margin-top:20px;
+ 
+ .form-pledge{
+	border-radius: 12px;
+	padding: 5px;
+	border: 1px solid $dark;
+	background-color: $white;
+	position:relative;
+	span{
+		position:absolute;
+		top:10px;
+	}
+	.currency-label{
+		right:10px;
+	}
+	.currency-sympbol{
+		left:10px;
+	}
+	input{
+  width: 70%;
+  margin-left: 15px;
+ border: none 0px transparent;
+	}
+ }
+ .checkbox input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  margin-left: -30px;
+ }
+ .checkbox label{
+ font-size:12px;
+  padding-left: 30px;
+ }
+ span{
+ font-size: 14px;
+ }
+}
+
+h4.hidden-lg{
+margin-top: 30px
+}
+
+span.hidden-lg{
+font-size:14px;
+}
+
+.hidden-lg, .inset{
+ padding:0 20px;
+}
+
+
+
+label.perks{
+display:block;
+background-color: $c3;
+border-radius: 12px;
+margin:20px;
+  padding:20px;
+  h3{
+  font-weight: bold;
+  margin-top: 5px;
+  }
+  span{font-weight:normal;}
+}
+
+label.perks.ng-scope.perk-selected{
+background-color: $c5;
+}
+
+a.btn-primary.hidden-xs{
+margin-bottom: 30px;
+width:50%;
+}
+
+.perk-promo{
+display:block;
+background-color: $c5;
+color:white;
+border-radius: 12px;
+margin:20px;
+  padding:20px;
+	.btn{width: 45%;
+		background-color:transparent;
+	}
+}
+
+
+
+
 /* Small devices (tablets, 768px and up)  */
 @media (min-width: 768px) {
 
@@ -326,8 +449,17 @@ background-repeat: no-repeat;
 	
 	.cause{font-weight:normal;}
 	
+	
+	/*second page*/
+	.step{
+  padding: 21px 0;
+  font-size: 20px;
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;}
 
 }
+
 
 /* Medium devices (desktops, 992px and up)*/ 
 @media (min-width: 992px) { 
