@@ -50,7 +50,15 @@ background-color: $c1;
 text-align: center;
 }
 
-h1 {margin-bottom: 20px;}
+h1 {
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+}
 
 .cause{font-size: 28px;
 font-weight: bold;}
@@ -497,3 +505,25 @@ background-repeat: no-repeat;
 
 /* Large devices (large desktops, 1200px and up) 
 @media (min-width: 1200px) {  }*/
+
+
+.team-profile {
+  text-align: center;
+  margin-top: 10px;
+
+  div {
+    font-weight: 300;
+  }
+
+  .fa {
+    font-size: 20px;
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: 50px;
+}
