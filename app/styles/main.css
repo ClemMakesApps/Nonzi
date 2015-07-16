@@ -16,7 +16,7 @@ body > div {
 
 .referer h3 {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 20px;
   color: #fff; }
 
@@ -40,16 +40,6 @@ nav.campaign {
   margin-right: 10px; }
   nav.campaign .text-center {
     padding-left: 16%; }
-
-.sign-in, .ask {
-  color: #1abc9c;
-  border: 3px solid #1abc9c;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  border-radius: 6px;
-  font-size: 18px;
-  padding: 3px 8px; }
 
 .plus {
   font-size: 35px;
@@ -98,20 +88,6 @@ nav.campaign {
 .details p {
   font-size: 18px; }
 
-a.btn-primary {
-  font-size: 22px;
-  margin: 10px 8% 0px 8%;
-  width: 84%;
-  border-radius: 12px;
-  padding: 10px;
-  background-color: #1abc9c;
-  background-color: #1abc9c;
-  border-color: #1abc9c; }
-
-a.btn-primary:hover, .btn-primary:focus {
-  background-color: #038386;
-  border-color: #038386; }
-
 .suggested .perks, .suggested .action-header {
   margin: 20px 1% 0 8%; }
 .suggested .perks {
@@ -156,8 +132,10 @@ a.btn-primary:hover, .btn-primary:focus {
     padding-bottom: 10px; }
 
 footer {
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #ecf0f1;
-  font-size: 16px; }
+  font-size: 14px; }
   footer .logo-full {
     background: url("../images/multiplyMeDark.png");
     width: 200px;
@@ -177,12 +155,6 @@ footer {
     border-radius: 12px;
     border: 1px solid teal;
     width: 250px; }
-  footer .btn {
-    border-radius: 10px;
-    padding: 8px;
-    margin-top: -3px;
-    background-color: teal;
-    color: white; }
 
 .container {
   background-color: #fff;
@@ -193,6 +165,53 @@ body {
 
 .col-lg-inset {
   padding: 1% 4%; }
+
+/***** buttons  ******/
+footer .btn {
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: -3px;
+  background-color: teal;
+  color: white; }
+
+.btn-primary, .login-btn {
+  font-size: 18px;
+  border-radius: 12px;
+  padding: 10px;
+  color: white;
+  background-color: #1abc9c;
+  background-color: #1abc9c;
+  border-color: #1abc9c; }
+
+.btn-primary {
+  margin: 10px 8% 0px 8%;
+  width: 84%;
+  font-size: 22px; }
+
+.btn-primary:hover, .btn-primary:focus, .login-btn:focus, .login-btn:hover {
+  background-color: #038386;
+  border-color: #038386; }
+
+.sign-in, .ask {
+  color: #1abc9c;
+  border: 3px solid #1abc9c;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 3px 8px;
+  background-color: white; }
+
+.link-btn {
+  color: #1abc9c;
+  font-size: 18px;
+  padding: 6px 8px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 10px; }
 
 /******  second page   ******/
 .step {
@@ -210,41 +229,51 @@ body {
 .step.active {
   background-color: #038386; }
 
+.sign-in, .ask {
+  color: #1abc9c;
+  border: 3px solid #1abc9c;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 3px 8px; }
+
 nav.campaign .text-center {
   padding-left: 0; }
 
-form {
+.form {
   background-color: #ecf0f1;
   padding: 30px;
   width: 100%;
   border-radius: 12px;
   margin-top: 20px; }
-  form .form-pledge {
+  .form .form-pledge {
     border-radius: 12px;
     padding: 5px;
     border: 1px solid #000;
     background-color: #fff;
     position: relative; }
-    form .form-pledge span {
+    .form .form-pledge span {
       position: absolute;
       top: 10px; }
-    form .form-pledge .currency-label {
+    .form .form-pledge .currency-label {
       right: 10px; }
-    form .form-pledge .currency-sympbol {
+    .form .form-pledge .currency-sympbol {
       left: 10px; }
-    form .form-pledge input {
+    .form .form-pledge input {
       width: 70%;
       margin-left: 15px;
       border: none 0px transparent; }
-  form .checkbox input[type="checkbox"] {
+  .form .checkbox input[type="checkbox"] {
     width: 20px;
     height: 20px;
     background-color: white;
     margin-left: -30px; }
-  form .checkbox label {
+  .form .checkbox label {
     font-size: 12px;
     padding-left: 30px; }
-  form span {
+  .form span {
     font-size: 14px; }
 
 h4.hidden-lg {
@@ -299,7 +328,7 @@ a.btn-primary.hidden-xs {
       clear: none; }
 
   .referer h3 {
-    font-size: 24px; }
+    font-size: 20px; }
 
   .cause {
     font-size: 45px;
