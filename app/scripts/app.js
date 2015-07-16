@@ -102,6 +102,10 @@ angular
     url: '/mailchimp',
     templateUrl: 'views/mailchimp.html'
   })
+  .state('team', {
+    url: '/team',
+    templateUrl: 'views/team.html'
+  })
   .state('signin',{
     url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',
