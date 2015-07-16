@@ -29,7 +29,12 @@ body > div {
   text-align: center; }
 
 h1 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-weight: 300; }
+
+p {
+  font-size: 14px;
+  font-weight: 300; }
 
 .cause {
   font-size: 28px;
@@ -413,5 +418,17 @@ a.btn-primary.hidden-xs {
       padding: 10px; } }
 /* Large devices (large desktops, 1200px and up) 
 @media (min-width: 1200px) {  }*/
+.team-profile {
+  text-align: center;
+  margin-top: 10px; }
+  .team-profile div {
+    font-weight: 300; }
+  .team-profile .fa {
+    font-size: 20px; }
+  .team-profile strong {
+    display: block; }
+
+.padding-bottom {
+  padding-bottom: 50px; }
 
 /*# sourceMappingURL=main.css.map */
