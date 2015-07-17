@@ -1,478 +1,65 @@
-<style>
-
-.social-links{
-  margin-top: 23px;
-}
-
-.social-links .btn{
-  font-size: 37px !important;
-  display:block;
-  float:right
-}
-
-.fa-facebook-square {
-  color: #3B5998;
-}
-
-.fa-twitter-square {
-  color: #4099FF;
-}
-
-.fa-google-plus-square {
-  color: #DD4B39;
-}
-
-.fa-facebook-square:hover,
-.fa-twitter-square:hover,
-.fa-google-plus-square:hover,
-.fa-envelope:hover {
-  opacity: 0.7;
-}
-
-.fa-facebook-square:after,
-.fa-twitter-square:after,
-.fa-google-plus-square:after {
-  content: "";
-  background-color: white;
-  width: 100%;
-  height: auto;
-  border-radius: 7px;
-  display: block;
-  position: absolute;
-  bottom:4px;
-  left:1px;
-  z-index: -1;
-}
-.social-actions{
-  font-size: 37px;
-  background-color: transparent;
-  border: none;
-  float:right;
-}
-
-.fa-envelope {
-  font-size: 37px;
-  color:burlywood;
-}
-
-
-
-.small-logo {
-    color: black;
-    margin-right: 10px;
-}
-
-.org-link {
-    color: black;
-    text-decoration: underline;
-}
-
-.header-overview {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-}
-
-.proj-name {
-    font-size: 18px;
-    display: inline;
-}
-
-.proj-details {
-    margin-left: 40px;
-}
-
-.title-strong {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.pledge {
-    background-color: #E3F5F1;
-    padding: 40px;
-    border-radius: 10px;
-}
-.perks{
-    cursor: pointer;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    position: relative;
-    text-decoration:none;
-}
-
-.perks:hover {
-    background-color: #278570;
-    color: white;
-    text-decoration:none;
-}
-
-.perk-promo {
-    background-color: #278570;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.promo-tag {
-    display: inherit;
-    margin-bottom: 5px;
-}
-
-a[role=button], a[role=button]:focus, a[role=button]:hover{
-  text-decoration:none;
-  color:inherit;
-}
-
-/*override*/
-.btn-success {
-    background-color: #50E3C2;
-    color: black;
-    border-color: transparent;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-}
-
-/*override*/
-.btn-success:hover {
-    background-color:#278570;
-    border-color: transparent;
-    color: white;
-}
-
-.btn-clear {
-    background-color: transparent;
-    border-color: transparent;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #50E3C2;
-    font-weight: bold;
-}
-
-.content {
-    margin-top: 20px;
-}
-
-.pledge-input {
-    border: 1px solid black;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 7px 80px 7px 35px;
-    display: inline;
-    color: black;
-    width: 100%;
-    border-radius: 5px;
-}
-
-.pledge-input:focus {
-    outline: 0;
-}
-
-/*override*/
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-pledge {
-    position: relative;
-}
-
-.currency-symbol {
-    position: absolute;
-    top: 3px;
-    left: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
-}
-
-.currency-label {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
-}
-
-.perk-selected {
-    background-color: #278570;
-    color: white;
-}
-
-.perk-selected .fa-check-square {
-    color: #73E8CE;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 40px;
-}
-
-.no-margin-top {
-    margin-top: 0px;
-}
-
-.impact-box {
-    width: 100%;
-    height: 200px;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    position: relative;
-    margin-top: 5px;
-}
-
-.impact-amount {
-    font-weight: bold;
-    font-size: 25px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;    
-}
-
-.impact-section {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.impact-section-container {
-    text-align: center;
-}
-
-.impact-container {
-    margin-top: 20px;
-}
-
-.impact-label {
-    font-size: 18px;
-}
-
-.actual-impact {
-    background-color: #73E8CE;
-}
-
-.impact-operand {
-    font-size: 50px;
-    line-height: 250px;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .impact-operand {
-        font-size: 50px;
-        line-height: 100px;
-        text-align: center;
-    }
-	.social-actions{
-		float:none;
-		width:23%;
-	}
-	
-}
-
-.account-container {
-    margin-top: 20px;
-}
-
-.password-group {
-    margin-bottom:50px;
-}
-
-.month-label {
-    font-weight: normal;
-    font-size:  13px;
-}
-
-.donation-management {
-    position: absolute;
-    bottom: 35px;
-    left: 50%;
-    -webkit-transform: translate(-50%, 0%);
-    -moz-transform: translate(-50%, 0%);
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
-    text-align: center;
-    width: 100%;
-}
-
-.btn-action {
-    line-height: 20px;
-    font-size: 14px;
-}
-
-.btn-action div {
-    font-weight: bold;
-    font-size: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.btn-logout {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-}
-
-.logo {
-    width: 30px;
-    float: left;
-    margin-top: 10px;
-}
-
-.impact-tooltip {
-    position: absolute;
-    top: -3px;
-}
-
-.impact-tooltip,
-.impact-tooltip:hover,
-.impact-tooltip:focus {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.tooltip {
-  width:200px;
-}
-
-.badge-leaderboard {
-    vertical-align: middle;
-}
-</style>
-
-<header class="header-overview">
-    <a class="small-logo" ui-sref="main"><img class="logo" src="../images/m.png"></a>
-    <h2 class="proj-name">Bhatti Mines School</h2>
-    <div class="proj-details">
-        <span>Donor Portal</span>
+<div class="row" ><div class="col-lg-offset-1 no-pad col-lg-10 col-md-12 col-sm-12 flare"></div></div>
+<div class="row" >
+  <div class="col-lg-offset-1 no-pad col-lg-10 col-sm-12 col-md-12 container padding-bottom">
+    <mm-header has-sign-out="true"></mm-header>
+    <div class="row col-lg-inset">
+      <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+        <h1 class="text-center">Welcome {{name}}</h1>
+      </div>
     </div>
-    <button ng-click="logout()" type="button" class="btn-default btn btn-logout">Logout</button>
-</header>
-<div class="container-fluid">
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12">
-      <h2 class="title-strong">Welcome {{name}}! <!--<span class="badge badge-leaderboard"><i class="fa fa-trophy"></i> 1st</span>--></h2>
-        <div class="impact-container">
-            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
-                <div class="impact-section">
-                    <span class="impact-label">Your Donation</span>
-                    <div class="impact-box">
-                        <span class="impact-amount">
-                            {{personal_impact | currency}}
-                            <div class="month-label" ng-show="only_recurring && !all_cancelled">per month</div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
-                <span class="position-center">+</span>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
-                <div class="impact-section">
-                    <span class="impact-label">Your Network</span>
-                    <div class="impact-box"><span class="impact-amount">{{network_impact | currency}}</span></div>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 impact-operand">
-                <span class="position-center">=</span>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 impact-section-container">
-                <div class="impact-section">
-                    <span class="impact-label">Your Impact <button type="button" class="btn btn-default impact-tooltip" data-toggle="tooltip" data-placement="top" title="Typical recurring donation last more than a year. That number is reflected in this calculation."><span class="glyphicon glyphicon-question-sign grayText"></span></button></span>
-                    <div class="impact-box actual-impact"><span class="impact-amount">{{total_impact | currency}}</span></div>
-                </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 clearfix">
-			  <div class="social-links">
-                <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-                <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-                <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
-                <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
-              </div>
-			</div>
+    <div class="row row-center-hack">
+      <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+        <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
+        <span>Your Donation</span>
+        <div class="impact-box">
+          <span class="impact-amount">
+            {{personal_impact | currency}}
+            <div class="month-label" ng-show="only_recurring && !all_cancelled">per month</div>
+          </span>
         </div>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">+</div>
+      <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
+        <span>Your Network</span>
+        <div class="impact-box"><span class="impact-amount">{{network_impact | currency}}</span></div>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">=</div>
+      <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
+        <span>Your Impact</span>
+        <div class="impact-section">
+            <div class="impact-box actual-impact"><span class="impact-amount">{{total_impact | currency}}</span></div>
+        </div>
+      </div>
+      </div>
+      
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0 share-container">
+      <hr>
+      <div class="col-md-11 col-sm-11">
+        <span class="display-block label-challenge">Share your Challenge Code</span>
+        <div class="col-md-12 share-container-background">
+          <div class="col-md-3 col-sm-3 fa-container">
+            <i class="fa fa-bullhorn"></i>
+          </div>
+          <div class="col-md-9 col-md-offset-0 col-sm-offset-3">
+            <div>
+              You’ll need your friends to contribute to this fundraising campaign using your custom challenge code. You can also share with them using the following link.
+            </div>
+            <a class="share-link" ng-href="{{share_link}}" target="_blank">{{share_link}}</a>
+            Your Challenge Code <input type="text" class="form-control" value="clementh">
+            <div class="social-share">
+              <a class="btn btn-default btn-facebook" href="#" ng-click="share('facebook')"><i class="fa fa-facebook"></i> Share</a>
+              <a class="btn btn-default btn-twitter" href="#" ng-click="share('twitter')"><i class="fa fa-twitter"></i> Tweet</a>
+              <a class="btn btn-default btn-comment visible-xs-inline" href="#" ng-click="share('text')"><i class="fa fa-comment"></i> Text</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container" ng-show="showShare">
-         <div class="col-lg-11 col-md-11 col-sm-11">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Share Link</h3>
-                </div>
-                <div class="panel-body">
-                    <a ng-href="{{share_link}}" target="_blank">{{share_link}}</a>
-                </div>
-            </div>
-        </div>
+  </div>
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 misc-container">
+      <a class="btn btn-green" href="#" role="button"><i class="fa fa-archive"></i> Manage your Donation</a>
+      <a class="btn btn-green" href="#" role="button"><i class="fa fa-key"></i> Change Password</a>
     </div>
-    <div class="col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 account-container">
-        <div  ng-class="{'col-lg-11': !recurring_amount || all_cancelled, 'col-lg-7': recurring_amount && !all_cancelled, 'col-md-11': !recurring_amount, 'col-md-7': recurring_amount, 'col-sm-11': !recurring_amount || all_cancelled, 'col-sm-7': recurring_amount && !all_cancelled}">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Change Password</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="oldPassword" class="col-sm-4 control-label">Old password</label>
-                            <div class="col-sm-8">
-                                <input ng-model="oldPassword" type="password" class="form-control" id="oldPassword" placeholder="Old password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="newPassword" class="col-sm-4 control-label">New password</label>
-                            <div class="col-sm-8">
-                                <input ng-model="newPassword" type="password" class="form-control" id="newPassword" placeholder="New password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword" class="col-sm-4 control-label">Confirm new password</label>
-                            <div class="col-sm-8">
-                                <input ng-model="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
-                            </div>
-                        </div>
-                        <button ng-click="updatePassword()" type="submit" class="btn btn-default pull-right">Update Password</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4" ng-show="recurring_amount && !all_cancelled">
-            <div class="panel panel-default" style="height: 264px">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Recurring Donation</h3>
-                </div>
-                <div class="panel-body">
-                    You are currently donating
-                    <div class="impact-amount">{{ recurring_amount * 0.01 | currency }} <div class="month-label">per month</div></div>
-                    <div class="donation-management">
-                        <button ng-click="deleteSubscriptions()" type="button" class="btn btn-danger btn-action"><div>Cancel</div>Recurring</button>
-                        <!--<button type="button" class="btn btn-primary btn-action"><div>Modify</div>Recurring</button>-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
-<footer></footer>
-<script type="text/javascript">$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})</script>
+<mm-footer></mm-footer>
