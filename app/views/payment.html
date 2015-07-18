@@ -685,14 +685,6 @@ z-index: 10000;
           <strong>Welcome back!</strong> <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
         </div>
         <form name="paymentForm" class="form-horizontal">
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
-            <label for="name" class="col-sm-3 control-label">Name</label>
-            <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
-            </div>
-          </div>
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
             <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
             <div class="col-sm-9">
@@ -747,47 +739,7 @@ z-index: 10000;
               <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
             </div>
           </div>
-          <h4 class="subheader newPaymentSection">Your Information</h4>
-          <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$invalid && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$invalid && paymentForm.email.$dirty}">
-            <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
-            <div class="col-sm-8">
-              <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
-                     type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
-            </div>
-          </div>
-          <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
-            <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
-            <div class="col-sm-8">
-              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
-              <div class="checkbox">
-                <label>
-                  <input class="updates-checkbox" ng-model="subscribe" type="checkbox" checked> Send me campaign updates
-                </label>
-              </div>
-            </div>
-          </div>
-          <div ng-hide="signedIn">
-            <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
-            <p>Cancel recurring donations, measure your impact and share your campaign</p>
-            <div class="form-group">
-              <label for="password" class="col-sm-3 control-label">Password</label>
-              <div class="col-sm-9">
-                <div class="col-sm-7 password-container">
-                  <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-required="!signedIn">
-                  <!-- or -->
-                </div>
-                <!-- <div class="col-sm-5 btn-facebook-container">
-                  <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="facebook()">
-                    <i class="fa fa-facebook"></i> Use Facebook
-                  </a>
-                </div> -->
-              </div>
-            </div>
-          </div>
+         
         </form>
     </div>
 
@@ -831,6 +783,11 @@ z-index: 10000;
             </div>
           </div>
         </div>
+		<div class="checkbox">
+                <label>
+                  <input class="updates-checkbox" ng-model="subscribe" type="checkbox" checked> Send me campaign updates
+                </label>
+           </div>
         <button ng-click="unchallengedSubmit()" type="button" class="btn btn-action btn-donate" ng-disabled="donating || enableLoading || paymentForm.$invalid">
           <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
@@ -845,6 +802,7 @@ z-index: 10000;
           <div class="lead-in">{{challengeProgress || "Take the"}}</div>
           <span style="font-weight:bold;font-size:16px;">Challenge</span>
         </button>
+		
       </div>
       <p>By proceeding you agree to MultiplyMe’s <a ui-sref="terms" target="_blank">Terms of Use</a> and <a ui-sref="privacy" target="_blank">Privacy Policy</a><p>
     </div>

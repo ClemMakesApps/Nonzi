@@ -50,7 +50,17 @@ angular
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
-  .state('payment', {
+  .state('createaccount', {
+    url: '/createaccount?isSubscription&amount&refer',
+    templateUrl: 'views/createaccount.html',
+    controller: 'CreateAccountCtrl'
+  })
+  .state('donorlogin', {
+    url: '/donorlogin?isSubscription&amount&refer',
+    templateUrl: 'views/donorlogin.html',
+    controller: 'SigninCtrl'
+  })
+  .state('auth.payment', {
     url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'

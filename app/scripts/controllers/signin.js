@@ -59,4 +59,19 @@ angular.module('multiplyMe')
     }
   };
 
+  $scope.logon = function(){
+    if($scope.loginForm.$valid){
+      $auth.submitLogin($scope.user)
+      .then(function(resp){
+        console.log("user logged in successfully: "+ resp); //for debugging purpose
+        $state.go('auth.payment');
+
+      }).catch(function(resp){
+        console.log("error while logging in: ", resp); //for debugging purpose
+        $scope.user.password = '';
+        $scope.loginForm.$setPristine();
+        $scope.invalidCredentials = true;
+      });
+    }
+  };
 });
