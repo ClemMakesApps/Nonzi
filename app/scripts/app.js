@@ -116,6 +116,10 @@ angular
     url: '/team',
     templateUrl: 'views/team.html'
   })
+  .state('howitworks', {
+    url: '/howitworks',
+    templateUrl: 'views/howitworks.html'
+  })
   .state('signin',{
     url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',

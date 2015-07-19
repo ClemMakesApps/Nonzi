@@ -767,4 +767,51 @@ font-size: 20px;
 
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.how-container {
+  font-weight: 300;
+  font-size: 22px;
+  height: 80px;
+
+  .fa {
+    font-size: 80px;
+  }
+
+  .fa-facebook-square {
+    color: #3B5998;
+  }
+
+  .fa-envelope-square {
+    color: #333333;
+  }
+
+  .fa-twitter-square {
+    color: #4099FF;
+  }
+
+  .fa-facebook-square,
+  .fa-envelope-square,
+  .fa-twitter-square {
+    margin-right: 10px;
+  }
+
+  li {
+    list-style: none;
+
+    div {
+      margin-bottom: 20px;
+    }
+  }
+
+  .single-row {
+    line-height: 80px;
+  }
+}
 
