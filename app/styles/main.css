@@ -1,6 +1,11 @@
 .margin-top-20 {
   margin-top: 20px; }
 
+.align-children > * {
+  margin-top: 0px;
+  padding-top: 0px;
+  line-height: 20px; }
+
 .padding-bottom-60 {
   padding-bottom: 60px !important; }
 
@@ -8,6 +13,10 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
   color: #000; }
+
+a {
+  font-weight: bold;
+  color: #1abc9c; }
 
 .sometimes-pad {
   padding: 0px; }
@@ -36,21 +45,35 @@ body > div {
 
 h1 {
   margin-bottom: 20px;
-  font-weight: 300; }
+  font-weight: 300;
+  font-size: 30px; }
 
 p {
   font-size: 14px;
   font-weight: 300; }
 
 .cause {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold; }
 
 nav.campaign {
-  margin-top: 20px;
-  margin-right: 10px; }
+  margin-top: 20px; }
   nav.campaign .text-center {
     padding-left: 16%; }
+
+.sign-in, .ask {
+  color: #1abc9c;
+  border: 3px solid #1abc9c;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 3px 8px; }
+
+.sign-in {
+  position: absolute;
+  right: 15px; }
 
 .plus {
   font-size: 35px;
@@ -177,6 +200,19 @@ body {
 .col-lg-inset {
   padding: 1% 4%; }
 
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  width: 75%; }
+
+.table {
+  display: table; }
+
+.updates-checkbox {
+  line-height: 30px;
+  margin-top: 10px; }
+
 /***** buttons  ******/
 footer .btn {
   border-radius: 10px;
@@ -185,8 +221,7 @@ footer .btn {
   background-color: teal;
   color: white; }
 
-.btn-primary, .login-btn {
-  font-size: 18px;
+.btn-primary, .login-btn, .btn-action {
   border-radius: 12px;
   padding: 10px;
   color: white;
@@ -194,14 +229,32 @@ footer .btn {
   background-color: #1abc9c;
   border-color: #1abc9c; }
 
+.btn-action {
+  padding: 3px 8px; }
+
+.login-btn {
+  font-size: 18px; }
+
 .btn-primary {
   margin: 10px 8% 0px 8%;
   width: 84%;
   font-size: 22px; }
 
-.btn-primary:hover, .btn-primary:focus, .login-btn:focus, .login-btn:hover {
+.btn-primary:hover,
+.btn-primary:focus,
+.login-btn:focus,
+.login-btn:hover,
+.btn-green:hover,
+.btn-green:focus {
   background-color: #038386;
   border-color: #038386; }
+
+.btn-green {
+  padding: 10px;
+  color: white;
+  background-color: #1abc9c;
+  background-color: #1abc9c;
+  border-color: #1abc9c; }
 
 .sign-in, .ask {
   color: #1abc9c;
@@ -214,16 +267,23 @@ footer .btn {
   padding: 3px 8px;
   background-color: white; }
 
+.sign-in {
+  position: absolute;
+  right: 15px; }
+
 .link-btn {
   color: #1abc9c;
   font-size: 18px;
-  padding: 6px 8px;
+  padding: 10px 8px 0 8px;
   text-align: center;
   font-weight: bold;
   margin-top: 10px; }
 
+.stats {
+  margin-bottom: 0px; }
+
 /******  second page   ******/
-.step {
+.step, .round {
   display: inline-block;
   color: white;
   font-weight: bold;
@@ -232,8 +292,14 @@ footer .btn {
   font-size: 17px;
   height: 40px;
   border-radius: 20px;
-  width: 40px;
+  width: 40px; }
+
+.step {
   background-color: #1abc9c; }
+
+.round {
+  background-color: #fce4be;
+  color: black; }
 
 .step.active {
   background-color: #038386; }
@@ -248,11 +314,15 @@ footer .btn {
   font-size: 18px;
   padding: 3px 8px; }
 
+.sign-in {
+  position: absolute;
+  right: 25px; }
+
 nav.campaign .text-center {
   padding-left: 0; }
 
 .form {
-  background-color: #ecf0f1;
+  background-color: #fce4be;
   padding: 30px;
   width: 100%;
   border-radius: 12px;
@@ -340,7 +410,7 @@ a.btn-primary.hidden-xs {
     font-size: 20px; }
 
   .cause {
-    font-size: 45px;
+    font-size: 30px;
     margin-bottom: 30px; }
 
   .campaign {
@@ -348,59 +418,58 @@ a.btn-primary.hidden-xs {
 
   .logo-multiply {
     background: url("../images/multiplyMeDark.png");
-    width: 250px;
+    width: 175px;
+    height: 32.2px;
+    margin-bottom: 0px;
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 46px; }
+    background-size: contain; }
 
   .logo-partner {
-    width: 115px;
-    height: 100px;
-    margin-bottom: -28px;
+    width: 80.5px;
+    height: 70px;
+    margin-bottom: -21px;
     background-size: contain;
     background-repeat: no-repeat; }
 
   .plus {
-    font-size: 60px;
-    margin-left: 60px;
-    margin-right: 60px;
+    font-size: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
     font-weight: normal; }
 
   .sign-in, .ask {
     padding: 6px 30px;
-    font-size: 20px;
+    font-size: 14px;
     border-radius: 10px; }
+
+  .sign-in {
+    position: absolute;
+    right: 25px; }
 
   .details h2 {
     font-weight: normal;
     font-size: 40px; }
   .details p {
-    font-size: 22px;
-    font-weight: bold; }
+    font-size: 22px; }
 
   .btn-primary {
     padding: 20px; }
 
-  nav.campaign .text-center {
-    padding-left: 7%; }
-
   .cause {
     font-weight: normal; }
 
-  /*second page*/
-  .step {
-    padding: 21px 0;
-    font-size: 20px;
-    height: 70px;
-    width: 70px;
-    border-radius: 35px; } }
+  /*second page*/ }
+.round, .step {
+  padding: 21px 0;
+  font-size: 20px;
+  height: 70px;
+  width: 70px;
+  border-radius: 35px; }
+
 /* Medium devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
   footer > :last-child {
     margin-top: 0px; }
-
-  .plus {
-    font-size: 72px; }
 
   .sometimes-pad {
     padding-left: 2%; }
@@ -434,5 +503,123 @@ a.btn-primary.hidden-xs {
 
 .padding-bottom {
   padding-bottom: 50px; }
+
+.text-center {
+  text-align: center; }
+
+.impact-container {
+  text-align: center; }
+  .impact-container span {
+    font-size: 16px;
+    font-weight: 300; }
+  .impact-container .impact-box {
+    width: 100%;
+    height: 160px;
+    background-color: rgba(243, 156, 18, 0.27);
+    border-radius: 5px;
+    position: relative;
+    margin-top: 5px; }
+  .impact-container .impact-amount {
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+
+.impact-operand {
+  font-size: 50px;
+  line-height: 200px;
+  text-align: center; }
+
+@media (max-width: 768px) {
+  .impact-operand {
+    line-height: 100px; }
+
+  .impact-container .impact-box {
+    height: 100px; } }
+.display-block {
+  display: block; }
+
+.share-container-background {
+  background-color: rgba(243, 156, 18, 0.27);
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 20px; }
+  .share-container-background .fa-bullhorn {
+    font-size: 65px;
+    color: #038386;
+    padding: 20px; }
+  .share-container-background .share-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block; }
+  .share-container-background .form-control {
+    display: inline;
+    height: 25px;
+    width: 30%;
+    margin-left: 10px;
+    text-align: center; }
+  .share-container-background .fa {
+    margin-right: 5px; }
+  .share-container-background .social-share {
+    margin-top: 20px; }
+
+.btn-facebook {
+  background-color: #3B5998;
+  color: white; }
+
+.btn-twitter {
+  background-color: #4099FF;
+  color: white; }
+
+.btn-comment {
+  background-color: #0BD318;
+  color: white;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.btn-comment:hover,
+.btn-comment:focus,
+.btn-comment:active,
+.btn-comment.active,
+.open > .dropdown-toggle.btn-comment {
+  color: white;
+  background-color: #099C13;
+  border-color: rgba(0, 0, 0, 0.2); }
+
+.misc-container {
+  padding-top: 20px;
+  text-align: center; }
+
+.row-center > div {
+  display: inline-block;
+  float: none; }
+
+.row-center-hack {
+  margin-left: 4%; }
+
+@media (max-width: 768px) {
+  .label-challenge {
+    text-align: center; }
+
+  .share-container-background .fa-container,
+  .share-container-background .social-share {
+    text-align: center; }
+
+  .share-container {
+    padding: 0px; }
+    .share-container div:first-child {
+      padding: 0px; }
+
+  .btn-green {
+    display: block;
+    margin-top: 5px; }
+
+  .row-center-hack {
+    margin-left: inherit; } }
 
 /*# sourceMappingURL=main.css.map */
