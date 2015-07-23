@@ -162,7 +162,7 @@ angular.module('multiplyMe')
               is_subscription: $scope.isSubscription,
               is_challenged: $scope.isChallenged,
               parent_id: referrer,
-              organization_id: 1
+              organization_id: 2
             },
             card: {
               token: token,
