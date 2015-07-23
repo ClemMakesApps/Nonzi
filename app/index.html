@@ -29,9 +29,14 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
   
   <!-- endbuild -->
-
-  <script src="scripts/config/config.js"></script>
   <script type="text/javascript">
+
+    var config = {
+      heapAnalytics: '3182696103',
+      googleAnalytics: '',
+      stripeKey: 'pk_test_6cMTIQe6u51NWrawrcifDDkJ'
+    };
+
     window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+t+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
     heap.load(config.heapAnalytics); //Production
   </script>
@@ -105,6 +110,7 @@
   <script src="scripts/directives/embedSrc.js"></script>
   <script src="scripts/directives/header.js"></script>
   <script src="scripts/directives/footer.js"></script>
+  <script src="scripts/directives/shareDonated.js"></script>
   <script src="scripts/services/shareTree.js"></script>
   <script src="scripts/controllers/sharedReceipt.js"></script>
   <script src="scripts/services/leaderboard.js"></script>
@@ -117,30 +123,5 @@
   <script src="scripts/services/account.js"></script>
   <script src="scripts/services/emailsubscribe.js"></script>
   <!-- endbuild -->
-  <script>
-  function getInternetExplorerVersion()
-  {
-    var rv = -1;
-    if (navigator.appName == 'Microsoft Internet Explorer')
-    {
-      var ua = navigator.userAgent;
-      var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-      if (re.exec(ua) != null)
-        rv = parseFloat( RegExp.$1 );
-    }
-    else if (navigator.appName == 'Netscape')
-    {
-      var ua = navigator.userAgent;
-      var re  = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
-      if (re.exec(ua) != null)
-        rv = parseFloat( RegExp.$1 );
-    }
-    return rv;
-  }
-
-  if(getInternetExplorerVersion() != -1) {
-    alert("Apologies! IE is not fully supported at this time, some functionality may not work. Please use a different browser.")
-  }
-  </script>
 </body>
 </html>

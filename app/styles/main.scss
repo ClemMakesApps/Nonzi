@@ -54,7 +54,7 @@ html, body{
 
 body>div{
 max-width:100%;
-overflow-x:hidden;
+// overflow-x:hidden;
 }
 
 .referer h3{
@@ -152,6 +152,7 @@ margin-bottom: -8px;
 		left: 0;
 		width: 100%;
 		height: 100%;
+    border-radius: 7px;
 	}
 }
 
@@ -253,6 +254,7 @@ footer {
 .container{
 background-color: $white;
 border-radius: 0 0 18px 18px;
+border-top: 5px solid $c2;
 }
 body{
 background-color: $c3;
@@ -384,13 +386,13 @@ background-color: $c2;
   color: $c5;
   border: 3px solid $c5;
   @include border-radius(6px);
-  font-size: 18px;
+  font-size: 12px;
   padding: 3px 8px;
 }
 
 .sign-in {
   position: absolute;
-  right: 25px;
+  right: 0px;
 }
 
 
@@ -808,4 +810,78 @@ font-size: 20px;
 
 }
 
+.text-right {
+  text-align: right;
+}
 
+.text-left {
+  text-align: left;
+}
+
+.how-container {
+  font-weight: 300;
+  font-size: 22px;
+  height: 80px;
+
+  .fa {
+    font-size: 80px;
+  }
+
+  .fa-facebook-square {
+    color: #3B5998;
+  }
+
+  .fa-envelope-square {
+    color: #333333;
+  }
+
+  .fa-twitter-square {
+    color: #4099FF;
+  }
+
+  .fa-facebook-square,
+  .fa-envelope-square,
+  .fa-twitter-square {
+    margin-right: 10px;
+  }
+
+  li {
+    list-style: none;
+
+    div {
+      margin-bottom: 20px;
+    }
+  }
+
+  .single-row {
+    line-height: 80px;
+  }
+}
+
+.prompt-container {
+  padding: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 100;
+  color: black;
+  background-color: $secondaryBG;
+
+
+  .prompt {
+    line-height: 76px;
+
+    img {
+      margin-right: 20px;
+    }
+
+    span {
+      vertical-align: middle;
+      display: inline-block;
+      line-height: 1.3;
+    }
+  }
+}
