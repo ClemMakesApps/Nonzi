@@ -5,7 +5,6 @@ $c2: #038386; //teal
 $c3: #ecf0f1; //light
 $c4: #358286; //blue
 $c5: #1abc9c; //turqouise
-$c6: #fce4be; //peach
 $secondaryBG: rgba(243, 156, 18, 0.27);
 
 $tabletWidth: 768px; //sm
@@ -22,11 +21,6 @@ $desktopWidth: 992px; //md
 margin-top: 20px;
 }
 
-.align-children > * {
-margin-top: 0px;
-padding-top: 0px;
-line-height:20px;
-}
 
 .padding-bottom-60{
 padding-bottom: 60px !important;
@@ -36,11 +30,6 @@ body{
 font-family: 'Open Sans', sans-serif;
     background-color: $white;
     color: $dark;
-}
-
-a {
-font-weight:bold;
-color: $c5;
 }
 
 .sometimes-pad{
@@ -245,13 +234,14 @@ footer {
 	a:hover{
 	}
 	input{
-	padding: 10px;
-  border-radius: 12px;
-  border: 1px solid teal;
-  width:250px;
+  	padding: 10px;
+    border-radius: 12px;
+    border: 1px solid teal;
+    width:250px;
+    max-width: 70%;
   }
 }
-.container{
+.container.primary{
 background-color: $white;
 border-radius: 0 0 18px 18px;
 border-top: 5px solid $c2;
@@ -263,21 +253,7 @@ background-color: $c3;
 .col-lg-inset{
 padding: 1% 4%;
 }
-.cell{
-  display: table-cell;
-  vertical-align: middle;
-  text-align: left;
-  width: 75%;
-}
 
-.table{
-	display:table;
-}
-  
-.updates-checkbox{
-line-height: 30px;
-margin-top: 10px;
-}
 /***** buttons  ******/
 footer .btn{
 border-radius: 10px;
@@ -289,7 +265,8 @@ color: white;
 
 
 
-.btn-primary, .login-btn, .btn-action{
+.btn-primary, .login-btn{
+  font-size: 18px;
   border-radius: 12px;
   padding: 10px;
   color: white;
@@ -297,13 +274,6 @@ color: white;
   background-color:$c5;
   border-color: $c5;
 }
-
-.btn-action{
-padding: 3px 8px;
-}
-
-.login-btn{
-  font-size: 18px;}
 
 .btn-primary{
   margin: 10px 8% 0px 8%;
@@ -346,7 +316,7 @@ background-color: white;
 .link-btn{
 color: $c5;
 font-size: 18px;
-padding: 10px 8px 0 8px;
+padding: 6px 8px;
 text-align: center;
 font-weight:bold;
 margin-top: 10px;
@@ -357,7 +327,7 @@ margin-top: 10px;
 }
 
 /******  second page   ******/
-.step, .round{
+.step{
 display: inline-block;
   color: white;
   font-weight: bold;
@@ -367,15 +337,9 @@ display: inline-block;
   height: 40px;
   border-radius: 20px;
   width: 40px;
-}
-
-.step{
 background-color: $c5;
 }
-.round{
-background-color: $c6;
-color:black;
-}
+
 
 .step.active{
 background-color: $c2;
@@ -399,7 +363,7 @@ background-color: $c2;
 nav.campaign .text-center{padding-left: 0}
 
 .form{
-background-color: $c6;
+background-color: $c3;
 padding: 30px;
 width: 100%;
 border-radius: 12px;
@@ -502,11 +466,11 @@ margin-left: 0;
 margin-right: 0;
 }}
 footer>:last-child{
-margin-top: -40px;
-label{
-padding-top: 0px;
-clear:none;
-}
+// margin-top: -40px;
+  label{
+  padding-top: 0px;
+  clear:none;
+  }
 }
 
 .referer h3{
@@ -577,18 +541,14 @@ font-size: 20px;
 	
 	
 	/*second page*/
-	
-
-}
-
-.round, .step{
+.step{
   padding: 21px 0;
   font-size: 20px;
   height: 70px;
   width: 70px;
   border-radius: 35px;}
 
-
+}
 
 /* Medium devices (desktops, 992px and up)*/ 
 @media (min-width: $desktopWidth) 
@@ -695,6 +655,13 @@ font-size: 20px;
   .impact-container .impact-box {
     height: 100px;
   }
+
+  footer {
+    .nav-links {
+      margin-top: 10px;
+    }
+  }
+
 }
 
 
