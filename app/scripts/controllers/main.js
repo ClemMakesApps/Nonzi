@@ -17,7 +17,7 @@ angular.module('multiplyMe')
     $scope.referHref = 'refer=' + $scope.referral;
   }
 
-  organization.get({id: 1}, function(result){
+  organization.get({id: 2}, function(result){
     //console.log('result', result);
     $scope.supporters = result.organization.donation_count;
     $scope.donation_amount = result.organization.donation_amount;
