@@ -161,7 +161,7 @@ angular.module('multiplyMe')
               amount: Math.floor($stateParams.amount * 100),
               is_subscription: $scope.isSubscription,
               is_challenged: $scope.isChallenged,
-              parent_id: referrer,
+              referral_code: referrer,
               organization_id: 2
             },
             card: {

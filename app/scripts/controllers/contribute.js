@@ -27,7 +27,7 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   $scope.callbackDelay = 3000;  //milliseconds
 
   if($stateParams.refer != null) {
-    $scope.referral = Number($stateParams.refer);
+    $scope.referral = $stateParams.refer;
   }
 
   if($scope.referral) {
@@ -128,5 +128,4 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
   $scope.init();
 
-  console.log($scope.referral);
 });
