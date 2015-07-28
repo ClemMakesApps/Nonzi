@@ -245,40 +245,12 @@ angular.module('multiplyMe')
 
     var submit = function(){
       $timeout.cancel(highlightTimer);
-
-      if(validateFormSubmission()){
+      if(validateFormSubmission() && $scope.signedIn){
         if(!$scope.donating) {
           $scope.enableLoading = true;
-          $scope.challengeProgress = "Initating";
+          $scope.challengeProgress = "Processing";
         }
-        if(!$scope.signedIn){
-
-          var payment = $scope.payment;
-          $auth.submitRegistration(
-              {
-                email: payment.user.email,
-                password: $scope.password,
-                password_confirmation: $scope.password,
-                name: payment.user.name
-              }
-              )
-            .then(function(result){
-              if(!$scope.donating) {
-                $scope.challengeProgress = "Processing";
-              }
-              logInUser();
-            })
-            .catch(function(response){
-              var errors = response.data.errors;
-              $scope.setErrorMessage(errors.full_messages[0]);
-            });
-        }
-        else{
-          if(!$scope.donating) {
-            $scope.challengeProgress = "Processing";
-          }
-          createDonation();
-        }
+        createDonation();
       }
       else{
         console.log('somethin wrong');
@@ -319,27 +291,27 @@ angular.module('multiplyMe')
       cards [2] = {cardName: "discover",  prefixes: "6011,650"};
       cards [3] = {cardName: "amex", prefixes: "34,37"};
       var prefix
-      var cardType
+        var cardType
 
-      for(cardType=0; cardType<cards.length; cardType++){
+        for(cardType=0; cardType<cards.length; cardType++){
           prefix = cards[cardType].prefixes.split(",");
           for (var i=0; i<prefix.length; i++) {
-               var exp = new RegExp ("^" + prefix[i]);
-               if (exp.test (cardNo))
-                    return cards[cardType].cardName;
-         }
-      }
-       return -1;
+            var exp = new RegExp ("^" + prefix[i]);
+            if (exp.test (cardNo))
+              return cards[cardType].cardName;
+          }
+        }
+      return -1;
     }
-    
+
     $scope.modal = false;
 
     $scope.showModal = function(){
-    console.log("test");
+      console.log("test");
       $scope.modal = !$scope.modal; 
     };
-  
-  
+
+
     $scope.visa = true;
     $scope.mastercard = true;
     $scope.amex = true;
@@ -391,6 +363,6 @@ angular.module('multiplyMe')
     $scope.$watch('payment.cardNumber', $scope.highlightMerchant);
     $scope.$watch('paymentForm.$valid', $scope.highlightChallenge);
 
-  });
-  
- 
+    });
+
+
