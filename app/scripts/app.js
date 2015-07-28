@@ -60,7 +60,7 @@ angular
     templateUrl: 'views/donorlogin.html',
     controller: 'SigninCtrl'
   })
-  .state('payment', {
+  .state('auth.payment', {
     url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
