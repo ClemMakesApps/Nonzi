@@ -8,14 +8,26 @@
  * Controller of the appApp
  */
 angular.module('multiplyMe')
-  .controller('CreateAccountCtrl', function ($scope, $auth, $state, $stateParams) {
-    $scope.createAccount = function() {
+.controller('CreateAccountCtrl', function ($scope, $auth, $state, $stateParams) {
+
+  var validForm = function() {
+    var payment = $scope.payment;
+    return ($scope.email
+        && $scope.password
+        && $scope.name
+        && $scope.email == $scope.verifyEmail
+        );
+  }
+
+  $scope.createAccount = function() {
+    if(validForm()){
+
       var payment = $scope.payment;
       $auth.submitRegistration({
-        email: payment.user.email,
+        email: $scope.email,
         password: $scope.password,
         password_confirmation: $scope.password,
-        name: payment.user.name
+        name: $scope.name
       })
       .then(function(result){
         console.log(result);
@@ -24,4 +36,5 @@ angular.module('multiplyMe')
         }
       });
     }
-  });
+  }
+});

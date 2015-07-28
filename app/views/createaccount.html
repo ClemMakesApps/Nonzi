@@ -62,21 +62,21 @@
 		
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
             <label for="name" class="control-label">Name</label>
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
+              <input ng-model="name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
               <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
             </div>
 		
 		 <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$invalid && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$invalid && paymentForm.email.$dirty}">
             <label for="email" class="control-label">Email Address</label>
-              <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
+              <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="email"
                      type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn" required>
               <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
             </div>
           <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
             <label for="verifyEmail" class="control-label">Verify email</label>
-              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email" required>
+              <input ng-model="verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email" required>
               <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
           </div>
