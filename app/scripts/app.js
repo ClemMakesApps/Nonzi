@@ -120,6 +120,14 @@ angular
     url: '/howitworks',
     templateUrl: 'views/howitworks.html'
   })
+  .state('shareDonated', {
+    url: '/shareDonated',
+    templateUrl: 'views/shareDonated.html'
+  })
+  .state('shareChallenge', {
+    url: '/shareChallenge',
+    templateUrl: 'views/shareChallenge.html'
+  })
   .state('signin',{
     url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',

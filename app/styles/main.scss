@@ -862,3 +862,86 @@ font-size: 20px;
 .container-terms {
   word-wrap: break-word;
 }
+
+
+.div-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.challenge-info {
+  background-color: $secondaryBG;
+  border-radius: 7px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 20px;
+
+  h2 {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .challenge-status {
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .challenge-action {
+    text-align: center;
+  }
+
+  .btn-success {
+    margin-top: 10px;
+  }
+}
+
+.middle-donor {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.pyramid {
+  margin-bottom: 10px;
+}
+
+.img-profile-labels {
+  margin-top: 5px;
+  
+  span {
+    width: 100px;
+    text-align: center;
+  }
+
+  span:nth-child(2) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media(max-width:$tabletWidth) {
+  .challenge-info {
+    border-radius: 0px;
+    text-align: center;
+
+    .challenge-action {
+      margin-top: 30px;
+    }
+  }
+
+  .img-profile {
+    height: 80px;
+  }
+
+  .img-profile-labels {
+    span {
+      width: 80px;
+    }
+  }
+
+  .pyramid {
+    max-width: 70%;
+  }
+}
