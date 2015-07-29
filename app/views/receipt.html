@@ -1,5 +1,5 @@
 <style>
-.small-logo {
+/*.small-logo {
   color: black;
   margin-right: 10px;
 }
@@ -70,7 +70,7 @@
   margin-bottom: 5px;
 }
 
-/*override*/
+/*override
 .btn-success {
   background-color: #50E3C2;
   color: black;
@@ -81,7 +81,7 @@
   padding-bottom: 10px;
 }
 
-/*override*/
+/*override
 .btn-success:hover {
   background-color:#278570;
   border-color: transparent;
@@ -116,7 +116,7 @@
   outline: 0;
 }
 
-/*override*/
+/*override
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -293,27 +293,36 @@ nav.header-transparent {
   bottom: 10px;
   position: absolute;
 }
+*/
 </style>
-<nav class="header-transparent">
-  <span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
-</nav>
 
-<div class="container-fluid thankful bg-container-image">
-  <div class="col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8 col-xs-12 text-center text-white thanks-heading">
-    <h1 class="text-thanks">Thank you {{donorName}}, <br>for supporting the Bhatti Mines School</h1>
-    <span class="text-pledged">You 
-      <span ng-hide="donated">pledged</span>
-      <span ng-show="donated && !recurring">donated</span>
-      <span ng-show="donated && recurring">pledged to donate</span> {{amount | currency}} <span ng-show="recurring">per month</span></span>
+<div class="container primary">
+  <mm-header has-sign-in="true"></mm-header>
+    <h1 class="text-center col-xs-12">Thank you {{donorName}}, <br>for supporting the Bhatti Mines School</h1>
+  <div class="col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8 col-xs-12 text-center form">
+      <span ng-hide="donated">You donated {{amount | currency}} <span ng-show="recurring">per month</span> (Receipt has been emailed)</span>
+      <span ng-show="donated">You took the challenge and pledged to donate {{amount | currency}} <span ng-show="recurring">per month</span> upon completion</span>
   </div>
-  <div class="col-xs-12 text-center text-white share-tools">
-    <h3 class="share-tag" ng-hide="donated">Get 3 friends to pledge within 3 days<br>to secure your donation!</h1>
-    <h3 class="share-tag" ng-show="donated">Share with your friends and<br>encourage them to join you!</h1>
-    <div class="social-links">
-      <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-      <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-      <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
-      <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
-    </div>
+  <p ng-hide="<!--donatedparent-->">You also helped {{refererName}}'s challenge</p>
+  <div ng-hide="<!--donatedparent-->" class="col-xs-12 text-center form">
+    <div ng-hide="donated">
+		{{refererName}}'s Supporters
+	</div>
+	<div class="supporter"><div></div>JF</div>
+	<div class="supporter"><div></div>VD</div>
+	<div class="supporter"><div></div>AS</div>
+    <div>2 more friends neet to pledge or donate within the next 10 hours before Jacob's challenge is complete</div>
+	<button class="btn">Remind {{refererName}}</button>
   </div>
+  <p ng-hide="donated">Challenge your friends through social media</p>
+  <p ng-show="donated">Friends who share on social media raise 10% more</p>
+  <p class="small">We've made it simple for you. Just copy and paste</p>
+  <div class="form">
+	<textarea readonly>I just supported {{cause.name}}. Learn more about what they're doing and how you can help! I challenge:<textarea/>
+  </div>
+  <div class="">You?</div><div class="stem"></div>
+      <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span>Share</button>
+      <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span>Tweet</button>
+      <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span>Email</button>
 </div>
+<mm-footer></mm-footer>
