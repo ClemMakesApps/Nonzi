@@ -1,15 +1,13 @@
-<div class="row" ><div class="col-lg-offset-1 no-pad col-lg-10 col-md-12 col-sm-12 flare"></div></div>
-<div class="row" >
-  <div class="col-lg-offset-1 no-pad col-lg-10 col-sm-12 col-md-12 container padding-bottom">
-    <mm-header has-sign-out="true"></mm-header>
-    <div class="row col-lg-inset">
-      <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
-        <h1 class="text-center">Welcome {{name}}</h1>
-      </div>
+<div class="container primary">
+  <mm-header has-sign-out="true"></mm-header>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <h1 class="text-center">Welcome {{name}}</h1>
     </div>
-    <div class="row row-center-hack">
-      <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-        <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
+  </div>
+  <div class="row row-center-hack">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
         <span>Your Donation</span>
         <div class="impact-box">
           <span class="impact-amount">
@@ -18,19 +16,19 @@
           </span>
         </div>
       </div>
-      <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">+</div>
-      <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
-        <span>Your Network</span>
-        <div class="impact-box"><span class="impact-amount">{{network_impact | currency}}</span></div>
-      </div>
-      <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">=</div>
+    <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">+</div>
+    <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
+      <span>Your Network</span>
+      <div class="impact-box"><span class="impact-amount">{{network_impact | currency}}</span></div>
+    </div>
+    <div class="col-md-1 col-sm-1 col-xs-12 impact-operand">=</div>
       <div class="col-md-3 col-sm-3 col-sm-offset-0 col-xs-8 col-xs-offset-2 impact-container">
         <span>Your Impact</span>
         <div class="impact-section">
             <div class="impact-box actual-impact"><span class="impact-amount">{{total_impact | currency}}</span></div>
         </div>
       </div>
-      </div>
+    </div>
       
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 col-xs-offset-0 share-container">
       <hr>
@@ -56,10 +54,9 @@
       </div>
     </div>
   </div>
-    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 misc-container">
-      <a class="btn btn-green" href="#" role="button"><i class="fa fa-archive"></i> Manage your Donation</a>
-      <a class="btn btn-green" href="#" role="button"><i class="fa fa-key"></i> Change Password</a>
-    </div>
+  <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 misc-container">
+    <a class="btn btn-green" href="#" role="button"><i class="fa fa-archive"></i> Manage your Donation</a>
+    <a class="btn btn-green" href="#" role="button"><i class="fa fa-key"></i> Change Password</a>
   </div>
 </div>
 <mm-footer></mm-footer>

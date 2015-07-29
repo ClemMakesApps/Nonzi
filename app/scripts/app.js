@@ -23,7 +23,7 @@ angular
 .constant('URL', 'http://104.236.212.96/')
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
-    apiUrl: 'https://api.multiplyme.in',
+    apiUrl: 'http://104.236.212.96/',
     storage: 'localStorage'
   });
   $facebookProvider.setAppId('1417661645206719');
@@ -60,7 +60,7 @@ angular
     templateUrl: 'views/donorlogin.html',
     controller: 'SigninCtrl'
   })
-  .state('payment', {
+  .state('auth.payment', {
     url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'

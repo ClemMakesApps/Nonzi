@@ -1,53 +1,8 @@
-<style>
-/*nav.nav-black {
-  position: absolute;
-  top: 10px;
-  color: white;
-  width: 100%;
-}
-
-.nav-black .btn {
-  color: black;
-  float: right;
-  margin-right: 15px;
-}
-
-.nav-black span {
-  margin-left: 15px;
-}
-
-.signin-container {
-  margin-top: 75px;
-}
-
-
-.modal-backdrop {
-  bottom: 0;
-  position: fixed;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .signin-container {
-    margin-top: 0px;
-  }
-
-  .login-box {
-    margin-top: 50px;
-  }
-
-  .signin-create-container,
-  .signin-forgot-container {
-    text-align: center;
-  }
-}*/
-
-</style>
-<div class="row" ><div class="col-lg-offset-1 no-pad col-lg-10 col-md-12 col-sm-12 flare"></div></div>
-<div class="row" ><div class="col-lg-offset-1 no-pad col-lg-10 col-sm-12 col-md-12 container">
-<mm-header has-sign-in="false"></mm-header>
-<div class="container-fluid signin-container" >
-  <div class="col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12 login-box">
+<div class="container primary">
+  <mm-header></mm-header>
+  <div class="row">
+    <div class="container-fluid signin-container" >
+      <div class="col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12 login-box">
         <div class="text-center" style="padding-bottom: 10px">
           <h2>Bhatti Mines School</h2>
           <h1 style="margin-top:0px">Donor Login</h1>
@@ -71,25 +26,25 @@
             <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!loginForm.password.$error.required && loginForm.password.$dirty"></span>
             <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.password.$error.required && loginForm.password.$dirty"></span>
           </div>
-          <div class="">
+          <div>
             <button type="button" class="btn btn-main login-btn btn-block"
             ng-click="login()" ng-disabled="loginForm.$invalid">Sign In</button>
             <button type="button" class="btn btn-link link-btn" data-toggle="modal" data-target=".forgot-password-modal">Forgot Password?</button>
-          <!-- <hr style="clear:both">
-          <button type="button" class="btn btn-primary btn-action btn-block btn-lg"
-          ng-click="authenticate('facebook')">
-            <span class="fa fa-facebook-square"></span>
-            <span style="font-weight:bold;font-size:16px;">Login using Facebook</span>
-          </button> -->
-        </div>
-      </form>
-       <div class="form"><a ui-sref="contribute" class="btn btn-block sign-in">Make a contribution</a>
-		</div>
+            <!-- <hr style="clear:both">
+            <button type="button" class="btn btn-primary btn-action btn-block btn-lg"
+            ng-click="authenticate('facebook')">
+              <span class="fa fa-facebook-square"></span>
+              <span style="font-weight:bold;font-size:16px;">Login using Facebook</span>
+            </button> -->
+          </div>
+        </form>
+        <div class="form"><a ui-sref="contribute" class="btn btn-block sign-in">Make a contribution</a></div>
+      </div>
     </div>
   </div>
 </div>
-</div>
 <mm-footer></mm-footer>
+
 <div class="modal fade reset-password-modal" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
