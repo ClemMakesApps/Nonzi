@@ -1052,3 +1052,20 @@ font-size: 20px;
     }
   }
 }
+
+.btn-success {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: white;
+}
+
+.btn-success:hover, 
+.btn-success:focus {
+  background-color: #038386;
+  border-color: #038386;
+}
+
+.btn-default {
+  color: #1abc9c;
+  border: 3px solid #1abc9c;
+}
