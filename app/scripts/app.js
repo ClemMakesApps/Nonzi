@@ -128,6 +128,10 @@ angular
     url: '/shareChallenge',
     templateUrl: 'views/shareChallenge.html'
   })
+  .state('shareChallengeComplete', {
+    url: '/shareChallengeComplete',
+    templateUrl: 'views/shareChallengeComplete.html'
+  })
   .state('signin',{
     url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',

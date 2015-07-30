@@ -9,6 +9,7 @@ $secondaryBG: rgba(243, 156, 18, 0.27);
 
 $tabletWidth: 768px; //sm
 $desktopWidth: 992px; //md
+$lgWidth: 1200px; //lg
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -921,6 +922,16 @@ font-size: 20px;
   }
 }
 
+.challenge-stats {
+  position: relative;
+
+  .btn-more {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
 @media(max-width:$tabletWidth) {
   .challenge-info {
     border-radius: 0px;
@@ -943,5 +954,101 @@ font-size: 20px;
 
   .pyramid {
     max-width: 70%;
+  }
+}
+
+.stat-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 30px;
+
+  .statistic {
+    width: 150px;
+    align-self: flex-end;
+    text-align: center;
+
+    .impact-box {
+      height: 100px;
+      background-color: $secondaryBG;
+      border-radius: 5px;
+      position: relative;
+      margin-top: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+
+  .operand {
+    margin-top: 50px;
+    align-self: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+@media(max-width:$lgWidth) {
+  .stat-container {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .statistic {
+      width: 100px;
+
+      .impact-box {
+        height: 75px;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+.pyramid-four {
+  .img-profile {
+    margin-left: 5%;
+  }
+
+  .img-profile-labels span {
+    margin-left: 5%;
+    margin-right: 0px;
+  }
+
+  .img-profile:nth-child(1),
+  .img-profile-labels span:nth-child(1) {
+    margin-left: 0px;
+  }
+}
+
+@media(max-width:$tabletWidth) {
+  .stat-container {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    .statistic {
+      width: 75px;
+
+      .impact-box {
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+  } 
+}
+
+@media(max-width:400px) {
+  .pyramid-four {
+    .img-profile {
+      height: 60px;
+    }
+
+    .img-profile-labels {
+      span {
+        width: 60px;
+      }
+    }
   }
 }
