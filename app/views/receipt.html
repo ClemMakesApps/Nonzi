@@ -294,33 +294,56 @@ nav.header-transparent {
   position: absolute;
 }
 */
-</style>
+.supporter{
 
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <div class="container primary">
   <mm-header has-sign-in="true"></mm-header>
-    <h1 class="text-center col-xs-12">Thank you {{donorName}}, <br>for supporting the Bhatti Mines School</h1>
-  <div class="col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8 col-xs-12 text-center form">
-      <span ng-hide="donated">You donated {{amount | currency}} <span ng-show="recurring">per month</span> (Receipt has been emailed)</span>
-      <span ng-show="donated">You took the challenge and pledged to donate {{amount | currency}} <span ng-show="recurring">per month</span> upon completion</span>
+    <div class="row">
+		<h1 class="text-center col-xs-12">Thank you {{donorName}}</h1>
+	  <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+		  <div class="text-center form">
+			  <span>You took the challenge and pledged to donate {{amount | currency}} <span ng-show="recurring">per month</span> upon completion</span>
+		  </div>
+	  </div>
   </div>
-  <p ng-hide="<!--donatedparent-->">You also helped {{refererName}}'s challenge</p>
-  <div ng-hide="<!--donatedparent-->" class="col-xs-12 text-center form">
-    <div ng-hide="donated">
-		{{refererName}}'s Supporters
-	</div>
-	<div class="supporter"><div></div>JF</div>
-	<div class="supporter"><div></div>VD</div>
-	<div class="supporter"><div></div>AS</div>
-    <div>2 more friends neet to pledge or donate within the next 10 hours before Jacob's challenge is complete</div>
-	<button class="btn">Remind {{refererName}}</button>
+  <div ng-hide="" class="row">
+	  <p  class="col-sm-6 col-sm-offset-3 col-xs-12">You also helped {{refererName}}'s challenge</p>
+	  <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<div class="text-center form row">
+			<div class="col-sm-4">
+			<div class="row">
+				{{refererName}}'s Supporters
+			</div>
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="supporter round"><div></div>JF</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="supporter round"><div></div>JF</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="supporter round"><div></div>JF</div>
+				</div>
+			</div>
+			</div>
+			<div class="col-sm-8">
+			<div class="row">2 more friends neet to pledge or donate within the next 10 hours before Jacob's challenge is complete</div>
+			<button class="btn pull-right">Remind {{refererName}}</button>
+			</div>
+		</div>
+	  </div>
   </div>
-  <p ng-hide="donated">Challenge your friends through social media</p>
-  <p ng-show="donated">Friends who share on social media raise 10% more</p>
-  <p class="small">We've made it simple for you. Just copy and paste</p>
-  <div class="form">
-	<textarea readonly>I just supported {{cause.name}}. Learn more about what they're doing and how you can help! I challenge:<textarea/>
+  <p class="row text-center">Challenge your friends through social media</p>
+  <p class="small row text-center">We've made it simple for you. Just copy and paste</p>
+  <div class="col-sm-4 col-sm-offset-4 col-xs-12">
+	  <div class="form">
+		<textarea readonly>I just supported {{cause.name}}. Learn more about what they're doing and how you can help! I challenge:<textarea/>
+	  </div>
   </div>
-  <div class="">You?</div><div class="stem"></div>
+  <div class="round">You?</div><div class="stem"></div>
       <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span>Share</button>
       <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span>Tweet</button>
       <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span>Email</button>
