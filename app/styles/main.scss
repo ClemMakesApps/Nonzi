@@ -1069,3 +1069,36 @@ font-size: 20px;
   color: #1abc9c;
   border: 3px solid #1abc9c;
 }
+
+.why-container {
+  .fa {
+    display: block;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .fa-bullhorn {
+    color: #D35400;
+  }
+
+  .fa-line-chart {
+    color: #27AE60;
+  }
+
+  .fa-sitemap {
+    color: #2980B9;
+  }
+
+  .fa-life-ring {
+    color: #F39C12;
+  }
+
+  strong {
+    font-size: 17px;
+  }
+}
+
+.why-topic {
+  margin-bottom: 50px;
+}
