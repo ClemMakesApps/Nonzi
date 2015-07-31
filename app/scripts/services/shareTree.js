@@ -9,7 +9,7 @@
  */
 angular.module('multiplyMe')
   .factory('ShareTree', function ($resource, api) {
-    return $resource(api + 'share_trees/:id', {id: '@id'} );
+    return $resource(api + 'share_trees/:id', {id: '@id', organization_id: 2} );
   });
 
 angular.module('multiplyMe')

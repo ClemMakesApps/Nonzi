@@ -9,7 +9,7 @@
  */
 angular.module('multiplyMe')
   .factory('Donation', function ($resource, api) {
-    return $resource(api + 'donations/:id', {id: '@id'} );
+    return $resource(api + 'donations/:id', {id: '@id', organization_id: 2} );
   });
 
 angular.module('multiplyMe')
