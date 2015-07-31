@@ -2,6 +2,13 @@
 .margin-top-20 {
   margin-top: 20px; }
 
+.margin-bottom-negative {
+  margin-bottom: -20px; }
+
+.align-children > * {
+  margin-top: 0;
+  padding-top: 0; }
+
 .margin-top-20 {
   margin-top: 20px; }
 
@@ -280,8 +287,15 @@ footer .btn {
   font-weight: bold;
   margin-top: 10px; }
 
+.btn .lead-in {
+  font-size: 14px;
+  font-weight: bold; }
+
+.btn.uniform {
+  padding: 6px; }
+
 /******  donation flow   ******/
-.step {
+.step, .round {
   display: inline-block;
   color: white;
   font-weight: bold;
@@ -309,6 +323,10 @@ footer .btn {
 .sign-in {
   position: absolute;
   right: 0px; }
+
+.round {
+  background-color: #ecf0f1;
+  color: #000; }
 
 nav.campaign .text-center {
   padding-left: 0; }
@@ -385,6 +403,15 @@ a.btn-primary.hidden-xs {
     width: 45%;
     background-color: transparent; }
 
+.table {
+  display: table;
+  vertical-align: middle; }
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%; }
+
 /* Small devices (tablets, 768px and up)  */
 @media (min-width: 768px) {
   .suggested .perks, .suggested .action-header {
@@ -457,7 +484,7 @@ a.btn-primary.hidden-xs {
     font-weight: normal; }
 
   /*donation flow*/
-  .step {
+  .step, .round {
     padding: 21px 0;
     font-size: 20px;
     height: 70px;

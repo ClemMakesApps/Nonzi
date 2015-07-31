@@ -15,7 +15,7 @@
     		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
     	</div>
     	<div class="clearfix">
-        <div class="col-md-offset-1 col-lg-5 col-md-5 col-sm-5  margin-top-20 align-children">
+        <div class="col-md-offset-1 col-lg-6 col-md-6 col-sm-6  margin-top-20 margin-bottom-negative align-children">
           <h3 class="pull-left">Card Information</h3>
           <h5 class="pull-right"><span class="fa fa-lock"></span> SECURE</h5>
         </div>
@@ -83,7 +83,7 @@
 
       <div class="col-lg-5 col-md-5 col-sm-6">
         <div class="form">
-    	    <div class="align-children margin-top-20 clearfix">
+    	    <div class="align-children clearfix">
             <h3 class="pull-left">Contribution</h3>
             <a class="pull-right small" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
               <span class="glyphicon glyphicon-pencil"></span> Edit
@@ -126,7 +126,7 @@
           </div>
     		  <div class="row">
       		  <div class="col-xs-6 margin-top-20">
-        			<button ng-click="unchallengedSubmit()" type="button" class="btn btn-action btn-donate btn-block login-btn" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+        			<button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block login-btn" ng-disabled="donating || enableLoading || paymentForm.$invalid">
         			  <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         			  </svg>
@@ -135,7 +135,7 @@
         			</button>
         		</div>
         		<div class="col-xs-6 margin-top-20">
-        			<button ng-click="challengeSubmit()" type="button" class="btn btn-action btn-block ask" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+        			<button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block ask" ng-disabled="donating || enableLoading || paymentForm.$invalid">
         			  <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         			  </svg>

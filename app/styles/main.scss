@@ -24,6 +24,14 @@ $lgWidth: 1200px; //lg
 margin-top: 20px;
 }
 
+.margin-bottom-negative{
+margin-bottom: -20px;
+}
+
+.align-children>*{
+margin-top: 0;
+padding-top: 0;
+}
 
 .margin-top-20{
 margin-top: 20px;
@@ -365,8 +373,17 @@ font-weight:bold;
 margin-top: 10px;
 }
 
+
+.btn .lead-in{
+font-size: 14px;
+font-weight: bold;
+}
+
+.btn.uniform{
+padding: 6px;
+}
 /******  donation flow   ******/
-.step{
+.step, .round{
 display: inline-block;
   color: white;
   font-weight: bold;
@@ -398,6 +415,10 @@ background-color: $c2;
   right: 0px;
 }
 
+.round{
+	background-color: $c3;
+	color: $dark;
+}
 
 nav.campaign .text-center{padding-left: 0}
 
@@ -500,6 +521,16 @@ margin:20px;
 	}
 }
 
+.table{
+    display: table;
+    vertical-align: middle;}
+
+.cell{
+    display: table-cell;
+    vertical-align: middle;
+	width: 70%;}
+
+
 
 
 
@@ -601,7 +632,7 @@ font-size: 20px;
 	
 	
 	/*donation flow*/
-.step{
+.step, .round{
   padding: 21px 0;
   font-size: 20px;
   height: 70px;
