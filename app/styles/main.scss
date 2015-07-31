@@ -18,23 +18,33 @@ $lgWidth: 1200px; //lg
           border-radius: $radius;
 };
 
+/*spacers*/
+
 .margin-top-20{
 margin-top: 20px;
 }
 
 
-.padding-bottom-60{
-padding-bottom: 60px !important;
+.margin-top-20{
+margin-top: 20px;
 }
+
+.sometimes-pad{
+padding:0px;
+}
+
+.no-pad{padding:0px;}
+
+.stats {
+  margin-bottom: 0px;
+}
+
+/* general styles */
 
 body{
 font-family: 'Open Sans', sans-serif;
     background-color: $white;
     color: $dark;
-}
-
-.sometimes-pad{
-padding:0px;
 }
 
 html, body{
@@ -45,23 +55,6 @@ html, body{
 body>div{
 max-width:100%;
 // overflow-x:hidden;
-}
-
-.referer h3{
-margin-top: 20px;
-margin-bottom: 20px;
-font-size: 20px;
-color: $white;
-}
-
-.flare{
-background-color: $c2;
-height: 12px;
-}
-
-.referer{
-background-color: $c1;
-text-align: center;
 }
 
 h1 {
@@ -75,27 +68,32 @@ p {
   font-weight: 300;
 }
 
+/*header and footer*/
+
+.referer h3{
+margin-top: 20px;
+margin-bottom: 20px;
+font-size: 20px;
+color: $white;
+}
+
+.flare{
+background-color: $c2;
+height: 20px;
+}
+
+.referer{
+background-color: $c1;
+text-align: center;
+}
+
 .cause{font-size: 25px;
 font-weight: bold;}
 
 nav.campaign{
-margin-top:20px;
 	.text-center{
 		padding-left:16%;
 	}
-}
-
-.sign-in, .ask{
-color: $c5;
-border: 3px solid $c5;
-@include border-radius(6px);
-font-size: 14px;
-padding: 3px 8px;
-}
-
-.sign-in {
-  position: absolute;
-  right: 15px;
 }
 
 .plus{
@@ -115,102 +113,25 @@ background-repeat: no-repeat;
 }
 
 .logo-partner{
-background: url('../images/welllogo.png');
+background: url('../images/backonmyfeet.jpg');
 display:inline-block;  
-width: 50px;
-height: 42px;
+width: 200px;
+height: 50px;
 background-size: contain;
 background-repeat: no-repeat;
-margin-bottom: -8px;
-
+margin-bottom: -20px;
 }
 
-
-.embed-container
-{
-	position: relative; 
-	padding-bottom: 56.25%; 
-	height: 0; 
-	overflow: hidden; 
-	max-width: 100%;
-	width:100%;
-	margin-bottom:15px;
-	
-	iframe, object, embed
-	{	position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-    border-radius: 7px;
-	}
+.main .logo-partner{
+margin-right: 50px;
 }
 
-.no-pad{padding:0px;}
-
-.details{
-	h2 {
-	font-weight: bold;
-	font-size: 24px;
-	}
-	p {
-	font-size: 18px;
-	}
+.no-wrap{
+white-space: nowrap;
+margin-top: 20px;
 }
 
-.suggested{
-.perks, .action-header{
-margin: 20px 1% 0 8%;
-}
-.perks{
-background-color: $c3;
-padding: 20px 10px;
-border-radius:12px;
-color: $dark;
-h3{font-weight:bold;
-margin-top: 5px;}
-}
-a:hover{
-text-decoration:none;
-}
-}
 
-.content{
-	font-size: 18px;
-	h2{
-		font-size:20px;
-		font-weight:bold;
-	}
-	.nav-tabs {
-		border-color:$c4;
-		font-size: 20px;
-		font-weight: bold;
-		border-bottom: 5px solid $c4;
-		margin-right:20px;
-			li{
-				margin-bottom: -2px;
-				a{ 
-					padding: 10px 20px;
-					color: $dark
-				}
-				a:hover{
-					padding-bottom:8px;
-					background-color: $c3;
-					border-color: $c3;
-					border-radius: 12px 12px 0 0;
-					color: $dark;
-				}
-			}
-		}
-	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
-		background-color:$c4;
-		border:0 transparent;
-		color: $white;
-		border-bottom-color: transparent;
-		border-radius: 12px 12px 0 0;
-		padding-bottom:10px;
-	}
-}
 footer {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -253,10 +174,129 @@ background-color: $c3;
 }
 
 .col-lg-inset{
-padding: 1% 4%;
+padding: 1% 25px;
+}
+
+
+
+/*main page*/
+
+.embed-container
+{
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%;
+	width:100%;
+	margin-bottom:15px;
+	
+	iframe, object, embed
+	{	position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+.details{
+	h2 {
+	font-weight: bold;
+	font-size: 24px;
+	margin-top: 0px;
+	}
+	p {
+	font-size: 18px;
+	}
+}
+
+.suggested{
+.perks, .action-header{
+margin: 20px 1% 0 8%;
+}
+.perks{
+background-color: $c3;
+padding: 20px 20px;
+border-radius:12px;
+color: $dark;
+h3{font-weight:bold;
+margin-top: 5px;}
+}
+
+a:hover{
+text-decoration:none;
+}
+}
+
+.perks:hover, label.perks:hover{
+background-color: $c5;
+}
+.col-xs-full{
+	margin-left:-40px;
+	margin-right: -40px;
+}
+
+.campaign-content{
+	font-size: 18px;
+	h2{
+		font-size:20px;
+		font-weight:bold;
+	}
+	.nav-tabs {
+		border-color:$c4;
+		font-size: 20px;
+		font-weight: bold;
+		border-bottom: 5px solid $c4;
+		margin-right:20px;
+			li{
+				margin-bottom: -2px;
+				a{ 
+					padding: 10px 20px;
+					color: $dark
+				}
+				a:hover{
+					padding-bottom:8px;
+					background-color: $c3;
+					border-color: $c3;
+					border-radius: 12px 12px 0 0;
+					color: $dark;
+				}
+			}
+		}
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+		background-color:$c4;
+		border:0 transparent;
+		color: $white;
+		border-bottom-color: transparent;
+		border-radius: 12px 12px 0 0;
+		padding-bottom:10px;
+	}
 }
 
 /***** buttons  ******/
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active{
+background-color: $c1;
+
+}
+
+.sign-in, .ask{
+color: $c5;
+border: 3px solid $c5;
+@include border-radius(6px);
+font-size: 18px;
+padding: 3px 8px;
+}
+
+.sign-in {
+  position: absolute;
+  right: 15px;
+  font-weight:bold;
+  margin-top:20px;
+}
+
 footer .btn{
 border-radius: 10px;
 padding: 8px;
@@ -291,6 +331,7 @@ color: white;
 .btn-green:focus {
   background-color: $c2;
   border-color: $c2;
+  color: white;
 }
 
 .btn-green {
@@ -324,11 +365,7 @@ font-weight:bold;
 margin-top: 10px;
 }
 
-.stats {
-  margin-bottom: 0px;
-}
-
-/******  second page   ******/
+/******  donation flow   ******/
 .step{
 display: inline-block;
   color: white;
@@ -377,16 +414,16 @@ margin-top:20px;
 	border: 1px solid $dark;
 	background-color: $white;
 	position:relative;
-	span{
-		position:absolute;
-		top:10px;
-	}
-	.currency-label{
-		right:10px;
-	}
-	.currency-sympbol{
-		left:10px;
-	}
+	// span{
+		// position:absolute;
+		// top:10px;
+	// }
+	// .currency-label{
+		// right:10px;
+	// }
+	// .currency-sympbol{
+		// left:10px;
+	// }
 	input{
   width: 70%;
   margin-left: 15px;
@@ -436,12 +473,19 @@ margin:20px;
 }
 
 label.perks.ng-scope.perk-selected{
-background-color: $c5;
+	background-color: $c2;
+	color: white;
+	.fa{
+		float:right;
+		margin-top: -35px;
+		font-size: 20px;
+	}
 }
 
 a.btn-primary.hidden-xs{
 margin-bottom: 30px;
 width:50%;
+font-size: 16px;
 }
 
 .perk-promo{
@@ -475,6 +519,12 @@ footer>:last-child{
   }
 }
 
+
+.col-xs-full{
+	margin-left:-40px;
+	margin-right: -40px;
+}
+
 .referer h3{
 font-size: 20px;
 }
@@ -498,9 +548,7 @@ font-size: 20px;
 	
 	
 .logo-partner{
-  width: 80.5px;
-  height: 70px;
-  margin-bottom: -21px;
+  margin-bottom: -20px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -517,6 +565,15 @@ font-size: 20px;
   	font-size: 14px;
   	border-radius: 10px;
 	}
+	
+	.sign-in:hover, .ask:hover{
+	background-color: $c3;
+	color: $c2;
+	}
+	
+	.ask{
+	font-weight: bold;
+	}
 
   .sign-in {
     position: absolute;
@@ -527,6 +584,7 @@ font-size: 20px;
 		h2 {
 		font-weight: normal;
 		font-size: 40px;
+		
 		}
 		p {
 		font-size: 22px;
@@ -542,7 +600,7 @@ font-size: 20px;
 	.cause{font-weight:normal;}
 	
 	
-	/*second page*/
+	/*donation flow*/
 .step{
   padding: 21px 0;
   font-size: 20px;
@@ -555,6 +613,9 @@ font-size: 20px;
 /* Medium devices (desktops, 992px and up)*/ 
 @media (min-width: $desktopWidth) 
 { 	
+.col-xs-full{
+	margin-right: 0px;
+}
 	footer>:last-child{
 	margin-top: 0px
 	}
@@ -574,18 +635,21 @@ font-size: 20px;
 	.details{
 		.row{text-align:left;}
 		.no-pad{padding: 10px;}
-	/*	h2 {
-		font-size: 50px;
+		h2 {
+		margin-top: 20px;
 		}
-		p {
+	/*	p {
 		font-size: 30px;
 		font-weight:normal;
 		}*/
 	}
 }
 
-/* Large devices (large desktops, 1200px and up) 
-@media (min-width: 1200px) {  }*/
+/*Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+.col-xs-full{
+	margin-left: 0px;
+} }
 
 
 .team-profile {

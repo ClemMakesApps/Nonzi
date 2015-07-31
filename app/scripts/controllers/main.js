@@ -10,7 +10,7 @@
 angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, $rootScope, LeaderboardLoader, organization) {
   $scope.referral = Number($stateParams.refer);
-  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+  $rootScope.title = "MultiplyMe + Back on My Feet Austin";
   $rootScope.ogTitle = $rootScope.title;
 
   if($scope.referral) {
@@ -51,7 +51,7 @@ angular.module('multiplyMe')
     'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   },{
     'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
-    'answer': 'No. If your friend donated directly, the money is going straight to Bhatti Mines School. If they took the challenge, they still have 3 days from when their challenge began.',
+    'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
   },{
     'question': 'Do my friends have to match my pledge?',
     'answer': 'No, but you can encourage them to if you wish. The minimum donation is $1, and there is no maximum.',
@@ -70,14 +70,14 @@ angular.module('multiplyMe')
   }]
 
   $scope.org = {
-    'name': 'The Amala Foundation',
-    'url': 'https://amalafoundation.org/',
+    'name': 'Back on My Feet',
+    'url': 'http://austin.backonmyfeet.org/',
   }
 
   $scope.cause = {
-    'name': 'Bhatti Mines School',
+    'name': 'Back on My Feet Austin',
     'blurb': 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.',
-    'image': 'infographic.png',
+    'image': 'bomfinfographic.jpg',
     'supporters':0
   }
 

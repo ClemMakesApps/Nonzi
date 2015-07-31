@@ -12,7 +12,7 @@
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Invalid Credentials.</strong> Please try again.
         </div>
-        <form id="loginForm" name="loginForm" class="form padding-bottom-60" novalidate>
+        <form id="loginForm" name="loginForm" class="form" novalidate>
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
             <label for="name" class="control-label">Name</label>
             <input ng-model="name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
@@ -52,10 +52,10 @@
             </div>
           </div>
           
-          <div>
+          <div class="clearfix margin-top-20">
             <button type="button" class="btn btn-main login-btn btn-block"
             ng-click="createAccount()" ng-disabled="createAccountForm.$invalid">Create Account</button>
-            <h4 class="col-md-12 margin-top-20 text-center">Already have an account?<a ui-sref="donorlogin({isSubscription: selectedRecurring, amount: pledge, refer: referral})" class="link-btn">Sign In</a></h4>
+            <h4 class="col-md-12 margin-top-20 text-center">Already have an account?<br/><a ui-sref="donorlogin({isSubscription: selectedRecurring, amount: pledge, refer: referral})" class="link-btn">Sign In</a></h4>
           <!-- <hr style="clear:both">
           <button type="button" class="btn btn-primary btn-action btn-block btn-lg"
           ng-click="authenticate('facebook')">
