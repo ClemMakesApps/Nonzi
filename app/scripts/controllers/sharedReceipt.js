@@ -9,12 +9,14 @@ angular.module('multiplyMe')
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
-    $scope.impact = ShareTree.impact * .01;
+    $scope.personalImpact = ShareTree.personal_impact * .01;
+    $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
     $scope.daysRemaining = Math.round($scope.hoursRemaining / 24);
     $scope.recurring = ShareTree.parent.donation.is_subscription;
     $scope.referral = ShareTree.referral_code;
+    $scope.firstName = ShareTree.parent.name.split(' ')[0]
 
     console.log(!!$scope.children[0]);
     console.log($scope.name);
@@ -32,4 +34,7 @@ angular.module('multiplyMe')
         $scope.challengeOver = true;
     }
 	
+    $scope.getInitials = function(name){
+      return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+    }
   });
