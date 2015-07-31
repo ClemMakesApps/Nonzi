@@ -914,16 +914,29 @@ font-size: 20px;
     margin-right: 10px;
   }
 
-  li {
-    list-style: none;
-
-    div {
-      margin-bottom: 20px;
-    }
+  div {
+    margin-bottom: 20px;
   }
 
   .single-row {
     line-height: 80px;
+  }
+}
+
+@media(max-width:$desktopWidth) {
+  .how-container {
+    .col-sm-12 {
+      text-align: center;
+    }
+
+    .step-two,
+    .step-three {
+      margin-top: 20px;
+    }
+
+    div {
+      margin-bottom: 0px;
+    }
   }
 }
 
@@ -1166,6 +1179,10 @@ font-size: 20px;
 }
 
 .why-container {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #ECF0F1;
+
   .fa {
     display: block;
     font-size: 70px;
@@ -1196,4 +1213,72 @@ font-size: 20px;
 
 .why-topic {
   margin-bottom: 50px;
+}
+
+.works-container {
+  margin-bottom: 20px;
+}
+
+@media(max-width:$desktopWidth) {
+  .why-container {
+    margin-top: 20px;
+  }
+
+  .works-container {
+    margin-bottom: 0px;
+
+    h1 {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.how-container {
+  .fa-pledge,
+  .fa-donation {
+    color: #358286;
+    font-size: 80px;
+  }
+
+  .fa-pledge:after {
+    content: "\f023";
+    color: black;
+    font-size: 60px;
+    position: absolute;
+    right: -10px;
+    bottom: -5px;
+  }
+
+  .fa-calendar-o {
+    color: #C0392B;
+  }
+
+  .fa-donation:after {
+    content: "\f13e";
+    color: black;
+    font-size: 60px;
+    position: absolute;
+    right: -10px;
+    bottom: -5px;
+  }
+
+  .fa-users {
+    color: #3B5998;
+  }
+}
+
+.step-three {
+  .operand {
+    font-size: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .fa-calendar-3:after {
+    content: "3";
+    font-size: 30px;
+    position: absolute;
+    top: 45%;
+    left: 38%;
+  }
 }
