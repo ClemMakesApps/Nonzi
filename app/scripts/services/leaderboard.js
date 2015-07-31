@@ -2,7 +2,7 @@
 
 angular.module('multiplyMe')
   .factory('Leaderboard', function ($resource, URL) {
-    return $resource(URL + 'v1/leaders/:limit', {limit: '@limit'} );
+    return $resource(URL + 'v1/leaders/:limit', {limit: '@limit', organization_id: 2} );
   })
   .factory('LeaderboardLoader', function($q, Leaderboard){
     return function(limit){
