@@ -1173,9 +1173,40 @@ font-size: 20px;
   border-color: #038386;
 }
 
+.btn-success.disabled, 
+.btn-success[disabled], 
+fieldset[disabled] .btn-success, 
+.btn-success.disabled:hover, 
+.btn-success[disabled]:hover, 
+fieldset[disabled] .btn-success:hover, 
+.btn-success.disabled:focus, 
+.btn-success[disabled]:focus, 
+fieldset[disabled] .btn-success:focus, 
+.btn-success.disabled.focus, 
+.btn-success[disabled].focus, 
+fieldset[disabled] .btn-success.focus, 
+.btn-success.disabled:active, 
+.btn-success[disabled]:active, 
+fieldset[disabled] .btn-success:active, 
+.btn-success.disabled.active, 
+.btn-success[disabled].active, 
+fieldset[disabled] .btn-success.active {
+  background-color: #008080;
+  border-color: #008080;
+}
+
 .btn-default {
   color: #1abc9c;
-  border: 3px solid #1abc9c;
+  border-color: #1abc9c;
+  border-width: 2px;
+  padding: 4px 10px;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: white;
 }
 
 .why-container {
@@ -1296,5 +1327,20 @@ font-size: 20px;
       padding-right: 10px;
     }
   }
+}
 
+.container-fluid {
+  .form-horizontal {
+    margin-top: 20px;
+  }
+}
+
+.btn-continue {
+  margin-right: 20px;
+}
+
+.pledge.content{
+  .btn-success {
+    margin-top: 10px;
+  }
 }
