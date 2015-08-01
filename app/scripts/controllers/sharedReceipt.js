@@ -13,6 +13,10 @@ angular.module('multiplyMe')
     $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
+    $scope.minutesRemaining = Math.round(($scope.hoursRemaining - ShareTree.hours_remaining) * 60);
+    if($scope.minutesRemaining === 0){
+      $scope.minutesRemaining = '00';
+    }
     $scope.daysRemaining = Math.round($scope.hoursRemaining / 24);
     $scope.recurring = ShareTree.parent.donation.is_subscription;
     $scope.referral = ShareTree.referral_code;
