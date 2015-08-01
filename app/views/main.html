@@ -63,28 +63,16 @@
                 Until 2003, when Santosh and Archana Singh invested in the future of this community. With funding from people like you, they were able to build a school--and give the community access to education for the first time. Now, instead of laboring to survive, children have opportunities to pursue an education and a better life. <br><br>
                 The school is full of positive role models and teachers who care about the success of their students. Each year, over 100 children are offered an alternative to manual labor and a route out of extreme poverty. Children who attend school are more likely to grow up healthy, earn a living wage, marry later, and pass on a better life to the next generation. For these kids, Bhatti Mines School means hope for the future and freedom to thrive.<br><br>
                 <h2 class="campaign-header">FAQ</h2>
-                <div class="panel-group" id="accordion">
-                  <div class="panel panel-default" ng-repeat="qa in faq">
-                    <div class="panel-heading">
-                      <h5 class="panel-title faq-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#!/#collapse{{$index + 1}}">{{qa.question}}</a>
-                      </h5>
-                    </div>
-                    <div id="collapse{{$index + 1}}" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <p>{{qa.answer}}</p>
-                      </div>
-                    </div>
-                  </div>
+                <div ng-repeat="qa in faq">
+                  <strong>{{qa.question}}</strong>
+                  <p>{{qa.answer}}</p>
                 </div>
                 <button type="button" class="btn btn-default ask" data-toggle="modal" data-target="#questionModal">Ask a Question</button>
-                <!-- <input type="text" ng-show="showfaq"> -->
               </p>
             </div>
             <div class="tab-pane" id="updates">
               <div class="iframe-container">
                 <iframe class="iframe" src="/#!/mailchimp" style="width:100%;height:800px"/></iframe>
-                  <!--<script language="javascript" src="http://us10.campaign-archive2.com/generate-js/?u=37aa354ead06ef426b16aa342&fid=981&show=10" type="text/javascript"></script>-->  
               </div>
             </div>
             <div class="tab-pane" id="comments">
