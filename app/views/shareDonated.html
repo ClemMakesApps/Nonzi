@@ -12,10 +12,10 @@
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
       <div class="row prompt-container">
         <div class="col-md-2 col-sm-2 col-xs-3 text-right">
-          <img src="http://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=75&r=pg&d=mm" alt="avatar" class="img-circle">
+          <img ng-src="{{parent.image_url}}" alt="avatar" class="img-circle">
         </div>
         <div class="col-md-10 col-sm-10 col-xs-9 prompt">
-          <span>Jacob pledged to donate <strong>$500 per month</strong>. Will you join this cause?</span>
+          <span>{{firstName}} pledged to donate <strong>${{parent.donation.amount * .01}}</strong><strong ng-if="parent.donation.is_subscription">&#160;per month</strong>. Will you join this cause?</span>
         </div>
       </div>
       <div class="row">
