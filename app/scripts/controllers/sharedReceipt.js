@@ -12,6 +12,12 @@ angular.module('multiplyMe')
     $scope.personalImpact = ShareTree.personal_impact * .01;
     $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
+    if($scope.personalImpact != 0){
+      $scope.leverage = $scope.networkImpact / $scope.personalImpact
+    }
+    else {
+      $scope.leverage = $scope.networkImpact / 1
+    }
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
     $scope.minutesRemaining = Math.round(($scope.hoursRemaining - ShareTree.hours_remaining) * 60);
     if($scope.minutesRemaining === 0){
