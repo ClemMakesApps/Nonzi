@@ -1,0 +1,45 @@
+.payment-header {
+  margin-bottom: 20px;
+
+  .secure-tag {
+    position: relative;
+    left: 30px;
+    font-size: 14px;
+  }
+}
+
+.paymentFields {
+  form {
+    margin-top: 0px;
+  }
+}
+
+
+.contribution-container {
+
+  .form {
+    margin-top: 0px;
+  }
+}
+
+@media(max-width:$tabletWidth) {
+  .contribution-container {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .form {
+      margin-top: 20px;
+      border-radius: 0px;
+    }
+  }
+
+  .paymentFields {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    form {
+      border-radius: 0px;
+      padding: 20px;
+    }
+  }
+}

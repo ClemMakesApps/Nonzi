@@ -2,155 +2,158 @@
   <mm-header></mm-header>
   <mm-steps active="3"></mm-steps>
   <div class="row">
-    <div class="container-fluid payment-container">
-      <div class="col-md-offset-2 col-md-8">
-        <div class="alert alert-success" role="alert" ng-show="hasReferral && referralName">
-          <span ng-show="referralChildren < 2 && !referralPaid"><strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.</span>
-          <span ng-show="referralChildren == 2 && !referralPaid"><strong>You are Fantastic!</strong> {{referralName}}'s pledge will be donated after your contribution.</span>
-          <span ng-show="referralChildren >= 3 || referralPaid"><strong>{{referralName}} thanks you</strong> for joining in support for the Bhatti Mines School.</span>
-        </div>
+  	<div class="col-md-offset-1 col-md-10 payment-header">
+  		<h2 class="title-normal">
+        Payment Information 
+        <span class="secure-tag hidden-xs"><span class="fa fa-lock"></span> SECURE</span>
+      </h2>
+  		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
+  	</div>
+    
+    <div class="col-lg-offset-1 col-md-10" ng-show="errorMessage">
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Error!</strong> {{errorMessage}}
       </div>
-    	<div class="col-md-offset-1 col-md-10">
-    		<h2 class="title-normal">Payment Information</h2>
-    		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
-    	</div>
-    	<div class="clearfix">
-        <div class="col-md-offset-1 col-lg-6 col-md-6 col-sm-6  margin-top-20 margin-bottom-negative align-children">
-          <h3 class="pull-left">Card Information</h3>
-          <h5 class="pull-right"><span class="fa fa-lock"></span> SECURE</h5>
-        </div>
-  			<div class="alert alert-info" role="alert" ng-show="signedIn">
-  			  <strong>Welcome back!</strong> 
-          <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
-    		</div>
-    	</div>
-      <div class="col-lg-offset-1 col-lg-7 col-md-9 col-sm-12" ng-show="errorMessage">
-        <div class="alert alert-danger alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Error!</strong> {{errorMessage}}
-        </div>
-      </div>
-      <div class="col-lg-offset-1 col-md-offset-1 col-lg-5 col-md-5 col-sm-6 paymentFields">
-        <form name="paymentForm " class="form">
-          <div class="form-group">
-            <label for="cardNumber" class="control-label">Card number</label>
-              <div class="has-feedback"  ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
-                <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
-                       ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number" required>
-                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
-              </div>
-            </div>
-          <div class="form-group row">
-            <div class="col-xs-4">
-      				<label class="control-label" >Month</label>
-              <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
-            </div>
-            <div class="col-xs-4">
-      				<label class="control-label" >Year</label>
-              <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
-            </div>
-    			  <div class="col-xs-4">	
-      				<label for="cvc" class="control-label">CVC</label>
-      				<div class="has-feedback cvc-form-group" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
-      					<input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN" required>
-      					<span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
-      					<span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
-      					<!-- <div class="pull-right" style="padding-left:0px">
-      						<button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
-      						  <span class="glyphicon glyphicon-question-sign grayText"></span>
-      						</button>
-      					</div> -->
-      				</div>
-      			</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-1 col-md-offset-1 col-lg-5 col-md-5 col-sm-6 paymentFields">
+      <form name="paymentForm" class="form">
+        <div class="form-group">
+          <label for="cardNumber" class="control-label">Card number</label>
+          <div class="has-feedback"  ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
+            <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
+                   ng-pattern="/^[0-9]{12,16}$/" required>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
           </div>
-          <div class="form-group" >
-            <label for="zip" class="control-label">Postal code</label>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-4">
+    				<label class="control-label" >Month</label>
+            <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
+          </div>
+          <div class="col-xs-4">
+    				<label class="control-label" >Year</label>
+            <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
+          </div>
+  			  <div class="col-xs-4">	
+    				<label for="cvc" class="control-label">CVC</label>
+    				<div class="has-feedback cvc-form-group" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
+    					<input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" required>
+    					<span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
+    					<span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
+    					<!-- <div class="pull-right" style="padding-left:0px">
+    						<button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
+    						  <span class="glyphicon glyphicon-question-sign grayText"></span>
+    						</button>
+    					</div> -->
+    				</div>
+    			</div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-4">
+            <label for="zip" class="control-label"><span class="visible-lg-inline">Billing</span> Zipcode</label>
             <div  class="has-feedback" ng-class="{'has-error': paymentForm.zip.$invalid && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$invalid && paymentForm.zip.$dirty}">
               <input ng-model="payment.zip" name="zip" type="text" class="form-control col-sm-4 col-xs-7"
-                     ng-pattern="/^[0-9]{5,6}$/" id="zip" placeholder="Postal Code" required>
+                     ng-pattern="/^[0-9]{5}$/" id="zip" required>
               <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
             </div>
           </div>
-    		  <div class="checkbox form-group">
-            <label class="updates-checkbox">
-              <input ng-model="subscribe" type="checkbox" checked> Send me campaign updates
-            </label>
-          </div> 
-        </form>
-    	</div>
-
-      <div class="col-lg-5 col-md-5 col-sm-6">
-        <div class="form">
-    	    <div class="align-children clearfix">
-            <h3 class="pull-left">Contribution</h3>
-            <a class="pull-right small" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
-              <span class="glyphicon glyphicon-pencil"></span> Edit
-            </a>
-      		</div>
-          <h4>{{amount | currency}} USD</h4>
-          <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
+          <div class="col-xs-8">
+            <label for="referral" class="control-label">Referral Code</label>
+            <div  class="has-feedback" ng-class="{'has-error': paymentForm.referral.$invalid && paymentForm.referral.$dirty, 'has-success': !paymentForm.referral.$invalid && paymentForm.referral.$dirty}">
+              <input ng-model="payment.referral" name="referral" type="text" class="form-control col-sm-4 col-xs-7"
+                     ng-pattern="/^[a-zA-Z0-9]*$/" id="referral">
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.referral.$invalid && paymentForm.referral.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.referral.$invalid && paymentForm.referral.$dirty"></span>
+            </div>
+          </div>
         </div>
-      </div>
+  		  <div class="checkbox form-group">
+          <label class="updates-checkbox">
+            <input ng-model="subscribe" type="checkbox" checked> Send me campaign updates
+          </label>
+        </div> 
+      </form>
+  	</div>
 
-      <div class="margin-top-20 col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12 login-box text-center">
-        <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
-        <p>Use your social network to multiply your impact. It's easy!</p>
-        <div class="challenge-description">
-          <div class="row table">
-            <div class="round col-xs-3">
-              1
-            </div>
-            <div class="cell">
-              Pledge a Donation
-            </div>
-          </div>
-          <div class="row table">
-            <div class="round col-xs-3 ">
-              2
-            </div>
-            <div class="cell">
-              Invite 3 friends to <br/>pledge within 3 days
-              <p class="subtext">Donations will count as well</p>
-            </div>
-          </div>
-          <div class="row table">
-            <div class="round col-xs-3">
-              3
-            </div>
-            <div class="cell">
-              Your pledge is donated
-              <p class="subtext">If all 3 of your friends pledge or donate</p>
-            </div>
-          </div>
-    		  <div class="row">
-      		  <div class="col-xs-6 margin-top-20">
-        			<button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block login-btn" ng-disabled="donating || enableLoading || paymentForm.$invalid">
-        			  <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-          				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-        			  </svg>
-        			  <div class="lead-in">{{donateStatus || "Skip challenge and"}}</div>
-        			  <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate Instead"}}</span>
-        			</button>
-        		</div>
-        		<div class="col-xs-6 margin-top-20">
-        			<button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block ask" ng-disabled="donating || enableLoading || paymentForm.$invalid">
-        			  <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-          				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-        			  </svg>
-        			  <div class="lead-in">{{challengeProgress || "Take the"}}</div>
-        			  <span style="font-weight:bold;font-size:16px;">Challenge</span>
-        			</button>
-      			</div>
-      		</div>
-        </div>
-        <p class="small margin-top-20">By proceeding you agree to MultiplyMe’s <a ui-sref="terms" target="_blank">Terms of Use</a> and <a ui-sref="privacy" target="_blank">Privacy Policy</a><p>
+    <div class="col-lg-5 col-md-5 col-sm-6 contribution-container">
+      <div class="form">
+  	    <div class="align-children clearfix">
+          <h3 class="pull-left">Contribution</h3>
+          <a class="pull-right small" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+          </a>
+    		</div>
+        <!-- <h4>{{amount | currency}} USD</h4> -->
+        <h4>$500 USD</h4>
+        <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
       </div>
     </div>
   </div>
-  <div class="highlightChallenge" ng-show="highlightNext" ng-click="disableHighlightNext()"></div>
-  <footer></footer>
+  <div class="row">
+    <div class="margin-top-20 col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12 login-box text-center">
+      <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
+      <p>Use your social network to multiply your impact. It's easy!</p>
+      <div class="challenge-description">
+        <div class="row table">
+          <div class="round col-xs-3">
+            1
+          </div>
+          <div class="cell">
+            Pledge a Donation
+          </div>
+        </div>
+        <div class="row table">
+          <div class="round col-xs-3 ">
+            2
+          </div>
+          <div class="cell">
+            Invite 3 friends to <br/>pledge within 3 days
+            <p class="subtext">Donations will count as well</p>
+          </div>
+        </div>
+        <div class="row table">
+          <div class="round col-xs-3">
+            3
+          </div>
+          <div class="cell">
+            Your pledge is donated
+            <p class="subtext">If all 3 of your friends pledge or donate</p>
+          </div>
+        </div>
+  		  <div class="row">
+    		  <div class="col-xs-6 margin-top-20">
+      			<button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block btn-default" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+      			  <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      			  </svg>
+      			  <div class="lead-in">{{donateStatus || "Skip challenge and"}}</div>
+      			  <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate Instead"}}</span>
+      			</button>
+      		</div>
+      		<div class="col-xs-6 margin-top-20">
+      			<button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block btn-success" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+      			  <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      			  </svg>
+      			  <div class="lead-in">{{challengeProgress || "Take the"}}</div>
+      			  <span style="font-weight:bold;font-size:16px;">Challenge</span>
+      			</button>
+    			</div>
+    		</div>
+      </div>
+      <p class="small margin-top-20">By proceeding you agree to MultiplyMe’s <a ui-sref="terms" target="_blank">Terms of Use</a> and <a ui-sref="privacy" target="_blank">Privacy Policy</a><p>
+    </div>
+  </div>
+</div>
+<footer></footer>
+
+
+
   <div id="learnMore" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">

@@ -1,3 +1,5 @@
+
+
 $white: #fff;
 $dark: #000;
 $c1: #2c3e50; //darkslategray
@@ -17,6 +19,8 @@ $lgWidth: 1200px; //lg
       -ms-border-radius: $radius;
           border-radius: $radius;
 };
+
+@import 'payments';
 
 /*spacers*/
 
@@ -466,7 +470,6 @@ margin-top:20px;
   margin-left: -30px;
  }
  .checkbox label{
- font-size:12px;
   padding-left: 30px;
  }
  span{
