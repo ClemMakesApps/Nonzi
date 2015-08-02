@@ -33,8 +33,8 @@ margin-top: 0;
 padding-top: 0;
 }
 
-.margin-top-20{
-margin-top: 20px;
+.margin-bottom-20{
+margin-bottom: 20px;
 }
 
 .sometimes-pad{
@@ -105,10 +105,7 @@ nav.campaign{
 }
 
 .plus{
-	font-size: 35px;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-weight: bold;
+	display:none;
 }
 
 .logo-multiply{
@@ -118,13 +115,12 @@ width: 50px;
 height: 25px;
 background-size: contain;
 background-repeat: no-repeat;
+margin-top: 20px;
+margin-bottom: -20px;
 }
 
 .logo-partner{
-background: url('../images/backonmyfeet.jpg');
-display:inline-block;  
-width: 200px;
-height: 50px;
+width: 0px;
 background-size: contain;
 background-repeat: no-repeat;
 margin-bottom: -20px;
@@ -142,7 +138,7 @@ margin-top: 20px;
 
 footer {
   margin-top: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 	background-color: $c3;
 	font-size:14px;
 	.logo-full{
@@ -254,14 +250,14 @@ background-color: $c5;
 	}
 	.nav-tabs {
 		border-color:$c4;
-		font-size: 20px;
+		font-size: 15px;
 		font-weight: bold;
 		border-bottom: 5px solid $c4;
-		margin-right:20px;
+	//	margin-right:20px;
 			li{
 				margin-bottom: -2px;
 				a{ 
-					padding: 10px 20px;
+					padding: 10px 10px;
 					color: $dark
 				}
 				a:hover{
@@ -299,10 +295,10 @@ padding: 3px 8px;
 }
 
 .sign-in {
-  position: absolute;
+//  position: absolute;
   right: 15px;
   font-weight:bold;
-  margin-top:20px;
+//  margin-top:20px;
 }
 
 footer .btn{
@@ -350,7 +346,7 @@ color: white;
   border-color: $c5;
 }
 
-.sign-in, .ask{
+.btn.sign-in, .btn.ask{
 color: $c5;
 border: 3px solid $c5;
 @include border-radius(6px);
@@ -359,9 +355,9 @@ padding: 3px 8px;
 background-color: white;
 }
 
-.sign-in {
+.btn.sign-in {
   position: absolute;
-  right: 15px;
+  right: 0px;
 }
 
 .link-btn{
@@ -423,7 +419,7 @@ background-color: $c2;
 nav.campaign .text-center{padding-left: 0}
 
 .form{
-background-color: $c3;
+background-color: $secondaryBG;
 padding: 30px;
 width: 100%;
 border-radius: 12px;
@@ -439,14 +435,15 @@ margin-top:20px;
 		// position:absolute;
 		// top:10px;
 	// }
-	// .currency-label{
-		// right:10px;
-	// }
+	 .currency-label{
+    float: right;
+    padding-right: 8px;
+	 }
 	// .currency-sympbol{
 		// left:10px;
 	// }
 	input{
-  width: 70%;
+  width: 40%;
   margin-left: 15px;
  border: none 0px transparent;
 	}
@@ -530,9 +527,58 @@ margin:20px;
     vertical-align: middle;
 	width: 70%;}
 
+.hide-overflow{
+overflow: hidden;
+}
 
+mm-steps .row{
+padding-top: 20px;
+}
 
+@media (min-width: 500px) {
+.logo-partner{
+background: url('../images/backonmyfeet.jpg');
+display:inline-block;  
+width: 200px;
+height: 50px;
+    margin-bottom: -20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+margin-top: 0px;
+	}
+	
+	
+mm-steps .row{
+padding-top: 0px;
+}
+	
+.btn.sign-in{
+margin-top:20px;
+right: 15px;
+}
+	
+.logo-multiply{
+margin-bottom: 0;
+}
+	
+.form .form-pledge input{
+width: 70%;
+}
 
+.plus{
+	font-size: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+  display: initial;
+}
+
+.nav-tabs {
+	font-size: 18px;
+	a{
+	padding: 15px;
+	}}
+}
 
 /* Small devices (tablets, 768px and up)  */
 @media (min-width: $tabletWidth) {
@@ -549,7 +595,11 @@ footer>:last-child{
   clear:none;
   }
 }
-
+.nav-tabs {
+	font-size: 20px;
+	a{
+	padding: 10px;
+	}}
 
 .col-xs-full{
 	margin-left:-40px;
@@ -591,23 +641,23 @@ font-size: 20px;
   font-weight: normal;
 	}
 	
-	.sign-in, .ask{
+	.btn.sign-in, .btn.ask{
   	padding:6px 30px;
   	font-size: 14px;
   	border-radius: 10px;
 	}
 	
-	.sign-in:hover, .ask:hover{
+	.btn.sign-in:hover, .btn.ask:hover{
 	background-color: $c3;
 	color: $c2;
 	}
 	
-	.ask{
+	.btn.ask{
 	font-weight: bold;
 	}
 
-  .sign-in {
-    position: absolute;
+  .btn.sign-in {
+ //   position: absolute;
     right: 25px;
   }
 	
@@ -624,7 +674,7 @@ font-size: 20px;
 	}
 	
 	
-	.btn-primary{
+	.btn.btn-primary{
 	  padding: 20px;
 	}
 	

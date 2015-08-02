@@ -9,8 +9,8 @@
   margin-top: 0;
   padding-top: 0; }
 
-.margin-top-20 {
-  margin-top: 20px; }
+.margin-bottom-20 {
+  margin-bottom: 20px; }
 
 .sometimes-pad {
   padding: 0px; }
@@ -66,10 +66,7 @@ nav.campaign .text-center {
   padding-left: 16%; }
 
 .plus {
-  font-size: 35px;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-weight: bold; }
+  display: none; }
 
 .logo-multiply {
   background: url("../images/m.png");
@@ -77,13 +74,12 @@ nav.campaign .text-center {
   width: 50px;
   height: 25px;
   background-size: contain;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  margin-bottom: -20px; }
 
 .logo-partner {
-  background: url("../images/backonmyfeet.jpg");
-  display: inline-block;
-  width: 200px;
-  height: 50px;
+  width: 0px;
   background-size: contain;
   background-repeat: no-repeat;
   margin-bottom: -20px; }
@@ -97,7 +93,7 @@ nav.campaign .text-center {
 
 footer {
   margin-top: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   background-color: #ecf0f1;
   font-size: 14px; }
   footer .logo-full {
@@ -183,14 +179,13 @@ body {
     font-weight: bold; }
   .campaign-content .nav-tabs {
     border-color: #358286;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    border-bottom: 5px solid #358286;
-    margin-right: 20px; }
+    border-bottom: 5px solid #358286; }
     .campaign-content .nav-tabs li {
       margin-bottom: -2px; }
       .campaign-content .nav-tabs li a {
-        padding: 10px 20px;
+        padding: 10px 10px;
         color: #000; }
       .campaign-content .nav-tabs li a:hover {
         padding-bottom: 8px;
@@ -221,10 +216,8 @@ body {
   padding: 3px 8px; }
 
 .sign-in {
-  position: absolute;
   right: 15px;
-  font-weight: bold;
-  margin-top: 20px; }
+  font-weight: bold; }
 
 footer .btn {
   border-radius: 10px;
@@ -264,7 +257,7 @@ footer .btn {
   background-color: #1abc9c;
   border-color: #1abc9c; }
 
-.sign-in, .ask {
+.btn.sign-in, .btn.ask {
   color: #1abc9c;
   border: 3px solid #1abc9c;
   -webkit-border-radius: 6px;
@@ -275,9 +268,9 @@ footer .btn {
   padding: 3px 8px;
   background-color: white; }
 
-.sign-in {
+.btn.sign-in {
   position: absolute;
-  right: 15px; }
+  right: 0px; }
 
 .link-btn {
   color: #1abc9c;
@@ -332,7 +325,7 @@ nav.campaign .text-center {
   padding-left: 0; }
 
 .form {
-  background-color: #ecf0f1;
+  background-color: rgba(243, 156, 18, 0.27);
   padding: 30px;
   width: 100%;
   border-radius: 12px;
@@ -343,8 +336,11 @@ nav.campaign .text-center {
     border: 1px solid #000;
     background-color: #fff;
     position: relative; }
+    .form .form-pledge .currency-label {
+      float: right;
+      padding-right: 8px; }
     .form .form-pledge input {
-      width: 70%;
+      width: 40%;
       margin-left: 15px;
       border: none 0px transparent; }
   .form .checkbox input[type="checkbox"] {
@@ -412,6 +408,47 @@ a.btn-primary.hidden-xs {
   vertical-align: middle;
   width: 70%; }
 
+.hide-overflow {
+  overflow: hidden; }
+
+mm-steps .row {
+  padding-top: 20px; }
+
+@media (min-width: 500px) {
+  .logo-partner {
+    background: url("../images/backonmyfeet.jpg");
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin-bottom: -20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0px; }
+
+  mm-steps .row {
+    padding-top: 0px; }
+
+  .btn.sign-in {
+    margin-top: 20px;
+    right: 15px; }
+
+  .logo-multiply {
+    margin-bottom: 0; }
+
+  .form .form-pledge input {
+    width: 70%; }
+
+  .plus {
+    font-size: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    display: initial; }
+
+  .nav-tabs {
+    font-size: 18px; }
+    .nav-tabs a {
+      padding: 15px; } }
 /* Small devices (tablets, 768px and up)  */
 @media (min-width: 768px) {
   .suggested .perks, .suggested .action-header {
@@ -421,6 +458,11 @@ a.btn-primary.hidden-xs {
   footer > :last-child label {
     padding-top: 0px;
     clear: none; }
+
+  .nav-tabs {
+    font-size: 20px; }
+    .nav-tabs a {
+      padding: 10px; }
 
   .col-xs-full {
     margin-left: -40px;
@@ -455,20 +497,19 @@ a.btn-primary.hidden-xs {
     margin-right: 30px;
     font-weight: normal; }
 
-  .sign-in, .ask {
+  .btn.sign-in, .btn.ask {
     padding: 6px 30px;
     font-size: 14px;
     border-radius: 10px; }
 
-  .sign-in:hover, .ask:hover {
+  .btn.sign-in:hover, .btn.ask:hover {
     background-color: #ecf0f1;
     color: #038386; }
 
-  .ask {
+  .btn.ask {
     font-weight: bold; }
 
-  .sign-in {
-    position: absolute;
+  .btn.sign-in {
     right: 25px; }
 
   .details h2 {
@@ -477,7 +518,7 @@ a.btn-primary.hidden-xs {
   .details p {
     font-size: 22px; }
 
-  .btn-primary {
+  .btn.btn-primary {
     padding: 20px; }
 
   .cause {
@@ -678,13 +719,19 @@ a.btn-primary.hidden-xs {
   .how-container .fa-envelope-square,
   .how-container .fa-twitter-square {
     margin-right: 10px; }
-  .how-container li {
-    list-style: none; }
-    .how-container li div {
-      margin-bottom: 20px; }
+  .how-container div {
+    margin-bottom: 20px; }
   .how-container .single-row {
     line-height: 80px; }
 
+@media (max-width: 992px) {
+  .how-container .col-sm-12 {
+    text-align: center; }
+  .how-container .step-two,
+  .how-container .step-three {
+    margin-top: 20px; }
+  .how-container div {
+    margin-bottom: 0px; } }
 .prompt-container {
   padding: 20px;
   margin-left: 0px;
@@ -839,27 +886,122 @@ a.btn-primary.hidden-xs {
   background-color: #038386;
   border-color: #038386; }
 
+.btn-success.disabled,
+.btn-success[disabled],
+fieldset[disabled] .btn-success,
+.btn-success.disabled:hover,
+.btn-success[disabled]:hover,
+fieldset[disabled] .btn-success:hover,
+.btn-success.disabled:focus,
+.btn-success[disabled]:focus,
+fieldset[disabled] .btn-success:focus,
+.btn-success.disabled.focus,
+.btn-success[disabled].focus,
+fieldset[disabled] .btn-success.focus,
+.btn-success.disabled:active,
+.btn-success[disabled]:active,
+fieldset[disabled] .btn-success:active,
+.btn-success.disabled.active,
+.btn-success[disabled].active,
+fieldset[disabled] .btn-success.active {
+  background-color: #008080;
+  border-color: #008080; }
+
 .btn-default {
   color: #1abc9c;
-  border: 3px solid #1abc9c; }
+  border-color: #1abc9c;
+  border-width: 2px;
+  padding: 4px 10px; }
 
-.why-container .fa {
-  display: block;
-  font-size: 70px;
-  text-align: center;
-  margin-bottom: 10px; }
-.why-container .fa-bullhorn {
-  color: #D35400; }
-.why-container .fa-line-chart {
-  color: #27AE60; }
-.why-container .fa-sitemap {
-  color: #2980B9; }
-.why-container .fa-life-ring {
-  color: #F39C12; }
-.why-container strong {
-  font-size: 17px; }
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: white; }
+
+.why-container {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #ECF0F1; }
+  .why-container .fa {
+    display: block;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 10px; }
+  .why-container .fa-bullhorn {
+    color: #D35400; }
+  .why-container .fa-line-chart {
+    color: #27AE60; }
+  .why-container .fa-sitemap {
+    color: #2980B9; }
+  .why-container .fa-life-ring {
+    color: #F39C12; }
+  .why-container strong {
+    font-size: 17px; }
 
 .why-topic {
   margin-bottom: 50px; }
+
+.works-container {
+  margin-bottom: 20px; }
+
+@media (max-width: 992px) {
+  .why-container {
+    margin-top: 20px; }
+
+  .works-container {
+    margin-bottom: 0px; }
+    .works-container h1 {
+      margin-bottom: 0px; } }
+.how-container .fa-pledge,
+.how-container .fa-donation {
+  color: #358286;
+  font-size: 80px;
+  position: relative; }
+.how-container .fa-pledge:after {
+  content: "\f023";
+  color: black;
+  font-size: 60px;
+  position: absolute;
+  right: -10px;
+  bottom: -5px; }
+.how-container .fa-calendar-o {
+  color: #C0392B; }
+.how-container .fa-donation:after {
+  content: "\f13e";
+  color: black;
+  font-size: 60px;
+  position: absolute;
+  right: -10px;
+  bottom: -5px; }
+.how-container .fa-users {
+  color: #3B5998; }
+
+.step-three .operand {
+  font-size: 60px;
+  padding-left: 20px;
+  padding-right: 20px; }
+.step-three .fa-calendar-3 {
+  position: relative; }
+.step-three .fa-calendar-3:after {
+  content: "3";
+  font-size: 30px;
+  position: absolute;
+  top: 45%;
+  left: 38%; }
+
+@media (max-width: 768px) {
+  .step-three .operand {
+    font-size: 40px;
+    padding-left: 10px;
+    padding-right: 10px; } }
+.container-fluid .form-horizontal {
+  margin-top: 20px; }
+
+.btn-continue {
+  margin-right: 20px; }
+
+.pledge.content .btn-success {
+  margin-top: 10px; }
 
 /*# sourceMappingURL=main.css.map */
