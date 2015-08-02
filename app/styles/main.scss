@@ -325,6 +325,10 @@ color: white;
   border-color: $c5;
 }
 
+.login-box {
+  margin-bottom: 20px;
+}
+
 .btn-primary{
   margin: 10px 8% 0px 8%;
   width: 84%;
@@ -366,7 +370,7 @@ background-color: white;
 
 .link-btn{
 color: $c5;
-font-size: 18px;
+font-size: 14px;
 padding: 6px 8px;
 text-align: center;
 font-weight:bold;
@@ -423,8 +427,8 @@ background-color: $c2;
 nav.campaign .text-center{padding-left: 0}
 
 .form{
-background-color: $c3;
-padding: 30px;
+background-color: $secondaryBG;
+padding: 25px;
 width: 100%;
 border-radius: 12px;
 margin-top:20px;

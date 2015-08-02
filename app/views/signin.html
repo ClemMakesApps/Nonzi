@@ -3,9 +3,8 @@
   <div class="row">
     <div class="container-fluid signin-container" >
       <div class="col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12 login-box">
-        <div class="text-center" style="padding-bottom: 10px">
-          <h2>Bhatti Mines School</h2>
-          <h1 style="margin-top:0px">Donor Login</h1>
+        <div class="text-center">
+          <h1 style="margin-top:0px">Sign In</h1>
         </div>
         <div class="alert alert-danger alert-dismissible" role="alert" ng-show="invalidCredentials">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -27,9 +26,9 @@
             <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.password.$error.required && loginForm.password.$dirty"></span>
           </div>
           <div>
-            <button type="button" class="btn btn-main login-btn btn-block"
+            <button type="button" class="btn btn-success btn-block"
             ng-click="login()" ng-disabled="loginForm.$invalid">Sign In</button>
-            <button type="button" class="btn btn-link link-btn" data-toggle="modal" data-target=".forgot-password-modal">Forgot Password?</button>
+            <button type="button" class="btn btn-link link-btn btn-block" data-toggle="modal" data-target=".forgot-password-modal">Forgot Password?</button>
             <!-- <hr style="clear:both">
             <button type="button" class="btn btn-primary btn-action btn-block btn-lg"
             ng-click="authenticate('facebook')">
@@ -38,7 +37,10 @@
             </button> -->
           </div>
         </form>
-        <div class="form"><a ui-sref="contribute" class="btn btn-block sign-in">Make a contribution</a></div>
+        <div class="form">
+          <p><strong>Don't have an account?</strong></p>
+          <a ui-sref="contribute" class="btn btn-block btn-default">Make a contribution</a>
+        </div>
       </div>
     </div>
   </div>
