@@ -45,6 +45,8 @@ angular.module('multiplyMe')
     }
 	
     $scope.getInitials = function(name){
-      return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+      if(name != null){
+        return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+      }
     }
   });
