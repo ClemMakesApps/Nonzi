@@ -23,6 +23,7 @@ angular.module('multiplyMe')
     if(validForm()){
 
       var payment = $scope.payment;
+      console.log('payment', payment);
       $auth.submitRegistration({
         email: $scope.email,
         password: $scope.password,
@@ -32,7 +33,7 @@ angular.module('multiplyMe')
       .then(function(result){
         console.log(result);
         if(result.status === 200){
-          $state.go('payment', $stateParams);
+          $state.go('auth.payment', $stateParams);
         }
       });
     }
