@@ -236,8 +236,8 @@ angular.module('multiplyMe')
       $scope.donating = false;
       $scope.highlightNext = false;
 
-      $scope.donateStatus = "Just";
-      $scope.donateTextLarge = "Donate";
+      $scope.donateStatus = "Skip challenge and";
+      $scope.donateTextLarge = "Donate Instead";
 
       $scope.errorMessage = message;
       $timeout.cancel(highlightTimer);
