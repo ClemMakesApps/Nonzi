@@ -24,17 +24,21 @@ angular.module('multiplyMe')
   });
 
   $scope.suggestedDonations = [{
-    'amount': 16,
+    'amount': 10,
+    'recurring': false,
+    'message': 'A Food Handler’s Course for Members looking to get certification'
+  },{
+    'amount': 41,
     'recurring': true,
-    'message': 'Sponsor a student'
+    'message': 'Monthly bus pass'
   },{
-    'amount': 48,
+    'amount': 100,
     'recurring': false,
-    'message': 'Sponsor a student for a quarter'
+    'message': 'Two pairs of running shoes'
   },{
-    'amount': 191,
+    'amount': 250,
     'recurring': false,
-    'message': 'Sponsor a student for a year'
+    'message': 'Full running gear and incentives'
   }]
 
   LeaderboardLoader(5).then(function(result){
@@ -67,6 +71,18 @@ angular.module('multiplyMe')
   },{
     'question': 'Will I be able to cancel a recurring donation later?',
     'answer': 'Yes! When you make an pledge or donation you will create a password so that you can log in and cancel or edit your donation any time.',
+  },{
+    'question': 'How long has Back on My Feet been in existence?',
+    'answer': 'Back on My Feet began in 2007 in Philadelphia. The Austin chapter is the second youngest chapter. It launched in January 2013.',
+  },{
+    'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
+    'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
+  },{
+    'question': 'How did Back on my Feet start?',
+    'answer': 'Back on My Feet started when founder Anne Mahlum began a running group with some men she met outside of the Sunday Breakfast Rescue Mission during her early morning runs. From that humble beginning, Back on My Feet grew, expanding into cities across the country and growing into a more structured organization that has helped hundreds of people experiencing homelessness from coast to coast move their lives forward.',
+  },{
+    'question': 'How can I get involved?',
+    'answer': 'There are many ways to get involved with BoMF Austin! Visit our website to learn more about the many opportunities to support us, whether that’s through running with our teams, volunteering at an event, getting your company involved, or becoming a FundRacer! http://austin.backonmyfeet.org/austin-get-involved',
   }]
 
   $scope.org = {
