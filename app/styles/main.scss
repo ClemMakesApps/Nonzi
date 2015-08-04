@@ -9,6 +9,8 @@ $c4: #358286; //blue
 $c5: #1abc9c; //turqouise
 $secondaryBG: rgba(243, 156, 18, 0.27);
 
+$radiusSize: 5px;
+
 $tabletWidth: 768px; //sm
 $desktopWidth: 992px; //md
 $lgWidth: 1200px; //lg
@@ -21,6 +23,7 @@ $lgWidth: 1200px; //lg
 };
 
 @import 'payments';
+@import 'receipts';
 
 /*spacers*/
 

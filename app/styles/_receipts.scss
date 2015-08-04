@@ -1,0 +1,70 @@
+.rounded-secondary {
+  background-color: $secondaryBG;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: $radiusSize;
+}
+
+h1.receipt {
+  margin-bottom: 5px;
+}
+
+.img-supporter {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.supporter-images {
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+.supporter-initials {
+  display: flex;
+
+  & > span{
+    width: 52px;
+    text-align: center;
+  }
+}
+
+.btn-remind {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.supporter-container-label {
+  margin-top:30px;
+  padding-left:0px;
+  margin-bottom:5px;
+}
+
+@media(max-width:$tabletWidth) {
+  .supporter-container {
+    text-align: center;
+  }
+
+  .supporter-initials {
+    justify-content: center;
+  }
+
+  .btn-remind {
+    position: static;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .supporter-container-label {
+    text-align: center;
+  }
+}
+
+@media(max-width:$desktopWidth) {
+  .btn-remind {
+    bottom:10px;
+  }
+}
