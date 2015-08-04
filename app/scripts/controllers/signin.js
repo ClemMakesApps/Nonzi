@@ -9,6 +9,8 @@
 */
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope, $stateParams, EmailSubscribe) {
+
+  $scope.referral = $stateParams.refer;
   $scope.showRequestMessage = false;
   $scope.showResetMessage = false;
   $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
@@ -64,7 +66,7 @@ angular.module('multiplyMe')
       $auth.submitLogin($scope.user)
       .then(function(resp){
         console.log("user logged in successfully: "+ resp); //for debugging purpose
-        $state.go('auth.payment');
+        $state.go('auth.payment', $stateParams);
 
       }).catch(function(resp){
         console.log("error while logging in: ", resp); //for debugging purpose

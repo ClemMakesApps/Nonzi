@@ -78,6 +78,7 @@ angular.module('multiplyMe')
       'email': $scope.authUser.email,
       'verifyEmail': $scope.authUser.email
     }
+    $scope.payment.referral = $stateParams.refer;
 
     $scope.expirationYears = [];
     $scope.expirationMonths = [];

@@ -9,6 +9,7 @@
  */
 angular.module('multiplyMe')
 .controller('CreateAccountCtrl', function ($scope, $auth, $state, $stateParams) {
+  $scope.referral = $stateParams.refer;
 
   var validForm = function() {
     var payment = $scope.payment;
