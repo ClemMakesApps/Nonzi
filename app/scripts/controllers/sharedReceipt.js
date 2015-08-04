@@ -20,8 +20,8 @@ angular.module('multiplyMe')
     }
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
     $scope.minutesRemaining = Math.round(($scope.hoursRemaining - ShareTree.hours_remaining) * 60);
-    if($scope.minutesRemaining === 0){
-      $scope.minutesRemaining = '00';
+    if($scope.minutesRemaining.toString().length === 1){
+      $scope.minutesRemaining = '0' + $scope.minutesRemaining;
     }
     $scope.daysRemaining = Math.round($scope.hoursRemaining / 24);
     $scope.recurring = ShareTree.parent.donation.is_subscription;
@@ -45,6 +45,8 @@ angular.module('multiplyMe')
     }
 	
     $scope.getInitials = function(name){
-      return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+      if(name != null){
+        return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+      }
     }
   });

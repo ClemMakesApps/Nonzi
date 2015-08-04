@@ -95,58 +95,54 @@
     </div>
   </div>
   <div class="row">
-    <div class="margin-top-20 col-lg-6 col-lg-offset-3 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-12 login-box text-center">
+    <div class="margin-top-20 col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 login-box text-center">
       <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
       <p>Use your social network to multiply your impact. It's easy!</p>
-      <div class="challenge-description">
-        <div class="row table">
-          <div class="round col-xs-3">
-            1
-          </div>
-          <div class="cell">
+      <div class="col-lg-12 col-lg-offset-0 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="challenge-flex-container">
+          <div class="challenge-step">  
+            <div class="circle-steps">1</div>
             Pledge a Donation
           </div>
-        </div>
-        <div class="row table">
-          <div class="round col-xs-3 ">
-            2
+          <div class="challenge-step">  
+            <div class="circle-steps">2</div>
+            <div>
+              Invite 3 friends to <br> pledge within 3 days
+              <div style="font-size:14px;">Donations will count as well</div>
+            </div>
           </div>
-          <div class="cell">
-            Invite 3 friends to <br/>pledge within 3 days
-            <p class="subtext">Donations will count as well</p>
-          </div>
-        </div>
-        <div class="row table">
-          <div class="round col-xs-3">
-            3
-          </div>
-          <div class="cell">
-            Your pledge is donated
-            <p class="subtext">If all 3 of your friends pledge or donate</p>
+          <div class="challenge-step">  
+            <div class="circle-steps">3</div>
+            <div>
+              Your pledge is donated
+              <div style="font-size:14px;">If all 3 of your friends pledge or donate</div>
+            </div>
           </div>
         </div>
-  		  <div class="row">
-    		  <div class="col-xs-6 margin-top-20">
-      			<button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block btn-default" ng-disabled="donating || enableLoading || paymentForm.$invalid">
-      			  <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-      			  </svg>
-      			  <div class="lead-in">{{donateStatus || "Skip challenge and"}}</div>
-      			  <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate Instead"}}</span>
-      			</button>
-      		</div>
-      		<div class="col-xs-6 margin-top-20">
-      			<button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block btn-success" ng-disabled="donating || enableLoading || paymentForm.$invalid">
-      			  <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        				<circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-      			  </svg>
-      			  <div class="lead-in">{{challengeProgress || "Take the"}}</div>
-      			  <span style="font-weight:bold;font-size:16px;">Challenge</span>
-      			</button>
-    			</div>
-    		</div>
       </div>
-      <p class="small margin-top-20">By proceeding you agree to MultiplyMe’s <a ui-sref="terms" target="_blank">Terms of Use</a> and <a ui-sref="privacy" target="_blank">Privacy Policy</a><p>
+    </div>
+    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="col-xs-6 margin-top-20">
+        <button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block btn-default" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+          <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+          </svg>
+          <div class="lead-in">{{donateStatus || "Skip challenge and"}}</div>
+          <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate Instead"}}</span>
+        </button>
+      </div>
+      <div class="col-xs-6 margin-top-20">
+        <button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block btn-success" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+          <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+          </svg>
+          <div class="lead-in">{{challengeProgress || "Take the"}}</div>
+          <span style="font-weight:bold;font-size:16px;">Challenge</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+      <p class="margin-top-20">By proceeding you agree to MultiplyMe’s <a class="link-green" ui-sref="terms" target="_blank">Terms of Use</a> and <a class="link-green" ui-sref="privacy" target="_blank">Privacy Policy</a><p>
     </div>
   </div>
 </div>

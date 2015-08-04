@@ -9,12 +9,15 @@
  */
 angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, $rootScope, LeaderboardLoader, organization) {
-  $scope.referral = Number($stateParams.refer);
+  $scope.referral = $stateParams.refer;
   $rootScope.title = "MultiplyMe + Back on My Feet Austin";
   $rootScope.ogTitle = $rootScope.title;
 
   if($scope.referral) {
     $scope.referHref = 'refer=' + $scope.referral;
+  }
+  if($stateParams.refer != null){
+    $scope.referrerName = $stateParams.refer.replace(/[0-9]/g, '');
   }
 
   organization.get({id: 2}, function(result){
