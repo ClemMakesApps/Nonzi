@@ -2,13 +2,14 @@
 
 angular.module('multiplyMe')
   .controller('SharedReceiptCtrl', function ($scope, $stateParams, $rootScope, ShareTree) {
-    $rootScope.title = 'Will you join ' + ShareTree.parent.name + ' in supporting Back on My Feet Austin';
+    $rootScope.title = 'Will you join ' + ShareTree.parent.name + ' in supporting the Bhatti Mines School';
     $rootScope.ogTitle = $rootScope.title;
 
     console.log(ShareTree);
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
+    console.log('children', $scope.children[0]);
     $scope.personalImpact = ShareTree.personal_impact * .01;
     $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
@@ -18,8 +19,9 @@ angular.module('multiplyMe')
     else {
       $scope.leverage = $scope.networkImpact / 1
     }
+    console.log('share tree', ShareTree.hours_remaining);
     $scope.hoursRemaining = Math.round(ShareTree.hours_remaining);
-    $scope.minutesRemaining = Math.round(($scope.hoursRemaining - ShareTree.hours_remaining) * 60);
+    $scope.minutesRemaining = Math.round((ShareTree.hours_remaining - Math.floor(ShareTree.hours_remaining)) * 60);
     if($scope.minutesRemaining.toString().length === 1){
       $scope.minutesRemaining = '0' + $scope.minutesRemaining;
     }
