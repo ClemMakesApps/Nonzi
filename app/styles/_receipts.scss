@@ -3,6 +3,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: $radiusSize;
+  position:relative;
 }
 
 h1.receipt {
@@ -41,6 +42,42 @@ h1.receipt {
   margin-bottom:5px;
 }
 
+.supporter-label {
+  margin-left:5px;
+}
+
+.supporter-content {
+  margin-top:10px;
+}
+
+.top-divider {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top-color: $c3;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.share-header {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+  text-align: center;
+}
+
+.share-subheader {
+  text-align: center;
+  display: block;
+}
+
+.message-box {
+  margin-top: 20px;
+
+  textarea {
+    width: 100%;
+  }
+}
+
 @media(max-width:$tabletWidth) {
   .supporter-container {
     text-align: center;
@@ -65,6 +102,6 @@ h1.receipt {
 
 @media(max-width:$desktopWidth) {
   .btn-remind {
-    bottom:10px;
+    bottom: 10px;
   }
 }
