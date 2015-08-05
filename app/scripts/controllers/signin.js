@@ -15,8 +15,8 @@ angular.module('multiplyMe')
   $scope.referral = $stateParams.refer;
   $scope.showRequestMessage = false;
   $scope.showResetMessage = false;
-  $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
-  $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+  $rootScope.title = "Back on My Feet Austin Donor Portal - MultiplyMe";
+  $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
   $scope.$on('auth:password-reset-confirm-success', function(){
     $('.reset-password-modal').modal();
   });
