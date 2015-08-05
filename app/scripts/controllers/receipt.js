@@ -12,6 +12,7 @@ angular.module('multiplyMe')
     $scope.donationId = Donation.donation.id
     $scope.donated = !Donation.donation.is_challenged;
     $scope.recurring = Donation.donation.is_subscription;
+    $scope.parentId = Donation.donation.parent_id;
     
     var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId;
     var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId + ' @AmalaFoundation';
