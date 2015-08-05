@@ -124,8 +124,8 @@ angular.module('multiplyMe')
       }
     }
 
-  var dateStart='2015-05-28';
-  var dateLength=34;
+  var dateStart='2015-08-04';
+  var dateLength=37;
   var dateToday=new Date();
   var parsedToday=Date.parse(dateToday);
   var parsedStart=Date.parse(dateStart);
