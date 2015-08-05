@@ -20,10 +20,10 @@ angular
   'ui.router',
   'ngFacebook'
 ])
-.constant('URL', 'https://api.multiplyme.in/')
+.constant('URL', 'https://api.multiplyme.in')
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
-    apiUrl: 'https://api.multiplyme.in/',
+    apiUrl: 'https://api.multiplyme.in',
     storage: 'localStorage'
   });
   $facebookProvider.setAppId('1417661645206719');
