@@ -6,7 +6,10 @@ angular.module('multiplyMe')
     $rootScope.ogTitle = 'Contribute to the Bhatti Mines School Project';
 
     $scope.donorName = Donation.name;
+    $scope.firstName = Donation.name.split(' ')[0]
     $scope.amount = Donation.donation.amount / 100;
+    console.log(Donation);
+    $scope.donationId = Donation.donation.id
     $scope.donated = !Donation.donation.is_challenged;
     $scope.recurring = Donation.donation.is_subscription;
     

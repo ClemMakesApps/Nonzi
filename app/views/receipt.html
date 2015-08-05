@@ -9,11 +9,11 @@
       <span>(Receipt has been emailed)</span>
     </div>
     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label">
-      You also helped Jacob’s challenge
+      You also helped {{firstName}}’s challenge
     </div>
     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 rounded-secondary">
       <div class="col-md-4 col-md-offset-0 col-sm-5 col-xs-12 supporter-container">
-        <span class="supporter-label">Jacob's Supporters</span>
+        <span class="supporter-label">{{firstName}}'s Supporters</span>
         <div class="supporter-images">
           <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
           <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
@@ -27,10 +27,10 @@
       </div>
       <div class="col-md-8 col-sm-7 col-xs-12">
         <div class="supporter-content">
-          2 more friends need to pledge or donate within the next 10 hours before Jacob’s challenge is complete
+          2 more friends need to pledge or donate within the next 10 hours before {{firstName}}’s challenge is complete
         </div>
       </div>
-      <a ui-sref="" class="btn btn-success btn-remind">Remind Jacob</a>
+      <a ui-sref="" class="btn btn-success btn-remind">Remind {{firstName}}</a>
     </div>
   </div>
   <div class="col-sm-10 col-sm-offset-1 col-xs-12 top-divider"></div>
@@ -38,7 +38,7 @@
     <span class="share-header">Friends who share on social media raise 10% more</span>
     <span class="share-subheader">We’ve made it simple for you. Just copy and paste</span>
     <div class="col-md-6 col-md-offset-3 rounded-secondary message-box">
-      <textarea class="form-control" rows="5">I just supported Bob Robbins from The Well Church. Learn more about what he’s doing and how you can help! https://thewell.multiplyme.in/share?challenge=clementh4</textarea>
+      <textarea class="form-control" rows="5">I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/sharedReceipt/{{donationId}}</textarea>
       <div style="margin-top: 10px;">
         <a class="btn btn-facebook" href="#" ng-click="share('facebook')"><i class="fa fa-facebook"></i> Share</a>
         <a class="btn btn-twitter" href="#" ng-click="share('twitter')"><i class="fa fa-twitter"></i> Tweet</a>
