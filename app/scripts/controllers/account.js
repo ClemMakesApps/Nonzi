@@ -35,8 +35,8 @@ angular.module('multiplyMe')
       }
     });
 
-    $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
-    $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+    $rootScope.title = $auth.user.name + '\'s Donor Account - Back on My Feet Austin';
+    $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
 
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
@@ -79,12 +79,12 @@ angular.module('multiplyMe')
     }
 
     var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://amala.multiplyme.in/#!/share/' + donationId;
-    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://amala.multiplyme.in/#!/share/' + donationId + ' @AmalaFoundation';
+    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://backonmyfeet.multiplyme.in/#!/share/' + donationId + ' @AmalaFoundation';
 
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
-         '//www.facebook.com/sharer/sharer.php?u=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+         '//www.facebook.com/sharer/sharer.php?u=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + donationId,
          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'twitter'){
@@ -100,12 +100,12 @@ angular.module('multiplyMe')
       }
       if(provider === 'google'){
         $window.open(
-          '//plus.google.com/share?url=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+          '//plus.google.com/share?url=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'email'){
         $window.open(
-          'mailto:?body=https://amala.multiplyme.in/#!/share/' + donationId,
+          'mailto:?body=https://backonmyfeet.multiplyme.in/#!/share/' + donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
