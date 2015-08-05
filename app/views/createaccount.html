@@ -12,7 +12,7 @@
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Invalid Credentials.</strong> Please try again.
         </div>
-        <form id="loginForm" name="loginForm" class="form" novalidate>
+        <form id="paymentForm" name="paymentForm" class="form" novalidate>
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
             <label for="name" class="control-label">Name</label>
             <input ng-model="name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
@@ -37,7 +37,7 @@
             <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
           </div>
           
-          <div class="form-group has-feedback" ng-class="{'has-error': loginForm.email.$error.pattern && loginForm.email.$dirty, 'has-success': !loginForm.email.$error.pattern && loginForm.email.$dirty}" >
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.email.$error.pattern && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$error.pattern && paymentForm.email.$dirty}" >
             <div class="form-group">
               <label for="password" class="control-label">Password</label>
               <div class="password-container">
