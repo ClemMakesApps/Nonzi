@@ -35,17 +35,21 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
 
 	$scope.suggestedDonations = [{
-    'amount': 16,
+    'amount': 10,
+    'recurring': false,
+    'message': 'A Food Handler’s Course for Members looking to get certification'
+  },{
+    'amount': 41,
     'recurring': true,
-    'message': 'Sponsor a student'
+    'message': 'Monthly bus pass'
   },{
-    'amount': 48,
+    'amount': 100,
     'recurring': false,
-    'message': 'Sponsor a student for a quarter'
+    'message': 'Two pairs of running shoes'
   },{
-    'amount': 191,
+    'amount': 250,
     'recurring': false,
-    'message': 'Sponsor a student for a year'
+    'message': 'Full running gear and incentives'
   }]
 
   //Suggestion related methods
