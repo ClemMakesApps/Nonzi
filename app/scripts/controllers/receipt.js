@@ -13,6 +13,14 @@ angular.module('multiplyMe')
     $scope.donated = !Donation.donation.is_challenged;
     $scope.recurring = Donation.donation.is_subscription;
     $scope.parentId = Donation.donation.parent_id;
+    $scope.children = Donation.parents_children_count;
+    $scope.parentDonation = Donation.parent_donation;
+    if(Donation.parent_time_remaining != null){
+      $scope.timeRemaining = Donation.parent_time_remaining;
+    }
+    if(Donation.parent_name != null){
+      $scope.parentFirstName = Donation.parent_name.split(' ')[0];
+    }
     
     var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId;
     var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId + ' @BoMFAustin';
