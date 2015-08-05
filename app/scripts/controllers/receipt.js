@@ -14,13 +14,13 @@ angular.module('multiplyMe')
     $scope.recurring = Donation.donation.is_subscription;
     $scope.parentId = Donation.donation.parent_id;
     
-    var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId;
-    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId + ' @AmalaFoundation';
+    var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId;
+    var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId + ' @BoMFAustin';
 
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
-         '//www.facebook.com/sharer/sharer.php?u=https://amala.multiplyme.in/?_escaped_fragment_=share/' + $stateParams.donationId,
+         '//www.facebook.com/sharer/sharer.php?u=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + $stateParams.donationId,
          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'twitter'){
