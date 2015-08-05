@@ -10,6 +10,8 @@
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope, $stateParams, EmailSubscribe) {
 
+  $scope.pledge = $stateParams.amount;
+  $scope.selectedRecurring = $stateParams.isSubscription;
   $scope.referral = $stateParams.refer;
   $scope.showRequestMessage = false;
   $scope.showResetMessage = false;

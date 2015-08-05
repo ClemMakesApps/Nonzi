@@ -10,6 +10,8 @@
 angular.module('multiplyMe')
 .controller('CreateAccountCtrl', function ($scope, $auth, $state, $stateParams) {
   $scope.referral = $stateParams.refer;
+  $scope.pledge = $stateParams.amount;
+  $scope.selectedRecurring = $stateParams.isSubscription;
 
   var validForm = function() {
     var payment = $scope.payment;
