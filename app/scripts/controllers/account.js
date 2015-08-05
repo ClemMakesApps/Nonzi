@@ -78,8 +78,8 @@ angular.module('multiplyMe')
       });
     }
 
-    var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://amala.multiplyme.in/#!/share/' + donationId;
-    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://backonmyfeet.multiplyme.in/#!/share/' + donationId + ' @AmalaFoundation';
+    var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + donationId;
+    var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + donationId + ' @BoMFAustin';
 
     $scope.share = function(provider){
       if(provider === 'facebook'){
