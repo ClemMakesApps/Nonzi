@@ -162,14 +162,14 @@ angular.module('multiplyMe')
               amount: Math.floor($stateParams.amount * 100),
               is_subscription: $scope.isSubscription,
               is_challenged: $scope.isChallenged,
-              referral_code: referrer,
               organization_id: 2
             },
             card: {
               token: token,
               email: email
             },
-            subscribe: $scope.subscribe
+            subscribe: $scope.subscribe,
+            referral_code: $scope.payment.referral
           },
           function(result){
             localStorage.setItem("receiptYes", "true");
