@@ -8,29 +8,31 @@
       <h1 class="receipt">You donated {{amount | currency:undefined:0}}</h1>
       <span>(Receipt has been emailed)</span>
     </div>
-    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label" ng-if="parentId != null">
-      You also helped {{firstName}}’s challenge
-    </div>
-    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 rounded-secondary" ng-if="parentId != null">
-      <div class="col-md-4 col-md-offset-0 col-sm-5 col-xs-12 supporter-container">
-        <span class="supporter-label">{{firstName}}'s Supporters</span>
-        <div class="supporter-images">
-          <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
-          <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
-          <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
-        </div>
-        <div class="supporter-initials">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+    <div ng-if="parentDonation && parentDonation.is_challenged">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label">
+        You also helped {{parentFirstName}}’s challenge
       </div>
-      <div class="col-md-8 col-sm-7 col-xs-12">
-        <div class="supporter-content">
-          2 more friends need to pledge or donate within the next 10 hours before {{firstName}}’s challenge is complete
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 rounded-secondary">
+        <div class="col-md-4 col-md-offset-0 col-sm-5 col-xs-12 supporter-container">
+          <span class="supporter-label">{{parentFirstName}}'s Supporters</span>
+          <div class="supporter-images">
+            <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
+            <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
+            <img class="img-circle img-responsive img-supporter" src="images/unknown-donor.png">
+          </div>
+          <div class="supporter-initials">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
+        <div class="col-md-8 col-sm-7 col-xs-12">
+          <div class="supporter-content">
+            {{3 - children}} more friends need to pledge or donate within the next {{timeRemaining}} hours before {{parentFirstName}}’s challenge is complete
+          </div>
+        </div>
+        <a ui-sref="" class="btn btn-success btn-remind">Remind {{parentFirstName}}</a>
       </div>
-      <a ui-sref="" class="btn btn-success btn-remind">Remind {{firstName}}</a>
     </div>
   </div>
   <div class="col-sm-10 col-sm-offset-1 col-xs-12 top-divider"></div>
