@@ -55,7 +55,7 @@ angular.module('multiplyMe')
 
   $scope.faq = [{
     'question': 'What happens if my friends don\'t respond in time?',
-    'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
+    'answer': 'Your pledged money will never be taken from your account. You are welcome to try again, either the challenge, or just donating directly. Any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   },{
     'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
     'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
@@ -63,29 +63,17 @@ angular.module('multiplyMe')
     'question': 'Do my friends have to match my pledge?',
     'answer': 'No, but you can encourage them to if you wish. The minimum donation is $1, and there is no maximum.',
   },{
-    'question': 'How do you know who is giving because of my pledge?',
-    'answer': 'When you complete your donation you will be given a unique share link so that we can figure out who refered who. On your account page you can keep track of how much money you\'ve personally raised through referals to your unique link.',
-  },{
-    'question': 'If I don\'t complete my challenge, when do I see a refund?',
-    'answer': 'Your money is not removed from your account until AFTER you complete the challenge. You won\'t see a refund because there is nothing to refund.',
-  },{
-    'question': 'Is this tax deductable?',
-    'answer': 'Yes, and we\'ll be automatically sending you reciepts for your tax purposes.',
+    'question': 'How much money did my friends give?',
+    'answer': 'When you complete your donation you will be given a referal code. On your account page you can keep track of how much money you\'ve personally raised through referals, and friends\' referals.',
   },{
     'question': 'Will I be able to cancel a recurring donation later?',
     'answer': 'Yes! When you make an pledge or donation you will create a password so that you can log in and cancel or edit your donation any time.',
-  },{
-    'question': 'How long has Back on My Feet been in existence?',
-    'answer': 'Back on My Feet began in 2007 in Philadelphia. The Austin chapter is the second youngest chapter. It launched in January 2013.',
-  },{
-    'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
-    'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
   },{
     'question': 'How did Back on my Feet start?',
     'answer': 'Back on My Feet started when founder Anne Mahlum began a running group with some men she met outside of the Sunday Breakfast Rescue Mission during her early morning runs. From that humble beginning, Back on My Feet grew, expanding into cities across the country and growing into a more structured organization that has helped hundreds of people experiencing homelessness from coast to coast move their lives forward.',
   },{
     'question': 'How can I get involved?',
-    'answer': 'There are many ways to get involved with BoMF Austin! Visit our website to learn more about the many opportunities to support us, whether that’s through running with our teams, volunteering at an event, getting your company involved, or becoming a FundRacer! http://austin.backonmyfeet.org/austin-get-involved',
+    'answer': 'There are many opportunities, whether that’s through running with our teams, volunteering at an event, getting your company involved, or becoming a FundRacer! http://austin.backonmyfeet.org/austin-get-involved',
   }]
 
   $scope.org = {
