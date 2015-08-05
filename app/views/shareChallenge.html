@@ -9,7 +9,7 @@
       <div class="div-center"><img class="img-responsive pyramid" src="images/pyramid-arrows.png"></div>
       <div class="div-center">
         <img ng-show="{{children[0] != null}}" class="img-circle img-responsive img-profile" ng-src="{{children[0].image_url}}">
-        <img ng-show="{{children[0] === null}}" class="img-circle img-responsive img-profile" src="images/fraser.jpg">
+        <img ng-show="{{children[0] === null || children[0] === undefined}}" class="img-circle img-responsive img-profile" src="images/unknown-donor.png">
         <img class="img-circle img-responsive img-profile middle-donor" src="images/unknown-donor.png">
         <img class="img-circle img-responsive img-profile" src="images/you-donor.png">
       </div>
