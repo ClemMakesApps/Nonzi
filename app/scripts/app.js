@@ -143,7 +143,7 @@ angular
   $rootScope.config = config;
 
   //Pre-render title before controller sets title
-  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+  $rootScope.title = "MultiplyMe - Back on My Feet Austin";
 
   //Auto scroll to top
   $rootScope.$on('$stateChangeSuccess', function() {
