@@ -120,7 +120,7 @@ angular.module('multiplyMe')
   var parsedLength = dateLength * 86400000;
   var parsedEnd = parsedLength + parsedStart;
 
-  var requested = 7500;
+  var requested = 2000;
   var raised = 12000;
   var percent =  Math.round(raised/requested*100)
 
@@ -130,9 +130,9 @@ angular.module('multiplyMe')
   }
 
   $scope.money = {
-    'requested' : 7500,
+    'requested' : 2000,
     'raised' : 0,
-    'percent' : Math.round(0/7500*100)
+    'percent' : Math.round(0/2000*100)
   }
 
 
