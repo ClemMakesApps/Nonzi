@@ -5,8 +5,11 @@
       <h1 class="text-center">Thank you {{donorName}}</h1>
     </div>
     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 text-center rounded-secondary">
-      <h1 class="receipt">You donated {{amount | currency:undefined:0}}</h1>
-      <span>(Receipt has been emailed)</span>
+      <h1 class="receipt" ng-if="donated">You donated {{amount | currency:undefined:0}}</h1>
+      <h1 class="receipt" ng-if="!donated">You took the challenge</h1>
+
+      <span ng-if="donated">(Receipt has been emailed)</span>
+      <span ng-if="!donated">and pledged to donate {{amount | currency:undefined:0}} upon completion</span>
     </div>
     <div ng-if="parentDonation && parentDonation.is_challenged">
       <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label">
@@ -37,8 +40,15 @@
   </div>
   <div class="col-sm-10 col-sm-offset-1 col-xs-12 top-divider"></div>
   <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
-    <span class="share-header">Friends who share on social media raise 10% more</span>
-    <span class="share-subheader">We’ve made it simple for you. Just copy and paste</span>
+    <div ng-if="donated">
+      <span class="share-header">Friends who share on social media raise 10% more</span>
+      <span class="share-subheader">We’ve made it simple for you. Just copy and paste</span>
+    </div>
+    <div ng-if="!donated">
+      <span class="share-header">Challenge your friends through social media</span>
+      <span class="share-subheader">Just copy, paste and tag your friends</span>
+    </div>
+
     <div class="col-md-6 col-md-offset-3 rounded-secondary message-box">
       <textarea class="form-control" rows="5">I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/sharedReceipt/{{donationId}}</textarea>
       <div style="margin-top: 10px;">
