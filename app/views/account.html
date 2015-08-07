@@ -55,8 +55,67 @@
     </div>
   </div>
   <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 misc-container">
-    <a class="btn btn-green" href="#" role="button"><i class="fa fa-archive"></i> Manage your Donation</a>
-    <a class="btn btn-green" href="#" role="button"><i class="fa fa-key"></i> Change Password</a>
+    <a class="btn btn-green" href="#" role="button" data-toggle="modal" data-target="#manage-donation"><i class="fa fa-archive"></i> Manage your Donation</a>
+    <a class="btn btn-green" href="#" role="button" data-toggle="modal" data-target="#reset-password"><i class="fa fa-key"></i> Change Password</a>
+  </div>
+</div>
+<div class="modal fade" id="reset-password" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="oldPassword" class="col-sm-4 control-label">Old password</label>
+            <div class="col-sm-8">
+              <input ng-model="oldPassword" type="password" class="form-control" id="oldPassword" placeholder="Old password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword" class="col-sm-4 control-label">New password</label>
+            <div class="col-sm-8">
+              <input ng-model="newPassword" type="password" class="form-control" id="newPassword" placeholder="New password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword" class="col-sm-4 control-label">Confirm new password</label>
+            <div class="col-sm-8">
+              <input ng-model="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirm password">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="updatePassword()" type="submit" class="btn btn-default pull-right">Update Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="manage-donation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body">
+          You are currently donating
+          <div class="impact-amount">{{ recurring_amount * 0.01 | currency }} <div class="month-label">per month</div></div>
+          <div class="donation-management">
+            <!--<button type="button" class="btn btn-primary btn-action"><div>Modify</div>Recurring</button>-->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="deleteSubscriptions()" type="button" class="btn btn-danger btn-action"><div>Cancel</div>Recurring</button>
+      </div>
+    </div>
   </div>
 </div>
 <mm-footer></mm-footer>
