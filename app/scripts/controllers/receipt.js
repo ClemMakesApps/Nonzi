@@ -9,12 +9,9 @@ angular.module('multiplyMe')
     $scope.firstName = Donation.name.split(' ')[0]
     $scope.amount = Donation.donation.amount / 100;
     console.log(Donation);
-<<<<<<< HEAD
     $scope.donationId = Donation.donation.id
     $scope.shareId = $stateParams.donationId;
-=======
     $scope.donationId = Donation.donation.referral_code;
->>>>>>> origin/development
     $scope.donated = !Donation.donation.is_challenged;
     $scope.recurring = Donation.donation.is_subscription;
     $scope.parentId = Donation.donation.parent_id;
