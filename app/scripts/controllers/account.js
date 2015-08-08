@@ -110,5 +110,23 @@ angular.module('multiplyMe')
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
+
+    function isIOS8() {
+      var deviceAgent = navigator.userAgent.toLowerCase();
+      return /(iphone|ipod|ipad).* os 8_/.test(deviceAgent);
+    }
+
+    function isIOS7() {
+      var deviceAgent = navigator.userAgent.toLowerCase();
+      return /(iphone|ipod|ipad).* os 7_/.test(deviceAgent);
+    }
+
+    $scope.operand = '?';
+
+    if(isIOS8()) {
+      $scope.operand = '&';
+    } else if(isIOS7()) {
+      $scope.operand = ';';
+    }
 	
   });
