@@ -54,7 +54,7 @@
       <div style="margin-top: 10px;">
         <a class="btn btn-facebook" href="#" ng-click="share('facebook')"><i class="fa fa-facebook"></i> Share</a>
         <a class="btn btn-twitter" href="#" ng-click="share('twitter')"><i class="fa fa-twitter"></i> Tweet</a>
-        <a class="btn btn-comment visible-xs-inline" href="#" ng-click="share('text')"><i class="fa fa-comment"></i> Text</a>
+        <a class="btn btn-comment visible-xs-inline" ng-href="sms://{{operand}}body=https://backonmyfeet.multiplyme.in/#!/share/{{shareId}}" target="_blank"><i class="fa fa-comment"></i> Text</a>
       </div>
     </div>
   </div>

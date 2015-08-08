@@ -21,6 +21,14 @@ angular
   'ngFacebook'
 ])
 .constant('URL', 'http://104.236.212.96/')
+.config( [
+    '$compileProvider',
+    function( $compileProvider )
+    {   
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|sms|chrome-extension):/);
+        // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    }
+])
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
     apiUrl: 'http://104.236.212.96',
