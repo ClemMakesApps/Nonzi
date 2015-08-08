@@ -158,7 +158,7 @@ angular
     var found = path.indexOf("/share/");
 
     if(found == -1) {
-      $rootScope.description = 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.';
+      $rootScope.description = 'Back on My Feet uses running to help adults experiencing homelessness build skills for self-sufficiency and independent living. Join our MultiplyMe challenge today and help our Members move their lives forward!';
     }
   })
 
