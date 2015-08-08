@@ -29,11 +29,15 @@ angular.module('multiplyMe')
   $scope.suggestedDonations = [{
     'amount': 10,
     'recurring': false,
-    'message': 'A Food Handler’s Course for Members looking to get certification'
+    'message': 'A Food Handler’s Course certification'
+  },{
+    'amount': 25,
+    'recurring': false,
+    'message': 'A pair of winter gloves'
   },{
     'amount': 41,
     'recurring': true,
-    'message': 'Monthly bus pass'
+    'message': 'A monthly bus pass'
   },{
     'amount': 100,
     'recurring': false,
@@ -54,10 +58,10 @@ angular.module('multiplyMe')
   });
 
   $scope.faq = [{
-    'question': 'What happens if my friends don\'t respond in time?',
+    'question': 'What happens to my money if my friends don\'t respond in time?',
     'answer': 'Your pledged money will never be taken from your account. You are welcome to try again, either the challenge, or just donating directly. Any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   },{
-    'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
+    'question': 'Is my friends\' money refunded too if I don\'t beat the challenge?',
     'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
   },{
     'question': 'Do my friends have to match my pledge?',
