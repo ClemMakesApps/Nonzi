@@ -101,10 +101,10 @@ angular
   .state('share', {
     url: '/share/:donationId',
     templateUrl: 'views/share.html',
-    controller: 'ShareCtrl',
+    controller: 'SharedReceiptCtrl',
     resolve: {
-      Donation: function(DonationLoader, $stateParams){
-        return DonationLoader($stateParams.donationId);
+      ShareTree: function(ShareTreeLoader, $stateParams){
+        return ShareTreeLoader($stateParams.donationId);
       }
     }
   })
