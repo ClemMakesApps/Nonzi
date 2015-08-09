@@ -170,10 +170,6 @@ angular
     }
   })
 
-  $rootScope.$on('$viewContentLoaded', function() {
-    $rootScope.absUrl = $location.absUrl();
-  })
-
   (function(){
     // If we've already installed the SDK, we're done
     if (document.getElementById('facebook-jssdk')) {return;}
