@@ -1031,7 +1031,7 @@ font-size: 20px;
       margin-right: 20px;
     }
 
-    span {
+    span:nth-child(0) {
       vertical-align: middle;
       display: inline-block;
       line-height: 1.3;
