@@ -336,6 +336,12 @@ footer .btn{
   margin-bottom: 20px;
 }
 
+@media(max-width:$tabletWidth) {
+  .login-box {
+    margin-top: 30px;
+  }
+}
+
 .btn-primary{
   margin: 10px 8% 0px 8%;
   width: 84%;
