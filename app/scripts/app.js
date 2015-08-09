@@ -169,23 +169,5 @@ angular
       $rootScope.description = 'Back on My Feet uses running to help adults experiencing homelessness build skills for self-sufficiency and independent living. Join our MultiplyMe challenge today and help our Members move their lives forward!';
     }
   })
-
-  (function(){
-    // If we've already installed the SDK, we're done
-    if (document.getElementById('facebook-jssdk')) {return;}
-
-    // Get the first script element, which we'll use to find the parent node
-    var firstScriptElement = document.getElementsByTagName('script')[0];
-
-    // Create a new script element and set its id
-    var facebookJS = document.createElement('script'); 
-    facebookJS.id = 'facebook-jssdk';
-
-    // Set the new script's source to the source of the Facebook JS SDK
-    facebookJS.src = 'https://connect.facebook.net/en_US/all.js';
-
-    // Insert the Facebook JS SDK into the DOM
-    firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-  }());
 });
 
