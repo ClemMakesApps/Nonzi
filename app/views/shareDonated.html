@@ -15,7 +15,14 @@
           <img ng-src="{{parent.image_url}}" alt="avatar" class="img-circle">
         </div>
         <div class="col-md-10 col-sm-10 col-xs-9 prompt">
-          <span>{{firstName}} pledged to donate <strong>${{parent.donation.amount * .01}}</strong><strong ng-if="parent.donation.is_subscription">&#160;per month</strong>. Will you join this cause?</span>
+          <span>
+            {{firstName}} 
+            <span ng-if="!paid">pledged to donate </span>
+            <span ng-if="paid">donated </span>
+            <strong>${{parent.donation.amount * .01}}</strong>
+            <strong ng-if="parent.donation.is_subscription">&#160;per month</strong>. 
+            Will you join this cause?
+          </span>
         </div>
       </div>
       <div class="row">
