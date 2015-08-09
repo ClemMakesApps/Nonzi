@@ -15,7 +15,13 @@ angular.module('multiplyMe')
     $scope.donated = !Donation.donation.is_challenged;
     $scope.recurring = Donation.donation.is_subscription;
     $scope.parentId = Donation.donation.parent_id;
-    $scope.children = Donation.parents_children_count;
+    $scope.images = Donation.children_images;
+    for(var i = 0; i < 3; i++){
+      if($scope.images[i] == undefined){
+        $scope.images[i] = "images/unknown-donor.png";
+      }
+    }
+    $scope.children = Donation.parents_children_count <= 3 ? Donation.parents_children_count : 3;
     $scope.parentDonation = Donation.parent_donation;
     if(Donation.parent_time_remaining != null){
       $scope.timeRemaining = Donation.parent_time_remaining;
