@@ -24,13 +24,13 @@ angular.module('multiplyMe')
       $scope.parentFirstName = Donation.parent_name.split(' ')[0];
     }
     
-    var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId;
-    var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId + ' @BoMFAustin';
+    var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $scope.donationId;
+    var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + $scope.donationId + ' @BoMFAustin';
 
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
-         '//www.facebook.com/sharer/sharer.php?u=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + $stateParams.donationId,
+         '//www.facebook.com/sharer/sharer.php?u=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + $scope.donationId,
          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'twitter'){
@@ -41,17 +41,17 @@ angular.module('multiplyMe')
         }
 
         $window.open(
-          '//www.twitter.com/intent/tweet?text=' + message,
+          '//www.twitter.com/intent/tweet?text=',
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'google'){
         $window.open(
-          '//plus.google.com/share?url=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + $stateParams.donationId,
+          '//plus.google.com/share?url=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + $scope.donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'email'){
         $window.open(
-          'mailto:?body=https://backonmyfeet.multiplyme.in/#!/share/' + $stateParams.donationId,
+          'mailto:?body=https://backonmyfeet.multiplyme.in/#!/share/' + $scope.donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
     }
