@@ -6,6 +6,7 @@ angular.module('multiplyMe')
     $rootScope.ogTitle = $rootScope.title;
 
     console.log(ShareTree);
+    $scope.paid = ShareTree.paid;
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
