@@ -18,6 +18,7 @@ angular.module('multiplyMe')
       $scope.only_recurring = result.only_recurring;
       $scope.all_cancelled = result.all_cancelled;
       $scope.challengeCode = result.referral_code;
+      $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.challengeCode;
       console.log(result);
       if(result.only_recurring && !result.all_cancelled){
         $scope.personal_impact /= 12;
@@ -29,7 +30,6 @@ angular.module('multiplyMe')
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
       donationId = $scope.donation_ids[$scope.donation_ids.length - 1];
-      $scope.share_link = "https://" + $location.host() + "/#!/share/" + donationId;
 
       if(donationId != null) {
         $scope.showShare = true;
