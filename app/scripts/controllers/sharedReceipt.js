@@ -10,6 +10,7 @@ angular.module('multiplyMe')
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
+    $scope.remainingChildren = 3 - ShareTree.children.length;
     for(var i = 0; i < 3; i++){
       $scope.children[i] = $scope.children[i] == undefined ? 'images/unknow-donor.png' : $scope.children[i]
     }
