@@ -5,11 +5,11 @@
       <h1 class="text-center">Thank you {{donorName}}</h1>
     </div>
     <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 text-center rounded-secondary">
-      <h1 class="receipt" ng-if="donated">You donated {{amount | currency:undefined:0}}</h1>
+      <h1 class="receipt" ng-if="donated">You donated {{amount | currency:undefined:0}} <span ng-if="recurring">per month</span></h1>
       <h1 class="receipt" ng-if="!donated">You took the challenge</h1>
 
       <span ng-if="donated">(Receipt has been emailed)</span>
-      <span ng-if="!donated">and pledged to donate {{amount | currency:undefined:0}} upon completion</span>
+      <span ng-if="!donated">and pledged to donate {{amount | currency:undefined:0}} <span ng-if="recurring">per month</span> upon completion</span>
     </div>
     <div ng-if="parentDonation && parentDonation.is_challenged && !parentDonation.is_paid">
       <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label">
