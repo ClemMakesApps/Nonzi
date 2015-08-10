@@ -169,5 +169,9 @@ angular
       $rootScope.description = 'Back on My Feet uses running to help adults experiencing homelessness build skills for self-sufficiency and independent living. Join our MultiplyMe challenge today and help our Members move their lives forward!';
     }
   })
+
+  $rootScope.$on('$viewContentLoaded', function() {
+    $rootScope.absUrl = $location.absUrl();
+  })
 });
 
