@@ -12,5 +12,5 @@
 var config = {
   heapAnalytics: '3182696103',
   googleAnalytics: '',
-  stripeKey: 'pk_test_6cMTIQe6u51NWrawrcifDDkJ'
+  stripeKey: 'pk_live_EBt6D9bzkUSm0cBuMh4HTpQ0'
 };

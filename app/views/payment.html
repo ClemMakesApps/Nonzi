@@ -1,844 +1,138 @@
-<style>
-.btn-default,
-.btn-default:hover {
-  background-color: transparent;
-}
-
-.small-logo {
-    color: black;
-    margin-right: 10px;
-}
-
-.org-link {
-    color: black;
-    text-decoration: underline;
-}
-
-.logo {
-    width: 30px;
-    float: left;
-    margin-top: 10px;
-}
-
-.header-overview {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom-color: black;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-}
-
-.proj-name {
-    font-size: 18px;
-    display: inline;
-}
-
-.proj-details {
-    margin-left: 40px;
-}
-
-.title-normal {
-    font-weight: normal;
-    margin-bottom: 5px;
-    margin-top: 0px;
-}
-
-.pledge {
-    background-color: #E3F5F1;
-    padding: 40px;
-    border-radius: 10px;
-}
-.perks{
-    cursor: pointer;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    position: relative;
-  text-decoration:none;
-}
-
-.perks:hover {
-    background-color: #278570;
-    color: white;
-  text-decoration:none;
-}
-
-.perk-promo {
-    background-color: #278570;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.promo-tag {
-    display: inherit;
-    margin-bottom: 5px;
-}
-
-a[role=button], a[role=button]:focus, a[role=button]:hover{
-  text-decoration:none;
-  color:inherit;
-}
-
-/*override*/
-.btn-success {
-    background-color: #50E3C2;
-    color: black;
-    border-color: transparent;
-    padding-top: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-}
-
-/*override*/
-.btn-success:hover,
-.btn-success:focus {
-    background-color:#278570;
-    border-color: transparent;
-    color: white;
-}
-
-.btn-donate:hover,
-.btn-donate:focus {
-    background-color:rgba(0,0,0,0.05);
-}
-
-.btn-clear {
-    background-color: transparent;
-    border-color: transparent;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #50E3C2;
-    font-weight: bold;
-}
-
-.content {
-    margin-top: 0px;
-}
-
-.pledge-font {
-    font-size: 28px;
-    font-weight: bold;
-    color: black;
-}
-
-.pledge-input {
-    border: 1px solid black;
-    font-size: 28px;
-    font-weight: bold;
-    padding: 7px 80px 7px 35px;
-    display: inline;
-    color: black;
-    width: 100%;
-    border-radius: 5px;
-}
-
-.pledge-input:focus {
-    outline: 0;
-}
-
-/*override*/
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-pledge {
-    position: relative;
-}
-
-.currency-symbol {
-    position: absolute;
-    top: 3px;
-    left: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
-}
-
-.currency-label {
-    position: absolute;
-    top: 3px;
-    right: 10px;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    line-height: 48px;
-}
-
-.perk-selected {
-    background-color: #278570;
-    color: white;
-}
-
-.perk-selected .fa-check-square {
-    color: #73E8CE;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 40px;
-}
-
-.no-margin-top {
-    margin-top: 0px;
-}
-
-.paymentFields {
-    padding-left: 0px;
-}
-
-/*override*/
-.control-label {
-    text-align: left !important;
-    font-weight: normal;
-}
-
-.noPaddingRight {
-    padding-right: 0px;
-}
-
-.cvcField {
-    padding-right: 0px;
-    padding-left: 30px;
-}
-
-.cvcField input{
-  padding-right: 18px !important;
-}
-.subheader {
-    margin-bottom: 20px;
-}
-
-.newPaymentSection {
-    margin-top: 50px;
-}
-
-.hasSubtext {
-    margin-bottom: 5px;
-}
-
-.block {
-    display: block;
-}
-
-.perk-background {
-    background-color: #E3F5F1;
-}
-
-.rounded-background {
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 15px;
-}
-
-.btn-action {
-    width: 49%;
-    height: 60px;
-    padding-left: 10px;
-    padding-right: 10px;
-    line-height: 16px;
-    color: black !important;
-    position: relative;
-}
-
-.grayText {
-  color: #808080;
-  font-size: 12px;
-}
-
-.secureText {
-  margin-left: 15px;
-}
-
-.sub-label {
-  font-size: 12px;
-}
-
-#refer {
-  width: 88%;
-  display: inline;
-}
-
-#cvc {
-  /*width: 60%;*/
-  display: inline;
-}
-
-.question-tooltip {
-  padding-left: 6px;
-  padding-right: 6px;
-}
-
-.question-tooltip,
-.question-tooltip:hover,
-.question-tooltip:focus {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-#cardNumber {
-  display: inline;
-}
-
-.creditcard-images {
-  height: 25px;
-  margin-top: 2.5px;
-}
-
-.grayscale {
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
-
-.tooltip {
-  width:200px;
-}
-
-.challenge-steps {
-  padding-bottom: 20px;
-}
-
-.challenge-steps .instructions.single-line {
-  /* IE */
-  display:-ms-flexbox;
-  -ms-flex-align:center;
-
-  /* Firefox */
-  display:-moz-box;
-  -moz-box-align:center;
-
-  /* Safari, Opera, and Chrome */
-  display:-webkit-box;
-  -webkit-box-align:center;
-
-  /* W3C */
-  display:box;
-  box-align:center;
-
-  height: 75px;
-}
-
-.challenge-steps .instructions.two-line {
-  margin-top: 4px;
-}
-
-.challenge-steps .instructions {
-  text-align: left;
-  padding-left: 0px;
-  font-size: 19px;
-  line-height: 22px;
-}
-
-.challenge-steps .subtext {
-  font-size: 13px;
-  margin-top: 5px;
-  margin-bottom: 0px;
-  line-height: 15px;
-}
-
-.highlightChallenge {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
-  z-index: 1;
-}
-
-.challenge {
-  z-index: 10;
-  position: relative;
-}
-
-.btn-donate {
-  background-color: transparent;
-  border-color: rgba(0,0,0,0.4);
-}
-
-.btn-donate[disabled] {
-  background-color: transparent;
-  border-color: rgba(0,0,0,0.3);
-}
-
-.btn-social {
-  padding-left: 35px;
-}
-
-.btn-facebook-container {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.password-container {
-  padding-left: 0px;
-  padding-right: 5px;
-}
-
-#password {
-  width: calc(100% - 25px);
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.payment-container {
-  margin-top: 20px;
-}
-
-.btn-facebook:hover {
-  color: white;
-}
-
-.subscription-font {
-  font-size: 15px;
-  font-weight: normal;
-}
-
-.btn-success[disabled] {
-  background-color: rgba(80, 227, 194, 0.49);
-  border-color: transparent;
-}
-
-
-.spinner {
-  position: absolute;
-  left: 10px;
-  top: 20px;
-  -webkit-animation: rotator 1.4s linear infinite;
-          animation: rotator 1.4s linear infinite;
-}
-
-@-webkit-keyframes rotator {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-  }
-}
-
-@keyframes rotator {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(270deg);
-            transform: rotate(270deg);
-  }
-}
-.path {
-  stroke-dasharray: 187;
-  stroke-dashoffset: 0;
-  -webkit-transform-origin: center;
-      -ms-transform-origin: center;
-          transform-origin: center;
-  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-}
-
-@-webkit-keyframes colors {
-  0% {
-    stroke: #000000;
-  }
-  25% {
-    stroke: #000000;
-  }
-  50% {
-    stroke: #000000;
-  }
-  75% {
-    stroke: #000000;
-  }
-  100% {
-    stroke: #000000;
-  }
-}
-
-@keyframes colors {
-  0% {
-    stroke: #000000;
-  }
-  25% {
-    stroke: #000000;
-  }
-  50% {
-    stroke: #000000;
-  }
-  75% {
-    stroke: #000000;
-  }
-  100% {
-    stroke: #000000;
-  }
-}
-@-webkit-keyframes dash {
-  0% {
-    stroke-dashoffset: 187;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 187;
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
-@keyframes dash {
-  0% {
-    stroke-dashoffset: 187;
-  }
-  50% {
-    stroke-dashoffset: 46.75;
-    -webkit-transform: rotate(135deg);
-            transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 187;
-    -webkit-transform: rotate(450deg);
-            transform: rotate(450deg);
-  }
-}
-
-.form-horizontal .has-feedback .name-feedback {
-  right: 30px !important;
-}
-
-.form-horizontal .has-feedback .form-control-feedback {
-  right: 10px;
-}
-
-.has-feedback .form-control {
-  padding-right: 25px;
-}
-
-.challenge-description {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.credit-cards {
-  margin-left: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.email-form-group {
-  margin-bottom: 0px;
-}
-
-.expiration-container {
-  padding-left: 0px;
-}
-
-@media (max-width: 768px) {
-  .cvc-form-group {
-    margin-top: 50px;
-  }
-
-  .email-form-group {
-    margin-bottom: 15px;
-  }
-
-  .btn-facebook-container {
-    margin-top: 15px;
-  }
-
-  .expiration-container {
-    margin-left: -7px;
-  }
-
-  .credit-cards {
-    text-align: center;
-    margin-top: 5px;
-  }
-}
-
-.donate-spinner {
-  margin: 10px auto 0;
-  width: 70px;
-  text-align: center;
-}
-
-.donate-spinner > div {
-  width: 18px;
-  height: 18px;
-  background-color: #777;
-
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
-  animation: bouncedelay 1.4s infinite ease-in-out;
-  /* Prevent first frame from flickering when animation starts */
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.donate-spinner .bounce1 {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-
-.donate-spinner .bounce2 {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
-}
-
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0.0) }
-  40% { -webkit-transform: scale(1.0) }
-}
-
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 40% {
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
-}
-
-.disabled {
-  opacity: 0.5;
-}
-
-.updates-checkbox {
-  z-index: 1;
-}
-
-.signout-payments {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border-bottom-width: 0px;
-  border-left-width: 0px;
-  border-top-width: 0px;
-  padding-right: 0px;
-  border-right-width: 0px;
-  margin-bottom: 1px;
-  padding-left: 0px;
-}
-
-.form-horizontal .has-feedback .cvc-feedback {
-  right: 0px;
-}
-
-.email-feedback {
-  right: 20px !important; 
-}
-
-#email, #verifyEmail {
-  padding-right: 30px;
-}
-
-.checkbox {
-  color: black !important;
-}
-
-.paymentHeading {
-  padding-bottom: 20px;
-}
-
-#learnMore{
-z-index: 10000;
-}
-</style>
-<campaign-header></campaign-header>
-<div class="container-fluid payment-container">
-  <div class="col-md-offset-2 col-md-8">
-    <div class="alert alert-success" role="alert" ng-show="hasReferral && referralName">
-      <span ng-show="referralChildren < 2 && !referralPaid"><strong>You are Awesome!</strong> {{referralName}}'s pledge is now one step closer to becoming donated.</span>
-      <span ng-show="referralChildren == 2 && !referralPaid"><strong>You are Fantastic!</strong> {{referralName}}'s pledge will be donated after your contribution.</span>
-      <span ng-show="referralChildren >= 3 || referralPaid"><strong>{{referralName}} thanks you</strong> for joining in support for the Bhatti Mines School.</span>
+<div class="container primary">
+  <mm-header></mm-header>
+  <mm-steps active="3"></mm-steps>
+  <div class="row">
+  	<div class="col-md-offset-1 col-md-10 payment-header">
+  		<h2 class="title-normal">
+        Payment Information 
+        <span class="secure-tag hidden-xs"><span class="fa fa-lock"></span> SECURE</span>
+      </h2>
+  		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
+  	</div>
+    
+    <div class="col-lg-offset-1 col-md-10" ng-show="errorMessage">
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Error!</strong> {{errorMessage}}
+      </div>
     </div>
   </div>
-	<div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12 paymentHeading">
-		<h2 class="title-normal">Payment Information</h2>
-		<span>Your card will not be charged at this time unless you decide to donate. If you choose to take the challenge, your card will be charged {{amount | currency}} <span ng-show="isSubscription">a month</span> upon completion of the challenge. <a data-toggle="modal" data-target="#learnMore" href="javascript:;">Learn More.</a></span>
-	</div>
-  <div class="col-lg-offset-2 col-lg-7 col-md-9 col-sm-12" ng-show="errorMessage">
-    <div class="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <strong>Error!</strong> {{errorMessage}}
-    </div>
-  </div>
-  <div class="col-lg-offset-2 col-lg-8 col-sm-12">
-    <div class="col-lg-7 col-sm-7 content paymentFields">
-      <h4 class="subheader">Card Information <span class="secureText grayText"><span class="fa fa-lock"></span> SECURE</span></h4>
-        <div class="alert alert-info" role="alert" ng-show="signedIn">
-          <strong>Welcome back!</strong> <button type="button" class="btn btn-link signout-payments" ng-click="signout()">Not {{authUser.name}}?</button>
+  <div class="row">
+    <div class="col-lg-offset-1 col-md-offset-1 col-lg-5 col-md-5 col-sm-6 paymentFields">
+      <form name="paymentForm" class="form">
+        <div class="form-group">
+          <label for="cardNumber" class="control-label">Card number</label>
+          <div class="has-feedback"  ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
+            <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
+                   ng-pattern="/^[0-9]{12,16}$/" required>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
+          </div>
         </div>
-        <form name="paymentForm" class="form-horizontal">
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.name.$invalid && paymentForm.name.$dirty, 'has-success': !paymentForm.name.$invalid && paymentForm.name.$dirty}">
-            <label for="name" class="col-sm-3 control-label">Name</label>
-            <div class="col-sm-9" style="padding-right: 25px">
-              <input ng-model="payment.user.name" type="text" class="form-control" id="name" name="name" ng-pattern="/^[a-z ,.'-]+$/i" placeholder="Name" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback name-feedback" aria-hidden="true" ng-show="!paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback name-feedback" aria-hidden="true" ng-show="paymentForm.name.$invalid && paymentForm.name.$dirty"></span>
-            </div>
+        <div class="form-group row">
+          <div class="col-xs-4">
+    				<label class="control-label" >Month</label>
+            <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
           </div>
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty, 'has-success': !paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty}">
-            <label for="cardNumber" class="col-sm-3 control-label">Card number</label>
-            <div class="col-sm-9">
-              <div class="col-sm-6" style="padding-left:0px;padding-right:10px">
-                <input ng-model="payment.cardNumber" name="cardNumber" type="text" class="form-control" id="cardNumber"
-                       ng-pattern="/^[0-9]{12,16}$/"  placeholder="Card number" required>
-                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
-                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.cardNumber.$invalid && paymentForm.cardNumber.$dirty"></span>
-              </div>
-              <div class="credit-cards col-xs-12 col-sm-6">
-                <img src="../images/visa.png"  class="creditcard-images" ng-class="{'grayscale':!visa}">
-                <img src="../images/mastercard.png" class="creditcard-images" ng-class="{'grayscale':!mastercard}">
-                <img src="../images/amex.png"  class="creditcard-images" ng-class="{'grayscale':!amex}">
-                <img src="../images/discover.png" class="creditcard-images" ng-class="{'grayscale':!discover}">
-              </div>
-            </div>
+          <div class="col-xs-4">
+    				<label class="control-label" >Year</label>
+            <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
           </div>
-          <!-- <div class="form-group col-sm-8 col-xs-7"> -->
-          <div class="form-group">
-            <label class="col-sm-3 control-label" >Expiration</label>
-            <div class="col-sm-4 col-xs-11">
-              <div class="col-sm-5 col-xs-5" style="padding-left: 0px;padding-right: 0px;">
-                <select class="form-control" ng-model="payment.expirationMonth" ng-init="payment.expirationMonth = thisMonth" ng-options="m as m for m in expirationMonths"></select>
-              </div>
-              <div class="col-sm-7 col-xs-7" style="padding-right: 0px;padding-left: 10px;">
-                <select class="form-control" ng-model="payment.expirationYear" ng-init="payment.expirationYear = expirationYears[0]" ng-options="y as y for y in expirationYears"></select>
-              </div>
-            </div>
-          <!-- </div> -->
-          <!-- <div class="form-group col-sm-4 col-xs-5 has-feedback" style="margin-right: 0px;padding-right: 0px;margin-left: 0px;" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}"> -->
-            <div class="has-feedback cvc-form-group" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
-              <label for="cvc" class="col-sm-1 col-xs-12 control-label">CVC</label>
-              <div class="col-sm-2 col-xs-5" style="padding-right:0px">
-                <input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" placeholder="CVN" required>
-                <span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
-                <span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
-               
-              </div>
-              <div class="col-sm-1 col-xs-offset-1 col-xs-2 col-md-offset-0 col-sm-offset-0 col-lg-offset-0 col-xl-offset-0" style="padding-left:0px">
-				<button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
-                  <span class="glyphicon glyphicon-question-sign grayText"></span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="form-group has-feedback" style="clear:both;" ng-class="{'has-error': paymentForm.zip.$invalid && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$invalid && paymentForm.zip.$dirty}">
-            <label for="zip" class="col-sm-3 col-xs-12 control-label">Postal code</label>
-            <div class="col-sm-4 col-xs-7">
-              <input ng-model="payment.zip" name="zip" type="text" class="form-control"
-                     ng-pattern="/^[0-9]{5,6}$/" id="zip" placeholder="Postal Code" required>
+  			  <div class="col-xs-4">	
+    				<label for="cvc" class="control-label">CVC</label>
+    				<div class="has-feedback cvc-form-group" ng-class="{'has-error': paymentForm.cvc.$invalid && paymentForm.cvc.$dirty, 'has-success': !paymentForm.cvc.$invalid && paymentForm.cvc.$dirty}">
+    					<input ng-model="payment.cvc" type="text" class="form-control" ng-pattern="/^[0-9]{3,4}$/" name="cvc" id="cvc" required>
+    					<span class="glyphicon glyphicon-ok form-control-feedback cvc-feedback" aria-hidden="true" ng-show="!paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
+    					<span class="glyphicon glyphicon-remove form-control-feedback cvc-feedback" aria-hidden="true" ng-show="paymentForm.cvc.$invalid && paymentForm.cvc.$dirty"></span>
+    					<!-- <div class="pull-right" style="padding-left:0px">
+    						<button type="button" class="btn btn-default question-tooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="The 3 or 4 digit number on the back of a Visa, MasterCard, Discover or the front of an American Express">
+    						  <span class="glyphicon glyphicon-question-sign grayText"></span>
+    						</button>
+    					</div> -->
+    				</div>
+    			</div>
+        </div>
+        <div class="form-group row">
+          <div class="col-xs-4">
+            <label for="zip" class="control-label"><span class="visible-lg-inline">Billing</span> Zipcode</label>
+            <div  class="has-feedback" ng-class="{'has-error': paymentForm.zip.$invalid && paymentForm.zip.$dirty, 'has-success': !paymentForm.zip.$invalid && paymentForm.zip.$dirty}">
+              <input ng-model="payment.zip" name="zip" type="text" class="form-control col-sm-4 col-xs-7"
+                     ng-pattern="/^[0-9]{5}$/" id="zip" required>
               <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
               <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.zip.$invalid && paymentForm.zip.$dirty"></span>
             </div>
           </div>
-          <h4 class="subheader newPaymentSection">Your Information</h4>
-          <div class="form-group email-form-group has-feedback" ng-class="{'has-error': paymentForm.email.$invalid && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$invalid && paymentForm.email.$dirty}">
-            <label for="email" class="col-sm-3 control-label">Email<p class="sub-label">(for your receipt)</p></label>
-            <div class="col-sm-8">
-              <input ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" name="email" ng-model="payment.user.email"
-                     type="email" class="form-control" id="email" placeholder="Email address" ng-disabled="signedIn" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.email.$invalid && paymentForm.email.$dirty"></span>
-            </div>
-          </div>
-          <div class="form-group has-feedback" ng-class="{'has-error': (paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty, 'has-success': !paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty}">
-            <label for="verifyEmail" class="col-sm-3 control-label">Verify email<p class="sub-label">(just in case)</p></label>
-            <div class="col-sm-8">
-              <input ng-model="payment.user.verifyEmail" type="email" class="form-control" id="verifyEmail" name="verifyEmail" placeholder="Verify email address"  ng-disabled="signedIn" ng-init="authUser.email" required>
-              <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.verifyEmail.$invalid && payment.user.email == payment.user.verifyEmail && paymentForm.verifyEmail.$dirty"></span>
-              <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
-              <div class="checkbox">
-                <label>
-                  <input class="updates-checkbox" ng-model="subscribe" type="checkbox" checked> Send me campaign updates
-                </label>
-              </div>
-            </div>
-          </div>
-          <div ng-hide="signedIn">
-            <h4 class="subheader newPaymentSection hasSubtext">Your Account</h4>
-            <p>Cancel recurring donations, measure your impact and share your campaign</p>
-            <div class="form-group">
-              <label for="password" class="col-sm-3 control-label">Password</label>
-              <div class="col-sm-9">
-                <div class="col-sm-7 password-container">
-                  <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-required="!signedIn">
-                  <!-- or -->
-                </div>
-                <!-- <div class="col-sm-5 btn-facebook-container">
-                  <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="facebook()">
-                    <i class="fa fa-facebook"></i> Use Facebook
-                  </a>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        </form>
-    </div>
-
-    <div class="col-lg-5 col-sm-5 content">
-      <div class="perk-background rounded-background">
-        <span>Pledge Amount</span>
-        <a class="pull-right" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
-          <span class="glyphicon glyphicon-pencil"></span> Edit
-        </a>
-        <span class="pledge-font block clearfix">{{amount | currency}} USD</span>
-        <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
-      </div>
-      <div class="perk-background rounded-background text-center challenge">
-        <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
-        <p>Use your social network to multiply your impact</p>
-        <div class="challenge-description">
-          <div class="row challenge-steps">
-            <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img class="img-responsive" src="../images/1.png">
-            </div>
-            <div class="col-md-7 col-xs-8 instructions single-line">
-              Pledge a donation
-            </div>
-          </div>
-          <div class="row challenge-steps">
-            <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img class="img-responsive" src="../images/2.png">
-            </div>
-            <div class="col-md-7 col-xs-8 instructions two-line">
-              Invite 3 friends to pledge within 3 days
-              <p class="subtext">Donations will count as well</p>
-            </div>
-          </div>
-          <div class="row challenge-steps">
-            <div class="col-md-4 col-md-offset-1 col-xs-4">
-              <img class="img-responsive" src="../images/3.png">
-            </div>
-            <div class="col-md-7 col-xs-8 instructions two-line">
-              Your pledge is donated
-              <p class="subtext">Login to your account to check your impact stats</p>
+          <div class="col-xs-8">
+            <label for="referral" class="control-label">Referral Code</label>
+            <div  class="has-feedback" ng-class="{'has-error': paymentForm.referral.$invalid && paymentForm.referral.$dirty, 'has-success': !paymentForm.referral.$invalid && paymentForm.referral.$dirty}">
+              <input ng-model="payment.referral" name="referral" type="text" class="form-control col-sm-4 col-xs-7"
+                     ng-pattern="/^[a-zA-Z0-9]*$/" id="referral">
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!paymentForm.referral.$invalid && paymentForm.referral.$dirty"></span>
+              <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="paymentForm.referral.$invalid && paymentForm.referral.$dirty"></span>
             </div>
           </div>
         </div>
-        <button ng-click="unchallengedSubmit()" type="button" class="btn btn-action btn-donate" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+  		  <div class="checkbox form-group">
+          <label class="updates-checkbox">
+            <input ng-model="subscribe" type="checkbox" checked> Send me campaign updates
+          </label>
+        </div> 
+      </form>
+  	</div>
+
+    <div class="col-lg-5 col-md-5 col-sm-6 contribution-container">
+      <div class="form">
+  	    <div class="align-children clearfix">
+          <h3 class="pull-left">Contribution</h3>
+          <a class="pull-right small" ui-sref="contribute({isSubscription: isSubscription, amount:amount, refer: referral})">
+            <span class="glyphicon glyphicon-pencil"></span> Edit
+          </a>
+    		</div>
+        <!-- <h4>{{amount | currency}} USD</h4> -->
+        <h4>${{amount}} USD</h4>
+        <span class="subscription-font block clearfix" ng-show="isSubscription">A month</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="margin-top-20 col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12 login-box text-center">
+      <span style="font-weight:bold;font-size:20px">MultiplyMe Challenge</span>
+      <p>Use your social network to multiply your impact. It's easy!</p>
+      <div class="col-lg-12 col-lg-offset-0 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="challenge-flex-container">
+          <div class="challenge-step">  
+            <div class="circle-steps">1</div>
+            Pledge a Donation
+          </div>
+          <div class="challenge-step">  
+            <div class="circle-steps">2</div>
+            <div>
+              Invite 3 friends to <br> pledge within 3 days
+              <div style="font-size:14px;">Donations will count as well</div>
+            </div>
+          </div>
+          <div class="challenge-step">  
+            <div class="circle-steps">3</div>
+            <div>
+              Your pledge is donated
+              <div style="font-size:14px;">If all 3 of your friends pledge or donate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="col-xs-6 margin-top-20">
+        <button ng-click="unchallengedSubmit()" type="button" class="uniform btn btn-action btn-donate btn-block btn-default" ng-disabled="donating || enableLoading || paymentForm.$invalid">
           <svg ng-show="donating" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
           </svg>
-          <div class="lead-in">{{donateStatus || "Just"}}</div>
-          <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate"}}</span>
+          <div class="lead-in">{{donateStatus || "Skip challenge and"}}</div>
+          <span style="font-weight:bold;font-size:16px;">{{donateTextLarge || "Donate Instead"}}</span>
         </button>
-        <button ng-click="challengeSubmit()" type="button" class="btn btn-success btn-action" ng-disabled="donating || enableLoading || paymentForm.$invalid">
+      </div>
+      <div class="col-xs-6 margin-top-20">
+        <button ng-click="challengeSubmit()" type="button" class="uniform btn btn-action btn-block btn-success" ng-disabled="donating || enableLoading || paymentForm.$invalid">
           <svg ng-show="enableLoading" class="spinner" width="20px" height="20px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
           </svg>
@@ -846,12 +140,16 @@ z-index: 10000;
           <span style="font-weight:bold;font-size:16px;">Challenge</span>
         </button>
       </div>
-      <p>By proceeding you agree to MultiplyMe’s <a ui-sref="terms" target="_blank">Terms of Use</a> and <a ui-sref="privacy" target="_blank">Privacy Policy</a><p>
+    </div>
+    <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+      <p class="margin-top-20">By proceeding you agree to MultiplyMe’s <a class="link-green" ui-sref="terms" target="_blank">Terms of Use</a> and <a class="link-green" ui-sref="privacy" target="_blank">Privacy Policy</a><p>
     </div>
   </div>
 </div>
-<div class="highlightChallenge" ng-show="highlightNext" ng-click="disableHighlightNext()"></div>
 <footer></footer>
+
+
+
   <div id="learnMore" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -866,10 +164,12 @@ z-index: 10000;
         </div>
         <div class="modal-footer">
           <button type="button" ng-click="showModal()" class="btn btn-default" data-dismiss="modal">Got it!</button>
-           </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<mm-footer></mm-footer>
 <script type="text/javascript">$(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })</script>

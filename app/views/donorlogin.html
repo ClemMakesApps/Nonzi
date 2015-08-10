@@ -1,0 +1,105 @@
+<div class="container primary">
+  <mm-header></mm-header>
+  <mm-steps active="2"></mm-steps>
+  
+  <div class="container-fluid signin-container" >
+    <div class="col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12 login-box">
+      <div class="text-center">
+        <h1 style="margin-top:0px">Sign In</h1>
+      </div>
+      <div class="alert alert-danger alert-dismissible" role="alert" ng-show="invalidCredentials">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Invalid Credentials.</strong> Please try again.
+      </div>
+      <form id="loginForm" name="loginForm" class="form" novalidate>
+        <div class="form-group has-feedback" ng-class="{'has-error': loginForm.email.$error.pattern && loginForm.email.$dirty, 'has-success': !loginForm.email.$error.pattern && loginForm.email.$dirty}">
+          <label for="email" class="control-label">Email Address</label>
+          <input id="email" name="email" type="email" ng-model='user.email' class="form-control"
+                 ng-pattern="/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,6}$/" required>
+          <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!loginForm.email.$error.pattern && loginForm.email.$dirty"></span>
+          <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.email.$error.pattern && loginForm.email.$dirty"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-error': loginForm.password.$error.required && loginForm.password.$dirty, 'has-success': !loginForm.password.$error.required && loginForm.password.$dirty}">
+          <label for="password" class="control-label">Password</label>
+          <input id="password" name="password" type="password" ng-model='user.password'
+                   ng-minlength="1" class="form-control" required>
+          <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!loginForm.password.$error.required && loginForm.password.$dirty"></span>
+          <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="loginForm.password.$error.required && loginForm.password.$dirty"></span>
+        </div>
+        <button type="button" class="btn btn-main login-btn btn-block" ng-click="logon()" ng-disabled="loginForm.$invalid">Sign In</button>
+        <button type="button" class="btn btn-link link-btn btn-block" data-toggle="modal" data-target=".forgot-password-modal">Forgot Password?</button>
+          <!-- <hr style="clear:both">
+          <button type="button" class="btn btn-primary btn-action btn-block btn-lg"
+          ng-click="authenticate('facebook')">
+            <span class="fa fa-facebook-square"></span>
+            <span style="font-weight:bold;font-size:16px;">Login using Facebook</span>
+          </button> -->
+      </form>
+      <div class="form">
+        <a ui-sref="createaccount({isSubscription: selectedRecurring, amount: pledge, refer: referral})" class="btn btn-block ask">Create An Account</a>
+  		</div>
+    </div>
+  </div>
+</div>
+<mm-footer></mm-footer>
+<div class="modal fade reset-password-modal" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="forgotPasswordModalLabel">Reset Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success" ng-show="showResetMessage" role="alert">Password has been reset!</div>
+        <div class="container-fluid">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" ng-model="passwordReset" class="form-control" id="inputPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword" class="col-sm-2 control-label">Password Confirmation</label>
+              <div class="col-sm-10">
+                <input type="password" ng-model="passwordResetConfirm" class="form-control" id="inputPasswordConfirm" placeholder="Confirm Password">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="resetPassword()" type="button" class="btn btn-success">Reset Password</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade forgot-password-modal" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="forgotPasswordModalLabel">Forgot your Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success" ng-show="showRequestMessage" role="alert">Email has been set to reset your password</div>
+        Please provide your email address and we will create a new password for you.
+        <div class="container-fluid">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" ng-model="forgotEmail" class="form-control" id="inputEmail3" placeholder="Email Address">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button ng-click="forgotPassword()" type="button" class="btn btn-success">Send me new password</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

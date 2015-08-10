@@ -17,6 +17,8 @@ angular.module('multiplyMe')
       $scope.recurring_amount = result.recurring_amount;
       $scope.only_recurring = result.only_recurring;
       $scope.all_cancelled = result.all_cancelled;
+      $scope.challengeCode = result.referral_code;
+      $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.challengeCode;
       console.log(result);
       if(result.only_recurring && !result.all_cancelled){
         $scope.personal_impact /= 12;
@@ -28,15 +30,14 @@ angular.module('multiplyMe')
     UserDonation.get({id: $auth.user.id}, function(result){
       $scope.donation_ids = result.donation_ids;
       donationId = $scope.donation_ids[$scope.donation_ids.length - 1];
-      $scope.share_link = "https://" + $location.host() + "/#!/share/" + donationId;
 
       if(donationId != null) {
         $scope.showShare = true;
       }
     });
 
-    $rootScope.title = $auth.user.name + '\'s Donor Account - Bhatti Mines School';
-    $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+    $rootScope.title = $auth.user.name + '\'s Donor Account - Back on My Feet Austin';
+    $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
 
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
@@ -78,13 +79,13 @@ angular.module('multiplyMe')
       });
     }
 
-    var pledgeText = 'Pledged money to support a free school in India. They lose pledge unless 3 of my friends donate in 3 days. Join me https://amala.multiplyme.in/#!/share/' + donationId;
-    var donatedText = 'Donated money to support a free school in India. Join me and make a difference https://amala.multiplyme.in/#!/share/' + donationId + ' @AmalaFoundation';
+    var pledgeText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + donationId;
+    var donatedText = 'I just supported Back on My Feet. Learn more about what they are doing and how you can help! https://backonmyfeet.multiplyme.in/#!/share/' + donationId + ' @BoMFAustin';
 
     $scope.share = function(provider){
       if(provider === 'facebook'){
         $window.open(
-         '//www.facebook.com/sharer/sharer.php?u=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+         '//www.facebook.com/sharer/sharer.php?u=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + donationId,
          'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'twitter'){
@@ -100,14 +101,32 @@ angular.module('multiplyMe')
       }
       if(provider === 'google'){
         $window.open(
-          '//plus.google.com/share?url=https://amala.multiplyme.in/?_escaped_fragment_=share/' + donationId,
+          '//plus.google.com/share?url=https://backonmyfeet.multiplyme.in/?_escaped_fragment_=share/' + donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
       if(provider === 'email'){
         $window.open(
-          'mailto:?body=https://amala.multiplyme.in/#!/share/' + donationId,
+          'mailto:?body=https://backonmyfeet.multiplyme.in/#!/share/' + donationId,
           'sharer', 'toolbar=0,status=0,width=500,height=500');
       }
+    }
+
+    function isIOS8() {
+      var deviceAgent = navigator.userAgent.toLowerCase();
+      return /(iphone|ipod|ipad).* os 8_/.test(deviceAgent);
+    }
+
+    function isIOS7() {
+      var deviceAgent = navigator.userAgent.toLowerCase();
+      return /(iphone|ipod|ipad).* os 7_/.test(deviceAgent);
+    }
+
+    $scope.operand = '?';
+
+    if(isIOS8()) {
+      $scope.operand = '&';
+    } else if(isIOS7()) {
+      $scope.operand = ';';
     }
 	
   });

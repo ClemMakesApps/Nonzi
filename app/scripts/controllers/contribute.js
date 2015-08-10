@@ -8,7 +8,7 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $stateParams, $rootScope, $timeout) {
-  $rootScope.title = "Contribute to the Bhatti Mines School Project";
+  $rootScope.title = "Contribute to Back on My Feet Austin";
   $rootScope.ogTitle = $rootScope.title;
 
   //Initalize 
@@ -27,7 +27,7 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   $scope.callbackDelay = 3000;  //milliseconds
 
   if($stateParams.refer != null) {
-    $scope.referral = Number($stateParams.refer);
+    $scope.referral = $stateParams.refer;
   }
 
   if($scope.referral) {
@@ -35,17 +35,25 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
 
 	$scope.suggestedDonations = [{
-    'amount': 16,
+    'amount': 10,
+    'recurring': false,
+    'message': 'A Food Handler’s Course certification'
+  },{
+    'amount': 25,
+    'recurring': false,
+    'message': 'A pair of winter gloves'
+  },{
+    'amount': 41,
     'recurring': true,
-    'message': 'Sponsor a student'
+    'message': 'A monthly bus pass'
   },{
-    'amount': 48,
+    'amount': 100,
     'recurring': false,
-    'message': 'Sponsor a student for a quarter'
+    'message': 'Two pairs of running shoes'
   },{
-    'amount': 191,
+    'amount': 250,
     'recurring': false,
-    'message': 'Sponsor a student for a year'
+    'message': 'Full running gear and incentives'
   }]
 
   //Suggestion related methods
@@ -128,5 +136,4 @@ angular.module('multiplyMe').controller('ContributeCtrl', function ($scope, $sta
   }
   $scope.init();
 
-  console.log($scope.referral);
 });

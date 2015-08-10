@@ -1,0 +1,38 @@
+<div class="container primary">
+  <mm-header></mm-header>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <h1 class="text-center">Support Back On My Feet Austin</h1>
+    </div>
+    <div class="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
+      <div class="embed-container">
+        <iframe id="vimeoFrame"  frameborder="0" src="https://www.youtube.com/embed/weQr2Ca_QC4" webkitAllowFullScreen mozallowfullscreen allowFullScreen frameborder="0" ></iframe>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+      <div class="row prompt-container">
+        <div class="col-md-2 col-sm-2 col-xs-3 text-right">
+          <img ng-src="{{parent.image_url}}" alt="avatar" class="img-circle">
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-9 prompt">
+          <span class="prompt-text">
+            {{firstName}} 
+            <span ng-if="!paid">pledged to donate </span>
+            <span ng-if="paid">donated </span>
+            <strong>${{parent.donation.amount * .01}} 
+              <span ng-if="parent.donation.is_subscription">per month</span>
+            </strong>
+            . Will you join this cause?
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button ui-sref="main({refer: referral})" class="btn btn-default">Learn More</button>
+          <button ui-sref="contribute({refer: referral})" class="btn btn-success">Contribute</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<mm-footer></mm-footer>

@@ -1,0 +1,107 @@
+.rounded-secondary {
+  background-color: $secondaryBG;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: $radiusSize;
+  position:relative;
+}
+
+h1.receipt {
+  margin-bottom: 5px;
+}
+
+.img-supporter {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.supporter-images {
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+.supporter-initials {
+  display: flex;
+
+  & > span{
+    width: 52px;
+    text-align: center;
+  }
+}
+
+.btn-remind {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.supporter-container-label {
+  margin-top:30px;
+  padding-left:0px;
+  margin-bottom:5px;
+}
+
+.supporter-label {
+  margin-left:5px;
+}
+
+.supporter-content {
+  margin-top:10px;
+}
+
+.top-divider {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top-color: $c3;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.share-header {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+  text-align: center;
+}
+
+.share-subheader {
+  text-align: center;
+  display: block;
+}
+
+.message-box {
+  margin-top: 20px;
+
+  textarea {
+    width: 100%;
+  }
+}
+
+@media(max-width:$tabletWidth) {
+  .supporter-container {
+    text-align: center;
+  }
+
+  .supporter-initials {
+    justify-content: center;
+  }
+
+  .btn-remind {
+    position: static;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .supporter-container-label {
+    text-align: center;
+  }
+}
+
+@media(max-width:$desktopWidth) {
+  .btn-remind {
+    bottom: 10px;
+  }
+}

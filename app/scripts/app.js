@@ -21,6 +21,14 @@ angular
   'ngFacebook'
 ])
 .constant('URL', 'https://api.multiplyme.in/')
+.config( [
+    '$compileProvider',
+    function( $compileProvider )
+    {   
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|sms|chrome-extension):/);
+        // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    }
+])
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
     apiUrl: 'https://api.multiplyme.in',
@@ -50,7 +58,17 @@ angular
     templateUrl: 'views/contribute.html',
     controller: 'ContributeCtrl'
   })
-  .state('payment', {
+  .state('createaccount', {
+    url: '/createaccount?isSubscription&amount&refer',
+    templateUrl: 'views/createaccount.html',
+    controller: 'CreateAccountCtrl'
+  })
+  .state('donorlogin', {
+    url: '/donorlogin?isSubscription&amount&refer',
+    templateUrl: 'views/donorlogin.html',
+    controller: 'SigninCtrl'
+  })
+  .state('auth.payment', {
     url: '/payment?isSubscription&amount&refer',
     templateUrl: 'views/payment.html',
     controller: 'PaymentCtrl'
@@ -83,10 +101,10 @@ angular
   .state('share', {
     url: '/share/:donationId',
     templateUrl: 'views/share.html',
-    controller: 'ShareCtrl',
+    controller: 'SharedReceiptCtrl',
     resolve: {
-      Donation: function(DonationLoader, $stateParams){
-        return DonationLoader($stateParams.donationId);
+      ShareTree: function(ShareTreeLoader, $stateParams){
+        return ShareTreeLoader($stateParams.donationId);
       }
     }
   })
@@ -102,6 +120,26 @@ angular
     url: '/mailchimp',
     templateUrl: 'views/mailchimp.html'
   })
+  .state('team', {
+    url: '/team',
+    templateUrl: 'views/team.html'
+  })
+  .state('howitworks', {
+    url: '/howitworks',
+    templateUrl: 'views/howitworks.html'
+  })
+  .state('shareDonated', {
+    url: '/shareDonated',
+    templateUrl: 'views/shareDonated.html'
+  })
+  .state('shareChallenge', {
+    url: '/shareChallenge',
+    templateUrl: 'views/shareChallenge.html'
+  })
+  .state('shareChallengeComplete', {
+    url: '/shareChallengeComplete',
+    templateUrl: 'views/shareChallengeComplete.html'
+  })
   .state('signin',{
     url: '/signin?unsubscribe',
     templateUrl: 'views/signin.html',
@@ -113,7 +151,7 @@ angular
   $rootScope.config = config;
 
   //Pre-render title before controller sets title
-  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+  $rootScope.title = "MultiplyMe - Back on My Feet Austin";
 
   //Auto scroll to top
   $rootScope.$on('$stateChangeSuccess', function() {
@@ -128,30 +166,12 @@ angular
     var found = path.indexOf("/share/");
 
     if(found == -1) {
-      $rootScope.description = 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.';
+      $rootScope.description = 'Back on My Feet uses running to help adults experiencing homelessness build skills for self-sufficiency and independent living. Join our MultiplyMe challenge today and help our Members move their lives forward!';
     }
   })
 
   $rootScope.$on('$viewContentLoaded', function() {
     $rootScope.absUrl = $location.absUrl();
   })
-
-  (function(){
-    // If we've already installed the SDK, we're done
-    if (document.getElementById('facebook-jssdk')) {return;}
-
-    // Get the first script element, which we'll use to find the parent node
-    var firstScriptElement = document.getElementsByTagName('script')[0];
-
-    // Create a new script element and set its id
-    var facebookJS = document.createElement('script'); 
-    facebookJS.id = 'facebook-jssdk';
-
-    // Set the new script's source to the source of the Facebook JS SDK
-    facebookJS.src = 'https://connect.facebook.net/en_US/all.js';
-
-    // Insert the Facebook JS SDK into the DOM
-    firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-  }());
 });
 

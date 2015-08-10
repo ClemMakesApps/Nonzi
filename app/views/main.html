@@ -1,471 +1,79 @@
-<style>
-.video { position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden; }
-.video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 500px; }
-.spacer {display:block; width: 100%; cursor:pointer;text-align: center;}
-.topspacer {height: 200px;}
-.background {position: absolute; margin-top: 0; z-index: -1; top: 0; left: 0; right: 0;}
-.container {width:100%;margin:0 auto;padding:0 15px;}
-.fullwidth {width:100%; padding: 0; margin:0;clear:both;}
-.white {background-color: white; padding-top: 30px;}
-.whitefont, .whitefont a, .whitefont a:hover, .whitefont .btn, .whitefont .btn.active:focus, .whitefont .btn.active {color: white}
-a.underline {text-decoration: underline;}
-.btn-default, .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open>.dropdown-toggle.btn-default{background-color:transparent;}
-.btn-primary {margin: 5px 10%; background-color: teal; width: 80%;}
-.leaderboard img {width:50px;height:auto;}
-.leaderboard .row {padding-bottom: 10px;}
-.leaderboard span {padding-top:12px; padding-left: 10px; display:inline-block;}
-.btn-play{width:200px;}
-.btn-xs{padding: 1px 30px;}
-
-.perks{
-    cursor: pointer;
-    background-color: #E3F5F1;
-    border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    margin-bottom: 15px;
-    position: relative;
-	text-decoration:none;
-}
-
-.perks:hover {
-    background-color: #278570;
-    color: white;
-	text-decoration:none;
-}
-
-.perk-promo {
-    background-color: #278570;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.promo-tag {
-    display: inherit;
-    margin-bottom: 5px;
-}
-
-a[role=button], a[role=button]:focus, a[role=button]:hover{
-text-decoration:none;
-color:inherit;
-}
-
-.topbar{height: 259px;}
-.affix{top:0; background-color: white; border-bottom: 1px black solid;width:100%; left: 0; right: 0; margin: 0; padding: 0;}
-.affix p, .affix .text-left, .affix .btn {display:none;}
-.showme {display:none;}
-.affix .showme{display:inline-block;}
-.h1, .h2, .h3, h1, h2, h3 {margin-top:10px;margin-bottom: 5px;}
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{border: none transparent; border-bottom: #278570 3px solid; font-weight: bold;}
-.nav-tabs{border: none transparent}
-.nav-tabs>li>a{color:#000;}
-h4 {font-size:16px;font-weight:bold;}
-.panel-default>.panel-heading{background-color:#fff;border:none transparent;padding: 5px 0;}
-.panel-default{border:none transparent;}
-.panel{-webkit-box-shadow: none; box-shadow: none;}
-.panel-group .panel-heading+.panel-collapse>.list-group, .panel-group .panel-heading+.panel-collapse>.panel-body{border-top:none transparent;}
-.panel a:focus, .panel a:hover{text-decoration:none;}
-.nav>li>a:focus, .nav>li>a:hover {background-color:transparent;font-weight:bold;}
-
-
-.embed-container
-{
-	position: relative; 
-	padding-bottom: 56.25%; 
-	height: 0; 
-	overflow: hidden; 
-	max-width: 100%;
-}
-
-.embed-container iframe, .embed-container object, .embed-container embed
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 90%;
-}
-
-.campaignContent {
-	position: absolute;
-	padding-top: 10px;
-	width: 100%;
-  margin-bottom: 50px;
-}
-
-.player .controls {
-  display: none;
-}
-
-.campaignHighlights {
-	position: absolute;
-	z-index: 100;
-	width: 100%;
-	top:40px;
-}
-
-.campaignHighlightsBackground {
-  padding-bottom:100px;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
-  background-image: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.35), rgba(0,0,0,0.55), rgba(0,0,0,0.35), rgba(0,0,0,0.02));
-}
-
-.campaignStats {
-	margin-left: 30px;
-}
-
-h1.campaignLabels {
-	font-size: 54px;
-	margin-bottom: 0px;
-	margin-left: -3px; /*fix weird bug*/
-}
-
-h3.campaignLabels {
-	font-size: 30px;
-	margin-top: 0px;
-}
-
-h2.campaignLabels {
-	font-size: 40px;
-	margin-bottom: 0px;
-}
-
-.campaign-tabs {
-	font-size: 18px;
-	min-width:390px;
-}
-
-nav.campaign {
-	position: absolute;
-	top: 10px;
-	z-index: 10;
-	color: white;
-	width: 100%;
-}
-
-.campaign .btn {
-	color: white;
-	float: right;
-	margin-right: 85px;
-}
-
-.campaign span {
-	margin-left: 85px;
-}
-
-.action-header {
-	margin-top: 30px;
-  font-size: 18px;
-}
-
-.faq-title {
-  color: #337ab7;
-}
-
-.campaign-header {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 30px;
-}
-.iframe-container{
-position: relative;
-margin-top:30px;
-width:100%;
-height:650px;
-overflow:hidden;
-}
-
-.iframe{
-position:absolute;
-height:100%;
-width:100%;
-top:0;
-left:0;
-right:0;
-bottom:0;
-border:none;
-}
-
-
-
-.social-links .btn{
-  font-size: 27px !important;
-}
-
-.fa-facebook-square {
-  color: #3B5998;
-}
-
-.fa-twitter-square {
-  color: #4099FF;
-}
-
-.fa-google-plus-square {
-  color: #DD4B39;
-}
-
-.fa-facebook-square:hover,
-.fa-twitter-square:hover,
-.fa-google-plus-square:hover,
-.fa-envelope:hover {
-  opacity: 0.7;
-}
-
-.fa-facebook-square:after,
-.fa-twitter-square:after,
-.fa-google-plus-square:after {
-  content: "";
-  background-color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 7px;
-  display: block;
-  position: absolute;
-  bottom:4px;
-  left:1px;
-  z-index: -1;
-}
-.social-actions{
-  font-size: 27px;
-  background-color: transparent;
-  border: none;
-}
-
-.fa-envelope {
-  font-size: 27px;
-  color:burlywood;
-}
-
-.modal-backdrop {
-  bottom: 0;
-  position: fixed;
-  z-index: 1;
-}
-
-.nav-tabs>li>a:hover {
-  border-color: transparent;
-}
-
-.campaignHighlights .col-sm-5{
-min-width: 400px;}
-
-.campaignStats .btn.btn-xs-screen{
-display:none;
-color:white;
-width:70%;
-margin-left:0;
-margin-top: 20px;
-margin-right: 0;
-min-width:118px;
-}
-
-@media (min-width: 900px) {
-.campaignHighlights{
-padding-top: 7%;}
-}
-@media (max-width: 767px) {
-.campaignHighlights{
-margin-top: 50%;
-color:black}
-.campaignContent{
-margin-top:336px}
-.campaignHighlights .col-sm-5{
-min-width: 300px;}
-.campaign-tabs{
-	min-width:289px;}
-.whitefont {color:black}
-.whitefont a, .whitefont a:hover, .whitefont .btn, .whitefont .btn.active:focus, .whitefont .btn.active
- {color: #286090;}
- .campaignStats .btn.btn-xs-screen{
- display:block;
- }
- .btn-md-screen{
- display:none;
- }
-
- .campaignHighlightsBackground {
-    padding-bottom:0px;
-    text-shadow: none;
-    background-image: none;
-  }
-}
-
-@media (max-width: 610px) {
-  .campaign span {
-    margin-left: 15px;
-  }
-  .campaign .btn {
-  margin-right: 52px;
-  }
-  h1.campaignLabels {
-	font-size: 30px;
-	margin-bottom: 0px;
-}
-  h3.campaignLabels {
-	font-size: 20px;
-	margin-bottom: 0px;
-}
-  h2.campaignLabels {
-	font-size: 30px;
-	margin-bottom: 0px;
-}
-.campaign-tabs>li>a{
-font-size: 16px;
-padding: 5px 5px;
-}
-
-.campaignContent{
-  margin-top: 229px;
-}
-
-.modal-backdrop {
-  bottom: 0;
-  position: fixed;
-}
-}
-
-@media (max-width: 550px) {
-.campaignHighlights .col-xs-7, .campaignHighlights .col-xs-4 {
-width:100%;
-}
-.campaignContent, .campaignContent[style="margin-top: 335px;"]{
-margin-top:466px !important;
-}
-.campaignStats{
-margin-left:0;}
-}
-
-
-@media (max-width: 360px) {
-.campaignContent, .campaignContent[style="margin-top: 335px;"]{
-margin-top:530px !important}
-.campaign-tabs>li>a{
-font-size: 14px;
-}
-.perks{max-width: 322px}
-}
-@media (min-width: 1125px) {
-.campaignHighlights{
-margin-top: 15%;}
-}
-
-
-</style>
-<nav class="campaign">
-	<span><img style="width:150px" src="../images/multiplyMeTransparent.png"></span>
-	<a ui-sref="signin" class="btn btn-default text-right">Sign In</a>
-</nav>
-
-<div class="container whitefont campaignHighlights" ng-class="{campaignHighlightsBackground: !played}" ng-hide="highlights" ng-click="playVideo()">
-	<div class="col-sm-offset-2 col-sm-5 col-xs-7">
-		<h1 class="campaignLabels">{{cause.name}}</h1>
-		<h3 class="campaignLabels">by <a class="underline" target="_blank" ng-href="{{org.url}}">{{org.name}}</a></h3>
-		<p>{{cause.blurb}}</p> 
-		<div class="popover-cntr" style="position:relative;">
-		  <a href="#" class="btn btn-default" ng-click="showPopover()">Share the Fundraiser</a>
-		  <div class="popover fade right in"  ng-show="popover" role="tooltip" id="popover644569" style="left:170px; display: block;">
-		    <div class="arrow" style="top: 40%;"></div>
-			<h3 class="popover-title" style="display: none;"></h3>
-			<div class="popover-content">
-			  <div class="social-links">
-                <button class="social-actions" ng-click="share('facebook')"><span class="fa fa-facebook-square"></span></button>
-                <button class="social-actions" ng-click="share('twitter')" ><span class="fa fa-twitter-square"></span></button>
-                <button class="social-actions" ng-click="share('google')"><span class="fa fa-google-plus-square"></span></button>
-                <button class="social-actions" ng-click="share('email')"><span class="fa fa-envelope"></span></button>
-              </div>
-			</div>
-		  </div>
-		</div>
-	</div>
-	<div class="col-sm-offset-1 col-sm-2 col-xs-4 campaignStats">
-		<h2 class="text-left campaignLabels">{{supporters}}</h2>
-		<p class="text-left">supporters</p>
-		<h2 class="text-left campaignLabels">{{donation_amount * 0.01 | currency:"$":0}}</h2>
-		<p class="text-left">donated of {{money.requested | currency:"$":0}}</p>
-		<h2 class="text-left campaignLabels">{{days.remaining}}</h2>
-		<p class="text-left">days to go</p>
-	</div>
+<div ng-show="{{referrerName != nil}}" class="col-xs-12 referer">
+    <h3>Welcome {{referrerName}}'s Friend</h3>
 </div>
-
-<div class='embed-container'>
-	<iframe id="vimeoFrame" src='https://player.vimeo.com/video/127660524?api=1&title=0&byline=0&portrait=0&player_id=vimeoFrame' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
-
-<div class="white campaignContent">
-  <a class="btn btn-lg btn-xs-screen btn-primary visible-xs-block" ui-sref="contribute({refer: referral})">Contribute</a>
-  <p class="text-center small visible-xs-block">
-    Campaign will end on {{days.end | date:'MM/dd/yy'}}
-  </p>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-2 col-md-5 col-sm-8 column">
-				<div class="tabpanel">
+<div class="container main primary" ng-class="{'has-referrer': referrerName != nil}">
+  <mm-header has-sign-in="true"></mm-header>
+  <h1 class="text-center col-xs-12 cause">Support {{cause.name}}</h1>
+  <div class="row col-lg-inset hide-overflow">
+    <div class="col-md-9 col-xs-full">
+      <div class="embed-container">
+        <iframe id="vimeoFrame"  frameborder="0" src="https://www.youtube.com/embed/weQr2Ca_QC4" webkitAllowFullScreen mozallowfullscreen allowFullScreen frameborder="0" ></iframe>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="row col-xs-full ">
+        <div class="details col-md-12 col-lg-12 col-sm-8 text-center">
+          <div class="row"> 
+            <div class="col-lg-12 col-md-12 col-xs-4">
+              <h2>{{supporters}}</h2>
+              <p>Supporters</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-4">
+              <h2>{{donation_amount * 0.01 | currency:"$":0}}</h2>
+              <p>Raised of {{money.requested | currency:"$":0}}</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-4">
+              <h2>{{days.remaining}}</h2>
+              <p>Days Remaining</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 no-pad col-md-12 col-lg-12">
+           <a class="btn btn-block btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
+           <p class="text-center small hidden-sm">
+            Campaign will end on {{days.end | date:'MM/dd/yy'}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-8 campaign-content">
+        <div class="tabpanel">
           <ul class="nav nav-tabs campaign-tabs">
             <li class="active">
-              <a href="#!/#description" data-toggle="tab">Description</a>
+              <a href="#!/#description" data-toggle="tab">Story</a>
             </li>
             <li>
               <a href="#!/#updates" data-toggle="tab">Updates</a>
             </li>
             <li>
               <a href="#!/#comments" data-toggle="tab">Comments
-                <span class="disqus-comment-count" data-disqus-identifier="bhattimines"></span>
+                (<span class="disqus-comment-count" data-disqus-identifier="backonmyfeet"></span>)
               </a>
             </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="description">
               <p>
-                <h3 class="campaign-header">Why should you support us?</h3>
-                <img alt="infographic" src="images/infographic.png" style="max-width:100%" />
+                <h2 class="campaign-header">Why should you support us?</h2>
+                <img alt="infographic" src="images/bomfinfographic.jpg" style="max-width:100%" />
                 <br><br>
-                The children served by the Bhatti Mines School need your support. For them, the school offers an alternative to child labor, a quality education, and hope for the future.<br><br>
-
-                Bhatti Mines is one of the most impoverished communities in the Delhi area. Its residents lack proper electricity, adequate food and shelter, or health services. With no schools in the community, a child’s only path for survival was a life of manual labor from an early age. This community was trapped in the cycle of poverty.<br><br>
-                Until 2003, when Santosh and Archana Singh invested in the future of this community. With funding from people like you, they were able to build a school--and give the community access to education for the first time. Now, instead of laboring to survive, children have opportunities to pursue an education and a better life. <br><br>
-                The school is full of positive role models and teachers who care about the success of their students. Each year, over 100 children are offered an alternative to manual labor and a route out of extreme poverty. Children who attend school are more likely to grow up healthy, earn a living wage, marry later, and pass on a better life to the next generation. For these kids, Bhatti Mines School means hope for the future and freedom to thrive.<br><br>
-              
-                Learn more about the school by watching <a href="http://dearfriendfilm.vhx.tv/" target="_blank">this documentary</a>.
-                <h3 class="campaign-header">How can I help?</h3>
-                <p>
-          Amala Foundation has partnered with MultiplyMe to help with the fundraising of the Bhatti Mines School. Our goal is to raise $7500 to help cover the costs of running the school until the end of this year.
-
-          <br><br>
-          You can help by taking the MultiplyMe Challenge or by donating. Just click the contribute button.
-          <br>
-          <img src="images/challengeInfo.png" alt="Challenge Information" style="max-width:100%">
-          <br>
-          <img src="images/whyChallenge.png" alt="Why take the challenge" style="max-width:100%">
-				</p> 
-
-                <h3 class="campaign-header">FAQ</h3>
-                <div class="panel-group" id="accordion">
-                  <div class="panel panel-default" ng-repeat="qa in faq">
-                    <div class="panel-heading">
-                      <h5 class="panel-title faq-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#!/#collapse{{$index + 1}}">{{qa.question}}</a>
-                      </h5>
-                    </div>
-                    <div id="collapse{{$index + 1}}" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <p>{{qa.answer}}</p>
-                      </div>
-                    </div>
-                  </div>
+                Back on My Feet is a national non-profit organization that uses running to help those experiencing homelessness change the way they see themselves so they can make real change in their lives. Our mission is not to create runners within the homeless population, but to use running to create self-sufficiency for our Members (those experiencing homelessness). <br/><br/>
+        				Through dedication and hard work, Members earn the opportunity to create a new road for themselves. By building a community of individuals who are committed to changing their lives, Back on My Feet provides a support network for our Members both in the short and long term. We also work within the Austin community to raise awareness and change the perception of homelessness. <br/><br/>
+        				Since our launch in January 2013, we have served 202 Members in the greater Austin area. Of those, 100 have found employment, many through our local employment partners. We have also helped 42 find housing and have a goal to assist 15 by the end of 2015. Donations made to Back on My Feet enable us to provide job preparedness workshops, assist with apartment lease deposits, purchase interview clothes for Members, cover race fees, provide running gear, and so much more. Give today and help some of the individuals experiencing homelessness in our city move towards independence!
+                <br><br>
+        				<img alt="infographic" src="images/BoMF_Facebook_Pic.jpg" style="max-width:100%" />
+        				<h2 class="campaign-header">FAQ</h2>
+                <div ng-repeat="qa in faq">
+                  <strong>{{qa.question}}</strong>
+                  <p>{{qa.answer}}</p>
                 </div>
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#questionModal">Ask a Question</button>
-                <!-- <input type="text" ng-show="showfaq"> -->
+                <button type="button" class="btn btn-default ask" data-toggle="modal" data-target="#questionModal">Ask a Question</button>
               </p>
             </div>
             <div class="tab-pane" id="updates">
               <div class="iframe-container">
                 <iframe class="iframe" src="/#!/mailchimp" style="width:100%;height:800px"/></iframe>
-                  <!--<script language="javascript" src="http://us10.campaign-archive2.com/generate-js/?u=37aa354ead06ef426b16aa342&fid=981&show=10" type="text/javascript"></script>-->  
               </div>
             </div>
             <div class="tab-pane" id="comments">
@@ -473,7 +81,7 @@ margin-top: 15%;}
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                   /* * * CONFIGURATION VARIABLES * * */
-                  var disqus_shortname = 'bhattiminesschool';
+                  var disqus_shortname = 'backonmyfeetaustin';
 
                   /* * * DON'T EDIT BELOW THIS LINE * * */
                   (function() {
@@ -491,12 +99,8 @@ margin-top: 15%;}
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-4 column">
-         <a class="btn btn-lg btn-md-screen btn-primary" ui-sref="contribute({refer: referral})">Contribute</a>
-         <p class="text-center small hidden-xs">
-          Campaign will end on {{days.end | date:'MM/dd/yy'}}
-        </p>
-        <h4 class="action-header">Suggested Donations</h3>
+      <div class="col-md-3 col-sm-4 hidden-xs suggested ">
+        <h2 class="action-header">Suggested Contributions</h2>
         <a role="button" ui-sref="contribute({refer: referral, isSubscription: suggestedDonations[$index].recurring, amount: suggestedDonations[$index].amount})" ng-repeat="suggest in suggestedDonations">
           <div class="perks" ng-class="{'perk-selected':$index == selected}">
             <h3>
@@ -507,29 +111,14 @@ margin-top: 15%;}
             <span class="fa fa-check-square" ng-show="$index == selected"></span>
           </div>
         </a>
-        <div class="leaderboard">
-          <h4 class="action-header">Leaderboard</h3>
-          <div class="row clearfix" ng-repeat="leader in leaders">
-            <div class="col-xs-2 column">
-
-              <img alt="140x140" class="img-circle" ng-src="https://www.gravatar.com/avatar/{{leader.img}}?s=200&r=pg&d=mm" />
-            </div>
-            <div class="col-xs-6 column">
-              <span>{{ leader.name }}</span>
-            </div>
-            <div class="col-xs-4 column">
-              <span>{{ leader.contribution * 0.01 | currency:undefined:0 }}<span>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
   </div>
 </div>
+<mm-footer></mm-footer>
 <script type="text/javascript">
 /* * * CONFIGURATION VARIABLES * * */
-var disqus_shortname = 'bhattiminesschool';
-var disqus_identifier = 'bhattimines';
+var disqus_shortname = 'backonmyfeetaustin';
+var disqus_identifier = 'backonmyfeet';
 
 /* * * DON'T EDIT BELOW THIS LINE * * */
 (function () {

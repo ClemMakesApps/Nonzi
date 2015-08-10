@@ -9,32 +9,43 @@
  */
 angular.module('multiplyMe')
   .controller('MainCtrl', function ($scope, $window, $location, $stateParams, $timeout, $rootScope, LeaderboardLoader, organization) {
-  $scope.referral = Number($stateParams.refer);
-  $rootScope.title = "MultiplyMe - Bhatti Mines School Project";
+  $scope.referral = $stateParams.refer;
+  $rootScope.title = "MultiplyMe + Back on My Feet Austin";
   $rootScope.ogTitle = $rootScope.title;
 
   if($scope.referral) {
     $scope.referHref = 'refer=' + $scope.referral;
   }
+  if($stateParams.refer != null){
+    $scope.referrerName = $stateParams.refer.replace(/[0-9]/g, '');
+  }
 
-  organization.get({id: 1}, function(result){
+  organization.get({id: 2}, function(result){
     //console.log('result', result);
     $scope.supporters = result.organization.donation_count;
     $scope.donation_amount = result.organization.donation_amount;
   });
 
   $scope.suggestedDonations = [{
-    'amount': 16,
+    'amount': 10,
+    'recurring': false,
+    'message': 'A Food Handler’s Course certification'
+  },{
+    'amount': 25,
+    'recurring': false,
+    'message': 'A pair of winter gloves'
+  },{
+    'amount': 41,
     'recurring': true,
-    'message': 'Sponsor a student'
+    'message': 'A monthly bus pass'
   },{
-    'amount': 48,
+    'amount': 100,
     'recurring': false,
-    'message': 'Sponsor a student for a quarter'
+    'message': 'Two pairs of running shoes'
   },{
-    'amount': 191,
+    'amount': 250,
     'recurring': false,
-    'message': 'Sponsor a student for a year'
+    'message': 'Full running gear and incentives'
   }]
 
   LeaderboardLoader(5).then(function(result){
@@ -47,37 +58,37 @@ angular.module('multiplyMe')
   });
 
   $scope.faq = [{
-    'question': 'What happens if my friends don\'t respond in time?',
-    'answer': 'You will have 3 options. If your friends respond just after the deadline and you think you cut it close enough, email us and we can manually override to allow your donation. If you just didn\'t get it, your pledged money will never be taken from your account. You will have the option to manually allow your donation even if you don\'t succeed at the challenge, and any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
+    'question': 'What happens to my money if my friends don\'t respond in time?',
+    'answer': 'Your pledged money will never be taken from your account. You are welcome to try again, either the challenge, or just donating directly. Any friends you did convince to take the challenge will still have the normal 3 days to find their own friends.',
   },{
-    'question': 'If I don\'t succeed and my money is refunded, is my friend\s money refunded too?',
-    'answer': 'No. If your friend donated directly, the money is going straight to Bhatti Mines School. If they took the challenge, they still have 3 days from when their challenge began.',
+    'question': 'Is my friends\' money refunded too if I don\'t beat the challenge?',
+    'answer': 'No. If your friend donated directly, the money is going straight to Back on My Feet. If they took the challenge, they still have 3 days from when their challenge began.',
   },{
     'question': 'Do my friends have to match my pledge?',
     'answer': 'No, but you can encourage them to if you wish. The minimum donation is $1, and there is no maximum.',
   },{
-    'question': 'How do you know who is giving because of my pledge?',
-    'answer': 'When you complete your donation you will be given a unique share link so that we can figure out who refered who. On your account page you can keep track of how much money you\'ve personally raised through referals to your unique link.',
-  },{
-    'question': 'If I don\'t complete my challenge, when do I see a refund?',
-    'answer': 'Your money is not removed from your account until AFTER you complete the challenge. You won\'t see a refund because there is nothing to refund.',
-  },{
-    'question': 'Is this tax deductable?',
-    'answer': 'Yes, and we\'ll be automatically sending you reciepts for your tax purposes.',
+    'question': 'How much money did my friends give?',
+    'answer': 'When you complete your donation you will be given a referal code. On your account page you can keep track of how much money you\'ve personally raised through referals, and friends\' referals.',
   },{
     'question': 'Will I be able to cancel a recurring donation later?',
     'answer': 'Yes! When you make an pledge or donation you will create a password so that you can log in and cancel or edit your donation any time.',
+  },{
+    'question': 'How did Back on my Feet start?',
+    'answer': 'Back on My Feet started when founder Anne Mahlum began a running group with some men she met outside of the Sunday Breakfast Rescue Mission during her early morning runs. From that humble beginning, Back on My Feet grew, expanding into cities across the country and growing into a more structured organization that has helped hundreds of people experiencing homelessness from coast to coast move their lives forward.',
+  },{
+    'question': 'How can I get involved?',
+    'answer': 'There are many opportunities, whether that’s through running with our teams, volunteering at an event, getting your company involved, or becoming a FundRacer! http://austin.backonmyfeet.org/austin-get-involved',
   }]
 
   $scope.org = {
-    'name': 'The Amala Foundation',
-    'url': 'https://amalafoundation.org/',
+    'name': 'Back on My Feet',
+    'url': 'http://austin.backonmyfeet.org/',
   }
 
   $scope.cause = {
-    'name': 'Bhatti Mines School',
-    'blurb': 'The children served by Bhatti Mines School live in extreme poverty. For them, the school offers an alternative to child labor, an quality education, and hope for the future.',
-    'image': 'infographic.png',
+    'name': 'Back on My Feet Austin',
+    'blurb': 'Back on My Feet uses running to help adults experiencing homelessness build skills for self-sufficiency and independent living. Join our MultiplyMe challenge today and help our Members move their lives forward!',
+    'image': 'bomfinfographic.jpg',
     'supporters':0
   }
 
@@ -105,15 +116,15 @@ angular.module('multiplyMe')
       }
     }
 
-  var dateStart='2015-05-28';
-  var dateLength=34;
+  var dateStart='2015-08-04';
+  var dateLength=37;
   var dateToday=new Date();
   var parsedToday=Date.parse(dateToday);
   var parsedStart=Date.parse(dateStart);
   var parsedLength = dateLength * 86400000;
   var parsedEnd = parsedLength + parsedStart;
 
-  var requested = 7500;
+  var requested = 2000;
   var raised = 12000;
   var percent =  Math.round(raised/requested*100)
 
@@ -123,47 +134,47 @@ angular.module('multiplyMe')
   }
 
   $scope.money = {
-    'requested' : 7500,
+    'requested' : 2000,
     'raised' : 0,
-    'percent' : Math.round(0/7500*100)
+    'percent' : Math.round(0/2000*100)
   }
 
 
-  var vimeoFrame = $('#vimeoFrame')[0];
-  var player = $f(vimeoFrame);
-  $scope.played = false;
+//  var vimeoFrame = $('#vimeoFrame')[0];
+//  var player = $f(vimeoFrame);
+//  $scope.played = false;
 
-  player.addEvent('ready', function() {
+//  player.addEvent('ready', function() {
 
-      player.addEvent('playProgress', onPlayProgress);
-  });
+//      player.addEvent('playProgress', onPlayProgress);
+//  });
 
-  $scope.playVideo = function() {
-    if(!$scope.played) {
-      player.api("play");
-    }
-  }
+//  $scope.playVideo = function() {
+//    if(!$scope.played) {
+//      player.api("play");
+//    }
+//  }
 
   $scope.popover = false;
 
   $scope.showPopover = function(){
     $scope.popover = !$scope.popover; 
   };
-  
-    function onPlayProgress(data, id) {
-        //console.log(data.seconds + 's played');
-        // $scope.highlights = true;
-        // $scope.$apply();
-        $scope.played = true;
-        $scope.$apply();
-        $( ".campaignHighlights" ).animate({"margin-top": "50%"}, 1000, function() {
-          $( ".campaignHighlights" ).removeClass("whitefont");
-          $( ".campaignHighlights" ).css("color","black");
-          $( ".campaignHighlights .btn" ).css("color","black");
-        });
-        $( ".campaignContent" ).animate({"margin-top": "335px"}, 1000);
-        player.removeEvent('playProgress');
-    }
+  //
+   // function onPlayProgress(data, id) {
+   //     //console.log(data.seconds + 's played');
+   //    // $scope.highlights = true;
+   //     // $scope.$apply();
+   //     $scope.played = true;
+   //     $scope.$apply();
+   //     $( ".campaignHighlights" ).animate({"margin-top": "50%"}, 1000, function() {
+   //       $( ".campaignHighlights" ).removeClass("whitefont");
+   //       $( ".campaignHighlights" ).css("color","black");
+   //       $( ".campaignHighlights .btn" ).css("color","black");
+   //     });
+   //     $( ".campaignContent" ).animate({"margin-top": "335px"}, 1000);
+   //     player.removeEvent('playProgress');
+   // }
 
 
 

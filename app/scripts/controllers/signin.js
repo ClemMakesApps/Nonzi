@@ -9,10 +9,14 @@
 */
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope, $stateParams, EmailSubscribe) {
+
+  $scope.pledge = $stateParams.amount;
+  $scope.selectedRecurring = $stateParams.isSubscription;
+  $scope.referral = $stateParams.refer;
   $scope.showRequestMessage = false;
   $scope.showResetMessage = false;
-  $rootScope.title = "Bhatti Mines School Donor Portal - MultiplyMe";
-  $rootScope.ogTitle = 'MultiplyMe - Bhatti Mines School Project';
+  $rootScope.title = "Back on My Feet Austin Donor Portal - MultiplyMe";
+  $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
   $scope.$on('auth:password-reset-confirm-success', function(){
     $('.reset-password-modal').modal();
   });
@@ -59,4 +63,19 @@ angular.module('multiplyMe')
     }
   };
 
+  $scope.logon = function(){
+    if($scope.loginForm.$valid){
+      $auth.submitLogin($scope.user)
+      .then(function(resp){
+        console.log("user logged in successfully: "+ resp); //for debugging purpose
+        $state.go('auth.payment', $stateParams);
+
+      }).catch(function(resp){
+        console.log("error while logging in: ", resp); //for debugging purpose
+        $scope.user.password = '';
+        $scope.loginForm.$setPristine();
+        $scope.invalidCredentials = true;
+      });
+    }
+  };
 });
