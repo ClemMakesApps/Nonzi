@@ -20,7 +20,7 @@ angular
   'ui.router',
   'ngFacebook'
 ])
-.constant('URL', 'http://104.236.212.96/')
+.constant('URL', 'https://api.multiplyme.in/')
 .config( [
     '$compileProvider',
     function( $compileProvider )
@@ -31,7 +31,7 @@ angular
 ])
 .config(function ($stateProvider, $urlRouterProvider, $authProvider, $locationProvider, $facebookProvider) {
   $authProvider.configure({
-    apiUrl: 'http://104.236.212.96',
+    apiUrl: 'https://api.multiplyme.in',
     storage: 'localStorage'
   });
   $facebookProvider.setAppId('1417661645206719');
