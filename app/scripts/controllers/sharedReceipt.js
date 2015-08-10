@@ -10,7 +10,10 @@ angular.module('multiplyMe')
     $scope.name = ShareTree.parent.name;
     $scope.parent = ShareTree.parent;
     $scope.children = ShareTree.children;
-    console.log('children', $scope.children[0]);
+    for(var i = 0; i < 3; i++){
+      $scope.children[i] = $scope.children[i] == undefined ? 'images/unknow-donor.png' : $scope.children[i]
+    }
+    console.log('children', $scope.children);
     $scope.personalImpact = ShareTree.personal_impact * .01;
     $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
