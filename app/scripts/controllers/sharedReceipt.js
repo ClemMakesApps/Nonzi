@@ -15,7 +15,7 @@ angular.module('multiplyMe')
     $scope.networkImpact = ShareTree.network_impact * .01;
     $scope.donationId = $stateParams.donationId;
     if($scope.personalImpact != 0){
-      $scope.leverage = $scope.networkImpact / $scope.personalImpact
+      $scope.leverage = ($scope.networkImpact / $scope.personalImpact).toFixed(2);
     }
     else {
       $scope.leverage = $scope.networkImpact / 1
