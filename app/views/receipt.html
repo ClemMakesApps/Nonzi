@@ -11,7 +11,7 @@
       <span ng-if="donated">(Receipt has been emailed)</span>
       <span ng-if="!donated">and pledged to donate {{amount | currency:undefined:0}} upon completion</span>
     </div>
-    <div ng-if="parentDonation && parentDonation.is_challenged">
+    <div ng-if="parentDonation && parentDonation.is_challenged && !parentDonation.is_paid">
       <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 supporter-container-label">
         You also helped {{parentFirstName}}’s challenge
       </div>
@@ -34,7 +34,7 @@
             {{3 - children}} more friends need to pledge or donate within the next {{timeRemaining}} hours before {{parentFirstName}}’s challenge is complete
           </div>
         </div>
-        <a ui-sref="" class="btn btn-success btn-remind">Remind {{parentFirstName}}</a>
+        <a ng-click="remind()" class="btn btn-success btn-remind">Remind {{parentFirstName}}</a>
       </div>
     </div>
   </div>

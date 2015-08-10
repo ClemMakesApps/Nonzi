@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('multiplyMe')
-  .controller('ReceiptCtrl', function ($scope, $window, $location, $stateParams, $rootScope, Donation, $auth) {
+  .controller('ReceiptCtrl', function ($scope, $window, $location, $stateParams, $rootScope, Donation, $auth, reminder) {
+    $scope.remind = function(){
+      reminder.save({id: Donation.parent_donation.id})
+    }
     $rootScope.title = 'Thank you ' + Donation.name + ' for supporting the Back on My Feet Austin';
     $rootScope.ogTitle = 'Contribute to Back on My Feet Austin';
 
