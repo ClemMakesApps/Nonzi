@@ -173,7 +173,7 @@ angular.module('multiplyMe')
           },
           function(result){
             localStorage.setItem("receiptYes", "true");
-            $state.go('share', {donationId: result.donation.id});
+            $state.go('receipt', {donationId: result.donation.id});
           },
           function(response){
             var errorMessage = response.data.error;
