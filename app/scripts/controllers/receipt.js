@@ -21,7 +21,7 @@ angular.module('multiplyMe')
     $scope.images = Donation.children_images;
     for(var i = 0; i < 3; i++){
       if($scope.images[i] == undefined){
-        $scope.images[i] = "images/unknown-donor.png";
+        $scope.images[i] = "https://s3.amazonaws.com/multiplyme.in/unknown-donor.png";
       }
     }
     $scope.children = Donation.parents_children_count <= 3 ? Donation.parents_children_count : 3;
