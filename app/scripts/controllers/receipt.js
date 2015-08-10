@@ -19,6 +19,7 @@ angular.module('multiplyMe')
     $scope.recurring = Donation.donation.is_subscription;
     $scope.parentId = Donation.donation.parent_id;
     $scope.images = Donation.children_images;
+    $scope.names = Donation.names;
     for(var i = 0; i < 3; i++){
       if($scope.images[i] == undefined){
         $scope.images[i] = "https://s3.amazonaws.com/multiplyme.in/unknown-donor.png";
@@ -81,6 +82,12 @@ angular.module('multiplyMe')
       $scope.operand = '&';
     } else if(isIOS7()) {
       $scope.operand = ';';
+    }
+
+    $scope.getInitials = function(name){
+      if(name != null){
+        return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
+      }
     }
 
   });
