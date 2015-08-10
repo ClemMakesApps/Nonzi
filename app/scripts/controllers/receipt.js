@@ -5,7 +5,7 @@ angular.module('multiplyMe')
     $scope.remind = function(){
       reminder.save({id: Donation.parent_donation.id})
     }
-    $rootScope.title = 'Thank you ' + Donation.name + ' for supporting the Back on My Feet Austin';
+    $rootScope.title = 'Thank you ' + Donation.name + ' for supporting Back on My Feet Austin';
     $rootScope.ogTitle = 'Contribute to Back on My Feet Austin';
 
     $scope.donorName = Donation.name;
