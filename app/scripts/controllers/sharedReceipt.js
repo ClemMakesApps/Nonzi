@@ -13,7 +13,7 @@ angular.module('multiplyMe')
     $scope.remainingChildren = 3 - ShareTree.children.length;
     for(var i = 0; i < 3; i++){
       console.log('hi', $scope.children[i]);
-      $scope.children[i] = $scope.children[i] === undefined ? {image_url: 'images/unknown-donor.png'} : $scope.children[i]
+      $scope.children[i] = $scope.children[i] === undefined ? {image_url: 'https://s3.amazonaws.com/multiplyme.in/unknown-donor.png'} : $scope.children[i]
     }
     console.log('children', $scope.children);
     $scope.personalImpact = ShareTree.personal_impact * .01;
