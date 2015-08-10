@@ -39,7 +39,7 @@
           
           <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.email.$error.pattern && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$error.pattern && paymentForm.email.$dirty}" >
             <div class="form-group">
-              <label for="password" class="control-label">Password</label>
+              <label for="password" class="control-label">Password (at least 8 characters)</label>
               <div class="password-container">
                 <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-required="!signedIn">
                   <!-- or -->
