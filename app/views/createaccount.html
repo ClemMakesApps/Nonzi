@@ -37,13 +37,13 @@
             <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="(paymentForm.verifyEmail.$invalid || payment.user.email != payment.user.verifyEmail) && paymentForm.verifyEmail.$dirty"></span>
           </div>
           
-          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.email.$error.pattern && paymentForm.email.$dirty, 'has-success': !paymentForm.email.$error.pattern && paymentForm.email.$dirty}" >
+          <div class="form-group has-feedback" ng-class="{'has-error': paymentForm.password.$invalid && paymentForm.password.$dirty, 'has-success': !paymentForm.password.$error.pattern && paymentForm.password.$dirty}" >
             <div class="form-group">
               <label for="password" class="control-label">Password (at least 8 characters)</label>
-              <div class="password-container">
-                <input name="password" ng-model="password" ng-minlength="6" type="password" class="form-control" id="password" placeholder="New password" ng-required="!signedIn">
-                  <!-- or -->
-              </div>
+                <input name="password" ng-model="password" ng-minlength="8" type="password" class="form-control" id="password" placeholder="New password" ng-required="!signedIn">
+                <span class="glyphicon glyphicon-ok form-control-feedback email-feedback" aria-hidden="true" ng-show="!paymentForm.password.$invalid && paymentForm.password.$dirty"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback email-feedback" aria-hidden="true" ng-show="paymentForm.password.$invalid && paymentForm.password.$dirty"></span>
+              <!-- </div> -->
                 <!-- <div class="col-sm-5 btn-facebook-container">
                   <a class="btn btn-block btn-social btn-facebook" style="font-size:13px" ng-click="facebook()">
                     <i class="fa fa-facebook"></i> Use Facebook
