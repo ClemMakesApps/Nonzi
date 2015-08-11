@@ -585,6 +585,10 @@ margin-bottom: 0;
 width: 70%;
 }
 
+a.headerlink, a.headerlink:hover, a.headerlink:focus{
+text-decoration:none;
+}
+
 .plus{
 	font-size: 35px;
   margin-left: 10px;

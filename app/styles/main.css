@@ -99,6 +99,10 @@ nav.campaign .text-center {
 
 .plus {
   display: none; }
+  
+a.headerlink, a.headerlink:hover, a.headerlink:focus{
+text-decoration:none;
+}
 
 .logo-multiply {
   background: url("../images/m.png");
