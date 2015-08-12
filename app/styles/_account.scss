@@ -1,0 +1,35 @@
+.table-referrals {
+  margin-top: 10px;
+
+  .table {
+    margin-bottom: 0px;
+
+    thead {
+      background-color: $secondaryBG;
+    }
+  }
+}
+
+.table > thead > tr > th.referral-header {
+  border-bottom: transparent;
+}
+
+.challenge-section {
+  margin-top: 40px;
+}
+
+.badge.challenge {
+  background-color: $color-nephritis;
+}
+
+.badge.donated {
+  background-color: $color-peterRiver;
+}
+
+.badge.completed {
+  background-color: $c2;
+}
+
+.badge.failed {
+  background-color: $color-pomegranate;
+}

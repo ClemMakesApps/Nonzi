@@ -9,6 +9,11 @@ $c4: #358286; //blue
 $c5: #1abc9c; //turqouise
 $secondaryBG: rgba(243, 156, 18, 0.27);
 
+//Flat UI Colors
+$color-peterRiver: #3498db;
+$color-nephritis: #27ae60;
+$color-pomegranate: #c0392b;
+
 $radiusSize: 5px;
 
 $tabletWidth: 768px; //sm
@@ -24,6 +29,7 @@ $lgWidth: 1200px; //lg
 
 @import 'payments';
 @import 'receipts';
+@import 'account';
 
 /*spacers*/
 
