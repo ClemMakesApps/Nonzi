@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('multiplyMe')
-  .controller('SharedReceiptCtrl', function ($scope, $stateParams, $rootScope, ShareTree) {
+  .controller('SharedReceiptCtrl', function ($scope, $stateParams, $rootScope, $timeout, ShareTree) {
     $rootScope.title = 'Will you join ' + ShareTree.parent.name + ' in supporting Back on my Feet Austin';
     $rootScope.ogTitle = $rootScope.title;
 
@@ -57,4 +57,24 @@ angular.module('multiplyMe')
         return name.split(' ').map(function (s) { return s.charAt(0); }).join('');
       }
     }
+
+    var countdownTimer;
+    function countdown() {
+        countdownTimer = $timeout(function() {
+            $scope.minutesRemaining--;
+
+            if($scope.minutesRemaining == -1 && $scope.hoursRemaining > 0) {
+                $scope.minutesRemaining = 60;
+                $scope.hoursRemaining--;
+            }
+
+            if($scope.minutesRemaining == 0 && $scope.hoursRemaining == 0) {
+                $timeout.cancel(countdownTimer);
+            } else {
+                countdown();
+            }
+        }, 60*1000);
+    }
+    countdown();
+    
   });
