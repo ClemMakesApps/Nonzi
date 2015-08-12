@@ -44,25 +44,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Clement Ho</td>
-                <td><span class="badge challenge">Challenge In Progress</span></td>
-                <td><a href="#" target="_blank">Clement1</a></td>
-              </tr>
-              <tr>
-                <td>Fraser Mince</td>
-                <td><span class="badge donated">Donated</span></td>
-                <td><a href="#" target="_blank">Fraser2</a></td>
-              </tr>
-              <tr>
-                <td>Lehua Gray</td>
-                <td><span class="badge completed">Completed Challenge</span></td>
-                <td><a href="#" target="_blank">Lehua3</a></td>
-              </tr>
-              <tr>
-                <td>John Appleseed</td>
-                <td><span class="badge failed">Challenge Failed</span></td>
-                <td><a href="#" target="_blank">John4</a></td>
+              <tr ng-repeat="child in children">
+                <td>{{child.name}}</td>
+                <td ng-if="child.is_challenged && !child.is_paid && child.challenge_ongoing"><span class="badge challenge">Challenge In Progress</span></td>
+                <td ng-if="!child.is_challenged"><span class="badge donated">Donated</span></td>
+                <td ng-if="child.is_challenged && child.is_paid"><span class="badge completed">Completed Challenge</span></td>
+                <td ng-if="child.is_challenged && !child.is_paid && !child.challenge_ongoing"><span class="badge failed">Challenge Failed</span></td>
+                <td><a ui-sref="share({donationId: child.referral_link})" target="_blank">{{child.referral_link}}</a></td>
               </tr>
             </tbody>
           </table>

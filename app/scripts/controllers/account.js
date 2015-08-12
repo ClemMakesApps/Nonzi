@@ -20,6 +20,7 @@ angular.module('multiplyMe')
       $scope.challengeCode = result.referral_code;
       $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.challengeCode;
       console.log(result);
+      $scope.children = result.children;
       if(result.only_recurring && !result.all_cancelled){
         $scope.personal_impact /= 12;
       }
