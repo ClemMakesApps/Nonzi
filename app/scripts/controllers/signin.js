@@ -18,9 +18,15 @@ angular.module('multiplyMe')
   $rootScope.title = "Back on My Feet Austin Donor Portal - MultiplyMe";
   $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
   $scope.$on('auth:password-reset-confirm-success', function(){
+    console.log('here');
     $('.reset-password-modal').modal();
   });
 
+  $scope.$on('auth:password-reset-confirm-error', function(ev, reason){
+    //console.log('hi', ev);
+    //console.log('reason', reason);
+    $('.reset-password-modal').modal();
+  });
   console.log('state', $stateParams);
   if($stateParams.unsubscribe == 'true'){
     $('.unsubscribe-modal').modal();
