@@ -141,7 +141,7 @@ angular
     templateUrl: 'views/shareChallengeComplete.html'
   })
   .state('signin',{
-    url: '/signin?unsubscribe',
+    url: '/signin?unsubscribe&amount',
     templateUrl: 'views/signin.html',
     controller: 'SigninCtrl'
   });

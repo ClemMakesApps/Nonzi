@@ -9,6 +9,15 @@
 */
 angular.module('multiplyMe')
 .controller('SigninCtrl', function ($scope, $auth, $state, $rootScope, $stateParams, EmailSubscribe) {
+    console.log($stateParams.amount);
+  $scope.loginAction = function(){
+    if($stateParams.amount === undefined){
+      $scope.login();
+    }
+    else{
+      $scope.logon();
+    }
+  }
 
   $scope.pledge = $stateParams.amount;
   $scope.selectedRecurring = $stateParams.isSubscription;
@@ -23,9 +32,9 @@ angular.module('multiplyMe')
   });
 
   $scope.$on('auth:password-reset-confirm-error', function(ev, reason){
-    //console.log('hi', ev);
-    //console.log('reason', reason);
-    $('.reset-password-modal').modal();
+    console.log('hi', ev);
+    console.log('reason', reason);
+    //$('.reset-password-modal').modal();
   });
   console.log('state', $stateParams);
   if($stateParams.unsubscribe == 'true'){
