@@ -43,7 +43,7 @@
         </div>
         <div ng-if="pledge === undefined" class="form">
           <p><strong>Don't have an account?</strong></p>
-          <a ui-sref="contribute" class="btn btn-block btn-default">Make a contribution</a>
+          <a ui-sref="contribute" class="btn btn-block ask">Make a contribution</a>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button ng-click="resetPassword()" type="button" class="btn btn-success">Reset Password</button>
+        <button ng-click="resetPassword()" type="button" data-dismiss="modal" class="btn btn-success">Reset Password</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -107,7 +107,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button ng-click="forgotPassword()" type="button" class="btn btn-success">Send me new password</button>
+        <button ng-click="forgotPassword()" type="button" data-dismiss="modal" class="btn btn-success">Send me new password</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -141,7 +141,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button ng-click="unsubscribeFromEmail()" type="button" class="btn btn-success">Unsubscribe from emails</button>
+        <button ng-click="unsubscribeFromEmail()" type="button"  data-dismiss="modal" class="btn btn-success">Unsubscribe from emails</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

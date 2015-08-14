@@ -3,7 +3,8 @@
   .payment-header .secure-tag {
     position: relative;
     left: 30px;
-    font-size: 14px; }
+    font-size: 14px;
+    color: #333333; }
 
 .paymentFields form {
   margin-top: 0px; }
@@ -11,6 +12,105 @@
 .contribution-container .form {
   margin-top: 0px; }
 
+.link-green {
+  font-weight: bold;
+  color: #1abc9c; }
+
+.circle-steps {
+  padding: 16px 0px;
+  margin-right: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  text-align: center;
+  flex: none;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 40px;
+  background-color: rgba(243, 156, 18, 0.27); }
+
+.challenge-flex-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 300; }
+  .challenge-flex-container .challenge-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; }
+
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+  animation: rotator 1.4s linear infinite; }
+
+@-webkit-keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg); } }
+@keyframes rotator {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(270deg);
+    transform: rotate(270deg); } }
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite; }
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #000000; }
+  25% {
+    stroke: #000000; }
+  50% {
+    stroke: #000000; }
+  75% {
+    stroke: #000000; }
+  100% {
+    stroke: #000000; } }
+@keyframes colors {
+  0% {
+    stroke: #000000; }
+  25% {
+    stroke: #000000; }
+  50% {
+    stroke: #000000; }
+  75% {
+    stroke: #000000; }
+  100% {
+    stroke: #000000; } }
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg); } }
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    -webkit-transform: rotate(450deg);
+    transform: rotate(450deg); } }
 @media (max-width: 768px) {
   .contribution-container {
     padding-left: 0px;
@@ -25,6 +125,113 @@
     .paymentFields form {
       border-radius: 0px;
       padding: 20px; } }
+.rounded-secondary {
+  background-color: rgba(243, 156, 18, 0.27);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  position: relative; }
+
+h1.receipt {
+  margin-bottom: 5px; }
+
+.img-supporter {
+  width: 50px;
+  height: 50px;
+  display: inline-block; }
+
+.supporter-images {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+.supporter-initials {
+  display: flex; }
+  .supporter-initials > span {
+    width: 52px;
+    text-align: center; }
+
+.btn-remind {
+  position: absolute;
+  right: 20px;
+  bottom: 20px; }
+
+.supporter-container-label {
+  margin-top: 30px;
+  padding-left: 0px;
+  margin-bottom: 5px; }
+
+.supporter-label {
+  margin-left: 5px; }
+
+.supporter-content {
+  margin-top: 10px; }
+
+.top-divider {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top-color: #ecf0f1;
+  border-top-style: solid;
+  border-top-width: 1px; }
+
+.share-header {
+  font-weight: bold;
+  font-size: 17px;
+  display: block;
+  text-align: center; }
+
+.share-subheader {
+  text-align: center;
+  display: block; }
+
+.message-box {
+  margin-top: 20px; }
+  .message-box textarea {
+    width: 100%; }
+
+@media (max-width: 768px) {
+  .supporter-container {
+    text-align: center; }
+
+  .supporter-initials {
+    justify-content: center; }
+
+  .btn-remind {
+    position: static;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 10px; }
+
+  .supporter-container-label {
+    text-align: center; } }
+@media (max-width: 992px) {
+  .btn-remind {
+    bottom: 10px; } }
+.table-referrals {
+  margin-top: 10px; }
+  .table-referrals .table {
+    margin-bottom: 0px; }
+    .table-referrals .table thead {
+      background-color: rgba(243, 156, 18, 0.27); }
+
+.table > thead > tr > th.referral-header {
+  border-bottom: transparent; }
+
+.challenge-section {
+  margin-top: 40px; }
+
+.badge.challenge {
+  background-color: #27ae60; }
+
+.badge.donated {
+  background-color: #3498db; }
+
+.badge.completed {
+  background-color: #038386; }
+
+.badge.failed {
+  background-color: #c0392b; }
+
 /*spacers*/
 .margin-top-20 {
   margin-top: 20px; }
@@ -99,10 +306,6 @@ nav.campaign .text-center {
 
 .plus {
   display: none; }
-  
-a.headerlink, a.headerlink:hover, a.headerlink:focus{
-text-decoration:none;
-}
 
 .logo-multiply {
   background: url("../images/m.png");
@@ -165,6 +368,9 @@ body {
 .col-lg-inset {
   padding: 1% 25px; }
 
+.table-referrals tr td {
+  vertical-align: middle; }
+
 /*main page*/
 .embed-container {
   position: relative;
@@ -209,7 +415,7 @@ body {
   margin-right: -40px; }
 
 .campaign-content {
-  font-size: 18px; }
+  font-size: 16px; }
   .campaign-content h2 {
     font-size: 20px;
     font-weight: bold; }
@@ -240,6 +446,13 @@ body {
 /***** buttons  ******/
 .btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
   background-color: #2c3e50; }
+
+.table-referrals .btn {
+  background-color: #038386;
+  color: white; }
+
+.table-referrals .btn span {
+  padding-left: 8px; }
 
 .sign-in, .ask {
   color: #1abc9c;
@@ -272,6 +485,9 @@ footer .btn {
 .login-box {
   margin-bottom: 20px; }
 
+@media (max-width: 768px) {
+  .login-box {
+    margin-top: 30px; } }
 .btn-primary {
   margin: 10px 8% 0px 8%;
   width: 84%;
@@ -474,6 +690,9 @@ mm-steps .row {
   .form .form-pledge input {
     width: 70%; }
 
+  a.headerlink, a.headerlink:hover, a.headerlink:focus {
+    text-decoration: none; }
+
   .plus {
     font-size: 35px;
     margin-left: 10px;
@@ -669,7 +888,8 @@ mm-steps .row {
   .share-container-background .share-link {
     margin-top: 10px;
     margin-bottom: 10px;
-    display: block; }
+    display: block;
+    word-wrap: break-word; }
   .share-container-background .form-control {
     display: inline;
     height: 25px;
@@ -783,7 +1003,7 @@ mm-steps .row {
     line-height: 76px; }
     .prompt-container .prompt img {
       margin-right: 20px; }
-    .prompt-container .prompt span {
+    .prompt-container .prompt .prompt-text {
       vertical-align: middle;
       display: inline-block;
       line-height: 1.3; }
