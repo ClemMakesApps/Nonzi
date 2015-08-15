@@ -41,7 +41,7 @@
                 <th class="referral-header">Name</th>
                 <th class="referral-header">Status</th>
                 <th class="referral-header">Referral Code</th>
-                <th class="referral-header">Thank Them!</th>
+                <th class="referral-header">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -52,8 +52,8 @@
                 <td ng-if="child.is_challenged && child.is_paid"><span class="badge completed">Completed Challenge</span></td>
                 <td ng-if="child.is_challenged && !child.is_paid && !child.challenge_ongoing"><span class="badge failed">Challenge Failed</span></td>
                 <td><a ui-sref="share({donationId: child.referral_link})" target="_blank">{{child.referral_link}}</a></td>
-				<td><button class="btn" data-toggle="modal" data-target="#thank-you">Thanks!<span class="fa fa-check-square" ng-show="$index == sent"></span></button></td>
-			  </tr>
+        				<td><button class="btn btn-xs" data-toggle="modal" data-target="#thank-you">Send Thanks (1)</button></td>
+      			  </tr>
             </tbody>
           </table>
         </div>
@@ -146,22 +146,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-        <h4 class="modal-title" id="ThanksModalLabel">Thank your Donors</h4>
+        <h4 class="modal-title" id="ThanksModalLabel">Send Thanks</h4>
       </div>
       <div class="modal-body">
-        <p>Send an email to thank the person who supported you.</p>
+        <p>Leave a thank you note and we will send it on your behalf. <br>
+          You can only send it once per person, so make it count!</p>
         <div class="container-fluid">
           <form class="form-horizontal">
             <div class="form-group">
-              <label for="subject" class="col-sm-2 control-label">Subject</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="subject" placeholder="Subject Line">
-              </div>
-            </div>
-            <div class="form-group">
               <label for="message" class="col-sm-2 control-label">Message</label>
               <div class="col-sm-10">
-                <textarea class="form-control" id="message" placeholder="Thank You Message"></textarea>
+                <textarea class="form-control" id="message" placeholder="Thank you so much for supporting me. Through your help, I was able to raise more money than I would have on my own." rows="5"></textarea>
               </div>
             </div>
           </form>
