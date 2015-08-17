@@ -52,7 +52,7 @@
                 <td ng-if="child.is_challenged && child.is_paid"><span class="badge completed">Completed Challenge</span></td>
                 <td ng-if="child.is_challenged && !child.is_paid && !child.challenge_ongoing"><span class="badge failed">Challenge Failed</span></td>
                 <td><a ui-sref="share({donationId: child.referral_link})" target="_blank">{{child.referral_link}}</a></td>
-                <td><button class="btn btn-xs" ng-click="setRow(child.referral_link)" data-toggle="modal" data-target="#thank-you">Send Thanks (1)</button></td>
+                <td><button ng-disabled="!canThank" class="btn btn-xs" ng-click="setRow(child.referral_link)" data-toggle="modal" data-target="#thank-you">Send Thanks (1)</button></td>
       			  </tr>
             </tbody>
           </table>
@@ -164,7 +164,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button ng-click="thankFriend()" type="button" data-dismiss="modal" class="btn btn-success">Send Thanks</button>
+        <button ng-disabled="!canThank" ng-click="thankFriend()" type="button" data-dismiss="modal" class="btn btn-success">Send Thanks</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

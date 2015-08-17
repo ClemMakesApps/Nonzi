@@ -18,6 +18,7 @@ angular.module('multiplyMe')
       $scope.only_recurring = result.only_recurring;
       $scope.all_cancelled = result.all_cancelled;
       $scope.challengeCode = result.referral_code;
+      $scope.canThank = result.can_thank;
       $scope.share_link = "https://" + $location.host() + "/#!/share/" + $scope.challengeCode;
       console.log(result);
       $scope.children = result.children;
