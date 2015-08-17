@@ -49,7 +49,11 @@ angular.module('multiplyMe')
       console.log($scope.message);
       console.log($scope.currentFriendCode);
       console.log($scope.name);
-      thank.save({id: $scope.currentFriendCode, friend_name: $scope.name, message: $scope.message});
+      thank.save({id: $scope.currentFriendCode, friend_name: $scope.name, content: $scope.message}, function(){
+        $state.reload();
+      });
+
+      $scope.canThank = true;
     }
 
     $scope.deleteSubscriptions = function(){
