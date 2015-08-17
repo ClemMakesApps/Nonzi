@@ -8,7 +8,7 @@
  * Controller of the multiplyMe
  */
 angular.module('multiplyMe')
-  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation, account) {
+  .controller('AccountCtrl', function ($scope, $window, $location, $state, $rootScope, Donation, $auth, userSubscription, UserDonation, account, thank) {
 
     account.get({id: $auth.user.id}, function(result){
       $scope.personal_impact = result.personal_impact * .01;
@@ -39,6 +39,17 @@ angular.module('multiplyMe')
 
     $rootScope.title = $auth.user.name + '\'s Donor Account - Back on My Feet Austin';
     $rootScope.ogTitle = 'MultiplyMe - Back on My Feet Austin';
+
+    $scope.setRow = function(code){
+     $scope.currentFriendCode = code;
+    }
+
+    $scope.thankFriend = function(){
+      console.log($scope.message);
+      console.log($scope.currentFriendCode);
+      console.log($scope.name);
+      thank.save({id: $scope.currentFriendCode, friend_name: $scope.name, message: $scope.message});
+    }
 
     $scope.deleteSubscriptions = function(){
       if(window.confirm('You sure?')){
