@@ -52,7 +52,7 @@
                 <td ng-if="child.is_challenged && child.is_paid"><span class="badge completed">Completed Challenge</span></td>
                 <td ng-if="child.is_challenged && !child.is_paid && !child.challenge_ongoing"><span class="badge failed">Challenge Failed</span></td>
                 <td><a ui-sref="share({donationId: child.referral_link})" target="_blank">{{child.referral_link}}</a></td>
-                <td><button ng-disabled="!child.can_thank" class="btn btn-xs" ng-click="setRow(child.referral_link)" data-toggle="modal" data-target="#thank-you">Send Thanks (1)</button></td>
+                <td><button ng-disabled="!child.can_thank" class="btn btn-xs" ng-click="setRow(child.referral_link)" data-toggle="modal" data-target="#thank-you">Send Thanks<span ng-show="child.can_thank">(1)</span><span ng-show="!child.can_thank">(0)</span></button></td>
       			  </tr>
             </tbody>
           </table>
